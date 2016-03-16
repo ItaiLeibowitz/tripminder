@@ -1,0 +1,89 @@
+body{
+	margin: 0;
+}
+
+#cover-back{
+	width: 100%;
+	height: 7em;
+	background-color: rgba(0,0,0,0.25);
+	position: fixed;
+}
+
+#container{
+	border: 1em solid transparent;
+	width: 100%;
+	box-sizing: border-box;
+	position: relative;
+}
+
+#map_canvas{
+	width: 0;
+	height: 0;
+}
+
+
+.close-btn{
+	position: absolute;
+	line-height: 3em;
+	padding: 0 10px;
+	font-size: 1.5em;
+	background: black;
+	color: white;
+	z-index: 10000;
+	right:0;
+	top: 0;
+	cursor: pointer;
+}
+
+#cex-div{
+	max-width: 50em;
+	min-width: 10em;
+	min-height: 3em;
+	margin: auto auto;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 1em;
+	z-index: 200000;
+	background-color: white;
+	border: 4px solid #0ac;
+	border-radius: 10px;
+	box-shadow: 1px 3px 41px rgba(0,0,0,0.5);
+}
+
+#cex-search{
+	-webkit-appearance: none;
+	padding: 1em;
+	font-size: 16px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.cex-clear-search{
+	position: absolute;
+	right: 3em;
+	top: 0;
+	width: 3em;
+	cursor: pointer;
+	line-height: 2em;
+	text-align: center;
+	font-size: 28px;
+	color: #777;
+}
+
+
+.ui-autocomplete {
+	border: none;
+	border-top: 1px solid #333
+}
+
+.ui-menu .ui-menu-item {
+	padding: .5em 1em;
+	margin: 0;
+}
+
+.ui-widget-content .ui-state-focus {
+	background: #E3F3F6;
+	border: none;
+	color: #008EAA;
+}
