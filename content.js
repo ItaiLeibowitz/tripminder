@@ -46,6 +46,18 @@ chrome.runtime.onMessage.addListener(
 	});
 
 
+function longest(array){
+	var maxLength = 0,
+		maxString = "";
+	for (var i = 0; i < array.length; i++) {
+		if (array[i].length > maxLength) {
+			maxLength = array[i].length;
+			maxString = array[i];
+		}
+	}
+	return maxString
+}
+
 function rhsDidChange() {
 	console.log('code is now:', cex.rhsCode)
 	console.log($('#rhs_block a').toArray().map(function (el) {
@@ -75,11 +87,11 @@ function rhsDidChange() {
 			console.log('coords:', lat, lng);
 		}
 	}
-	var descriptionHolder = $('#rhs_block .kno-rdesc');
+	var descriptionHolder = $('#rhs_block').find('.kno-rdesc, ._VKi, ._cgc');
 	if (descriptionHolder && descriptionHolder.length > 0) {
-		var descriptionText = descriptionHolder ? descriptionHolder.children('span')[0].innerHTML : null;
-		var summaryTextHolder = descriptionHolder ? descriptionHolder.parents('.mod').prev('.mod').find('span:last') : null;
-		var summaryText = summaryTextHolder.text();
+		var descriptionText = descriptionHolder ? descriptionHolder.children('span').text() : null;
+		var summaryTextHolders = descriptionHolder ? descriptionHolder.parents('.mod').prev('.mod').find('span') : null;
+		var summaryText = longest(summaryTextHolders.toArray().map(function(el){ return $(el).text()}))
 		console.log('summaryText:', summaryText)
 		console.log('fullText:', descriptionText)
 	}
