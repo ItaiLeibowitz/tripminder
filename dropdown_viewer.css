@@ -1,0 +1,74 @@
+body{
+	margin: 0;
+}
+
+
+#container{
+	padding: 1em;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+}
+
+#message{
+	display: inline-block;
+	background: white;
+	font-size: 14px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.6);
+	top: 4em;
+	position: relative;
+	color: #777;
+	white-space: nowrap;
+}
+
+.message-title{
+	color: #FFF;
+	background: #D94C4C;
+	padding: 0 3em 0 .5em;
+	line-height: 2em;
+}
+
+.close-btn{
+	position: absolute;
+	line-height: 2em;
+	padding: 0 10px;
+	color: white;
+	z-index: 10000;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+}
+
+.image {
+	display: inline-block;
+	max-height: 60px;
+	vertical-align: top;
+}
+
+.details{
+	display: inline-block;
+	vertical-align: top;
+	margin: .5em;
+}
+
+.name{
+	font-weight: bold;
+	color: #333;
+}
+
+
+.ui-autocomplete {
+	border: none;
+	border-top: 1px solid #333
+}
+
+.ui-menu .ui-menu-item {
+	padding: .5em 1em;
+	margin: 0;
+}
+
+.ui-widget-content .ui-state-focus {
+	background: #E3F3F6;
+	border: none;
+	color: #008EAA;
+}

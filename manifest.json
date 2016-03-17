@@ -19,7 +19,7 @@
 		"default_icon": "48_icon.png"
 	},
 	"background": {
-		"scripts": ["background.js"]
+		"page": "background.html"
 	},
 	"content_scripts": [
 		{
@@ -28,7 +28,7 @@
 			"css" : ["content.css"]
 		}
 	],
-	"web_accessible_resources": ["map_viewer.html"],
+	"web_accessible_resources": ["dropdown_viewer.html"],
 	"content_security_policy": "script-src 'self' https://*.google.com https://maps.google.com https://maps.googleapis.com; object-src 'self'"
 }
 

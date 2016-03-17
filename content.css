@@ -1,3 +1,41 @@
+#cex_iframe{
+	width: 35em;
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 20em;
+	overflow: hidden;
+	z-index: 99999
+}
+
 #cex_iframe.hidden{
 	display:none;
+}
+
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translate3d(100%, 0, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.fadeInLeft {
+	animation-name: fadeInLeft;
+}
+
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+.animated.fast{
+	-webkit-animation-duration: .2s;
+	animation-duration: .2s;
 }
