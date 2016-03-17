@@ -1,7 +1,7 @@
 var cex = {};
 
 
-var UNIQUE_DROPDOWN_VIEWER_ID = 'cex_iframe';
+var UNIQUE_DROPDOWN_VIEWER_ID = 'cex_iframe_' + Math.random();
 
 /**
  * Here is where you want to render a latitude and longitude. We create an iframe so we
@@ -10,19 +10,27 @@ var UNIQUE_DROPDOWN_VIEWER_ID = 'cex_iframe';
 function drawDropDownIframe() {
 	dropdownDom = document.createElement('iframe');
 	dropdownDom.setAttribute('id', UNIQUE_DROPDOWN_VIEWER_ID);
-	dropdownDom.setAttribute('class', 'hidden animated fast fadeInLeft');
+	dropdownDom.setAttribute('class', 'cex-iframe hidden animated fast fadeInLeft');
 	dropdownDom.setAttribute('src', chrome.extension.getURL('dropdown_viewer.html'));
 	dropdownDom.setAttribute('frameBorder', '0');
-	//dropdownDom.setAttribute('style', 'position: fixed; top: 0; right: 0; height: 20em; overflow: hidden; z-index: 99999');
+	dropdownDom.onload = function (e) {
+		chrome.runtime.sendMessage({
+			target: 'background',
+			method: 'runFunction',
+			methodName: "updateMessageReadyState",
+			data: UNIQUE_DROPDOWN_VIEWER_ID
+		});
+	};
 	document.body.appendChild(dropdownDom);
 }
 
 cex.showMessage = function(){
-	var $viewer = $('#' + UNIQUE_DROPDOWN_VIEWER_ID);
+	if (cex.hideMessageTimer) window.clearTimeout(cex.hideMessageTimer);
+	var $viewer = $(document.getElementById(UNIQUE_DROPDOWN_VIEWER_ID));
 	$viewer.removeClass('hidden');
-	/*window.setTimeout(function(){
+	cex.hideMessageTimer = window.setTimeout(function(){
 		$viewer.addClass('hidden');
-	}, 3000);*/
+	}, 3000);
 };
 
 cex.hideMessage = function(){
@@ -89,7 +97,8 @@ function rhsDidChange() {
 			mapLinks: mapLinks,
 			externalLinks: externalLinks,
 			descriptionText: descriptionText,
-			summaryText: summaryText
+			summaryText: summaryText,
+			targetMsgId: UNIQUE_DROPDOWN_VIEWER_ID
 		}
 	});
 

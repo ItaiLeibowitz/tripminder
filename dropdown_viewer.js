@@ -30,7 +30,7 @@ function updateMessageContent(data){
 }
 
 function updateMessageForItem(item) {
-	updateMessageContent({title: 'TripMinder keeping track of:', name: item.name, summaryText: item.summaryText, imageSource: item.image})
+	updateMessageContent({title: 'TripMind keeping track of:', name: item.name, summaryText: item.summaryText, imageSource: item.image})
 	chrome.runtime.sendMessage({
 			target: 'content',
 			method: 'runFunction',

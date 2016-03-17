@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 
-	"name": "Trip Research Assistant",
+	"name": "TripMind",
 	"description": "Organize all your trip research in one place",
 	"version": "1.0",
 	"icons": {

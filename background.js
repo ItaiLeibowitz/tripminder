@@ -1,7 +1,10 @@
 
-TripMinder = {};
+TripMinder = {
+	readyState: {}
+};
 
 function relayRequest(request, sender, sendResponse) {
+	console.log('trying to relay request', request)
 	chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
 		chrome.tabs.sendMessage(tabs[0].id, request, function(response){
 			sendResponse(response);
@@ -52,8 +55,28 @@ function buildItemInfoFromResults(data, result){
 	return item
 }
 
+function updateMessageReadyState(msgIframeId){
+	TripMinder.readyState[msgIframeId] = true;
+}
+
+function sendItemDataMessage(item, targetMsgId, counter) {
+	console.log('trying to send message', counter, targetMsgId, TripMinder)
+	if (TripMinder.readyState[targetMsgId]) {
+		chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, {
+					target: 'dropdown_viewer',
+					method: 'runFunction',
+					methodName: "updateMessageForItem",
+					data: item}
+			);
+		});
+	} else if (counter <= 20){
+		window.setTimeout(function(){sendItemDataMessage(item,targetMsgId, counter + 1)}, 200);
+	}
+}
 
 function foundObjectInfo(data) {
+	console.log('got info from content: ', data)
 	if (data.lat && data.lng) {
 		var query = {query: data.name, location: new google.maps.LatLng(data.lat, data.lng), radius: 1000};
 	} else {
@@ -66,14 +89,7 @@ function foundObjectInfo(data) {
 				var item = buildItemInfoFromResults(data, results[0]);
 				console.log(item)
 				TripMinder.currentItem = item;
-				chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-					chrome.tabs.sendMessage(tabs[0].id, {
-							target: 'dropdown_viewer',
-							method: 'runFunction',
-							methodName: "updateMessageForItem",
-							data: item}
-					);
-				});
+				sendItemDataMessage(item, data.targetMsgId,0);
 			} else{
 				TripMinder.currentItem = null;
 			}

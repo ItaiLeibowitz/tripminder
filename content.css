@@ -1,4 +1,4 @@
-#cex_iframe{
+.cex-iframe{
 	width: 35em;
 	position: fixed;
 	top: 0;
@@ -8,7 +8,7 @@
 	z-index: 99999
 }
 
-#cex_iframe.hidden{
+.cex-iframe.hidden{
 	display:none;
 }
 
