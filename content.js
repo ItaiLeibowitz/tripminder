@@ -22,6 +22,7 @@ function drawDropDownIframe() {
 		});
 	};
 	document.body.appendChild(dropdownDom);
+
 }
 
 cex.showMessage = function(){
@@ -97,6 +98,7 @@ function rhsDidChange() {
 	}
 	var name = $('.kno-ecr-pt').clone().children().remove().end().text();
 	var image = $('#rhs img:eq(0)').attr('src');
+	var searchLinks = $('h3.r a').toArray().map(function(el){ return el.href});
 	chrome.runtime.sendMessage({
 		target: 'background',
 		method: 'runFunction',
@@ -108,6 +110,7 @@ function rhsDidChange() {
 			lng: lng,
 			mapLinks: mapLinks,
 			externalLinks: externalLinks,
+			searchLinks: searchLinks,
 			descriptionText: descriptionText,
 			summaryText: summaryText,
 			targetMsgId: UNIQUE_DROPDOWN_VIEWER_ID
@@ -165,7 +168,7 @@ function startRHSChecker() {
 		resetRHSCheckString();
 		console.log('search form key down!!')
 	});
-	checkRHS();
+	resetRHSCheckString();
 }
 
 
@@ -186,18 +189,23 @@ function startup() {
 	drawDropDownIframe();
 }
 
-if (window.attachEvent) {
-	window.attachEvent('onload', startup);
+
+
+if (document.readyState === "complete") {
+	startup();
 } else {
-	if (window.onload) {
-		var curronload = window.onload;
-		var newonload = function (evt) {
-			curronload(evt);
-			startup();
-		};
-		window.onload = newonload;
+	if (window.attachEvent) {
+		window.attachEvent('onload', startup);
 	} else {
-		window.onload = startup;
+		if (window.onload) {
+			var curronload = window.onload;
+			var newonload = function (evt) {
+				curronload(evt);
+				startup();
+			};
+			window.onload = newonload;
+		} else {
+			window.onload = startup;
+		}
 	}
 }
-

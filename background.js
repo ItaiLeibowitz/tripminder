@@ -1,6 +1,7 @@
 
 TripMinder = {
-	readyState: {}
+	readyState: {},
+	trackedPlaces: {}
 };
 
 function relayRequest(request, sender, sendResponse) {
@@ -89,6 +90,8 @@ function foundObjectInfo(data) {
 				var item = buildItemInfoFromResults(data, results[0]);
 				console.log(item)
 				TripMinder.currentItem = item;
+				TripMinder.trackedPlaces[item.place_id] = (TripMinder.trackedPlaces[item.place_id] || {track: true, potentialLinks: []})
+				TripMinder.trackedPlaces[item.place_id].potentialLinks = TripMinder.trackedPlaces[item.place_id].potentialLinks.concat(data.searchLinks).concat(data.externalLinks)
 				sendItemDataMessage(item, data.targetMsgId,0);
 			} else{
 				TripMinder.currentItem = null;
@@ -99,6 +102,14 @@ function foundObjectInfo(data) {
 		}
 	})
 }
+
+
+chrome.webNavigation.onBeforeNavigate.addListener(function(event){
+	console.log('before: ', event)
+})
+chrome.webNavigation.onCommitted.addListener(function(event){
+	console.log('committed: ', event)
+})
 
 
 function startup() {
