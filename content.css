@@ -39,3 +39,45 @@
 	-webkit-animation-duration: .2s;
 	animation-duration: .2s;
 }
+
+#rhs-tripmind-status{
+	 background: #eee;
+	 margin: 0;
+	 padding: 0.5em;
+	 color: #777;
+	 width: 100%;
+	 box-sizing: border-box;
+
+ }
+
+#rhs-tripmind-status:after{
+	content: "TripMind disabled for this place";
+}
+
+
+#rhs-tripmind-status.tracked{
+	border-radius: 3px;
+	background: #E74C3C;
+	color: white;
+}
+
+#rhs-tripmind-status.tracked:after{
+	content: "TripMind place saved";
+}
+
+
+.toggle-tracking {
+	float: right;
+	cursor: pointer;
+}
+
+
+.toggle-tracking:after {
+	content: "Enable"
+}
+
+
+.tracked .toggle-tracking:after {
+	content: "Disable"
+}
+

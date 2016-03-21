@@ -1,13 +1,12 @@
-
 TripMinder = {
 	readyState: {},
 	trackedPlaces: {}
 };
 
 function relayRequest(request, sender, sendResponse) {
-	console.log('trying to relay request', request)
+	//console.log('trying to relay request', request)
 	chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-		chrome.tabs.sendMessage(tabs[0].id, request, function(response){
+		chrome.tabs.sendMessage(tabs[0].id, request, function (response) {
 			sendResponse(response);
 		});
 	});
@@ -25,6 +24,13 @@ function renderMap(data) {
 	}
 }
 
+function toggleTracking(data, callback){
+	if (data.name == TripMinder.currentItem.name){
+		TripMinder.trackedPlaces[TripMinder.currentItem.place_id].track = data.state;
+		callback();
+	}
+}
+
 chrome.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
 		relayRequest(request, sender, sendResponse)
@@ -33,11 +39,11 @@ chrome.runtime.onMessage.addListener(
 chrome.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
 		if (request.target == 'background' && request.method == "runFunction") {
-			window[request.methodName](request.data)
+			window[request.methodName](request.data, sendResponse);
 		}
 	});
 
-function buildItemInfoFromResults(data, result){
+function buildItemInfoFromResults(data, result) {
 	var item = data;
 	if (!item.lat) {
 		item.lat = result.geometry.location.lat();
@@ -47,7 +53,7 @@ function buildItemInfoFromResults(data, result){
 		item.image = result.photos[0].getUrl({maxWidth: 3000});
 		item.image_attribution = result.photos[0].html_attributions[0]
 	}
-	if (result.types && result.types.length > 0){
+	if (result.types && result.types.length > 0) {
 		item.type = result.types[0];
 	}
 	item.place_id = result.place_id;
@@ -56,28 +62,60 @@ function buildItemInfoFromResults(data, result){
 	return item
 }
 
-function updateMessageReadyState(msgIframeId){
+function updateMessageReadyState(msgIframeId) {
 	TripMinder.readyState[msgIframeId] = true;
 }
 
-function sendItemDataMessage(item, targetMsgId, counter) {
-	console.log('trying to send message', counter, targetMsgId, TripMinder)
+function sendItemDataMessage(item, trackingStatus, targetMsgId, counter) {
+	//console.log('trying to send message', counter, targetMsgId, TripMinder)
 	if (TripMinder.readyState[targetMsgId]) {
 		chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
 			chrome.tabs.sendMessage(tabs[0].id, {
 					target: 'dropdown_viewer',
 					method: 'runFunction',
 					methodName: "updateMessageForItem",
-					data: item}
+					data: {item: item, trackingStatus: trackingStatus}}
 			);
 		});
-	} else if (counter <= 20){
-		window.setTimeout(function(){sendItemDataMessage(item,targetMsgId, counter + 1)}, 200);
+	} else if (counter <= 20) {
+		window.setTimeout(function () {
+			sendItemDataMessage(item, targetMsgId, counter + 1)
+		}, 200);
 	}
 }
 
+function getAncestryFromAddress(addr){
+	var ancestryArray = [],
+		allowedTypes = ['locality', 'administrative_area_level_1', 'country'];
+	for (var i = addr.length - 1; i >= 0 ; i--) {
+		var obj = addr[i];
+		if (obj.long_name
+			&& obj.long_name.length > 1
+			&& obj.types && obj.types[0]
+			&& allowedTypes.indexOf(obj.types[0]) > -1) {
+			ancestryArray.push(obj.long_name)
+		}
+	}
+	return ancestryArray.join("/")
+}
+
+function getAdditionalItemInfo(placeId){
+	gmaps.placesService.getDetails({placeId: placeId}, function(result){
+		console.log(result)
+		var place = TripMinder.trackedPlaces[placeId];
+		if (!place || !result) return;
+		if (result.address_components){
+			var ancestry = getAncestryFromAddress(result.address_components);
+			place.item.ancestry = ancestry
+		}
+		place.item.phone = result.international_phone_number;
+		//TODO: save additional photos
+		//TODO: Save reviews
+	});
+}
+
 function foundObjectInfo(data) {
-	console.log('got info from content: ', data)
+	//console.log('got info from content: ', data)
 	if (data.lat && data.lng) {
 		var query = {query: data.name, location: new google.maps.LatLng(data.lat, data.lng), radius: 1000};
 	} else {
@@ -85,15 +123,19 @@ function foundObjectInfo(data) {
 	}
 	gmaps.placesService.textSearch(query, function (results, status, next_page_token) {
 		if (status == google.maps.places.PlacesServiceStatus.OK) {
-			console.log(results, status, next_page_token)
+			//console.log(results, status, next_page_token)
 			if (results && results.length > 0) {
 				var item = buildItemInfoFromResults(data, results[0]);
-				console.log(item)
+				//console.log(item)
 				TripMinder.currentItem = item;
-				TripMinder.trackedPlaces[item.place_id] = (TripMinder.trackedPlaces[item.place_id] || {track: true, potentialLinks: []})
-				TripMinder.trackedPlaces[item.place_id].potentialLinks = TripMinder.trackedPlaces[item.place_id].potentialLinks.concat(data.searchLinks).concat(data.externalLinks)
-				sendItemDataMessage(item, data.targetMsgId,0);
-			} else{
+				TripMinder.trackedPlaces[item.place_id] = (TripMinder.trackedPlaces[item.place_id] || {track: true, item: item, potentialLinks: []})
+				var trackingStatus = TripMinder.trackedPlaces[item.place_id].track;
+				if (trackingStatus) {
+					TripMinder.trackedPlaces[item.place_id].potentialLinks = TripMinder.trackedPlaces[item.place_id].potentialLinks.concat(data.searchLinks).concat(data.externalLinks)
+				}
+				sendItemDataMessage(item, trackingStatus, data.targetMsgId, 0);
+				getAdditionalItemInfo(item.place_id)
+			} else {
 				TripMinder.currentItem = null;
 			}
 		} else {
@@ -104,12 +146,28 @@ function foundObjectInfo(data) {
 }
 
 
-chrome.webNavigation.onBeforeNavigate.addListener(function(event){
-	console.log('before: ', event)
-})
-chrome.webNavigation.onCommitted.addListener(function(event){
-	console.log('committed: ', event)
-})
+chrome.webNavigation.onBeforeNavigate.addListener(function (event) {
+	//console.log('before: ', event)
+});
+chrome.webNavigation.onCommitted.addListener(function (event) {
+	//console.log('committed: ', event)
+});
+
+chrome.browserAction.onClicked.addListener(function () {
+	var url = chrome.extension.getURL('index.html');
+	chrome.tabs.query({}, function (tabs) {
+		tripMindTabs = tabs.filter(function (tab) {
+			return tab.url == url
+		});
+		if (tripMindTabs.length > 0) {
+			chrome.tabs.update(tripMindTabs[0].id, {active: true});
+		} else {
+			chrome.tabs.create({
+				url: url
+			})
+		}
+	})
+});
 
 
 function startup() {

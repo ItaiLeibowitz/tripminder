@@ -29,12 +29,16 @@ function updateMessageContent(data){
 	}, 3000)
 }
 
-function updateMessageForItem(item) {
-	updateMessageContent({title: 'TripMind keeping track of:', name: item.name, summaryText: item.summaryText, imageSource: item.image})
+function updateMessageForItem(data) {
+	if (data.trackingStatus) {
+		updateMessageContent({title: 'TripMind keeping track of:', name: data.item.name, summaryText: data.item.summaryText, imageSource: data.item.image})
+	}
+
 	chrome.runtime.sendMessage({
 			target: 'content',
 			method: 'runFunction',
-			methodName: "showMessage"
+			methodName: "showMessage",
+			data: data.trackingStatus
 		}
 	);
 }

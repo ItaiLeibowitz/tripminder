@@ -3,6 +3,7 @@ var cex = {};
 
 var UNIQUE_DROPDOWN_VIEWER_ID = 'cex_iframe_' + Math.random();
 
+
 /**
  * Here is where you want to render a latitude and longitude. We create an iframe so we
  * we can inject it. We just want to maintain a single instance of it though.
@@ -25,13 +26,29 @@ function drawDropDownIframe() {
 
 }
 
-cex.showMessage = function(){
-	if (cex.hideMessageTimer) window.clearTimeout(cex.hideMessageTimer);
-	var $viewer = $(document.getElementById(UNIQUE_DROPDOWN_VIEWER_ID));
-	$viewer.removeClass('hidden');
-	cex.hideMessageTimer = window.setTimeout(function(){
-		$viewer.addClass('hidden');
-	}, 3000);
+function updateRhsStatus(trackingStatus){
+	var rhsStatusElem = $('#rhs-tripmind-status');
+	if (!rhsStatusElem || rhsStatusElem.length == 0) {
+		rhsStatusElem = $('<div id="rhs-tripmind-status"><div class="toggle-tracking"></div></div>');
+		$('#rhs_block').prepend(rhsStatusElem);
+	}
+	if (trackingStatus) {
+		rhsStatusElem.addClass('tracked');
+	} else {
+		rhsStatusElem.removeClass('tracked');
+	}
+}
+
+cex.showMessage = function(trackingStatus){
+	if (trackingStatus) {
+		if (cex.hideMessageTimer) window.clearTimeout(cex.hideMessageTimer);
+		var $viewer = $(document.getElementById(UNIQUE_DROPDOWN_VIEWER_ID));
+		$viewer.removeClass('hidden');
+		cex.hideMessageTimer = window.setTimeout(function () {
+			$viewer.addClass('hidden');
+		}, 3000);
+	}
+	updateRhsStatus(trackingStatus);
 };
 
 cex.hideMessage = function(){
@@ -183,9 +200,28 @@ function hashCode(string) {
 	return hash;
 }
 
+function setupTrackToggle(){
+	$(document).on('click.trackToggle', '.toggle-tracking', function(){
+		var $rhsTripmindStatus = $('#rhs-tripmind-status'),
+			currentState = $rhsTripmindStatus.hasClass('tracked'),
+			newState = !currentState;
+		chrome.runtime.sendMessage({
+			target: 'background',
+			method: 'runFunction',
+			methodName: "toggleTracking",
+			data: {
+				name: $('.kno-ecr-pt').clone().children().remove().end().text(),
+				state: newState
+			}
+		}, function(){
+			$rhsTripmindStatus.toggleClass('tracked');
+		});
+	})
+}
 
 function startup() {
 	startRHSChecker();
+	setupTrackToggle();
 	drawDropDownIframe();
 }
 
