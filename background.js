@@ -153,7 +153,7 @@ chrome.webNavigation.onCommitted.addListener(function (event) {
 	//console.log('committed: ', event)
 });
 
-chrome.browserAction.onClicked.addListener(function () {
+function openTripmindTab(){
 	var url = chrome.extension.getURL('index.html');
 	chrome.tabs.query({}, function (tabs) {
 		tripMindTabs = tabs.filter(function (tab) {
@@ -167,7 +167,9 @@ chrome.browserAction.onClicked.addListener(function () {
 			})
 		}
 	})
-});
+}
+
+chrome.browserAction.onClicked.addListener(openTripmindTab);
 
 
 function startup() {

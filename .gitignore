@@ -21,3 +21,6 @@
 /log/*.log
 /tmp
 
+# Ignore graphics folder
+/graphics/*
+

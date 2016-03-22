@@ -29,7 +29,7 @@ function drawDropDownIframe() {
 function updateRhsStatus(trackingStatus){
 	var rhsStatusElem = $('#rhs-tripmind-status');
 	if (!rhsStatusElem || rhsStatusElem.length == 0) {
-		rhsStatusElem = $('<div id="rhs-tripmind-status"><div class="toggle-tracking"></div></div>');
+		rhsStatusElem = $('<div id="rhs-tripmind-status"><div class="toggle-tracking"></div><div class="tripmind-open"></div></div>');
 		$('#rhs_block').prepend(rhsStatusElem);
 	}
 	if (trackingStatus) {
@@ -219,9 +219,20 @@ function setupTrackToggle(){
 	})
 }
 
+function setupButtons(){
+	$(document).on('click', '.tripmind-open', function(){
+		chrome.runtime.sendMessage({
+			target: 'background',
+			method: 'runFunction',
+			methodName: "openTripmindTab"
+		});
+	})
+}
+
 function startup() {
 	startRHSChecker();
 	setupTrackToggle();
+	setupButtons();
 	drawDropDownIframe();
 }
 

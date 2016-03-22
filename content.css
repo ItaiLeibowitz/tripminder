@@ -50,7 +50,7 @@
 
  }
 
-#rhs-tripmind-status:after{
+#rhs-tripmind-status:before{
 	content: "TripMind disabled for this place";
 }
 
@@ -61,7 +61,7 @@
 	color: white;
 }
 
-#rhs-tripmind-status.tracked:after{
+#rhs-tripmind-status.tracked:before{
 	content: "TripMind place saved";
 }
 
@@ -79,5 +79,15 @@
 
 .tracked .toggle-tracking:after {
 	content: "Disable"
+}
+
+.tracked .tripmind-open:after {
+	content: "Open in TripMind >";
+	cursor: pointer;
+}
+
+.tracked .tripmind-open{
+	margin-top: 1em;
+	text-align: right;
 }
 
