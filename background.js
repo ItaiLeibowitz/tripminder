@@ -117,9 +117,9 @@ function getAdditionalItemInfo(placeId){
 function foundObjectInfo(data) {
 	//console.log('got info from content: ', data)
 	if (data.lat && data.lng) {
-		var query = {query: data.name, location: new google.maps.LatLng(data.lat, data.lng), radius: 1000};
+		var query = {query: data.nameForSearch, location: new google.maps.LatLng(data.lat, data.lng), radius: 1000};
 	} else {
-		var query = {query: data.name};
+		var query = {query: data.nameForSearch};
 	}
 	gmaps.placesService.textSearch(query, function (results, status, next_page_token) {
 		if (status == google.maps.places.PlacesServiceStatus.OK) {

@@ -114,6 +114,11 @@ function rhsDidChange() {
 		console.log('fullText:', descriptionText)
 	}
 	var name = $('.kno-ecr-pt').clone().children().remove().end().text();
+	var nameForSearch = name;
+	$mapElem = $('.rhsmap5col')
+	if ($mapElem && $mapElem.length > 0){
+		nameForSearch = decodeURI($mapElem.find('a').attr('href').match(/\/maps\/place\/([^\/]*)/)[1]).replace(/\+/," ")
+	}
 	var image = $('#rhs img:eq(0)').attr('src');
 	var searchLinks = $('h3.r a').toArray().map(function(el){ return el.href});
 	chrome.runtime.sendMessage({
@@ -121,6 +126,7 @@ function rhsDidChange() {
 		method: 'runFunction',
 		methodName: "foundObjectInfo",
 		data: {
+			nameForSearch: nameForSearch,
 			name: name,
 			image: image,
 			lat: lat,
