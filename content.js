@@ -117,7 +117,7 @@ function rhsDidChange() {
 	var nameForSearch = name;
 	$mapElem = $('.rhsmap5col')
 	if ($mapElem && $mapElem.length > 0){
-		nameForSearch = decodeURI($mapElem.find('a').attr('href').match(/\/maps\/place\/([^\/]*)/)[1]).replace(/\+/," ")
+		nameForSearch = decodeURI($mapElem.find('a').attr('href').match(/\/maps\/place\/([^\/]*)/)[1]).replace(/\+/g," ")
 	}
 	var image = $('#rhs img:eq(0)').attr('src');
 	var searchLinks = $('h3.r a').toArray().map(function(el){ return el.href});
