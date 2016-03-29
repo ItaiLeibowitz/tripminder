@@ -14,7 +14,8 @@
 		"activeTab",
 		"https://ajax.googleapis.com/",
 		"https://*.google.com/",
-		"webNavigation"
+		"webNavigation",
+		"storage"
 	],
 	"browser_action": {
 		"default_icon": "48_icon.png"
@@ -25,8 +26,13 @@
 	"content_scripts": [
 		{
 			"matches": ["https://www.google.com/*", "http://www.google.com/*"],
-			"js": ["jquery/jquery-2.2.1.min.js", "content.js"],
-			"css" : ["content.css"]
+			"js": ["jquery/jquery-2.2.1.min.js", "google.js"],
+			"css" : ["google.css"]
+		},
+		{
+			"matches": ["<all_urls>"],
+			"js": ["jquery/jquery-2.2.1.min.js", "anypage.js"],
+			"css" : ["anypage.css"]
 		}
 	],
 	"web_accessible_resources": ["dropdown_viewer.html"],

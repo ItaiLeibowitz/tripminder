@@ -2,6 +2,7 @@
 
 chrome.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
+		//console.log(request)
 		if (request.target == 'dropdown_viewer' && request.method == "runFunction") {
 			window[request.methodName](request.data)
 		}
