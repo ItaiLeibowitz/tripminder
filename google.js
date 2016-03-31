@@ -111,11 +111,11 @@ function rhsDidChange() {
 	var descriptionHolder = $('#rhs_block').find('.kno-rdesc, ._VKi, ._cgc');
 	if (descriptionHolder && descriptionHolder.length > 0) {
 		var descriptionText = descriptionHolder ? descriptionHolder.children('span').text() : null;
-		var summaryTextHolders = descriptionHolder ? descriptionHolder.parents('.mod').prev('.mod').find('span') : null;
-		var summaryText = longest(summaryTextHolders.toArray().map(function(el){ return $(el).text()}))
-		console.log('summaryText:', summaryText)
 		console.log('fullText:', descriptionText)
 	}
+	var summaryTextHolders = $('#rhs_block').find('._gdf._LAf, ._mr._Wfc.vk_gy').find('span');
+	var summaryText = longest(summaryTextHolders.toArray().map(function(el){ return $(el).text()}));
+	//console.log('summaryText:', summaryText)
 	var name = $('.kno-ecr-pt').clone().children().remove().end().text().trim();
 	var nameForSearch = name;
 	$mapElem = $('.rhsmap5col a,.rhsmap4col a, .rhsmap3col a').first();
@@ -123,7 +123,7 @@ function rhsDidChange() {
 		nameForSearch = decodeURI($mapElem.attr('href').match(/\/maps\/place\/([^\/]*)/)[1]).replace(/\+/g," ")
 	}
 	var addedLocation = summaryText ? summaryText.split(" in ")[1] : null;
-	if (addedLocation) nameForSearch = nameForSearch + ", " + addedLocation;
+	if (addedLocation && nameForSearch.indexOf(',') == -1) nameForSearch = nameForSearch + ", " + addedLocation;
 	var image = $('#rhs img:eq(0)').attr('src');
 	var searchLinks = $('h3.r a').toArray().map(function(el){ return el.href.replace(/(http:)|(https:)/,'')});
 	chrome.runtime.sendMessage({

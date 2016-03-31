@@ -260,6 +260,7 @@ function getAdditionalItemInfo(placeId){
 }
 
 function foundObjectInfo(data) {
+
 	//console.log('got info from content: ', data)
 	if (data.lat && data.lng) {
 		var query = {query: data.nameForSearch, location: new google.maps.LatLng(data.lat, data.lng), radius: 1000};
