@@ -4,11 +4,9 @@ var anypage_cex = anypage_cex || {};
 var UNIQUE_DROPDOWN_VIEWER_ID = 'cex_iframe_' + Math.random();
 
 
-/**
- * Here is where you want to render a latitude and longitude. We create an iframe so we
- * we can inject it. We just want to maintain a single instance of it though.
- */
+
 function anypage_drawDropDownIframe() {
+	console.log('draw iframe')
 	dropdownDom = document.createElement('iframe');
 	dropdownDom.setAttribute('id', UNIQUE_DROPDOWN_VIEWER_ID);
 	dropdownDom.setAttribute('class', 'cex-iframe hidden animated fast fadeInLeft');
@@ -38,13 +36,17 @@ anypage_cex.showMessage = function(trackingStatus){
 };
 
 anypage_cex.hideMessage = function(){
-	var $viewer = $('#' + UNIQUE_DROPDOWN_VIEWER_ID);
+	var $viewer =  $(document.getElementById(UNIQUE_DROPDOWN_VIEWER_ID));
 	$viewer.addClass('hidden');
+};
+
+anypage_cex.cancelHide = function(trackingStatus){
+	window.clearTimeout(anypage_cex.hideMessageTimer);
 };
 
 chrome.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
-		if (request.target == 'content' && request.method == "runFunction") {
+		if (request.target == 'content-viewer' && request.method == "runFunction") {
 			anypage_cex[request.methodName](request.data)
 		}
 	});

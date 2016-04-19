@@ -1,9 +1,9 @@
 .cex-iframe{
-	width: 35em;
+	width: 25em;
 	position: fixed;
 	top: 0;
 	right: 0;
-	height: 20em;
+	height: 35em;
 	overflow: hidden;
 	z-index: 99999
 }

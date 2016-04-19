@@ -1,13 +1,13 @@
 var google_cex = google_cex || {};
 
 
-var UNIQUE_DROPDOWN_VIEWER_ID = 'cex_iframe_' + Math.random();
+//var UNIQUE_DROPDOWN_VIEWER_ID = 'cex_iframe_' + Math.random();
 
-
-/**
+/*
+*//**
  * Here is where you want to render a latitude and longitude. We create an iframe so we
  * we can inject it. We just want to maintain a single instance of it though.
- */
+ *//*
 function drawDropDownIframe() {
 	dropdownDom = document.createElement('iframe');
 	dropdownDom.setAttribute('id', UNIQUE_DROPDOWN_VIEWER_ID);
@@ -24,7 +24,7 @@ function drawDropDownIframe() {
 	};
 	document.body.appendChild(dropdownDom);
 
-}
+}*/
 
 function updateRhsStatus(trackingStatus){
 	var rhsStatusElem = $('#rhs-tripmind-status');
@@ -39,7 +39,7 @@ function updateRhsStatus(trackingStatus){
 	}
 }
 
-google_cex.showMessage = function(trackingStatus){
+/*google_cex.showMessage = function(trackingStatus){
 	if (trackingStatus) {
 		if (google_cex.hideMessageTimer) window.clearTimeout(google_cex.hideMessageTimer);
 		var $viewer = $(document.getElementById(UNIQUE_DROPDOWN_VIEWER_ID));
@@ -54,11 +54,11 @@ google_cex.showMessage = function(trackingStatus){
 google_cex.hideMessage = function(){
 	var $viewer = $('#' + UNIQUE_DROPDOWN_VIEWER_ID);
 	$viewer.addClass('hidden');
-};
+};*/
 
 chrome.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
-		if (request.target == 'content' && request.method == "runFunction") {
+		if (request.target == 'content-source' && request.method == "runFunction") {
 			google_cex[request.methodName](request.data)
 		}
 	});
@@ -111,6 +111,10 @@ function rhsDidChange() {
 	var descriptionHolder = $('#rhs_block').find('.kno-rdesc, ._VKi, ._cgc');
 	if (descriptionHolder && descriptionHolder.length > 0) {
 		var descriptionText = descriptionHolder ? descriptionHolder.children('span').text() : null;
+		if (descriptionText) {
+			descriptionText = descriptionText.replace(/(… More)/,'');
+			descriptionText = descriptionText.replace(/( Wikipedia)/,'');
+		}
 		console.log('fullText:', descriptionText)
 	}
 	var summaryTextHolders = $('#rhs_block').find('._gdf._LAf, ._mr._Wfc.vk_gy').find('span');
@@ -244,7 +248,7 @@ function startup() {
 	startRHSChecker();
 	setupTrackToggle();
 	setupButtons();
-	drawDropDownIframe();
+	//drawDropDownIframe();
 }
 
 

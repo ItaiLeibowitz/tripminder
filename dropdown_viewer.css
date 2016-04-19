@@ -19,6 +19,7 @@ body{
 	position: relative;
 	color: #777;
 	white-space: nowrap;
+	width: 18em;
 }
 
 .message-title{
@@ -56,6 +57,31 @@ body{
 	color: #333;
 }
 
+.long-desc {
+	display: block;
+	width: 16em;
+	white-space: normal;
+	margin: 1em;
+	height: 10em;
+	border-color: transparent;
+	font-family: inherit;
+	color: #333;
+	line-height: 1.5em;
+	overflow: auto;
+}
+
+.open-link{
+	cursor: pointer;
+	width: 100%;
+	background: #E74C3C;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	font-size: 0.8em;
+	line-height: 2em;
+}
+
 
 .ui-autocomplete {
 	border: none;
@@ -71,4 +97,22 @@ body{
 	background: #E3F3F6;
 	border: none;
 	color: #008EAA;
+}
+
+.feedback {
+	background: #57B66B;
+	color: white;
+	position: relative;
+	top: 5em;
+	padding: 0.5em 0;
+	width: 100%;
+	text-align: center;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+.feedback.visible{
+	opacity: 1;
+}
+.feedback.failure{
+	background: #b01c0d;
 }

@@ -7,20 +7,26 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    
+<meta name="tripmind/config/environment" content="%7B%22modulePrefix%22%3A%22tripmind%22%2C%22environment%22%3A%22staging%22%2C%22baseURL%22%3A%22/%22%2C%22locationType%22%3A%22hash%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%7D%2C%22APP%22%3A%7B%22itai%22%3A3%2C%22name%22%3A%22tripmind%22%2C%22version%22%3A%220.0.0+be6f5933%22%7D%2C%22something%22%3A%22test%22%2C%22exportApplicationGlobal%22%3Atrue%7D" />
 
-<meta name="tripmind/config/environment" content="%7B%22modulePrefix%22%3A%22tripmind%22%2C%22environment%22%3A%22production%22%2C%22baseURL%22%3A%22/%22%2C%22locationType%22%3A%22hash%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22tripmind%22%2C%22version%22%3A%220.0.0+39c4f619%22%7D%2C%22exportApplicationGlobal%22%3Afalse%7D" />
-
-    <link rel="stylesheet" href="ember/vendor.css" integrity="sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU= sha512-z4PhNX7vuL3xVChQ1m2AB9Yg5AULVxXcg/SpIdNs6c5H0NE8XYXysP+DGNKHfuwvY7kxvUdBeoGlODJ6+SfaPg==" >
-    <link rel="stylesheet" href="ember/tripmind.css" integrity="sha256-YQArySTfam2qj4lWgFBeglus5Fig4RjQrQZULV2waI0= sha512-Bgb0XVh5yZ2bxP2zrzncSeGcpTrcU++vZLcMmQDdtpgCrFv/Jq4LkT24Jqdb5EMoYm3pWSHHYQ8YcA9yoAbL4w==" >
+    <link rel="stylesheet" href="ember/vendor.css">
+    <link rel="stylesheet" href="ember/tripmind.css">
 
     
   </head>
   <body>
     
 
-    <script src="ember/vendor.js" integrity="sha256-mT3w4XbSIuh412F9awYkkyH0rTlzhE8Z/aJMN/RTrJQ= sha512-isI9mhok8g50wxXewfUEDIulr5A8LiBxfiABs6yg4Zd4BCv9JxqR3ryLr1UVn5bg07q0CybI6ErBDO4nhz3H/g==" ></script>
-    <script src="ember/tripmind.js" integrity="sha256-DerPfCzrdiyKKi5RmE2ipawhBOkj2pufZB2CHj22h1w= sha512-K/+IUYtGZOu9kvTZPxwWnZVhxiDHKpZGzlFWRpYqrdFw6SwsLvTgmtGgP5YqTJVJrK28ZqIOpdvtQHfHsZGtLQ==" ></script>
+	<script type="text/javascript"
+			src="https://maps.google.com/maps/api/js?key=AIzaSyAYkaMWDKpfudXj6NRGc3Rv2Bc4MplRcuU&libraries=geometry,places&language=en"></script>
+    <script src="ember/vendor.js"></script>
+    <script src="ember/tripmind.js"></script>
 
-    
+	<div id="expanded-map">
+		<div id="actual-map" class="map-canvas"></div>
+	</div>
+
+	
   </body>
 </html>
