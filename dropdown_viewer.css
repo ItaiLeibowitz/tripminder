@@ -22,18 +22,47 @@ body{
 	width: 18em;
 }
 
-.message-title{
+.tripmind-logo {
+	color: #E74C3C;
+	line-height: 2em;
+	border-left: 3em solid transparent;
+	font-size: 1.2em;
+	background-image: url('128_icon.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: -44px;
+}
+
+.popup-title{
+	position: relative;
 	color: #FFF;
 	background: #E74C3C;
-	padding: 0 3em 0 .5em;
 	line-height: 2em;
+}
+
+.message-title{
+	padding: 0 3em 0 .5em;
+}
+
+.cancel-btn {
+	position: absolute;
+	opacity: 0.75;
+	right: 0;
+	top: 0;
+	text-transform: uppercase;
+	padding: 0 1em;
+	cursor: pointer;
+	font-size: 0.8em;
+}
+.cancel-btn:hover{
+	opacity: 1;
 }
 
 .close-btn{
 	position: absolute;
 	line-height: 2em;
 	padding: 0 10px;
-	color: white;
+	color: #E74C3C;
 	z-index: 10000;
 	right: 0;
 	top: 0;

@@ -44,10 +44,14 @@ function renderMap(data) {
 }
 
 function toggleTracking(data, callback){
-	if (data.name == TripMinder.currentItem.name){
-		TripMinder.trackedPlaces[TripMinder.currentItem.place_id].track = data.state;
-
-		callback();
+	if (data.name == TripMinder.currentItem.get('name')){
+		TripmindStore.findRecord('item', TripMinder.currentItem.get('id'),{reload: true})
+			.then(function(itemRecord) {
+				itemRecord.set('trackingStatus', data.state);
+				itemRecord.save();
+			}).then(function(){
+				callback();
+			});
 	}
 }
 
@@ -151,7 +155,8 @@ function findPlaceFromQuery(query, data){
 							return itemRecord;
 						})
 						.catch(function(notFound){
-							return TripmindStore.createRecord('item', $.extend(item, {id: item.place_id}));
+							var itemRecord = TripmindStore.createRecord('item', $.extend(item, {id: item.place_id}));
+							return itemRecord.save();
 						})
 						.then(function(itemRecord){
 							resolve(itemRecord);

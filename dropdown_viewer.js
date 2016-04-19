@@ -30,7 +30,7 @@ function cancelClose(){
 
 function updateMessageContent(data){
 	var $message = $('#message');
-	$message.children('.message-title').html(data.title);
+	$message.find('.message-title').html(data.title);
 	$message.find('.name').html(data.name);
 	$message.find('.type').html(data.itemType ? data.itemType.replace(/_/g, " ") : "");
 	$message.find('.long-desc')[0].value = data.longDesc;
@@ -58,7 +58,7 @@ function showFeedback(data){
 function updateMessageForItem(data) {
 	if (data.trackingStatus) {
 		updateMessageContent({
-			title: 'TripMind keeping track of:',
+			title: 'Keeping track of:',
 			name: data.item.name,
 			longDesc: data.item.longDesc,
 			itemType: data.item.itemType,
@@ -107,6 +107,19 @@ function setupOtherClicks() {
 				methodName: "openCurrentInTripmind"
 			}
 		);
+	});
+	$(document).on('click.cancelTrack', '.cancel-btn', function(){
+		chrome.runtime.sendMessage({
+			target: 'background',
+			method: 'runFunction',
+			methodName: "toggleTracking",
+			data: {
+				name: $('.name').text(),
+				state: false
+			}
+		}, function(){
+			closeMessage();
+		});
 	})
 
 }
