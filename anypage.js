@@ -64,7 +64,7 @@ anypage_registerUrl = function(){
 		method: 'runFunction',
 		methodName: "registerUrl",
 		data: {
-			url: document.location.toString().replace(/(http:)|(https:)/,''),
+			url: document.location.toString(), //.replace(/(http:)|(https:)/,''),
 			title: title,
 			description: description,
 			image: image,

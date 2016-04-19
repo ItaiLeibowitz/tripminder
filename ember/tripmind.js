@@ -1460,6 +1460,18 @@ define('tripmind/components/left-menu', ['exports', 'ember'], function (exports,
 		isHidden: _ember['default'].computed.alias('actionService.hasSelected')
 	});
 });
+define('tripmind/components/link-card', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Component.extend({
+		classNames: ['link-card'],
+		classNameBindings: ['addedClass', 'isExpanded'],
+		addedClass: null,
+		isExpanded: null,
+
+		click: function click() {
+			this.toggleProperty('isExpanded');
+		}
+	});
+});
 define('tripmind/components/major-section', ['exports', 'ember', 'tripmind/mixins/section-mixin'], function (exports, _ember, _tripmindMixinsSectionMixin) {
 	exports['default'] = _ember['default'].Component.extend(_tripmindMixinsSectionMixin['default'], {
 		classNames: ['major-section']
@@ -2699,6 +2711,18 @@ define('tripmind/instance-initializers/load_data', ['exports', 'ember', 'tripmin
 					data: []
 				}
 			}
+		}, {
+			id: "https://www.google.com/search?q=Louvre&oq=louvre",
+			type: 'potentialLink',
+			attributes: {
+				itemId: 'ChIJD3uTd9hx5kcR1IQvGfr8dbk',
+				createdAt: '1460248462',
+				lastVisited: '1460248462',
+				note: "The Louvre Palace is a former royal palace located on the Right Bank of the Seine in Paris, between the Tuileries Gardens and the church of Saint-Germain l'Auxerrois. Wikipedia asdkjashkd",
+				image: "https://lh5.googleusercontent.com/-HIc3V6HYPg4/VrXryykTJ2I/AAAAAAAAmVo/adAXMHlv0Pw/w3000-k/",
+				title: 'louvre museum - the full website',
+				description: ' I dont know what the desc is for really'
+			}
 		}] };
 
 	var formatPlace = function formatPlace(place) {
@@ -3776,7 +3800,27 @@ define('tripmind/models/potential-link', ['exports', 'ember', 'ember-data'], fun
 		note: _emberData['default'].attr('string'),
 		image: _emberData['default'].attr('string'),
 		title: _emberData['default'].attr('string'),
-		description: _emberData['default'].attr('string')
+		description: _emberData['default'].attr('string'),
+
+		noteOrDesc: (function () {
+			return this.get('note') || this.get('description');
+		}).property('note', 'description'),
+
+		domain: (function () {
+			var a = $('<a>', { href: this.get('id') })[0];
+			return a.hostname;
+		}).property("id"),
+
+		photoStyle: (function () {
+			if (this.get('image')) {
+				return _ember['default'].String.htmlSafe('background-image: url(' + this.get('image') + ')');
+			} else {
+				var colorLength = Constants.FLAT_DESIGN_COLORS.length,
+				    color = Constants.FLAT_DESIGN_COLORS[Math.floor(Math.random() * colorLength)];
+				return _ember['default'].String.htmlSafe('background-image: url(\'assets/images/background-pattern.png\'); background-color: ' + color + ';');
+			}
+		}).property('image')
+
 	});
 });
 define('tripmind/router', ['exports', 'ember', 'tripmind/config/environment'], function (exports, _ember, _tripmindConfigEnvironment) {
@@ -6592,7 +6636,7 @@ define("tripmind/templates/components/horizontal-item-card", ["exports"], functi
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["block", "if", [["get", "inSelectMode", ["loc", [null, [1, 6], [1, 18]]]]], [], 0, 1, ["loc", [null, [1, 0], [6, 7]]]], ["element", "action", ["toggleSelected"], [], ["loc", [null, [8, 41], [8, 68]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [11, 37], [11, 53]]]]], ["content", "model.name", ["loc", [null, [13, 18], [13, 32]]]], ["content", "model.itemType", ["loc", [null, [14, 18], [14, 36]]]], ["block", "if", [["get", "model.parentName", ["loc", [null, [15, 7], [15, 23]]]]], [], 2, null, ["loc", [null, [15, 1], [17, 8]]]], ["content", "model.updatedAtDate", ["loc", [null, [19, 18], [19, 41]]]]],
+      statements: [["block", "if", [["get", "inSelectMode", ["loc", [null, [1, 6], [1, 18]]]]], [], 0, 1, ["loc", [null, [1, 0], [6, 7]]]], ["element", "action", ["toggleSelected"], [], ["loc", [null, [8, 41], [8, 68]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [11, 37], [11, 53]]]]], ["content", "model.name", ["loc", [null, [13, 18], [13, 32]]]], ["content", "model.itemTypeClean", ["loc", [null, [14, 18], [14, 41]]]], ["block", "if", [["get", "model.parentName", ["loc", [null, [15, 7], [15, 23]]]]], [], 2, null, ["loc", [null, [15, 1], [17, 8]]]], ["content", "model.updatedAtDate", ["loc", [null, [19, 18], [19, 41]]]]],
       locals: [],
       templates: [child0, child1, child2]
     };
@@ -7089,6 +7133,91 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
       statements: [["block", "link-to", ["index"], ["id", "top-logo"], 0, null, ["loc", [null, [1, 0], [1, 61]]]], ["inline", "link-to", ["Search", "search"], ["class", "menu-link icon-search"], ["loc", [null, [2, 0], [2, 59]]]], ["inline", "link-to", ["Recent", "recent"], ["class", "menu-link icon-history"], ["loc", [null, [3, 0], [3, 60]]]], ["inline", "link-to", ["Places", "index"], ["class", "menu-link icon-pin"], ["loc", [null, [5, 0], [5, 55]]]], ["inline", "link-to", ["collections", "collections"], ["class", "menu-link icon-collections"], ["loc", [null, [6, 0], [6, 74]]]], ["inline", "link-to", ["Trash", "trash"], ["class", "menu-link icon-trash"], ["loc", [null, [9, 0], [9, 56]]]]],
       locals: [],
       templates: [child0]
+    };
+  })());
+});
+define("tripmind/templates/components/link-card", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes"]
+        },
+        "revision": "Ember@2.4.0",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 7,
+            "column": 0
+          }
+        },
+        "moduleName": "tripmind/templates/components/link-card.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "title");
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "subtitle");
+        var el2 = dom.createTextNode("Saved from ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("a");
+        dom.setAttribute(el2, "target", "_blank");
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "image-container");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "description");
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "expand-hint");
+        var el2 = dom.createTextNode("Click to expand");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element0 = dom.childAt(fragment, [2, 1]);
+        var element1 = dom.childAt(fragment, [4]);
+        var morphs = new Array(5);
+        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 0, 0);
+        morphs[1] = dom.createAttrMorph(element0, 'href');
+        morphs[2] = dom.createMorphAt(element0, 0, 0);
+        morphs[3] = dom.createAttrMorph(element1, 'style');
+        morphs[4] = dom.createMorphAt(dom.childAt(fragment, [6]), 0, 0);
+        return morphs;
+      },
+      statements: [["content", "model.title", ["loc", [null, [1, 19], [1, 34]]]], ["attribute", "href", ["get", "model.id", ["loc", [null, [2, 59], [2, 67]]]]], ["content", "model.domain", ["loc", [null, [2, 70], [2, 86]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [3, 37], [3, 53]]]]], ["content", "model.noteOrDesc", ["loc", [null, [4, 25], [4, 45]]]]],
+      locals: [],
+      templates: []
     };
   })());
 });
@@ -9800,11 +9929,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 31,
+                "line": 36,
                 "column": 4
               },
               "end": {
-                "line": 37,
+                "line": 38,
                 "column": 4
               }
             },
@@ -9818,37 +9947,18 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             var el0 = dom.createDocumentFragment();
             var el1 = dom.createTextNode("					");
             dom.appendChild(el0, el1);
-            var el1 = dom.createElement("div");
-            dom.setAttribute(el1, "class", "link-holder");
-            var el2 = dom.createTextNode("\n						");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("div");
-            dom.setAttribute(el2, "class", "link-name");
-            var el3 = dom.createComment("");
-            dom.appendChild(el2, el3);
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n						");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("img");
-            dom.setAttribute(el2, "class", "link-image");
-            dom.setAttribute(el2, "height", "50");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n					");
-            dom.appendChild(el1, el2);
+            var el1 = dom.createComment("");
             dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n\n");
+            var el1 = dom.createTextNode("\n");
             dom.appendChild(el0, el1);
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element0 = dom.childAt(fragment, [1]);
-            var element1 = dom.childAt(element0, [3]);
-            var morphs = new Array(2);
-            morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 0, 0);
-            morphs[1] = dom.createAttrMorph(element1, 'src');
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
             return morphs;
           },
-          statements: [["content", "link.title", ["loc", [null, [33, 29], [33, 43]]]], ["attribute", "src", ["get", "link.image", ["loc", [null, [34, 48], [34, 58]]]]]],
+          statements: [["inline", "link-card", [], ["model", ["subexpr", "@mut", [["get", "link", ["loc", [null, [37, 23], [37, 27]]]]], [], []]], ["loc", [null, [37, 5], [37, 29]]]]],
           locals: ["link"],
           templates: []
         };
@@ -9860,11 +9970,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 30,
+              "line": 33,
               "column": 3
             },
             "end": {
-              "line": 38,
+              "line": 39,
               "column": 3
             }
           },
@@ -9876,18 +9986,26 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("				");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "top-section-title");
+          var el2 = dom.createTextNode("Links visited and reviews:");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n\n");
+          dom.appendChild(el0, el1);
           var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-          dom.insertBoundary(fragment, 0);
+          morphs[0] = dom.createMorphAt(fragment, 3, 3, contextualElement);
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "each", [["get", "links", ["loc", [null, [31, 12], [31, 17]]]]], [], 0, null, ["loc", [null, [31, 4], [37, 13]]]]],
+        statements: [["block", "each", [["get", "links", ["loc", [null, [36, 12], [36, 17]]]]], [], 0, null, ["loc", [null, [36, 4], [38, 13]]]]],
         locals: [],
         templates: [child0]
       };
@@ -9900,11 +10018,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 47,
+              "line": 45,
               "column": 0
             },
             "end": {
-              "line": 50,
+              "line": 48,
               "column": 0
             }
           },
@@ -9934,7 +10052,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
           return morphs;
         },
-        statements: [["inline", "major-sections-holder", [], ["model", ["subexpr", "@mut", [["get", "descendants", ["loc", [null, [48, 31], [48, 42]]]]], [], []], "majorSectionType", "item", "prefilterAttribute", "trackingStatus"], ["loc", [null, [48, 1], [48, 104]]]], ["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "descendants", ["loc", [null, [49, 28], [49, 39]]]]], [], []]], ["loc", [null, [49, 1], [49, 41]]]]],
+        statements: [["inline", "major-sections-holder", [], ["model", ["subexpr", "@mut", [["get", "descendants", ["loc", [null, [46, 31], [46, 42]]]]], [], []], "majorSectionType", "item", "prefilterAttribute", "trackingStatus"], ["loc", [null, [46, 1], [46, 104]]]], ["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "descendants", ["loc", [null, [47, 28], [47, 39]]]]], [], []]], ["loc", [null, [47, 1], [47, 41]]]]],
         locals: [],
         templates: []
       };
@@ -9953,7 +10071,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 54,
+            "line": 52,
             "column": 0
           }
         },
@@ -10025,18 +10143,18 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
         dom.setAttribute(el2, "class", "rhs");
-        var el3 = dom.createTextNode("\n");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createComment("");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("		");
+        var el3 = dom.createTextNode("\n\n		");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n		");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
         dom.setAttribute(el2, "class", "lhs");
-        var el3 = dom.createTextNode("\n\n		");
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("		");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
@@ -10055,22 +10173,22 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element2 = dom.childAt(fragment, [4]);
-        var element3 = dom.childAt(element2, [1]);
-        var element4 = dom.childAt(element3, [1]);
+        var element0 = dom.childAt(fragment, [4]);
+        var element1 = dom.childAt(element0, [1]);
+        var element2 = dom.childAt(element1, [1]);
         var morphs = new Array(8);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
         morphs[1] = dom.createMorphAt(dom.childAt(fragment, [2]), 1, 1);
-        morphs[2] = dom.createAttrMorph(element4, 'style');
-        morphs[3] = dom.createMorphAt(element3, 3, 3);
-        morphs[4] = dom.createMorphAt(dom.childAt(element2, [3]), 3, 3);
-        morphs[5] = dom.createMorphAt(dom.childAt(fragment, [6, 1]), 1, 1);
+        morphs[2] = dom.createAttrMorph(element2, 'style');
+        morphs[3] = dom.createMorphAt(element1, 3, 3);
+        morphs[4] = dom.createMorphAt(dom.childAt(element0, [3]), 3, 3);
+        morphs[5] = dom.createMorphAt(dom.childAt(fragment, [6, 3]), 1, 1);
         morphs[6] = dom.createMorphAt(fragment, 8, 8, contextualElement);
         morphs[7] = dom.createMorphAt(fragment, 10, 10, contextualElement);
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["block", "if", [["get", "descendants", ["loc", [null, [1, 6], [1, 17]]]]], [], 0, 1, ["loc", [null, [1, 0], [7, 7]]]], ["block", "each", [["get", "model.ancestorsArray", ["loc", [null, [11, 9], [11, 29]]]]], [], 2, null, ["loc", [null, [11, 1], [13, 10]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [18, 51], [18, 67]]]]], ["inline", "map-placeholder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [19, 27], [19, 32]]]]], [], []]], ["loc", [null, [19, 3], [19, 34]]]], ["inline", "autosave-text-area", [], ["class", "long-desc", "cols", "60", "rows", "5", "value", ["subexpr", "@mut", [["get", "model.longDesc", ["loc", [null, [23, 67], [23, 81]]]]], [], []], "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [23, 93], [23, 98]]]]], [], []]], ["loc", [null, [23, 3], [23, 100]]]], ["block", "if", [["get", "links", ["loc", [null, [30, 10], [30, 15]]]]], [], 3, null, ["loc", [null, [30, 3], [38, 10]]]], ["block", "if", [["get", "descendants", ["loc", [null, [47, 7], [47, 18]]]]], [], 4, null, ["loc", [null, [47, 0], [50, 7]]]], ["inline", "center-marker", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [52, 22], [52, 27]]]]], [], []]], ["loc", [null, [52, 0], [52, 29]]]]],
+      statements: [["block", "if", [["get", "descendants", ["loc", [null, [1, 6], [1, 17]]]]], [], 0, 1, ["loc", [null, [1, 0], [7, 7]]]], ["block", "each", [["get", "model.ancestorsArray", ["loc", [null, [11, 9], [11, 29]]]]], [], 2, null, ["loc", [null, [11, 1], [13, 10]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [18, 51], [18, 67]]]]], ["inline", "map-placeholder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [19, 27], [19, 32]]]]], [], []]], ["loc", [null, [19, 3], [19, 34]]]], ["inline", "autosave-text-area", [], ["class", "long-desc", "cols", "60", "rows", "5", "value", ["subexpr", "@mut", [["get", "model.longDesc", ["loc", [null, [23, 67], [23, 81]]]]], [], []], "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [23, 93], [23, 98]]]]], [], []]], ["loc", [null, [23, 3], [23, 100]]]], ["block", "if", [["get", "links", ["loc", [null, [33, 10], [33, 15]]]]], [], 3, null, ["loc", [null, [33, 3], [39, 10]]]], ["block", "if", [["get", "descendants", ["loc", [null, [45, 7], [45, 18]]]]], [], 4, null, ["loc", [null, [45, 0], [48, 7]]]], ["inline", "center-marker", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [50, 22], [50, 27]]]]], [], []]], ["loc", [null, [50, 0], [50, 29]]]]],
       locals: [],
       templates: [child0, child1, child2, child3, child4]
     };
@@ -10436,7 +10554,7 @@ catch(err) {
 
 /* jshint ignore:start */
 if (!runningTests) {
-  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+be6f5933"});
+  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+5bea6659"});
 }
 /* jshint ignore:end */
 //# sourceMappingURL=tripmind.map

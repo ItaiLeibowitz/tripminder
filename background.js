@@ -231,6 +231,7 @@ chrome.webNavigation.onCommitted.addListener(function (event) {
 });
 
 function openTripmindTab(addedRoute){
+	if (!addedRoute || typeof(addedRoute) != 'string') addedRoute = "";
 	var url = chrome.extension.getURL('index.html') + addedRoute;
 	chrome.tabs.query({}, function (tabs) {
 		tripMindTabs = tabs.filter(function (tab) {

@@ -79,7 +79,7 @@ function longest(array){
 function rhsDidChange() {
 	var lat, lng, descriptionText, summaryText;
 	var allLinks = $('#rhs_block a').toArray().map(function (el) {
-		return el.href.replace(/(http:)|(https:)/,'');
+		return el.href; // used to have: .replace(/(http:)|(https:)/,'')
 	});
 	var mapLinks = allLinks.filter(function (link) {
 		return link.indexOf('www.google.com/maps/') > -1
@@ -129,7 +129,7 @@ function rhsDidChange() {
 	var addedLocation = summaryText ? summaryText.split(" in ")[1] : null;
 	if (addedLocation && nameForSearch.indexOf(',') == -1) nameForSearch = nameForSearch + ", " + addedLocation;
 	var image = $('#rhs img:eq(0)').attr('src');
-	var searchLinks = $('h3.r a').toArray().map(function(el){ return el.href.replace(/(http:)|(https:)/,'')});
+	var searchLinks = $('h3.r a').toArray().map(function(el){ return el.href});  // used to have: .replace(/(http:)|(https:)/,'')
 	chrome.runtime.sendMessage({
 		target: 'background',
 		method: 'runFunction',

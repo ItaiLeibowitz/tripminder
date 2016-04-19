@@ -622,13 +622,60 @@ a {
   .collection-title:focus {
     border-bottom-color: #E74C3C; }
 
+.link-card {
+  padding: 0.5em;
+  background: white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  max-width: 20em;
+  max-height: 10em;
+  margin: 0 1em 1em 0;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative; }
+  .link-card .title {
+    font-size: 1.2em;
+    color: #888;
+    font-weight: bold;
+    margin-bottom: 0.3em; }
+  .link-card .subtitle {
+    font-size: 0.8em;
+    margin-bottom: 1em; }
+    .link-card .subtitle a {
+      color: #007fff;
+      cursor: pointer; }
+  .link-card .image-container {
+    height: 5.5em;
+    width: 6em;
+    float: left;
+    margin-right: 1em; }
+  .link-card .description {
+    color: #777;
+    line-height: 1.5em; }
+  .link-card.is-expanded {
+    max-height: none;
+    max-width: none; }
+  .link-card .expand-hint {
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+    background: #777;
+    padding: 0.5em;
+    color: white;
+    border-radius: 5px;
+    opacity: 0;
+    transform: opacity 0.2s; }
+  .link-card:hover:not(.is-expanded) .expand-hint {
+    opacity: 0.75; }
+
 .recent-titles {
   white-space: nowrap;
   margin: 1em 2px; }
   .recent-titles .title {
     display: inline-block;
     vertical-align: middle;
-    font-weight: bold; }
+    font-weight: bold;
+    white-space: normal; }
   .recent-titles .image-container {
     width: 9em; }
   .recent-titles .name, .recent-titles .type {
