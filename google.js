@@ -225,7 +225,7 @@ function setupTrackToggle(){
 			method: 'runFunction',
 			methodName: "toggleTracking",
 			data: {
-				name: $('.kno-ecr-pt').clone().children().remove().end().text(),
+				name: $('.kno-ecr-pt').clone().children().remove().end().text().trim(),
 				state: newState
 			}
 		}, function(){

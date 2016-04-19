@@ -33,6 +33,9 @@ anypage_cex.showMessage = function(trackingStatus){
 			$viewer.addClass('hidden');
 		}, 3000);
 	}
+	if (typeof(updateRhsStatus) == 'function'){
+		updateRhsStatus(trackingStatus);
+	}
 };
 
 anypage_cex.hideMessage = function(){
