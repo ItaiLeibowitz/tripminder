@@ -3792,7 +3792,7 @@ define('tripmind/models/path-index', ['exports', 'ember', 'ember-data'], functio
 		itemId: _emberData['default'].attr('string')
 	});
 });
-define('tripmind/models/potential-link', ['exports', 'ember', 'ember-data'], function (exports, _ember, _emberData) {
+define('tripmind/models/potential-link', ['exports', 'ember', 'ember-data', 'tripmind/appconfig/constants'], function (exports, _ember, _emberData, _tripmindAppconfigConstants) {
 	exports['default'] = _emberData['default'].Model.extend({
 		itemId: _emberData['default'].attr('string'),
 		createdAt: _emberData['default'].attr('string'),
@@ -3803,7 +3803,7 @@ define('tripmind/models/potential-link', ['exports', 'ember', 'ember-data'], fun
 		description: _emberData['default'].attr('string'),
 
 		noteOrDesc: (function () {
-			return this.get('note') || this.get('description');
+			return _ember['default'].String.htmlSafe(this.get('note')) || this.get('description');
 		}).property('note', 'description'),
 
 		domain: (function () {
@@ -3815,8 +3815,8 @@ define('tripmind/models/potential-link', ['exports', 'ember', 'ember-data'], fun
 			if (this.get('image')) {
 				return _ember['default'].String.htmlSafe('background-image: url(' + this.get('image') + ')');
 			} else {
-				var colorLength = Constants.FLAT_DESIGN_COLORS.length,
-				    color = Constants.FLAT_DESIGN_COLORS[Math.floor(Math.random() * colorLength)];
+				var colorLength = _tripmindAppconfigConstants['default'].FLAT_DESIGN_COLORS.length,
+				    color = _tripmindAppconfigConstants['default'].FLAT_DESIGN_COLORS[Math.floor(Math.random() * colorLength)];
 				return _ember['default'].String.htmlSafe('background-image: url(\'assets/images/background-pattern.png\'); background-color: ' + color + ';');
 			}
 		}).property('image')

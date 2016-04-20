@@ -623,12 +623,14 @@ a {
     border-bottom-color: #E74C3C; }
 
 .link-card {
+  display: inline-block;
+  vertical-align: top;
   padding: 0.5em;
   background: white;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   max-width: 20em;
-  max-height: 10em;
+  max-height: 11em;
   margin: 0 1em 1em 0;
   overflow: hidden;
   cursor: pointer;

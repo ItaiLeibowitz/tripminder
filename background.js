@@ -58,7 +58,7 @@ function toggleTracking(data, callback){
 function updateValue(data){
 	TripmindStore.findRecord('item', TripMinder.currentItem.get('id'),{reload: true})
 		.then(function(itemRecord){
-			itemRecord.set(data.field, data.value);
+			itemRecord.set(data.field, sanitizeHtml(data.value));
 			itemRecord.save().then(function () {
 				chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
 					chrome.tabs.sendMessage(tabs[0].id, {
@@ -209,23 +209,27 @@ function foundObjectInfo(data) {
 
 
 function registerUrl(data){
-	var potentialLink = TripmindStore.peekRecord('potentialLink', data.url);
-	if (potentialLink){
+	var potentialLink = TripmindStore.findRecord('potentialLink', data.url)
+	.then(function(potentialLink){
 		var itemId = potentialLink.get('itemId'),
 			itemRecord = TripmindStore.peekRecord('item', itemId),
 			trackingStatus = itemRecord.get('trackingStatus');
 		//console.log('found link for:', itemId);
-		sendItemDataMessage(itemRecord, trackingStatus, data.targetMsgId, 0);
-		potentialLink.setProperties({
-			title: data.title,
-			description: data.description,
-			image: data.image,
-			lastVisited: moment().format("X")
-		})
+		if (data.targetMsgId) (itemRecord, trackingStatus, data.targetMsgId, 0);
+		var currentTime =  moment().format("X");
+			potentialLink.setProperties({
+			title: potentialLink.get('title') || data.title,
+			description: potentialLink.get('title') || data.description,
+			image: potentialLink.get('image') || data.image,
+			note: potentialLink.get('note') || data.note,
+			lastVisited: currentTime,
+			createdAt: potentialLink.get('image') || currentTime
+		});
 		potentialLink.save();
-	} else {
+	})
+	.catch(function(){
 		console.log('url not found linked to anywhere...')
-	}
+	});
 }
 
 chrome.webNavigation.onBeforeNavigate.addListener(function (event) {
