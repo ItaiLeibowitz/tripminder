@@ -69,7 +69,7 @@ anypage_registerUrl = function(){
 				bestImageName = image.name;
 			}
 		}
-		if (bestImageName) image = bestImageName.name
+		if (bestImageName) image = bestImageName
 	}
 	chrome.runtime.sendMessage({
 		target: 'background',
@@ -88,7 +88,7 @@ anypage_registerUrl = function(){
 function anypage_setupButtons(){
 }
 
-function lp_startup() {
+function anypage_startup() {
 	anypage_setupButtons();
 	anypage_drawDropDownIframe();
 	anypage_registerUrl();
@@ -97,20 +97,20 @@ function lp_startup() {
 
 
 if (document.readyState === "complete") {
-	lp_startup();
+	anypage_startup();
 } else {
 	if (window.attachEvent) {
-		window.attachEvent('onload', lp_startup);
+		window.attachEvent('onload', anypage_startup);
 	} else {
 		if (window.onload) {
 			var curronload = window.onload;
 			var newonload = function (evt) {
 				curronload(evt);
-				lp_startup();
+				anypage_startup();
 			};
 			window.onload = newonload;
 		} else {
-			window.onload = lp_startup;
+			window.onload = anypage_startup;
 		}
 	}
 }

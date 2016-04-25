@@ -108,6 +108,14 @@ function setupOtherClicks() {
 			}
 		);
 	});
+	$(document).on('click.openTm', '.open-tm', function(){
+		chrome.runtime.sendMessage({
+				target: 'background',
+				method: 'runFunction',
+				methodName: "openTripmindTab"
+			}
+		);
+	});
 	$(document).on('click.cancelTrack', '.cancel-btn', function(){
 		chrome.runtime.sendMessage({
 			target: 'background',
@@ -118,6 +126,7 @@ function setupOtherClicks() {
 				state: false
 			}
 		}, function(){
+			console.log('message back received!')
 			closeMessage();
 		});
 	})

@@ -31,6 +31,7 @@ body{
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: -44px;
+	cursor: pointer;
 }
 
 .popup-title{

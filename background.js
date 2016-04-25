@@ -93,6 +93,7 @@ chrome.runtime.onMessage.addListener(
 		if (request.target == 'background' && request.method == "runFunction") {
 			window[request.methodName](request.data, sendResponse);
 		}
+		if (sendResponse) return true;
 	});
 
 function buildItemInfoFromResults(data, result) {
@@ -186,8 +187,15 @@ function foundObjectInfo(data) {
 			var trackingStatus = itemRecord.get('trackingStatus');
 			if (trackingStatus) {
 				var now = moment().format("X");
-				var allLinks = data.searchLinks.concat(data.externalLinks),
-					formattedLinks = allLinks.map(function (link) {
+				var allLinks = data.searchLinks.concat(data.externalLinks);
+				allLinks.forEach(function(link){
+					TripmindStore.createRecord('potentialLink',{
+						id: link,
+						createdAt: now,
+						item: itemRecord
+					})
+				})
+					/*formattedLinks = allLinks.map(function (link) {
 						return {id: link,
 							type: 'potentialLink',
 							attributes: {
@@ -196,12 +204,11 @@ function foundObjectInfo(data) {
 							}
 						};
 					});
-				TripmindStore.push({data: formattedLinks});
+				TripmindStore.push({data: formattedLinks});*/
 			}
 			sendItemDataMessage(itemRecord, trackingStatus, data.targetMsgId, 0);
 			ItemDetailsService.getAdditionalItemInfo(itemRecord.get('id'));
 		}, function(){
-			alert('did not get back proper place results');
 			TripMinder.currentItem = null;
 		});
 
@@ -209,23 +216,24 @@ function foundObjectInfo(data) {
 
 
 function registerUrl(data){
-	var potentialLink = TripmindStore.findRecord('potentialLink', data.url)
+	TripmindStore.findRecord('potentialLink', data.url)
 	.then(function(potentialLink){
-		var itemId = potentialLink.get('itemId'),
-			itemRecord = TripmindStore.peekRecord('item', itemId),
+		potentialLink.get('item').then(function(itemRecord){
+			TripMinder.currentItem = itemRecord;
 			trackingStatus = itemRecord.get('trackingStatus');
-		//console.log('found link for:', itemId);
-		if (data.targetMsgId) (itemRecord, trackingStatus, data.targetMsgId, 0);
-		var currentTime =  moment().format("X");
+			//console.log('found link for:', itemId);
+			if (data.targetMsgId) sendItemDataMessage(itemRecord, trackingStatus, data.targetMsgId, 0);
+			var currentTime =  moment().format("X");
 			potentialLink.setProperties({
-			title: potentialLink.get('title') || data.title,
-			description: potentialLink.get('title') || data.description,
-			image: potentialLink.get('image') || data.image,
-			note: potentialLink.get('note') || data.note,
-			lastVisited: currentTime,
-			createdAt: potentialLink.get('image') || currentTime
+				title: potentialLink.get('title') || data.title,
+				description: potentialLink.get('description') || data.description,
+				image: data.overwrite ? data.image : (potentialLink.get('image') || data.image),
+				note: potentialLink.get('note') || data.note,
+				lastVisited: currentTime,
+				createdAt: potentialLink.get('image') || currentTime
+			});
+			potentialLink.save();
 		});
-		potentialLink.save();
 	})
 	.catch(function(){
 		console.log('url not found linked to anywhere...')
