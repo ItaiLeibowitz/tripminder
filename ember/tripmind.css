@@ -624,6 +624,13 @@ a {
   .collection-title:focus {
     border-bottom-color: #E74C3C; }
 
+.is-editable {
+  border: 1px solid transparent; }
+  .is-editable:hover {
+    border-color: #ccc; }
+  .is-editable:focus {
+    background-color: #eee; }
+
 .link-card {
   display: inline-block;
   vertical-align: top;
@@ -635,7 +642,6 @@ a {
   max-height: 11em;
   margin: 0 1em 1em 0;
   overflow: hidden;
-  cursor: pointer;
   position: relative; }
   .link-card .title {
     font-size: 1.2em;
@@ -646,7 +652,7 @@ a {
     font-size: 0.8em;
     margin-bottom: 1em; }
     .link-card .subtitle a {
-      color: #007fff;
+      color: #0077ff;
       cursor: pointer; }
   .link-card .image-container {
     height: 5.5em;
@@ -660,18 +666,35 @@ a {
     -webkit-appearance: none;
     font: inherit;
     resize: initial;
-    background: none;
     outline: none;
     border-color: transparent;
     white-space: normal;
     line-height: 1.5em; }
     .link-card .description:hover, .link-card .description:focus {
       border-color: #ccc; }
+    .link-card .description a {
+      color: #0077ff;
+      cursor: pointer; }
+  .link-card .delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 2em;
+    min-width: 2em;
+    display: none;
+    opacity: 0.75;
+    cursor: pointer;
+    color: #E74C3C;
+    font-size: 1.1em; }
+    .link-card .delete-btn:hover {
+      opacity: 1; }
   .link-card.is-expanded {
     max-height: none;
     max-width: none; }
     .link-card.is-expanded .expand-hint:before {
       content: "Minimize"; }
+    .link-card.is-expanded .delete-btn {
+      display: inline-block; }
   .link-card .expand-hint {
     position: absolute;
     bottom: 0.5em;
@@ -686,6 +709,23 @@ a {
       content: "Expand"; }
   .link-card:hover .expand-hint {
     opacity: 0.75; }
+
+.confirm-holder {
+  font-size: 0.9em;
+  margin: 1em;
+  position: relative;
+  background: #333;
+  color: white;
+  border-radius: 1em;
+  padding: 0 1em;
+  white-space: nowrap; }
+  .confirm-holder .confirm-button {
+    display: inline-block;
+    margin-left: 1em;
+    cursor: pointer;
+    color: #ccc; }
+    .confirm-holder .confirm-button:hover {
+      color: white; }
 
 .recent-titles {
   white-space: nowrap;

@@ -81,6 +81,9 @@ function rhsDidChange() {
 	var allLinks = $('#rhs_block a').toArray().map(function (el) {
 		return el.href; // used to have: .replace(/(http:)|(https:)/,'')
 	});
+	allLinks= allLinks.filter(function(link){
+		return link.length > 3;
+	});
 	var mapLinks = allLinks.filter(function (link) {
 		return link.indexOf('www.google.com/maps/') > -1
 	});

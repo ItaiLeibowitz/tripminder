@@ -23,6 +23,27 @@ define('tripmind/app', ['exports', 'ember', 'ember-resolver', 'ember/load-initia
 
   exports['default'] = App;
 });
+define('tripmind/appconfig/better_sanitize', ['exports', 'ember', 'npm:sanitize-html'], function (exports, _ember, _npmSanitizeHtml) {
+	exports['default'] = function (dirty) {
+		return (0, _npmSanitizeHtml['default'])(dirty, {
+			allowedTags: ['h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol', 'nl', 'li', 'b', 'i', 'strong', 'em', 'strike', 'code', 'hr', 'br', 'div', 'table', 'thead', 'caption', 'tbody', 'tr', 'th', 'td', 'pre', 'img'],
+			allowedAttributes: {
+				a: ['href', 'name', 'target'],
+				// We don't currently allow img itself by default, but this
+				// would make sense if we did
+				img: ['src']
+			},
+			// Lots of these won't come up by default because we don't allow them
+			selfClosing: ['img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta'],
+			// URL schemes we permit
+			allowedSchemes: ['http', 'https', 'ftp', 'mailto'],
+			allowedSchemesByTag: {},
+			transformTags: {
+				'a': _npmSanitizeHtml['default'].simpleTransform('a', { target: '_blank' })
+			}
+		});
+	};
+});
 define('tripmind/appconfig/constants', ['exports', 'ember', 'tripmind/config/environment'], function (exports, _ember, _tripmindConfigEnvironment) {
 
 	var Constants = _ember['default'].Object.create({
@@ -1064,6 +1085,42 @@ define('tripmind/components/auth-tokens', ['exports', 'ember'], function (export
 		}
 	});
 });
+define('tripmind/components/autosave-editable', ['exports', 'ember', 'tripmind/appconfig/better_sanitize'], function (exports, _ember, _tripmindAppconfigBetter_sanitize) {
+	exports['default'] = _ember['default'].Component.extend({
+		classNameBindings: ['isEditable'],
+		attributeBindings: ['contenteditable'],
+		valueOW: _ember['default'].computed.oneWay('value'),
+
+		mouseDown: function mouseDown(e) {
+			if (e.target.tagName != "A") {
+				this.set('contenteditable', this.get('canEditContent'));
+			}
+		},
+
+		_updateValue: function _updateValue(value) {
+			this.set('value', value);
+			this.$().html(value);
+		},
+
+		focusOut: function focusOut() {
+			var modelToSave = this.get('saveOnExit'),
+			    self = this;
+			if (modelToSave) {
+				var currentValue = this.$().html();
+				this.set('contenteditable', false);
+				this.set('value', null);
+				this.$().html("");
+				this.set('value', currentValue);
+				this.$().html(currentValue);
+				if (modelToSave.get('updatedAt')) {
+					modelToSave.set('updatedAt', moment().format("X"));
+				}
+				modelToSave.save();
+			}
+			console.log('focused out!');
+		}
+	});
+});
 define('tripmind/components/autosave-text-area', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].TextArea.extend({
 		didInsertElement: function didInsertElement() {
@@ -1089,6 +1146,24 @@ define('tripmind/components/autosave-text-area', ['exports', 'ember'], function 
 			}
 			console.log('focused out!');
 		}
+	});
+});
+define('tripmind/components/button-with-confirmation', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Component.extend({
+		classNameBindings: ['addedClass'],
+
+		click: function click() {
+			this.toggleProperty('isConfirming');
+		},
+
+		actions: {
+			confirm: function confirm(state) {
+				if (state) {
+					this.get('onConfirm')();
+				}
+			}
+		}
+
 	});
 });
 define('tripmind/components/center-marker', ['exports', 'ember', 'tripmind/appconfig/gmaps', 'tripmind/components/map-marker'], function (exports, _ember, _tripmindAppconfigGmaps, _tripmindComponentsMapMarker) {
@@ -1217,7 +1292,7 @@ define('tripmind/components/collection-marker', ['exports', 'ember', 'tripmind/a
 			// (This is determined by click offset because the click itself is registered on an image w/o access to the button
 			if (e.Qb.offsetX >= 120 && e.Qb.offsetX <= 220 && e.Qb.offsetY >= 180 && e.Qb.offsetY <= 220) {
 				console.log('going to item!', this.get('model.name'));
-				this.get('targetObject.targetObject').send('triggerTransition', 'item', this.get('model.slug'));
+				this.get('targetObject.targetObject.targetObject').send('triggerTransition', 'item', this.get('model.slug'));
 				//ga('send', 'event', 'marker', 'readMore');
 			}
 			var currentSetting = this.get('isClicked');
@@ -1304,8 +1379,13 @@ define('tripmind/components/collection-markers', ['exports', 'ember', 'tripmind/
 			return wrappers;
 		}).property('model.[]'),
 
-		ZoomToModel: (function () {
+		_zoomToModel: function _zoomToModel() {
+			console.log('zooming map!');
 			this.set('mapService.bounds', this.get('mapBoundingBox'));
+		},
+
+		zoomToModel: (function () {
+			_ember['default'].run.scheduleOnce('afterRender', this, '_zoomToModel');
 		}).observes('model.[].lat', 'model.[].lng').on('init'),
 
 		mapBoundingBox: (function () {
@@ -1472,6 +1552,9 @@ define('tripmind/components/link-card', ['exports', 'ember'], function (exports,
 		actions: {
 			toggleExpanded: function toggleExpanded() {
 				this.toggleProperty('isExpanded');
+			},
+			deleteLink: function deleteLink() {
+				this.get('model').destroyRecord();
 			}
 		}
 	});
@@ -2692,101 +2775,138 @@ define("tripmind/instance-initializers/ember-data", ["exports", "ember-data/-pri
 define('tripmind/instance-initializers/load_data', ['exports', 'ember', 'tripmind/config/environment'], function (exports, _ember, _tripmindConfigEnvironment) {
 	exports.initialize = initialize;
 
-	var places = [{
-		ancestryNames: "France/Paris",
-		ancestry: "ChIJMVd4MymgVA0R99lHx5Y__Ws/ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
-		address: "75001 Paris, France",
-		longDesc: "The Louvre Palace is a former royal palace located on the Right Bank of the Seine in Paris, between the Tuileries Gardens and the church of Saint-Germain l'Auxerrois. Wikipedia",
-		image: "https://lh5.googleusercontent.com/-HIc3V6HYPg4/VrXryykTJ2I/AAAAAAAAmVo/adAXMHlv0Pw/w3000-k/",
-		lat: "48.8606111",
-		lng: "2.337644",
-		name: "The Louvre",
-		place_id: "ChIJD3uTd9hx5kcR1IQvGfr8dbk",
-		oneliner: "Palace in Paris, France",
-		itemType: "museum",
-		updatedAt: "1460548462"
-	}, {
-		ancestryNames: "France/Paris",
-		ancestry: "ChIJMVd4MymgVA0R99lHx5Y__Ws/ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
-		address: "Montmartre hill, Paris, France",
-		longDesc: "The Basilica of the Sacred Heart of Paris, commonly known as Sacré-Cœur Basilica and often simply Sacré-Cœur, is a Roman Catholic church and minor basilica, dedicated to the Sacred Heart of Jesus, in Paris, France. ",
-		image: "https://lh5.googleusercontent.com/-Bjqfs1z6bJ0/VG8NbQBV5jI/AAAAAAAAAA8/NxjyxM37UAQ/w3000-k/",
-		lat: "48.7606111",
-		lng: "2.437644",
-		name: "Sacre Coeur",
-		place_id: "ChIJ442GNENu5kcRGYUrvgqHw88",
-		oneliner: "Church in Paris, France",
-		itemType: "place of worship",
-		trackingStatus: false,
-		updatedAt: "1465948462"
-	}, {
-		ancestryNames: "France/Paris",
-		ancestry: "ChIJMVd4MymgVA0R99lHx5Y__Ws/ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
-		address: "1 Avenue du Colonel Henri Rol-Tanguy, 75014 Paris, France",
-		longDesc: "The Catacombs of Paris are underground ossuaries in Paris, France which hold the remains of about six million people in a small part of the ancient Mines of Paris tunnel network. Wikipedia",
-		image: "https://lh5.googleusercontent.com/-VpLjFFT9_O8/VAiPrcdVQ9I/AAAAAAAAF4E/o-FmhWyOtJ8/w3000-k/",
-		lat: "48.8338325",
-		lng: "2.3324222",
-		name: "Catacombs of Paris",
-		place_id: "ChIJdbbQwbZx5kcRs7Qu5nPw18g",
-		oneliner: "Cemetery",
-		itemType: "cemetery",
-		updatedAt: "1460712462"
-	}, {
-		ancestryNames: "",
-		ancestry: "",
-		address: "France",
-		longDesc: "France is the most toured country in the World with 80 million visitors annually.",
-		//image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAACXCAMAAADQ4xypAAAAFVBMVEX///8AI5XtKTl0e7fzfYTtESgAAJCDlMQAAAAAp0lEQVR4nO3PNwEAMAADoHT6l1wTOXqAAzJq7krPPrMmjo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Onx0fofSNkUYueUMAAAAASUVORK5CYII=",
-		lat: "46.22606111",
-		lng: "2.21",
-		name: "France",
-		place_id: "ChIJMVd4MymgVA0R99lHx5Y__Ws",
-		oneliner: "Country",
-		itemType: "country",
-		updatedAt: "1460248462"
-	}, {
-		ancestryNames: "",
-		ancestry: "",
-		address: "United States of America",
-		longDesc: "The best country in the world according to many!",
-		image: "data:image/png;base64,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",
-		lat: "37.09024",
-		lng: "-95.712891",
-		name: "USA",
-		place_id: "ChIJCzYy5IS16lQRQrfeQ5K5Oxw",
-		oneliner: "Country",
-		itemType: "country",
-		updatedAt: "1460648462"
-	}, {
-		ancestryNames: "France",
-		ancestry: "ChIJMVd4MymgVA0R99lHx5Y__Ws",
-		address: "Paris, France",
-		longDesc: "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its picturesque 19th-century cityscape is crisscrossed by wide boulevards and the River Seine. Beyond such landmarks as the Eiffel Tower and the 12th-century, Gothic Notre-Dame cathedral, the city is known for its cafe culture, and designer boutiques along the Rue du Faubourg Saint-Honoré.",
-		image: "data:image/jpeg;base64,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",
-		lat: "48.85661400000001",
-		lng: "2.3522219000000177",
-		name: "Paris",
-		place_id: "ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
-		oneliner: "Capital of France",
-		itemType: "locality",
-		updatedAt: "1460348462"
-	}, {
-		ancestryNames: "France",
-		ancestry: "ChIJMVd4MymgVA0R99lHx5Y__Ws",
-		address: "Lyon, France",
-		longDesc: "Lyon is France's capital of gastronomy",
-		image: "data:image/jpeg;base64,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",
-		lat: "44.85661400000001",
-		lng: "1.8522219000000177",
-		name: "Lyon",
-		place_id: "ChIJl4foalHq9EcR8CG75CqrCAQ",
-		oneliner: "City in France",
-		itemType: "locality",
-		updatedAt: "1460738462"
-	}];
+	var places = [];
 
 	var addlData = { data: [{
+			id: "ChIJD3uTd9hx5kcR1IQvGfr8dbk",
+			type: 'item',
+			attributes: {
+				ancestryNames: "France/Paris",
+				ancestry: "ChIJMVd4MymgVA0R99lHx5Y__Ws/ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
+				address: "75001 Paris, France",
+				longDesc: "The Louvre Palace is a former royal palace located on the Right Bank of the Seine in Paris, between the Tuileries Gardens and the church of Saint-Germain l'Auxerrois. Wikipedia",
+				image: "https://lh5.googleusercontent.com/-HIc3V6HYPg4/VrXryykTJ2I/AAAAAAAAmVo/adAXMHlv0Pw/w3000-k/",
+				lat: "48.8606111",
+				lng: "2.337644",
+				name: "The Louvre",
+				place_id: "ChIJD3uTd9hx5kcR1IQvGfr8dbk",
+				oneliner: "Palace in Paris, France",
+				itemType: "museum",
+				updatedAt: "1460548462"
+			},
+			relationships: {
+				collections: {
+					data: [{ type: 'collection', id: "tmp1" }]
+				}
+			}
+		}, {
+			id: "ChIJ442GNENu5kcRGYUrvgqHw88",
+			type: 'item',
+			attributes: {
+				ancestryNames: "France/Paris",
+				ancestry: "ChIJMVd4MymgVA0R99lHx5Y__Ws/ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
+				address: "Montmartre hill, Paris, France",
+				longDesc: "The Basilica of the Sacred Heart of Paris, commonly known as Sacré-Cœur Basilica and often simply Sacré-Cœur, is a Roman Catholic church and minor basilica, dedicated to the Sacred Heart of Jesus, in Paris, France. ",
+				image: "https://lh5.googleusercontent.com/-Bjqfs1z6bJ0/VG8NbQBV5jI/AAAAAAAAAA8/NxjyxM37UAQ/w3000-k/",
+				lat: "48.7606111",
+				lng: "2.437644",
+				name: "Sacre Coeur",
+				place_id: "ChIJ442GNENu5kcRGYUrvgqHw88",
+				oneliner: "Church in Paris, France",
+				itemType: "place of worship",
+				trackingStatus: false,
+				updatedAt: "1465948462"
+			}
+		}, { id: "ChIJdbbQwbZx5kcRs7Qu5nPw18g",
+			type: 'item',
+			attributes: {
+				ancestryNames: "France/Paris",
+				ancestry: "ChIJMVd4MymgVA0R99lHx5Y__Ws/ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
+				address: "1 Avenue du Colonel Henri Rol-Tanguy, 75014 Paris, France",
+				longDesc: "The Catacombs of Paris are underground ossuaries in Paris, France which hold the remains of about six million people in a small part of the ancient Mines of Paris tunnel network. Wikipedia",
+				image: "https://lh5.googleusercontent.com/-VpLjFFT9_O8/VAiPrcdVQ9I/AAAAAAAAF4E/o-FmhWyOtJ8/w3000-k/",
+				lat: "48.8338325",
+				lng: "2.3324222",
+				name: "Catacombs of Paris",
+				place_id: "ChIJdbbQwbZx5kcRs7Qu5nPw18g",
+				oneliner: "Cemetery",
+				itemType: "cemetery",
+				updatedAt: "1460712462"
+			},
+			relationships: {
+				collections: {
+					data: [{ type: 'collection', id: "tmp1" }]
+				}
+			}
+		}, {
+			id: "ChIJMVd4MymgVA0R99lHx5Y__Ws",
+			type: 'item',
+			attributes: {
+				ancestryNames: "",
+				ancestry: "",
+				address: "France",
+				longDesc: "France is the most toured country in the World with 80 million visitors annually.",
+				//image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAACXCAMAAADQ4xypAAAAFVBMVEX///8AI5XtKTl0e7fzfYTtESgAAJCDlMQAAAAAp0lEQVR4nO3PNwEAMAADoHT6l1wTOXqAAzJq7krPPrMmjo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Onx0fofSNkUYueUMAAAAASUVORK5CYII=",
+				lat: "46.22606111",
+				lng: "2.21",
+				name: "France",
+				place_id: "ChIJMVd4MymgVA0R99lHx5Y__Ws",
+				oneliner: "Country",
+				itemType: "country",
+				updatedAt: "1460248462"
+			}
+		}, {
+			id: "ChIJCzYy5IS16lQRQrfeQ5K5Oxw",
+			type: 'item',
+			attributes: {
+				ancestryNames: "",
+				ancestry: "",
+				address: "United States of America",
+				longDesc: "The best country in the world according to many!",
+				image: "data:image/png;base64,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",
+				lat: "37.09024",
+				lng: "-95.712891",
+				name: "USA",
+				place_id: "ChIJCzYy5IS16lQRQrfeQ5K5Oxw",
+				oneliner: "Country",
+				itemType: "country",
+				updatedAt: "1460648462"
+			}
+		}, {
+			id: "ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
+			type: 'item',
+			attributes: {
+				ancestryNames: "France",
+				ancestry: "ChIJMVd4MymgVA0R99lHx5Y__Ws",
+				address: "Paris, France",
+				longDesc: "Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its picturesque 19th-century cityscape is crisscrossed by wide boulevards and the River Seine. Beyond such landmarks as the Eiffel Tower and the 12th-century, Gothic Notre-Dame cathedral, the city is known for its cafe culture, and designer boutiques along the Rue du Faubourg Saint-Honoré.",
+				image: "data:image/jpeg;base64,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",
+				lat: "48.85661400000001",
+				lng: "2.3522219000000177",
+				name: "Paris",
+				place_id: "ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
+				oneliner: "Capital of France",
+				itemType: "locality",
+				updatedAt: "1460348462"
+			}
+		}, {
+			id: "ChIJl4foalHq9EcR8CG75CqrCAQ",
+			type: 'item',
+			attributes: {
+				ancestryNames: "France",
+				ancestry: "ChIJMVd4MymgVA0R99lHx5Y__Ws",
+				address: "Lyon, France",
+				longDesc: "Lyon is France's capital of gastronomy",
+				image: "data:image/jpeg;base64,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",
+				lat: "44.85661400000001",
+				lng: "1.8522219000000177",
+				name: "Lyon",
+				place_id: "ChIJl4foalHq9EcR8CG75CqrCAQ",
+				oneliner: "City in France",
+				itemType: "locality",
+				updatedAt: "1460738462"
+			}
+		}, {
 			id: "tmp1",
 			type: 'collection',
 			attributes: {
@@ -2812,13 +2932,29 @@ define('tripmind/instance-initializers/load_data', ['exports', 'ember', 'tripmin
 			id: "https://www.google.com/search?q=Louvre&oq=louvre",
 			type: 'potentialLink',
 			attributes: {
-				itemId: 'ChIJD3uTd9hx5kcR1IQvGfr8dbk',
 				createdAt: '1460248462',
 				lastVisited: '1460248462',
-				note: "The Louvre Palace is a former royal palace located on the Right Bank of the Seine in Paris, between the Tuileries Gardens and the church of Saint-Germain l'Auxerrois. Wikipedia asdkjashkd",
+				//note: "The Louvre Palace is a former royal palace located on the Right Bank of the Seine in Paris, between the Tuileries Gardens and the church of Saint-Germain l'Auxerrois. Wikipedia asdkjashkd",
+				note: '12345',
 				image: "https://lh5.googleusercontent.com/-HIc3V6HYPg4/VrXryykTJ2I/AAAAAAAAmVo/adAXMHlv0Pw/w3000-k/",
 				title: 'louvre museum - the full website',
 				description: ' I dont know what the desc is for really'
+			},
+			relationships: {
+				item: {
+					data: { type: 'item', id: "ChIJD3uTd9hx5kcR1IQvGfr8dbk" }
+				}
+			}
+		}, {
+			id: "http://www.lonelyplanet.com",
+			type: 'potentialLink',
+			attributes: {
+				createdAt: '1460248462'
+			},
+			relationships: {
+				item: {
+					data: { type: 'item', id: "ChIJD3uTd9hx5kcR1IQvGfr8dbk" }
+				}
 			}
 		}] };
 
@@ -3188,7 +3324,7 @@ define('tripmind/mixins/item-type-conversions', ['exports', 'ember', 'tripmind/a
 		}
 	});
 });
-define('tripmind/mixins/model_with_descs', ['exports', 'ember', 'ember-data'], function (exports, _ember, _emberData) {
+define('tripmind/mixins/model_with_descs', ['exports', 'ember', 'ember-data', 'tripmind/appconfig/better_sanitize'], function (exports, _ember, _emberData, _tripmindAppconfigBetter_sanitize) {
 
 	var ModelWithDescs = _ember['default'].Mixin.create({
 		longDesc: _emberData['default'].attr('string'),
@@ -3206,7 +3342,16 @@ define('tripmind/mixins/model_with_descs', ['exports', 'ember', 'ember-data'], f
 		onelinerOrLong: (function () {
 			if (this.get('onelinerOrAlt')) return this.get('onelinerOrAlt');
 			if (this.get('longDescOrAlt')) return this.get('longDescOrAlt').replace(/<(?:.|\n)*?>/gm, '').slice(0, 80) + "...";
-		}).property('onelinerOrAlt', 'longDescOrAlt')
+		}).property('onelinerOrAlt', 'longDescOrAlt'),
+
+		longDescEditable: _ember['default'].computed('longDesc', {
+			get: function get(key) {
+				return _ember['default'].String.htmlSafe(this.get('longDesc'));
+			}, set: function set(key, value) {
+				this.set('longDesc', (0, _tripmindAppconfigBetter_sanitize['default'])(value));
+				return _ember['default'].String.htmlSafe(value);
+			}
+		})
 	});
 
 	exports['default'] = ModelWithDescs;
@@ -3687,53 +3832,90 @@ define('tripmind/models/collection', ['exports', 'ember', 'ember-data', 'tripmin
 		},
 
 		postToServer: function postToServer() {
-			var self = this;
-			var serializedRecords = [{
-				attributes: this.toJSON(),
-				type: 'collection',
-				id: this.get('tmToken'),
-				relationships: {
-					items: {
-						data: this.get('items').map(function (item) {
-							return { type: 'item', id: item.get('id') };
-						})
-					}
+			var self = this,
+			    linksToSend = _ember['default'].ArrayProxy.create({ content: [] });
+			return this.get('items').then(function (items) {
+				var visitedLinkPromises = items.map(function (item) {
+					return item.get('potentialLinks').then(function (links) {
+						return links.filter(function (link) {
+							return link.get('lastVisited') > 0;
+						});
+					});
+				});
+				return _ember['default'].RSVP.allSettled(visitedLinkPromises).then(function (array) {
+					array.forEach(function (el) {
+						if (el.state == 'fulfilled') linksToSend.addObjects(el.value);
+					});
+					var serializedRecords = [{
+						attributes: self.toJSON(),
+						type: 'collection',
+						id: self.get('tmToken'),
+						relationships: {
+							items: {
+								data: items.map(function (item) {
+									return { type: 'item', id: item.get('id') };
+								})
+							}
 
-				}
-			}],
-			    serializedItems = this.get('items').map(function (item) {
-				return {
-					id: item.get('id'),
-					type: 'item',
-					attributes: item.toJSON(),
-					relationships: {
-						collections: {
-							data: [{ type: 'collection', id: self.get('tmToken') }]
 						}
-					}
-				};
-			});
-			serializedRecords = serializedRecords.concat(serializedItems);
-			var stringifiedRecords = JSON.stringify(serializedRecords);
-			var compressedJSON = lzwCompress.pack(stringifiedRecords);
-			var compressed = JSON.stringify(compressedJSON).length < stringifiedRecords.length;
-			var compressedData = compressed ? compressedJSON : stringifiedRecords;
-			return (0, _tripmindAppconfigHead_only_promise_from_ajax['default'])({
-				url: _tripmindAppconfigConstants['default'].BASE_SERVER_URL + '/api/tm/tm_collections/' + this.get('tmToken'),
-				type: 'PATCH',
-				data: {
-					tm_collection: {
-						is_compressed: compressed,
-						last_updated: this.get('updatedAt'),
-						data: compressedData
-					}
-				}
-			}).then(function () {
-				console.log("resolve: ", compressedData);
-				return compressedData;
-			}, function (status) {
-				console.log('reject:', status);
-				return status;
+					}],
+					    serializedItems = items.map(function (item) {
+						var potentialLinks = item.get('potentialLinks').filter(function (link) {
+							return link.get('lastVisited') > 0;
+						});
+						return {
+							id: item.get('id'),
+							type: 'item',
+							attributes: item.toJSON(),
+							relationships: {
+								collections: {
+									data: [{ type: 'collection', id: self.get('tmToken') }]
+								},
+								potentialLinks: {
+									data: potentialLinks.map(function (link) {
+										return { type: 'potentialLink', id: link.get('id') };
+									})
+								}
+							}
+						};
+					}),
+					    serializedLinks = linksToSend.map(function (link) {
+						return {
+							id: link.get('id'),
+							type: 'potentialLink',
+							attributes: link.toJSON(),
+							relationships: {
+								item: {
+									data: { type: 'item', id: link.get('item.id') }
+								}
+							}
+						};
+					});
+					serializedRecords = serializedRecords.concat(serializedItems).concat(serializedLinks);
+					var stringifiedRecords = JSON.stringify(serializedRecords);
+					var compressedJSON = lzwCompress.pack(stringifiedRecords);
+					var compressed = JSON.stringify(compressedJSON).length < stringifiedRecords.length;
+					var compressedData = compressed ? compressedJSON : stringifiedRecords;
+					return (0, _tripmindAppconfigHead_only_promise_from_ajax['default'])({
+						url: _tripmindAppconfigConstants['default'].BASE_SERVER_URL + '/api/tm/tm_collections/' + self.get('tmToken'),
+						type: 'PATCH',
+						data: {
+							tm_collection: {
+								is_compressed: compressed,
+								last_updated: self.get('updatedAt'),
+								data: compressedData
+							}
+						}
+					}).then(function () {
+						console.log("resolve: ", compressedData);
+						return compressedData;
+					}, function (status) {
+						console.log('reject:', status);
+						return status;
+					});
+				})['catch'](function (error) {
+					console.log('couldnt find all links', error);
+				});
 			});
 		},
 
@@ -3800,6 +3982,13 @@ define('tripmind/models/item', ['exports', 'ember', 'ember-data', 'tripmind/mixi
 		destinationRoute: 'item.overview',
 		isTemporary: _emberData['default'].attr('boolean', { defaultValue: false }),
 		updatedAt: _emberData['default'].attr('string'),
+		potentialLinks: _emberData['default'].hasMany('potentialLink'),
+
+		visitedLinks: (function () {
+			return this.get('potentialLinks').filter(function (link) {
+				return link.get('lastVisited');
+			});
+		}).property('potentialLinks.[].lastVisited'),
 
 		itemDetailsService: _ember['default'].inject.service('item-details-service'),
 
@@ -4059,21 +4248,21 @@ define('tripmind/models/path-index', ['exports', 'ember', 'ember-data'], functio
 });
 define('tripmind/models/potential-link', ['exports', 'ember', 'ember-data', 'tripmind/appconfig/constants'], function (exports, _ember, _emberData, _tripmindAppconfigConstants) {
 	exports['default'] = _emberData['default'].Model.extend({
-		itemId: _emberData['default'].attr('string'),
 		createdAt: _emberData['default'].attr('string'),
 		lastVisited: _emberData['default'].attr('string'),
 		note: _emberData['default'].attr('string'),
 		image: _emberData['default'].attr('string'),
 		title: _emberData['default'].attr('string'),
 		description: _emberData['default'].attr('string'),
+		item: _emberData['default'].belongsTo('item'),
 
 		noteOrDesc: _ember['default'].computed('note', 'description', {
 			get: function get(key) {
-				return _ember['default'].String.htmlSafe(this.get('note')) || this.get('description');
+				return _ember['default'].String.htmlSafe(this.get('note') || this.get('description'));
 			}, set: function set(key, value) {
 				var fieldToUpdate = this.get('note') ? 'note' : 'description';
 				this.set(fieldToUpdate, value);
-				return value;
+				return _ember['default'].String.htmlSafe(value);
 			}
 		}),
 
@@ -4233,19 +4422,18 @@ define('tripmind/routes/item', ['exports', 'ember', 'tripmind/appconfig/utils'],
 			var itemId = params.item_slug.split('+')[0],
 			    store = this.get('store');
 			return store.findRecord('item', itemId).then(function (itemRecord) {
-				// load all relevant links
-				return store.findAll('potentialLink').then(function (allLinks) {
-					var relevantLinks = allLinks.filter(function (l) {
-						return l.get('itemId') == itemId;
+				return itemRecord.get('potentialLinks').then(function (links) {
+					console.log('loaded the links', links);
+					itemRecord.notifyPropertyChange('potentialLinks.[].lastVisited');
+				}, function (s) {
+					console.log('didnt load links', s);
+				}).then(function () {
+					return store.findAll('item').then(function (items) {
+						var descendants = items.filter(function (i) {
+							return i.get('trackingStatus') && i.get('ancestry') && i.get('ancestry').indexOf(itemRecord.get('path')) == 0;
+						});
+						return _ember['default'].Object.create({ item: itemRecord, descendants: descendants });
 					});
-					return { item: itemRecord, links: relevantLinks };
-				});
-			}).then(function (result) {
-				return store.findAll('item').then(function (items) {
-					var descendants = items.filter(function (i) {
-						return i.get('trackingStatus') && i.get('ancestry') && i.get('ancestry').indexOf(result.item.get('path')) == 0;
-					});
-					return _ember['default'].Object.create($.extend(result, { descendants: descendants }));
 				});
 			});
 		},
@@ -4255,8 +4443,7 @@ define('tripmind/routes/item', ['exports', 'ember', 'tripmind/appconfig/utils'],
 		setupController: function setupController(controller, model) {
 			this._super(controller, model.get('item'));
 			controller.setProperties({
-				descendants: model.get('descendants'),
-				links: model.get('links')
+				descendants: model.get('descendants')
 			});
 		}
 	});
@@ -4783,6 +4970,7 @@ define('tripmind/services/map-service', ['exports', 'ember', 'tripmind/appconfig
 		},
 
 		fitToBounds: function fitToBounds() {
+			console.log('fitting bounds!');
 			var bounds = this.get('bounds');
 			if (!bounds) return;
 			var map = this.get('googleMapObject');
@@ -4844,7 +5032,6 @@ define('tripmind/services/map-service', ['exports', 'ember', 'tripmind/appconfig
 			$('#actual-map').appendTo('#expanded-map');
 			this.resizeMap();
 			this.scheduleReCenter();
-			this.scheduleFitBounds();
 			this.setProperties({
 				draggable: true,
 				scrollwheel: true,
@@ -4866,7 +5053,6 @@ define('tripmind/services/map-service', ['exports', 'ember', 'tripmind/appconfig
 			this.set('withAllMarkers', false);
 			this.resizeMap();
 			this.scheduleReCenter();
-			this.scheduleFitBounds();
 			$('#expanded-map').removeClass('is-expanded');
 			this.setProperties({
 				draggable: false,
@@ -6166,6 +6352,204 @@ define("tripmind/templates/components/add-to-collection", ["exports"], function 
     };
   })());
 });
+define("tripmind/templates/components/autosave-editable", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.4.0",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 0
+          }
+        },
+        "moduleName": "tripmind/templates/components/autosave-editable.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["content", "valueOW", ["loc", [null, [1, 0], [1, 11]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
+define("tripmind/templates/components/button-with-confirmation", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": {
+            "name": "triple-curlies"
+          },
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 7,
+              "column": 0
+            }
+          },
+          "moduleName": "tripmind/templates/components/button-with-confirmation.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("	");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "confirm-holder");
+          var el2 = dom.createTextNode("\n		Are you sure?\n		");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2, "class", "confirm-button");
+          var el3 = dom.createTextNode("Yes");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n		");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2, "class", "confirm-button");
+          var el3 = dom.createTextNode("No");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n	");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1]);
+          var element1 = dom.childAt(element0, [1]);
+          var element2 = dom.childAt(element0, [3]);
+          var morphs = new Array(2);
+          morphs[0] = dom.createElementMorph(element1);
+          morphs[1] = dom.createElementMorph(element2);
+          return morphs;
+        },
+        statements: [["element", "action", ["confirm", true], [], ["loc", [null, [4, 30], [4, 55]]]], ["element", "action", ["confirm", false], [], ["loc", [null, [5, 30], [5, 56]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child1 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 7,
+              "column": 0
+            },
+            "end": {
+              "line": 9,
+              "column": 0
+            }
+          },
+          "moduleName": "tripmind/templates/components/button-with-confirmation.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("	");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["content", "yield", ["loc", [null, [8, 1], [8, 10]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.4.0",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 9,
+            "column": 7
+          }
+        },
+        "moduleName": "tripmind/templates/components/button-with-confirmation.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        dom.insertBoundary(fragment, null);
+        return morphs;
+      },
+      statements: [["block", "if", [["get", "isConfirming", ["loc", [null, [1, 6], [1, 18]]]]], [], 0, 1, ["loc", [null, [1, 0], [9, 7]]]]],
+      locals: [],
+      templates: [child0, child1]
+    };
+  })());
+});
 define("tripmind/templates/components/collection-action-bar", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
@@ -7414,18 +7798,71 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
 define("tripmind/templates/components/link-card", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 7,
+                "column": 0
+              }
+            },
+            "moduleName": "tripmind/templates/components/link-card.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("	");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "class", "has-tooltip icon-trash");
+            var el2 = dom.createTextNode("\n		");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("div");
+            dom.setAttribute(el2, "class", "tooltip");
+            var el3 = dom.createTextNode("Delete");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n	");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
       return {
         meta: {
-          "fragmentReason": false,
+          "fragmentReason": {
+            "name": "missing-wrapper",
+            "problems": ["multiple-nodes", "wrong-type"]
+          },
           "revision": "Ember@2.4.0",
           "loc": {
             "source": null,
             "start": {
-              "line": 4,
+              "line": 1,
               "column": 0
             },
             "end": {
-              "line": 6,
+              "line": 12,
               "column": 0
             }
           },
@@ -7437,74 +7874,67 @@ define("tripmind/templates/components/link-card", ["exports"], function (exports
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("	");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createComment("");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
-          return morphs;
-        },
-        statements: [["inline", "autosave-text-area", [], ["class", "description", "cols", "60", "rows", "5", "value", ["subexpr", "@mut", [["get", "model.noteOrDesc", ["loc", [null, [5, 67], [5, 83]]]]], [], []], "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [5, 95], [5, 100]]]]], [], []]], ["loc", [null, [5, 1], [5, 102]]]]],
-        locals: [],
-        templates: []
-      };
-    })();
-    var child1 = (function () {
-      return {
-        meta: {
-          "fragmentReason": false,
-          "revision": "Ember@2.4.0",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 6,
-              "column": 0
-            },
-            "end": {
-              "line": 8,
-              "column": 0
-            }
-          },
-          "moduleName": "tripmind/templates/components/link-card.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("	");
-          dom.appendChild(el0, el1);
           var el1 = dom.createElement("div");
-          dom.setAttribute(el1, "class", "description");
+          dom.setAttribute(el1, "class", "title");
           var el2 = dom.createComment("");
           dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "subtitle");
+          var el2 = dom.createTextNode("Saved from ");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("a");
+          dom.setAttribute(el2, "target", "_blank");
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "image-container");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "expand-hint");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
+          var element0 = dom.childAt(fragment, [3, 1]);
+          var element1 = dom.childAt(fragment, [5]);
+          var element2 = dom.childAt(fragment, [9]);
+          var morphs = new Array(7);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 0, 0);
+          morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+          morphs[2] = dom.createAttrMorph(element0, 'href');
+          morphs[3] = dom.createMorphAt(element0, 0, 0);
+          morphs[4] = dom.createAttrMorph(element1, 'style');
+          morphs[5] = dom.createMorphAt(fragment, 7, 7, contextualElement);
+          morphs[6] = dom.createElementMorph(element2);
           return morphs;
         },
-        statements: [["content", "model.noteOrDesc", ["loc", [null, [7, 26], [7, 46]]]]],
+        statements: [["content", "model.title", ["loc", [null, [2, 19], [2, 34]]]], ["block", "button-with-confirmation", [], ["onConfirm", ["subexpr", "action", ["deleteLink"], [], ["loc", [null, [3, 38], [3, 59]]]], "addedClass", "delete-btn"], 0, null, ["loc", [null, [3, 0], [7, 29]]]], ["attribute", "href", ["get", "model.id", ["loc", [null, [8, 59], [8, 67]]]]], ["content", "model.domain", ["loc", [null, [8, 70], [8, 86]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [9, 37], [9, 53]]]]], ["inline", "autosave-editable", [], ["class", "description", "canEditContent", ["subexpr", "@mut", [["get", "isExpanded", ["loc", [null, [10, 55], [10, 65]]]]], [], []], "isEditable", ["subexpr", "@mut", [["get", "isExpanded", ["loc", [null, [10, 77], [10, 87]]]]], [], []], "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [10, 99], [10, 104]]]]], [], []], "value", ["subexpr", "@mut", [["get", "model.noteOrDesc", ["loc", [null, [10, 111], [10, 127]]]]], [], []]], ["loc", [null, [10, 0], [10, 129]]]], ["element", "action", ["toggleExpanded"], [], ["loc", [null, [11, 25], [11, 52]]]]],
         locals: [],
-        templates: []
+        templates: [child0]
       };
     })();
     return {
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["multiple-nodes", "wrong-type"]
+          "problems": ["wrong-type"]
         },
         "revision": "Ember@2.4.0",
         "loc": {
@@ -7514,7 +7944,7 @@ define("tripmind/templates/components/link-card", ["exports"], function (exports
             "column": 0
           },
           "end": {
-            "line": 11,
+            "line": 13,
             "column": 0
           }
         },
@@ -7526,55 +7956,20 @@ define("tripmind/templates/components/link-card", ["exports"], function (exports
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "title");
-        var el2 = dom.createComment("");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "subtitle");
-        var el2 = dom.createTextNode("Saved from ");
-        dom.appendChild(el1, el2);
-        var el2 = dom.createElement("a");
-        dom.setAttribute(el2, "target", "_blank");
-        var el3 = dom.createComment("");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "image-container");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "expand-hint");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [2, 1]);
-        var element1 = dom.childAt(fragment, [4]);
-        var element2 = dom.childAt(fragment, [7]);
-        var morphs = new Array(6);
-        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [0]), 0, 0);
-        morphs[1] = dom.createAttrMorph(element0, 'href');
-        morphs[2] = dom.createMorphAt(element0, 0, 0);
-        morphs[3] = dom.createAttrMorph(element1, 'style');
-        morphs[4] = dom.createMorphAt(fragment, 6, 6, contextualElement);
-        morphs[5] = dom.createElementMorph(element2);
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["content", "model.title", ["loc", [null, [1, 19], [1, 34]]]], ["attribute", "href", ["get", "model.id", ["loc", [null, [2, 59], [2, 67]]]]], ["content", "model.domain", ["loc", [null, [2, 70], [2, 86]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [3, 37], [3, 53]]]]], ["block", "if", [["get", "isExpanded", ["loc", [null, [4, 6], [4, 16]]]]], [], 0, 1, ["loc", [null, [4, 0], [8, 7]]]], ["element", "action", ["toggleExpanded"], [], ["loc", [null, [9, 25], [9, 52]]]]],
+      statements: [["block", "if", [["get", "model", ["loc", [null, [1, 6], [1, 11]]]]], [], 0, null, ["loc", [null, [1, 0], [12, 7]]]]],
       locals: [],
-      templates: [child0, child1]
+      templates: [child0]
     };
   })());
 });
@@ -10650,7 +11045,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "each", [["get", "links", ["loc", [null, [66, 11], [66, 16]]]]], [], 0, null, ["loc", [null, [66, 3], [68, 12]]]]],
+        statements: [["block", "each", [["get", "model.visitedLinks", ["loc", [null, [66, 11], [66, 29]]]]], [], 0, null, ["loc", [null, [66, 3], [68, 12]]]]],
         locals: [],
         templates: [child0]
       };
@@ -10833,7 +11228,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["block", "if", [["get", "descendants", ["loc", [null, [1, 6], [1, 17]]]]], [], 0, 1, ["loc", [null, [1, 0], [7, 7]]]], ["block", "each", [["get", "model.ancestorsArray", ["loc", [null, [11, 9], [11, 29]]]]], [], 2, null, ["loc", [null, [11, 1], [13, 10]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [18, 50], [18, 66]]]]], ["inline", "map-placeholder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [19, 26], [19, 31]]]]], [], []]], ["loc", [null, [19, 2], [19, 33]]]], ["block", "unless", [["get", "descendants", ["loc", [null, [20, 12], [20, 23]]]]], [], 3, null, ["loc", [null, [20, 2], [49, 13]]]], ["inline", "autosave-text-area", [], ["class", "long-desc", "cols", "60", "rows", "5", "value", ["subexpr", "@mut", [["get", "model.longDesc", ["loc", [null, [53, 66], [53, 80]]]]], [], []], "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [53, 92], [53, 97]]]]], [], []]], ["loc", [null, [53, 2], [53, 99]]]], ["block", "if", [["get", "links", ["loc", [null, [63, 8], [63, 13]]]]], [], 4, null, ["loc", [null, [63, 2], [69, 9]]]], ["block", "if", [["get", "descendants", ["loc", [null, [75, 6], [75, 17]]]]], [], 5, null, ["loc", [null, [75, 0], [77, 7]]]], ["inline", "center-marker", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [79, 22], [79, 27]]]]], [], []]], ["loc", [null, [79, 0], [79, 29]]]]],
+      statements: [["block", "if", [["get", "descendants", ["loc", [null, [1, 6], [1, 17]]]]], [], 0, 1, ["loc", [null, [1, 0], [7, 7]]]], ["block", "each", [["get", "model.ancestorsArray", ["loc", [null, [11, 9], [11, 29]]]]], [], 2, null, ["loc", [null, [11, 1], [13, 10]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [18, 50], [18, 66]]]]], ["inline", "map-placeholder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [19, 26], [19, 31]]]]], [], []]], ["loc", [null, [19, 2], [19, 33]]]], ["block", "unless", [["get", "descendants", ["loc", [null, [20, 12], [20, 23]]]]], [], 3, null, ["loc", [null, [20, 2], [49, 13]]]], ["inline", "autosave-editable", [], ["class", "long-desc", "canEditContent", true, "isEditable", true, "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [53, 87], [53, 92]]]]], [], []], "value", ["subexpr", "@mut", [["get", "model.longDescEditable", ["loc", [null, [53, 99], [53, 121]]]]], [], []]], ["loc", [null, [53, 2], [53, 123]]]], ["block", "if", [["get", "model.visitedLinks", ["loc", [null, [63, 8], [63, 26]]]]], [], 4, null, ["loc", [null, [63, 2], [69, 9]]]], ["block", "if", [["get", "descendants", ["loc", [null, [75, 6], [75, 17]]]]], [], 5, null, ["loc", [null, [75, 0], [77, 7]]]], ["inline", "center-marker", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [79, 22], [79, 27]]]]], [], []]], ["loc", [null, [79, 0], [79, 29]]]]],
       locals: [],
       templates: [child0, child1, child2, child3, child4, child5]
     };
@@ -11199,7 +11594,7 @@ catch(err) {
 
 /* jshint ignore:start */
 if (!runningTests) {
-  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+c6667e1b"});
+  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+58a4e641"});
 }
 /* jshint ignore:end */
 //# sourceMappingURL=tripmind.map

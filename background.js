@@ -188,13 +188,17 @@ function foundObjectInfo(data) {
 			if (trackingStatus) {
 				var now = moment().format("X");
 				var allLinks = data.searchLinks.concat(data.externalLinks);
-				allLinks.forEach(function(link){
-					TripmindStore.createRecord('potentialLink',{
-						id: link,
-						createdAt: now,
-						item: itemRecord
-					})
-				})
+				allLinks.forEach(function (link) {
+					TripmindStore.findRecord('potentialLink', link, {reload: true})
+						.catch(function (notFound) {
+							var newLinkRecord = TripmindStore.createRecord('potentialLink', {
+								id: link,
+								createdAt: now,
+								item: itemRecord
+							});
+							newLinkRecord.save();
+						})
+				});
 					/*formattedLinks = allLinks.map(function (link) {
 						return {id: link,
 							type: 'potentialLink',
