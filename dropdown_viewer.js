@@ -33,7 +33,12 @@ function updateMessageContent(data){
 	$message.find('.message-title').html(data.title);
 	$message.find('.name').html(data.name);
 	$message.find('.type').html(data.itemType ? data.itemType.replace(/_/g, " ") : "");
-	$message.find('.long-desc')[0].value = data.longDesc;
+	// Setup the main editable field
+	$message.find('.editable').html(data.editableDesc);
+	$message.find('.editable').attr('data-record-type', data.recordType);
+	$message.find('.editable').attr('data-id', data.recordId);
+	$message.find('.editable').attr('data-field', data.fieldName);
+
 	$message.find('.image').attr('src', data.imageSource);
 	$message.removeClass('hidden');
 	window.setTimeout(function(){
@@ -60,7 +65,10 @@ function updateMessageForItem(data) {
 		updateMessageContent({
 			title: 'Keeping track of:',
 			name: data.item.name,
-			longDesc: data.item.longDesc,
+			editableDesc: data.item.longDesc,
+			recordType: 'item',
+			recordId: data.item.gmapsReference,
+			fieldName: 'longDesc',
 			itemType: data.item.itemType,
 			imageSource: data.item.image
 		})
@@ -75,14 +83,39 @@ function updateMessageForItem(data) {
 	);
 }
 
-function autosave(field, value){
+function updateMessageForLink(data) {
+	if (data.trackingStatus) {
+		updateMessageContent({
+			title: 'Keeping track of:',
+			name: data.item.name,
+			editableDesc: data.link.note,
+			recordType: 'potentialLink',
+			recordId: data.link.id,
+			fieldName: 'note',
+			itemType: data.item.itemType,
+			imageSource: data.item.image
+		})
+	}
+
+	chrome.runtime.sendMessage({
+			target: 'content-viewer',
+			method: 'runFunction',
+			methodName: "showMessage",
+			data: data.trackingStatus
+		}
+	);
+}
+
+function autosave(field, value, recordType, id){
 	chrome.runtime.sendMessage({
 			target: 'background',
 			method: 'runFunction',
 			methodName: "updateValue",
 			data: {
 				field: field,
-				value: value
+				value: value,
+				recordType: recordType,
+				id: id
 			}
 		}
 	);
@@ -135,7 +168,8 @@ function setupOtherClicks() {
 
 function setupAutoSave() {
 	$(document).on('blur', '.autosave', function(e){
-		autosave($(e.target).attr('data-field'), e.target.value);
+		var $target = $(e.target);
+		autosave($target.attr('data-field'), $target.html(), $target.attr('data-record-type'), $target.attr('data-id'));
 	})
 }
 

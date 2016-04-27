@@ -2374,8 +2374,11 @@ define('tripmind/components/share-collection', ['exports', 'ember'], function (e
 			model.getTmToken().then(function (result) {
 				if (result.redirect) {
 					self.get('targetObject').send('triggerTransition', 'collection', result.token);
+					self.set('model', result.newModel);
+					return result.newModel.postToServer();
+				} else {
+					return model.postToServer();
 				}
-				return model.postToServer();
 			}).then(function (result) {
 				//TODO: Send the code and codesystem to the collection for storage then on acceptance set loading to false
 				self.set('code', result.code);
@@ -3794,7 +3797,7 @@ define('tripmind/models/collection', ['exports', 'ember', 'ember-data', 'tripmin
 			    store = this.store;
 			return new _ember['default'].RSVP.Promise(function (resolve, reject) {
 				if (self.get('tmToken')) {
-					resolve({ token: self.get('tmToken') });
+					resolve();
 				} else {
 					(0, _tripmindAppconfigPromise_from_ajax['default'])({
 						url: _tripmindAppconfigConstants['default'].BASE_SERVER_URL + '/api/tm/tm_collections/',
@@ -3819,7 +3822,8 @@ define('tripmind/models/collection', ['exports', 'ember', 'ember-data', 'tripmin
 							self.destroyRecord();
 							resolve({
 								token: self.get('tmToken'),
-								redirect: true
+								redirect: true,
+								newModel: newCollection
 							});
 						}, function () {
 							reject('could not save');
@@ -4260,8 +4264,7 @@ define('tripmind/models/potential-link', ['exports', 'ember', 'ember-data', 'tri
 			get: function get(key) {
 				return _ember['default'].String.htmlSafe(this.get('note') || this.get('description'));
 			}, set: function set(key, value) {
-				var fieldToUpdate = this.get('note') ? 'note' : 'description';
-				this.set(fieldToUpdate, value);
+				this.set('note', value);
 				return _ember['default'].String.htmlSafe(value);
 			}
 		}),
@@ -4834,10 +4837,10 @@ define('tripmind/services/item-details-service', ['exports', 'ember', 'tripmind/
 							var topResult = filteredResults[0];
 							var massagedResult = $.extend(topResult, { name: topResult.description });
 							var item = self.buildItemInfoFromResults({}, massagedResult);
-							var itemRecord = store.peekRecord('item', item.place_id);
+							var itemRecord = store.peekRecord('item', item.gmapsReference);
 							//if it doesn't exist, create it.
 							if (!itemRecord) {
-								itemRecord = store.createRecord('item', $.extend(item, { id: item.place_id }));
+								itemRecord = store.createRecord('item', $.extend(item, { id: item.gmapsReference }));
 							}
 							resolve(itemRecord);
 						} else {
@@ -4865,7 +4868,7 @@ define('tripmind/services/item-details-service', ['exports', 'ember', 'tripmind/
 			if (result.types && result.types.length > 0) {
 				item.itemType = result.types[0];
 			}
-			item.place_id = result.place_id;
+			item.gmapsReference = result.place_id;
 			item.address = result.formatted_address;
 			item.rating = result.rating;
 			if (!item.name) item.name = result.name;
@@ -5531,7 +5534,7 @@ define("tripmind/templates/collection", ["exports"], function (exports) {
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["inline", "action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [1, 59], [1, 73]]]]], ["loc", [null, [1, 29], [1, 74]]]], "targetModel", ["subexpr", "@mut", [["get", "model", ["loc", [null, [1, 87], [1, 92]]]]], [], []], "isInCollection", true], ["loc", [null, [1, 0], [1, 114]]]], ["inline", "collection-action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [3, 70], [3, 84]]]]], ["loc", [null, [3, 40], [3, 85]]]], "addedClass", "in", "targetModel", ["subexpr", "@mut", [["get", "model", ["loc", [null, [3, 114], [3, 119]]]]], [], []]], ["loc", [null, [3, 0], [3, 121]]]], ["inline", "input-with-default", [], ["value", ["subexpr", "@mut", [["get", "model.name", ["loc", [null, [5, 27], [5, 37]]]]], [], []], "addedClass", "collection-title", "default", "Untitled", "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [5, 98], [5, 103]]]]], [], []]], ["loc", [null, [5, 0], [5, 105]]]], ["block", "each", [["get", "model.items", ["loc", [null, [6, 8], [6, 19]]]]], [], 0, null, ["loc", [null, [6, 0], [8, 9]]]], ["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "model.items", ["loc", [null, [10, 27], [10, 38]]]]], [], []]], ["loc", [null, [10, 0], [10, 40]]]]],
+      statements: [["inline", "action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [1, 59], [1, 73]]]]], ["loc", [null, [1, 29], [1, 74]]]], "targetCollection", ["subexpr", "@mut", [["get", "model", ["loc", [null, [1, 92], [1, 97]]]]], [], []], "isInCollection", true], ["loc", [null, [1, 0], [1, 119]]]], ["inline", "collection-action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [3, 70], [3, 84]]]]], ["loc", [null, [3, 40], [3, 85]]]], "addedClass", "in", "targetModel", ["subexpr", "@mut", [["get", "model", ["loc", [null, [3, 114], [3, 119]]]]], [], []]], ["loc", [null, [3, 0], [3, 121]]]], ["inline", "input-with-default", [], ["value", ["subexpr", "@mut", [["get", "model.name", ["loc", [null, [5, 27], [5, 37]]]]], [], []], "addedClass", "collection-title", "default", "Untitled", "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [5, 98], [5, 103]]]]], [], []]], ["loc", [null, [5, 0], [5, 105]]]], ["block", "each", [["get", "model.items", ["loc", [null, [6, 8], [6, 19]]]]], [], 0, null, ["loc", [null, [6, 0], [8, 9]]]], ["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "model.items", ["loc", [null, [10, 27], [10, 38]]]]], [], []]], ["loc", [null, [10, 0], [10, 40]]]]],
       locals: [],
       templates: [child0]
     };
@@ -5847,7 +5850,7 @@ define("tripmind/templates/components/action-bar", ["exports"], function (export
               morphs[0] = dom.createElementMorph(element3);
               return morphs;
             },
-            statements: [["element", "action", ["removeFromCollection", ["get", "targetModel", ["loc", [null, [20, 96], [20, 107]]]]], [], ["loc", [null, [20, 64], [20, 109]]]]],
+            statements: [["element", "action", ["removeFromCollection", ["get", "targetCollection", ["loc", [null, [20, 96], [20, 112]]]]], [], ["loc", [null, [20, 64], [20, 114]]]]],
             locals: [],
             templates: []
           };
@@ -11594,7 +11597,7 @@ catch(err) {
 
 /* jshint ignore:start */
 if (!runningTests) {
-  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+58a4e641"});
+  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+55d444c6"});
 }
 /* jshint ignore:end */
 //# sourceMappingURL=tripmind.map

@@ -71,15 +71,18 @@ anypage_registerUrl = function(){
 		}
 		if (bestImageName) image = bestImageName
 	}
+	var specificPageData = {};
+	if (typeof(getPageContents) == "function") specificPageData = getPageContents();
 	chrome.runtime.sendMessage({
 		target: 'background',
 		method: 'runFunction',
 		methodName: "registerUrl",
 		data: {
 			url: document.location.toString(), //.replace(/(http:)|(https:)/,''),
-			title: title,
-			description: description,
-			image: image,
+			title: specificPageData.title || title,
+			description: specificPageData.description || description,
+			image: specificPageData.image || image,
+			note: specificPageData.note || null,
 			targetMsgId: UNIQUE_DROPDOWN_VIEWER_ID
 		}
 	});

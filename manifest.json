@@ -30,13 +30,13 @@
 			"css" : ["google.css"]
 		},
 		{
+			"matches": ["https://www.lonelyplanet.com/*", "http://www.lonelyplanet.com/*"],
+			"js": ["jquery/jquery-2.2.1.min.js","lp.js"]
+		},
+		{
 			"matches": ["<all_urls>"],
 			"js": ["jquery/jquery-2.2.1.min.js", "anypage.js"],
 			"css" : ["anypage.css"]
-		},
-		{
-			"matches": ["https://www.lonelyplanet.com/*", "http://www.lonelyplanet.com/*"],
-			"js": ["lp.js"]
 		}
 	],
 	"web_accessible_resources": ["dropdown_viewer.html"],

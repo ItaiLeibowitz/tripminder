@@ -662,6 +662,7 @@ a {
   .link-card .description {
     color: #777;
     line-height: 1.5em;
+    min-height: 1.5em;
     margin: 1em 0;
     -webkit-appearance: none;
     font: inherit;
@@ -695,6 +696,9 @@ a {
       content: "Minimize"; }
     .link-card.is-expanded .delete-btn {
       display: inline-block; }
+    .link-card.is-expanded .description:empty:before {
+      content: "Add a note";
+      color: #ccc; }
   .link-card .expand-hint {
     position: absolute;
     bottom: 0.5em;
@@ -767,9 +771,13 @@ a {
     outline: none;
     border-color: transparent;
     white-space: normal;
-    line-height: 1.5em; }
+    line-height: 1.5em;
+    min-height: 1.5em; }
     .lhs .long-desc:hover, .lhs .long-desc:focus {
       border-color: #ccc; }
+    .lhs .long-desc:empty:before {
+      content: "Add a description";
+      color: #ccc; }
 
 .rhs {
   display: inline-block;

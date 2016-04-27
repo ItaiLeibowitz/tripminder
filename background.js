@@ -56,10 +56,10 @@ function toggleTracking(data, callback){
 }
 
 function updateValue(data){
-	TripmindStore.findRecord('item', TripMinder.currentItem.get('id'),{reload: true})
-		.then(function(itemRecord){
-			itemRecord.set(data.field, sanitizeHtml(data.value));
-			itemRecord.save().then(function () {
+	TripmindStore.findRecord(data.recordType || 'item', data.id || TripMinder.currentItem.get('id'), {reload: true})
+		.then(function(record){
+			record.set(data.field, sanitizeHtml(data.value));
+			record.save().then(function () {
 				chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
 					chrome.tabs.sendMessage(tabs[0].id, {
 						target: 'dropdown_viewer',
@@ -111,7 +111,7 @@ if (!item.lat && result.geometry) {
 	if (result.types && result.types.length > 0) {
 		item.itemType = result.types[0];
 	}
-	item.place_id = result.place_id;
+	item.gmapsReference = result.place_id;
 	item.address = result.formatted_address;
 	item.rating = result.rating;
 	if (!item.name) item.name = result.name;
@@ -140,6 +140,24 @@ function sendItemDataMessage(item, trackingStatus, targetMsgId, counter) {
 	}
 }
 
+function sendLinkDataMessage(item, trackingStatus, link, targetMsgId, counter) {
+	//console.log('trying to send message', counter, targetMsgId, TripMinder)
+	if (TripMinder.readyState[targetMsgId]) {
+		chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, {
+					target: 'dropdown_viewer',
+					method: 'runFunction',
+					methodName: "updateMessageForLink",
+					data: {item: item, trackingStatus: trackingStatus, link: link}}
+			);
+		});
+	} else if (counter <= 20) {
+		window.setTimeout(function () {
+			sendLinkDataMessage(item, trackingStatus, link, targetMsgId, counter + 1)
+		}, 200);
+	}
+}
+
 
 
 
@@ -151,12 +169,12 @@ function findPlaceFromQuery(query, data){
 			if (status == google.maps.places.PlacesServiceStatus.OK) {
 				if (results && results.length > 0) {
 					var item = buildItemInfoFromResults(data || {}, results[0]);
-					TripmindStore.findRecord('item', item.place_id, {reload: true})
+					TripmindStore.findRecord('item', item.gmapsReference, {reload: true})
 						.then(function(itemRecord){
 							return itemRecord;
 						})
 						.catch(function(notFound){
-							var itemRecord = TripmindStore.createRecord('item', $.extend(item, {id: item.place_id}));
+							var itemRecord = TripmindStore.createRecord('item', $.extend(item, {id: item.gmapsReference}));
 							return itemRecord.save();
 						})
 						.then(function(itemRecord){
@@ -220,13 +238,12 @@ function foundObjectInfo(data) {
 
 
 function registerUrl(data){
-	TripmindStore.findRecord('potentialLink', data.url)
+	TripmindStore.findRecord('potentialLink', data.url, {reload:true})
 	.then(function(potentialLink){
 		potentialLink.get('item').then(function(itemRecord){
 			TripMinder.currentItem = itemRecord;
 			trackingStatus = itemRecord.get('trackingStatus');
 			//console.log('found link for:', itemId);
-			if (data.targetMsgId) sendItemDataMessage(itemRecord, trackingStatus, data.targetMsgId, 0);
 			var currentTime =  moment().format("X");
 			potentialLink.setProperties({
 				title: potentialLink.get('title') || data.title,
@@ -234,9 +251,11 @@ function registerUrl(data){
 				image: data.overwrite ? data.image : (potentialLink.get('image') || data.image),
 				note: potentialLink.get('note') || data.note,
 				lastVisited: currentTime,
-				createdAt: potentialLink.get('image') || currentTime
+				createdAt: potentialLink.get('createdAt') || currentTime
 			});
 			potentialLink.save();
+			if (data.targetMsgId) sendLinkDataMessage(itemRecord, trackingStatus, $.extend(potentialLink.toJSON(), {id:data.url}), data.targetMsgId, 0);
+
 		});
 	})
 	.catch(function(){
