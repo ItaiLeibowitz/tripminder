@@ -54,6 +54,11 @@ chrome.runtime.onMessage.addListener(
 		}
 	});
 
+handleVisibilityChange = function(e){
+	e.target.removeEventListener(e.type, arguments.callee);
+	anypage_startupWhenVisible();
+}
+
 anypage_registerUrl = function(){
 	var title = document.title,
 		description = $('meta[name="description"]').attr('content'),
@@ -91,10 +96,18 @@ anypage_registerUrl = function(){
 function anypage_setupButtons(){
 }
 
+function anypage_startupWhenVisible(){
+	if (document.hidden) {
+		document.addEventListener("visibilitychange", handleVisibilityChange);
+		return;
+	}
+	anypage_registerUrl();
+}
+
 function anypage_startup() {
 	anypage_setupButtons();
 	anypage_drawDropDownIframe();
-	anypage_registerUrl();
+	anypage_startupWhenVisible();
 }
 
 
