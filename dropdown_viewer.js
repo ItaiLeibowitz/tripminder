@@ -29,21 +29,23 @@ function cancelClose(){
 }
 
 function updateMessageContent(data){
-	var $message = $('#message');
-	$message.find('.message-title').html(data.title);
-	$message.find('.name').html(data.name);
-	$message.find('.type').html(data.itemType ? data.itemType.replace(/_/g, " ") : "");
-	// Setup the main editable field
-	$message.find('.editable').html(data.editableDesc);
-	$message.find('.editable').attr('data-record-type', data.recordType);
-	$message.find('.editable').attr('data-id', data.recordId);
-	$message.find('.editable').attr('data-field', data.fieldName);
 
-	$message.find('.image').attr('src', data.imageSource);
+	var $message = $('#message');
+	if (data.title) $message.find('.message-title').html(data.title);
+	if (data.name) $message.find('.name').html(data.name);
+	if (data.itemType) $message.find('.type').html(data.itemType ? data.itemType.replace(/_/g, " ") : "");
+	// Setup the main editable field
+	if (data.editableDesc) {
+		$message.find('.editable').html(data.editableDesc);
+		$message.find('.editable').attr('data-record-type', data.recordType);
+		$message.find('.editable').attr('data-id', data.recordId);
+		$message.find('.editable').attr('data-field', data.fieldName);
+	}
+
+	if (data.imageSource) $message.find('.image').attr('src', data.imageSource);
 	$message.removeClass('hidden');
-	window.setTimeout(function(){
-		$message.addClass('hidden');
-	}, 3000)
+	$('.hide-if-empty').removeClass('hidden');
+	$('.search-field-holder').addClass('hidden');
 }
 
 function showFeedback(data){
@@ -78,12 +80,12 @@ function updateMessageForItem(data) {
 			target: 'content-viewer',
 			method: 'runFunction',
 			methodName: "showMessage",
-			data: data.trackingStatus
+			data: {trackingStatus: data.trackingStatus}
 		}
 	);
 }
 
-function updateMessageForLink(data) {
+function updateMessageForLink(data, keepOpen) {
 	if (data.trackingStatus) {
 		updateMessageContent({
 			title: 'Keeping track of:',
@@ -101,10 +103,14 @@ function updateMessageForLink(data) {
 			target: 'content-viewer',
 			method: 'runFunction',
 			methodName: "showMessage",
-			data: data.trackingStatus
+			data: {trackingStatus: data.trackingStatus, keepOpen: keepOpen}
 		}
 	);
 }
+
+
+
+
 
 function autosave(field, value, recordType, id){
 	chrome.runtime.sendMessage({
@@ -173,11 +179,48 @@ function setupAutoSave() {
 	})
 }
 
+function setupSearchField(){
+	var field = $('#search-field');
+	field.autocomplete({
+		source: function(request, response){
+			chrome.runtime.sendMessage({
+				target: 'background',
+				method: 'runFunction',
+				methodName: "updateSearch",
+				data: request.term
+			}, function(results){
+				response($.map(results, function (prediction, i) {
+					return {
+						label: prediction.description
+					}
+				}));
+			});
+		},
+		select: function(event, ui){
+			updateMessageForLink({
+				item: {name: ui.item.label},
+				link: {note: null, id: document.referrer},
+				trackingStatus: true
+			});
+			chrome.runtime.sendMessage({
+				target: 'background',
+				method: 'runFunction',
+				methodName: "selectSearch",
+				data: {
+					selection: ui.item.label,
+					url: document.referrer
+				}
+			});
+		}
+	});
+}
+
 
 
 function startup() {
 	setupCloseButtons();
 	setupOtherClicks();
+	setupSearchField();
 	setupAutoSave();
 }
 

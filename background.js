@@ -1,5 +1,5 @@
 TripMinder = {
-	readyState: {},
+	readyState: {null: true},
 	trackedPlaces: {}
 };
 
@@ -43,6 +43,55 @@ function renderMap(data) {
 	}
 }
 
+
+function updateSearch(query, callback) {
+	gmaps.placesAutocompleteService.getPlacePredictions({input: query}, function (results, status) {
+		if (status == google.maps.places.PlacesServiceStatus.OK) {
+			TripMinder.searchCache = results;
+			callback(results)
+		}
+	});
+}
+
+function selectSearch(data){
+	var selectedPrediction = TripMinder.searchCache.find(function(prediction){
+		return prediction.description == data.selection;
+	});
+	findPlaceFromPlaceId(selectedPrediction.place_id)
+		.then(function(itemRecord){
+			TripMinder.currentItem = itemRecord;
+
+
+
+			// Add the potential links to the store if the item is being tracked
+			var trackingStatus = itemRecord.get('trackingStatus');
+			if (trackingStatus) {
+				var now = moment().format("X");
+			}
+			var link = {
+				id: data.url,
+				note: null
+			};
+
+			ItemDetailsService.getAdditionalItemInfo(itemRecord.get('id'))
+				.then(function(itemRecord){
+					sendLinkDataMessage(itemRecord, trackingStatus, link, null, 0);
+				})
+
+
+			// Register the url
+			chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+				chrome.tabs.sendMessage(tabs[0].id, {
+					target: 'content-viewer',
+					method: 'runFunction',
+					methodName: "registerUrl",
+					data: selectedPrediction.place_id
+				});
+			});
+
+		})
+}
+
 function toggleTracking(data, callback) {
 	if (data.name == TripMinder.currentItem.get('name')) {
 		TripmindStore.findRecord('item', TripMinder.currentItem.get('id'), {reload: true})
@@ -56,7 +105,7 @@ function toggleTracking(data, callback) {
 }
 
 function updateValue(data) {
-	TripmindStore.findRecord(data.recordType || 'item', data.id || TripMinder.currentItem.get('id'), {reload: true})
+	TripmindStore.findRecord(data.recordType || 'item', data.id, {reload: true})
 		.then(function (record) {
 			record.set(data.field, sanitizeHtml(data.value));
 			record.save().then(function () {
@@ -167,14 +216,7 @@ function findPlaceFromQuery(query, data) {
 			if (status == google.maps.places.PlacesServiceStatus.OK) {
 				if (results && results.length > 0) {
 					var item = buildItemInfoFromResults(data || {}, results[0]);
-					TripmindStore.findRecord('item', item.gmapsReference, {reload: true})
-						.then(function (itemRecord) {
-							return itemRecord;
-						})
-						.catch(function (notFound) {
-							var itemRecord = TripmindStore.createRecord('item', $.extend(item, {id: item.gmapsReference}));
-							return itemRecord.save();
-						})
+					findPlaceFromPlaceId(item.gmapsReference, item)
 						.then(function (itemRecord) {
 							resolve(itemRecord);
 						});
@@ -186,6 +228,17 @@ function findPlaceFromQuery(query, data) {
 			}
 		});
 	});
+}
+
+function findPlaceFromPlaceId(placeId, item){
+	return TripmindStore.findRecord('item', placeId, {reload: true})
+		.then(function (itemRecord) {
+			return itemRecord;
+		})
+		.catch(function (notFound) {
+			var itemRecord = TripmindStore.createRecord('item', $.extend(item, {id: placeId}));
+			return itemRecord.save();
+		});
 }
 
 function foundObjectInfo(data) {
@@ -200,7 +253,7 @@ function foundObjectInfo(data) {
 			TripMinder.currentItem = itemRecord;
 			var allLinks = data.searchLinks.concat(data.externalLinks).uniq();
 			//send a note to the server about the new links
-			promiseFromAjax({
+			$.ajax({
 				url: 'https://www.wanderant.com/api/tm/tm_links/',
 				type: 'POST',
 				data: {
@@ -224,19 +277,9 @@ function foundObjectInfo(data) {
 							newLinkRecord.save();
 						}
 				});
-				/*formattedLinks = allLinks.map(function (link) {
-				 return {id: link,
-				 type: 'potentialLink',
-				 attributes: {
-				 itemId: itemRecord.get('id'),
-				 createdAt: now
-				 }
-				 };
-				 });
-				 TripmindStore.push({data: formattedLinks});*/
 			}
 			sendItemDataMessage(itemRecord, trackingStatus, data.targetMsgId, 0);
-			ItemDetailsService.getAdditionalItemInfo(itemRecord.get('id'));
+			if (!data.skipAddedDetails) ItemDetailsService.getAdditionalItemInfo(itemRecord.get('id'));
 		}, function () {
 			TripMinder.currentItem = null;
 		});
@@ -303,6 +346,27 @@ function registerUrl(data) {
 							});
 						// otherwise, this is a new url we don't know about yet...
 					} else {
+						// if we already found the link before then this is its item
+						if (data.forcedItemPlaceId) {
+							return TripmindStore.findRecord('item', data.forcedItemPlaceId)
+								.then(function (itemRecord) {
+									console.log('item found by user')
+
+									// we need to create a link record for this item now:
+									var now = moment().format("X");
+									var newLinkRecord = TripmindStore.createRecord('potentialLink', {
+										id: data.url,
+										createdAt: now,
+										item: itemRecord
+									});
+									newLinkRecord.save();
+									itemRecord.save();
+									return {
+										itemRecord: itemRecord,
+										potentialLink: newLinkRecord
+									}
+								});
+						}
 						console.log('i have no information about this link...')
 						return null
 					}
@@ -317,7 +381,8 @@ function registerUrl(data) {
 					url: 'https://www.wanderant.com/api/tm/tm_links/increment_visits',
 					type: 'GET',
 					data: {
-						id: data.url
+						id: data.url,
+						item_id:  result.itemRecord.get('id')
 					}
 				});
 				trackingStatus = result.itemRecord.get('trackingStatus');
@@ -334,7 +399,7 @@ function registerUrl(data) {
 						createdAt: result.potentialLink.get('createdAt') || currentTime
 					});
 					result.potentialLink.save();
-					if (data.targetMsgId) sendLinkDataMessage(result.itemRecord, trackingStatus, $.extend(result.potentialLink.toJSON(), {id: data.url}), data.targetMsgId, 0);
+					sendLinkDataMessage(result.itemRecord, trackingStatus, $.extend(result.potentialLink.toJSON(), {id: data.url}), data.targetMsgId, 0);
 				}
 			}
 		})
@@ -370,7 +435,22 @@ function openCurrentInTripmind() {
 	openTripmindTab(addedRoute);
 }
 
-chrome.browserAction.onClicked.addListener(openTripmindTab);
+function openPopup(){
+	chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+		chrome.tabs.sendMessage(tabs[0].id, {
+			target: 'content-viewer',
+			method: 'runFunction',
+			methodName: "showMessage",
+			data: {
+				trackingStatus: true,
+				keepOpen: true
+			}
+		});
+	});
+}
+
+
+chrome.browserAction.onClicked.addListener(openPopup);
 
 
 function updateLocalStorage() {

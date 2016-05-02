@@ -3,6 +3,10 @@ body{
 }
 
 
+.hidden{
+	display: none !important;
+}
+
 #container{
 	padding: 1em;
 	display: inline-block;
@@ -68,6 +72,29 @@ body{
 	right: 0;
 	top: 0;
 	cursor: pointer;
+}
+
+.search-field-holder{
+	position: relative;
+	width: 100%;
+}
+
+.ui-autocomplete{
+	width: 100% !important;
+	font-size: 0.9em;
+}
+
+.ui-menu-item{
+	white-space: normal;
+}
+
+#search-field {
+	outline: none;
+	border: none;
+	padding: 1em;
+	width: 100%;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ccc;
 }
 
 .image {

@@ -16,13 +16,16 @@
 			<div class="message-title"></div>
 			<div class="cancel-btn">Untrack</div>
 		</div>
+		<div class="search-field-holder ui-front">
+			<input id="search-field" placeholder="What is this page related to?"></input>
+		</div>
 		<img class="image" src="">
- 		<div class="details">
+ 		<div class="details hidden hide-if-empty">
 			<div class="name"></div>
 			<div class="type"></div>
 		</div>
-		<div class="editable autosave" data-field="longDesc" contenteditable="true" data-text="Add a note"></div>
-		<div class="open-link">Open in Tripmind</div>
+		<div class="editable autosave hidden hide-if-empty" data-field="longDesc" contenteditable="true" data-text="Add a note"></div>
+		<div class="open-link hidden hide-if-empty">Open in Tripmind</div>
 	</div>
 	<div class="feedback"></div>
 </div>

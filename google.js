@@ -1,5 +1,6 @@
 var google_cex = google_cex || {};
-
+var inFlightStatusElem = $('<div id="tm_status_elem" style="display:none" data-in-flux="true"></div>');
+$('body').append(inFlightStatusElem);
 
 //var UNIQUE_DROPDOWN_VIEWER_ID = 'cex_iframe_' + Math.random();
 
@@ -31,6 +32,7 @@ function updateRhsStatus(trackingStatus){
 	if (!rhsStatusElem || rhsStatusElem.length == 0) {
 		rhsStatusElem = $('<div id="rhs-tripmind-status"><div class="toggle-tracking"></div><div class="tripmind-open"></div></div>');
 		$('#rhs_block').prepend(rhsStatusElem);
+		$('#tm_status_elem').attr('data-in-flux', false);
 	}
 	if (trackingStatus) {
 		rhsStatusElem.addClass('tracked');
@@ -148,7 +150,8 @@ function rhsDidChange() {
 			searchLinks: searchLinks,
 			longDesc: descriptionText,
 			oneliner: summaryText,
-			targetMsgId: UNIQUE_DROPDOWN_VIEWER_ID
+			targetMsgId: UNIQUE_DROPDOWN_VIEWER_ID,
+			skipAddedDetails: $('.scrape-btn').length > 0
 		}
 	});
 
@@ -161,7 +164,7 @@ function checkRHS() {
 		google_cex.searchTermDidChange = false;
 	}
 	google_cex.checkRHSIntervalIndex++;
-	console.log('checking the RHS', google_cex.checkRHSIntervalIndex)
+	console.log('checking the RHS', google_cex.checkRHSIntervalIndex, google_cex.rhsCode, google_cex.lastSearchTerm)
 	var rhs = $('#rhs_block');
 	var rhsAsString = rhs.html();
 	var rhsCode = rhsAsString ? hashCode(rhsAsString) : null;
@@ -173,6 +176,7 @@ function checkRHS() {
 	}
 	if (google_cex.lastSearchTerm != currentSearchTerm) {
 		google_cex.lastSearchTerm = currentSearchTerm;
+		$('#tm_status_elem').attr('data-in-flux', true);
 		console.log('searchTerm changed to:', currentSearchTerm)
 		google_cex.searchTermDidChange = true;
 	}
