@@ -109,7 +109,9 @@ function anypage_startupWhenVisible(){
 		document.addEventListener("visibilitychange", handleVisibilityChange);
 		return;
 	}
-	anypage_registerUrl();
+	if (typeof(tmPreventAnypageScripts) == "undefined") {
+		anypage_registerUrl();
+	}
 }
 
 function anypage_startup() {

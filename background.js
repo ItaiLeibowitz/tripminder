@@ -109,6 +109,7 @@ function updateValue(data) {
 		.then(function (record) {
 			record.set(data.field, sanitizeHtml(data.value));
 			record.save().then(function () {
+				ga('send', 'event', 'updateValue', 'success', data.field);
 				chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
 					chrome.tabs.sendMessage(tabs[0].id, {
 						target: 'dropdown_viewer',
@@ -120,6 +121,8 @@ function updateValue(data) {
 			});
 		})
 		.catch(function (notFound) {
+			ga('send', 'event', 'updateValue', 'failure', data.field);
+
 			chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
 				chrome.tabs.sendMessage(tabs[0].id, {
 					target: 'dropdown_viewer',
@@ -243,6 +246,7 @@ function findPlaceFromPlaceId(placeId, item){
 
 function foundObjectInfo(data) {
 	//console.log('got info from content: ', data)
+	ga('send', 'event', 'foundOnGoogle', 'success', data.nameForSearch);
 	if (data.lat && data.lng) {
 		var query = {query: data.nameForSearch, location: new google.maps.LatLng(data.lat, data.lng), radius: 1000};
 	} else {
@@ -292,7 +296,8 @@ function registerUrl(data) {
 	TripmindStore.findRecord('potentialLink', data.url, {reload: true})
 		//First we check if the potential link is already in the local store
 		.then(function (potentialLink) {
-			console.log('link found in local store')
+			//console.log('link found in local store')
+			ga('send', 'event', 'registerUrl', 'success', 'found in local store');
 			return potentialLink.get('item').then(function (itemRecord) {
 				return {
 					itemRecord: itemRecord,
@@ -313,7 +318,9 @@ function registerUrl(data) {
 				// if the link was found on the server, we have a gmaps reference for it and can connect it to an item
 				.then(function (linkData) {
 					if (linkData.data) {
-						console.log('link found on server', linkData)
+						//console.log('link found on server', linkData)
+						ga('send', 'event', 'registerUrl', 'success', 'found on server');
+
 						var gmapsReference = linkData.data.attributes['gmaps-reference'];
 						// now we check if this item exists in the store:
 						return TripmindStore.findRecord('item', gmapsReference)
@@ -350,7 +357,9 @@ function registerUrl(data) {
 						if (data.forcedItemPlaceId) {
 							return TripmindStore.findRecord('item', data.forcedItemPlaceId)
 								.then(function (itemRecord) {
-									console.log('item found by user')
+									//console.log('item found by user')
+									ga('send', 'event', 'registerUrl', 'success', 'found by user');
+
 
 									// we need to create a link record for this item now:
 									var now = moment().format("X");
@@ -367,7 +376,8 @@ function registerUrl(data) {
 									}
 								});
 						}
-						console.log('i have no information about this link...')
+						//console.log('i have no information about this link...')
+						ga('send', 'event', 'registerUrl', 'failure', 'not found');
 						return null
 					}
 
@@ -414,6 +424,7 @@ chrome.webNavigation.onCommitted.addListener(function (event) {
 });
 
 function openTripmindTab(addedRoute) {
+	ga('send', 'event', 'openTmTab', 'success');
 	if (!addedRoute || typeof(addedRoute) != 'string') addedRoute = "";
 	var url = chrome.extension.getURL('index.html') + addedRoute;
 	chrome.tabs.query({}, function (tabs) {
@@ -436,6 +447,7 @@ function openCurrentInTripmind() {
 }
 
 function openPopup(){
+	ga('send', 'event', 'openPopup', 'success');
 	chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
 		chrome.tabs.sendMessage(tabs[0].id, {
 			target: 'content-viewer',
@@ -453,29 +465,9 @@ function openPopup(){
 chrome.browserAction.onClicked.addListener(openPopup);
 
 
-function updateLocalStorage() {
-	/*// prevent deleting local storage if it hasn't been loaded yet...
-	 if (TripMinder.loadedDataFromLocalStorage) {
-	 chrome.storage.local.set({trackedPlaces: TripMinder.trackedPlaces});
-	 }*/
-}
-
-function loadDataFromLocalStorage() {
-	/*localforage.getItem('DS.LFAdapter').then(function(value) {
-	 // The same code, but using ES6 Promises.
-	 console.log(value);
-	 value.item.records
-	 });
-	 chrome.storage.local.get("trackedPlaces", function(results){
-	 TripMinder.trackedPlaces = $.extend(TripMinder.trackedPlaces,results.trackedPlaces);
-	 TripMinder.loadedDataFromLocalStorage = true;
-	 })*/
-}
-
-
 function startup() {
 	renderMap({latitude: 42, longitude: -2});
-	loadDataFromLocalStorage();
+	ga('send', 'event', 'background', 'startupBackgroundScript');
 }
 
 if (window.attachEvent) {

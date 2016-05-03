@@ -1016,6 +1016,7 @@ define('tripmind/components/add-to-collection', ['exports', 'ember'], function (
 			this.get('store').findAll('collection').then(function (result) {
 				self.set('collections', result.sortBy('updatedAt').reverse());
 			});
+			ga('send', 'event', 'addToCollection', 'init');
 		},
 
 		actions: {
@@ -1044,9 +1045,7 @@ define('tripmind/components/add-to-collection', ['exports', 'ember'], function (
 				itemsToAdd.forEach(function (item) {
 					item.save();
 				});
-				var js = JSON.stringify(collection.toJSON());
-				console.log('collection:', js);
-				js = lzwCompress.pack(js);
+
 				self.get('actionService').clearSelected();
 				self.get('closeAction')();
 				self.get('feedbackService').setProperties({
@@ -1060,6 +1059,7 @@ define('tripmind/components/add-to-collection', ['exports', 'ember'], function (
 					feedbackDuration: 3000
 				});
 				//});
+				ga('send', 'event', 'addToCollection', 'choseCollection');
 				return false;
 			}
 		}
@@ -1198,20 +1198,6 @@ define('tripmind/components/center-marker', ['exports', 'ember', 'tripmind/appco
 
 	});
 });
-/*collItemsDidChange: function(){
-	var isInCollection = this.get('currentCollection.itemIds').indexOf(this.get('model.id')) > -1;
-	if (isInCollection) {
-		this.setProperties({
-			addedLabelClass: 'center collection',
-			unhoveredIcon: gmaps.markerIcons.largeOrange
-		})
-	} else {
-		this.setProperties({
-			addedLabelClass: 'center',
-			unhoveredIcon: gmaps.markerIcons.largeRed
-		})
-	}
-}.observes('currentCollection.itemIds.[]', 'model.id').on('init'),*/
 define('tripmind/components/collection-action-bar', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].Component.extend({
 		elementId: 'collection-action-bar',
@@ -1302,7 +1288,7 @@ define('tripmind/components/collection-marker', ['exports', 'ember', 'tripmind/a
 			if (originalEvent.offsetX >= 120 && originalEvent.offsetX <= 220 && originalEvent.offsetY >= 180 && originalEvent.offsetY <= 220) {
 				console.log('going to item!', this.get('model.name'));
 				this.get('targetObject.targetObject.targetObject').send('triggerTransition', 'item', this.get('model.slug'));
-				//ga('send', 'event', 'marker', 'readMore');
+				ga('send', 'event', 'marker', 'readMore');
 			}
 			var currentSetting = this.get('isClicked');
 			/*if (this.get('minimizeAllAction')) { this.get('minimizeAllAction')()}
@@ -1312,7 +1298,7 @@ define('tripmind/components/collection-marker', ['exports', 'ember', 'tripmind/a
 			if (!currentSetting) {
 
 				this.centerMarker();
-				//ga('send', 'event', 'marker', 'enlarge');
+				ga('send', 'event', 'marker', 'enlarge');
 			}
 			return false;
 		},
@@ -2187,6 +2173,7 @@ define('tripmind/components/map-resize', ['exports', 'ember', 'tripmind/mixins/d
 			var newWidth = $(document).innerWidth() - ui.offset.left - 5;
 			this.set('screenDefService.mapWidth', newWidth);
 			this.get('mapService').resizeMap();
+			ga('send', 'event', 'map', 'resize');
 		}
 
 	});
@@ -2237,6 +2224,7 @@ define('tripmind/components/search-field-wrapper', ['exports', 'ember'], functio
 				if (query.length > 0) this.get('targetObject').send('transitionToResults', query);
 				this.get('wrappedField').$().autocomplete("close");
 				this.get('wrappedField').$().blur();
+				ga('send', 'event', 'search', 'searchFieldSubmit');
 			}
 		}
 
@@ -2301,18 +2289,18 @@ define('tripmind/components/search-field', ['exports', 'ember', 'tripmind/mixins
 				}, function (status) {
 					console.log('no results found');
 				});
-				//ga('send', 'search', 'autocompleteSelect', selectedPrediction.place_id);
+				ga('send', 'event', 'search', 'autocompleteSelect', selectedPrediction.place_id);
 			} else {
-					//submit the search
-					self.get('parentView').send('submit', this.get('query'));
-					//ga('send', 'search', 'searchSubmit', this.get('query'));
-				}
+				//submit the search
+				self.get('parentView').send('submit', this.get('query'));
+				ga('send', 'event', 'search', 'searchSubmit', this.get('query'));
+			}
 		},
 
 		actions: {
 			clearSearch: function clearSearch() {
 				this.set('query', '');
-				//ga('send', 'search', 'clearSearch');
+				ga('send', 'event', 'search', 'clearSearch');
 			}
 		}
 
@@ -2393,6 +2381,7 @@ define('tripmind/components/share-collection', ['exports', 'ember'], function (e
 				self.set('code', result.code);
 				self.set('codeSystem', result.compressed);
 				self.set('loading', false);
+				ga('send', 'event', 'shareCollection', 'success');
 			});
 		},
 
@@ -2696,6 +2685,22 @@ define('tripmind/initializers/extend-controller', ['exports', 'ember'], function
 	exports['default'] = {
 		name: 'extend-controller',
 		initialize: initialize
+	};
+});
+define('tripmind/initializers/google_analytics', ['exports'], function (exports) {
+	exports['default'] = {
+		name: 'ga',
+		initialize: function initialize() {
+			(function (i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
+					(i[r].q = i[r].q || []).push(arguments);
+				}, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+			window.ga = window.ga || function () {
+				(ga.q = ga.q || []).push(arguments);
+			};ga.l = +new Date();
+			ga('create', 'UA-77264031-1', 'auto');
+		}
 	};
 });
 define('tripmind/initializers/injectStore', ['exports', 'ember'], function (exports, _ember) {
@@ -4303,10 +4308,10 @@ define('tripmind/router', ['exports', 'ember', 'tripmind/config/environment'], f
 
 		doSomethingOnUrlChange: (function () {
 			_ember['default'].run.schedule('afterRender', this, 'prepView');
-			/*ga('send', 'pageview', {
-   	'page': this.get('url'),
-   	'title': this.get('url')
-   });*/
+			ga('send', 'pageview', {
+				'page': this.get('url'),
+				'title': this.get('url')
+			});
 		}).on('didTransition'),
 
 		// Close any menus, and send a message to applicationRouter to scroll to the appropriate tab
@@ -4547,6 +4552,7 @@ define('tripmind/services/action-service', ['exports', 'ember'], function (expor
 				item.save();
 			});
 			this.clearSelected();
+			ga('send', 'event', 'removeFromCollection');
 		},
 
 		toggleSelected: function toggleSelected(targetId) {
@@ -4567,6 +4573,7 @@ define('tripmind/services/action-service', ['exports', 'ember'], function (expor
 				item.save();
 			});
 			this.clearSelected();
+			ga('send', 'event', 'sendToTrash');
 		},
 
 		numOfSelected: (function () {
@@ -4639,6 +4646,7 @@ define('tripmind/services/display-service', ['exports', 'ember'], function (expo
 				_ember['default'].run.schedule('afterRender', this, function () {
 					$('.top-modal, .modal-dialog').addClass('in');
 				});
+				ga('send', 'event', 'topModal', modalName);
 			}
 
 		}
@@ -4735,6 +4743,7 @@ define('tripmind/services/item-details-service', ['exports', 'ember', 'tripmind/
 						if (!item || !result) {
 							reject({ message: "didn't find the item or its representation in the store" });
 						} else {
+							ga('send', 'event', 'googlePlaces', 'getDetails');
 							item.set('phone', result.international_phone_number);
 							if (!item.get('googleHours') && result.opening_hours) item.set('googleHours', result.opening_hours.periods);
 							if (!item.get('name')) item.set('name', result.name);
@@ -5177,7 +5186,7 @@ define('tripmind/services/search-service', ['exports', 'ember', 'tripmind/mixins
 			} else {
 				var request = { query: query, location: location, radius: 1000 };
 			}
-			//ga('send', 'event', 'search', 'googleTextQuery', query);
+			ga('send', 'event', 'search', 'googleTextQuery', query);
 
 			return new _ember['default'].RSVP.Promise(function (resolve, reject) {
 				self.get('googlePlaces.service').textSearch(request, function (results, status) {
@@ -11606,7 +11615,7 @@ catch(err) {
 
 /* jshint ignore:start */
 if (!runningTests) {
-  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+bdf780a8"});
+  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+4d26a591"});
 }
 /* jshint ignore:end */
 //# sourceMappingURL=tripmind.map

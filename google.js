@@ -2,30 +2,7 @@ var google_cex = google_cex || {};
 var inFlightStatusElem = $('<div id="tm_status_elem" style="display:none" data-in-flux="true"></div>');
 $('body').append(inFlightStatusElem);
 
-//var UNIQUE_DROPDOWN_VIEWER_ID = 'cex_iframe_' + Math.random();
-
-/*
-*//**
- * Here is where you want to render a latitude and longitude. We create an iframe so we
- * we can inject it. We just want to maintain a single instance of it though.
- *//*
-function drawDropDownIframe() {
-	dropdownDom = document.createElement('iframe');
-	dropdownDom.setAttribute('id', UNIQUE_DROPDOWN_VIEWER_ID);
-	dropdownDom.setAttribute('class', 'cex-iframe hidden animated fast fadeInLeft');
-	dropdownDom.setAttribute('src', chrome.extension.getURL('dropdown_viewer.html'));
-	dropdownDom.setAttribute('frameBorder', '0');
-	dropdownDom.onload = function (e) {
-		chrome.runtime.sendMessage({
-			target: 'background',
-			method: 'runFunction',
-			methodName: "updateMessageReadyState",
-			data: UNIQUE_DROPDOWN_VIEWER_ID
-		});
-	};
-	document.body.appendChild(dropdownDom);
-
-}*/
+var tmPreventAnypageScripts = true;
 
 function updateRhsStatus(trackingStatus){
 	var rhsStatusElem = $('#rhs-tripmind-status');
@@ -40,23 +17,6 @@ function updateRhsStatus(trackingStatus){
 		rhsStatusElem.removeClass('tracked');
 	}
 }
-
-/*google_cex.showMessage = function(trackingStatus){
-	if (trackingStatus) {
-		if (google_cex.hideMessageTimer) window.clearTimeout(google_cex.hideMessageTimer);
-		var $viewer = $(document.getElementById(UNIQUE_DROPDOWN_VIEWER_ID));
-		$viewer.removeClass('hidden');
-		google_cex.hideMessageTimer = window.setTimeout(function () {
-			$viewer.addClass('hidden');
-		}, 3000);
-	}
-	updateRhsStatus(trackingStatus);
-};
-
-google_cex.hideMessage = function(){
-	var $viewer = $('#' + UNIQUE_DROPDOWN_VIEWER_ID);
-	$viewer.addClass('hidden');
-};*/
 
 chrome.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
@@ -241,7 +201,7 @@ function setupTrackToggle(){
 	})
 }
 
-function setupButtons(){
+function google_setupButtons(){
 	$(document).on('click', '.tripmind-open', function(){
 		chrome.runtime.sendMessage({
 			target: 'background',
@@ -254,8 +214,7 @@ function setupButtons(){
 function startup() {
 	startRHSChecker();
 	setupTrackToggle();
-	setupButtons();
-	//drawDropDownIframe();
+	google_setupButtons();
 }
 
 
