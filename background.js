@@ -305,7 +305,8 @@ function registerUrl(data) {
 			return potentialLink.get('item').then(function (itemRecord) {
 				return {
 					itemRecord: itemRecord,
-					potentialLink: potentialLink
+					potentialLink: potentialLink,
+					uncertain: false,
 				}
 			});
 		})
@@ -352,7 +353,8 @@ function registerUrl(data) {
 								itemRecord.save();
 								return {
 									itemRecord: itemRecord,
-									potentialLink: newLinkRecord
+									potentialLink: newLinkRecord,
+									uncertain:linkData.data.attributes['uncertain']
 								}
 							});
 						// otherwise, this is a new url we don't know about yet...
@@ -376,7 +378,8 @@ function registerUrl(data) {
 									itemRecord.save();
 									return {
 										itemRecord: itemRecord,
-										potentialLink: newLinkRecord
+										potentialLink: newLinkRecord,
+										uncertain: true
 									}
 								});
 						}
@@ -396,7 +399,8 @@ function registerUrl(data) {
 					type: 'GET',
 					data: {
 						id: data.url,
-						item_id:  result.itemRecord.get('id')
+						item_id:  result.itemRecord.get('id'),
+						uncertain: result.uncertain
 					}
 				});
 				trackingStatus = result.itemRecord.get('trackingStatus');
