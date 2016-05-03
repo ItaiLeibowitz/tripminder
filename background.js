@@ -254,25 +254,26 @@ function foundObjectInfo(data) {
 	}
 	findPlaceFromQuery(query, data)
 		.then(function (itemRecord) {
-			TripMinder.currentItem = itemRecord;
-			var allLinks = data.searchLinks.concat(data.externalLinks).uniq();
-			//send a note to the server about the new links
-			$.ajax({
-				url: 'https://www.wanderant.com/api/tm/tm_links/',
-				type: 'POST',
-				data: {
-					gmaps_reference: itemRecord.get('id'),
-					links: allLinks
-				}
-			});
+			if (TmConstants.GOOGLE_PLACE_ANY_RELEVANT_TYPES.indexOf(itemRecord.get('itemType')) > -1) {
+				TripMinder.currentItem = itemRecord;
+				var allLinks = data.searchLinks.concat(data.externalLinks).uniq();
+				//send a note to the server about the new links
+				$.ajax({
+					url: 'https://www.wanderant.com/api/tm/tm_links/',
+					type: 'POST',
+					data: {
+						gmaps_reference: itemRecord.get('id'),
+						links: allLinks
+					}
+				});
 
-			// Add the potential links to the store if the item is being tracked
-			var trackingStatus = itemRecord.get('trackingStatus');
-			if (trackingStatus) {
-				var now = moment().format("X");
+				// Add the potential links to the store if the item is being tracked
+				var trackingStatus = itemRecord.get('trackingStatus');
+				if (trackingStatus) {
+					var now = moment().format("X");
 
-				allLinks.forEach(function (link) {
-					if (!TripmindStore.hasRecordForId('potentialLink', link)) {
+					allLinks.forEach(function (link) {
+						if (!TripmindStore.hasRecordForId('potentialLink', link)) {
 							var newLinkRecord = TripmindStore.createRecord('potentialLink', {
 								id: link,
 								createdAt: now,
@@ -280,10 +281,13 @@ function foundObjectInfo(data) {
 							});
 							newLinkRecord.save();
 						}
-				});
+					});
+				}
+				sendItemDataMessage(itemRecord, trackingStatus, data.targetMsgId, 0);
+				if (!data.skipAddedDetails) ItemDetailsService.getAdditionalItemInfo(itemRecord.get('id'));
+			} else {
+				itemRecord.destroy();
 			}
-			sendItemDataMessage(itemRecord, trackingStatus, data.targetMsgId, 0);
-			if (!data.skipAddedDetails) ItemDetailsService.getAdditionalItemInfo(itemRecord.get('id'));
 		}, function () {
 			TripMinder.currentItem = null;
 		});

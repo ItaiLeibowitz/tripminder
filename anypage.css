@@ -78,7 +78,7 @@
 
 
 .tracked .toggle-tracking:after {
-	content: "Disable"
+	content: "Untrack"
 }
 
 .tracked .tripmind-open:after {

@@ -85,7 +85,7 @@ function rhsDidChange() {
 	var summaryTextHolders = $('#rhs_block').find('._gdf._LAf, ._mr._Wfc.vk_gy').find('span');
 	var summaryText = longest(summaryTextHolders.toArray().map(function(el){ return $(el).text()}));
 	//console.log('summaryText:', summaryText)
-	var name = $('.kno-ecr-pt').clone().children().remove().end().text().trim();
+	var name = $('.kno-ecr-pt:eq(0)').clone().children().remove().end().text().trim();
 	var nameForSearch = name;
 	$mapElem = $('.rhsmap5col a,.rhsmap4col a, .rhsmap3col a').first();
 	if ($mapElem && $mapElem.length > 0){
