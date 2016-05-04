@@ -3003,22 +3003,24 @@ define('tripmind/instance-initializers/load_data', ['exports', 'ember', 'tripmin
 	};
 
 	function initialize(applicationInstance) {
-		var store = applicationInstance.lookup('service:store');
-		if (chrome.extension) {
-			var backgroundPage = chrome.extension.getBackgroundPage();
-			var trackedPlaces = backgroundPage.TripMinder.trackedPlaces;
-			var formattedData = Object.keys(trackedPlaces).map(function (key) {
-				return trackedPlaces[key].item;
-			}).map(function (place) {
-				return formatPlace(place);
-			});
-		} else if (_tripmindConfigEnvironment['default'].environment === 'development') {
-			store.push(addlData);
-			var formattedData = places.map(function (place) {
-				return formatPlace(place);
-			});
-		}
-		if (formattedData) store.push({ data: formattedData });
+		/*let store = applicationInstance.lookup('service:store');
+  if (chrome.extension) {
+  	var backgroundPage = chrome.extension.getBackgroundPage();
+  	var trackedPlaces = backgroundPage.TripMinder.trackedPlaces;
+  	var formattedData = Object.keys(trackedPlaces)
+  		.map(function (key) {
+  			return trackedPlaces[key].item
+  		})
+  		.map(function (place) {
+  			return formatPlace(place)
+  		});
+  } else if (ENV.environment === 'development') {
+  	store.push(addlData);
+  	var formattedData = places.map(function (place) {
+  		return formatPlace(place)
+  	});
+  }
+  if (formattedData) store.push({data: formattedData});*/
 	}
 
 	;
@@ -4521,6 +4523,7 @@ define('tripmind/routes/trash', ['exports', 'ember'], function (exports, _ember)
 			this._super(controller, model);
 			controller.set('prefilterAttribute', 'trackingStatus-not');
 			controller.set('actionBarVersion', 'trash');
+			controller.set('isTrash', true);
 		}
 	});
 });
@@ -7754,10 +7757,7 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
-        var el1 = dom.createElement("a");
-        dom.setAttribute(el1, "class", "menu-link starred icon-star");
-        var el2 = dom.createTextNode("Starred");
-        dom.appendChild(el1, el2);
+        var el1 = dom.createComment(" <a class=\"menu-link starred icon-star\">Starred</a> ");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
@@ -7774,10 +7774,7 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
-        var el1 = dom.createElement("a");
-        dom.setAttribute(el1, "class", "menu-link shared-collections icon-group");
-        var el2 = dom.createTextNode("Shared collections");
-        dom.appendChild(el1, el2);
+        var el1 = dom.createComment("<a class=\"menu-link shared-collections icon-group\">Shared collections</a> ");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
@@ -7785,15 +7782,7 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
-        var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "menu-line");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("a");
-        dom.setAttribute(el1, "class", "menu-link settings icon-cog");
-        var el2 = dom.createTextNode("Settings");
-        dom.appendChild(el1, el2);
+        var el1 = dom.createComment(" <div class=\"menu-line\"></div>\n<a class=\"menu-link settings icon-cog\">Settings</a>   ");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
@@ -8419,6 +8408,140 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
           templates: []
         };
       })();
+      var child2 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 18,
+                "column": 5
+              },
+              "end": {
+                "line": 23,
+                "column": 5
+              }
+            },
+            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("						");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "class", "menu-section");
+            var el2 = dom.createTextNode("\n							");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("div");
+            dom.setAttribute(el2, "class", "menu-section-title");
+            var el3 = dom.createTextNode("Sort by:");
+            dom.appendChild(el2, el3);
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n							");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createComment("");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n						");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 3, 3);
+            return morphs;
+          },
+          statements: [["inline", "select-one", [], ["options", ["subexpr", "@mut", [["get", "majorSortOptions", ["loc", [null, [21, 28], [21, 44]]]]], [], []], "onChange", ["subexpr", "action", ["updateSortOptions"], [], ["loc", [null, [21, 54], [21, 82]]]]], ["loc", [null, [21, 7], [21, 84]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child3 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 36,
+                "column": 2
+              },
+              "end": {
+                "line": 38,
+                "column": 2
+              }
+            },
+            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+          },
+          isEmpty: false,
+          arity: 1,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("			");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+            return morphs;
+          },
+          statements: [["inline", "major-section", [], ["model", ["subexpr", "@mut", [["get", "majorSection", ["loc", [null, [37, 25], [37, 37]]]]], [], []]], ["loc", [null, [37, 3], [37, 39]]]]],
+          locals: ["majorSection"],
+          templates: []
+        };
+      })();
+      var child4 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 38,
+                "column": 2
+              },
+              "end": {
+                "line": 40,
+                "column": 2
+              }
+            },
+            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("			Nothing left here to see.. maybe remove some filters?\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
       return {
         meta: {
           "fragmentReason": false,
@@ -8430,7 +8553,7 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
               "column": 0
             },
             "end": {
-              "line": 13,
+              "line": 42,
               "column": 0
             }
           },
@@ -8451,23 +8574,181 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
           var el2 = dom.createComment("");
           dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n	");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "scrollable-rhs-content");
+          var el2 = dom.createTextNode("\n		");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2, "class", "options-menu section-options-menu");
+          var el3 = dom.createTextNode("\n			");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("div");
+          dom.setAttribute(el3, "class", "toggle-btn");
+          var el4 = dom.createTextNode("Options");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n			");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("div");
+          dom.setAttribute(el3, "class", "menu-body two-column");
+          var el4 = dom.createTextNode("\n				");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createElement("div");
+          dom.setAttribute(el4, "class", "menu-column");
+          var el5 = dom.createTextNode("\n");
+          dom.appendChild(el4, el5);
+          var el5 = dom.createComment("");
+          dom.appendChild(el4, el5);
+          var el5 = dom.createTextNode("					");
+          dom.appendChild(el4, el5);
+          var el5 = dom.createElement("div");
+          dom.setAttribute(el5, "class", "menu-section");
+          var el6 = dom.createTextNode("\n						");
+          dom.appendChild(el5, el6);
+          var el6 = dom.createElement("div");
+          dom.setAttribute(el6, "class", "menu-section-title");
+          var el7 = dom.createTextNode("Sort subsections by:");
+          dom.appendChild(el6, el7);
+          dom.appendChild(el5, el6);
+          var el6 = dom.createTextNode("\n						");
+          dom.appendChild(el5, el6);
+          var el6 = dom.createComment("");
+          dom.appendChild(el5, el6);
+          var el6 = dom.createTextNode("\n					");
+          dom.appendChild(el5, el6);
+          dom.appendChild(el4, el5);
+          var el5 = dom.createTextNode("\n				");
+          dom.appendChild(el4, el5);
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("\n				");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createElement("div");
+          dom.setAttribute(el4, "class", "menu-column");
+          var el5 = dom.createTextNode("\n					");
+          dom.appendChild(el4, el5);
+          var el5 = dom.createElement("div");
+          dom.setAttribute(el5, "class", "menu-section");
+          var el6 = dom.createTextNode("\n						");
+          dom.appendChild(el5, el6);
+          var el6 = dom.createComment("");
+          dom.appendChild(el5, el6);
+          var el6 = dom.createTextNode("\n					");
+          dom.appendChild(el5, el6);
+          dom.appendChild(el4, el5);
+          var el5 = dom.createTextNode("\n				");
+          dom.appendChild(el4, el5);
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("\n			");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n		");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("	");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var element2 = dom.childAt(fragment, [0]);
-          var morphs = new Array(2);
+          var element3 = dom.childAt(fragment, [2]);
+          var element4 = dom.childAt(element3, [1, 3]);
+          var element5 = dom.childAt(element4, [1]);
+          var morphs = new Array(6);
           morphs[0] = dom.createMorphAt(element2, 1, 1);
           morphs[1] = dom.createMorphAt(element2, 2, 2);
+          morphs[2] = dom.createMorphAt(element5, 1, 1);
+          morphs[3] = dom.createMorphAt(dom.childAt(element5, [3]), 3, 3);
+          morphs[4] = dom.createMorphAt(dom.childAt(element4, [3, 1]), 1, 1);
+          morphs[5] = dom.createMorphAt(element3, 3, 3);
           return morphs;
         },
-        statements: [["block", "if", [["get", "majorSections", ["loc", [null, [6, 7], [6, 20]]]]], [], 0, null, ["loc", [null, [6, 1], [8, 8]]]], ["block", "each", [["get", "majorSections", ["loc", [null, [9, 9], [9, 22]]]]], [], 1, null, ["loc", [null, [9, 1], [11, 10]]]]],
+        statements: [["block", "if", [["get", "majorSections", ["loc", [null, [6, 7], [6, 20]]]]], [], 0, null, ["loc", [null, [6, 1], [8, 8]]]], ["block", "each", [["get", "majorSections", ["loc", [null, [9, 9], [9, 22]]]]], [], 1, null, ["loc", [null, [9, 1], [11, 10]]]], ["block", "unless", [["get", "majorSectionType", ["loc", [null, [18, 15], [18, 31]]]]], [], 2, null, ["loc", [null, [18, 5], [23, 16]]]], ["inline", "select-one", [], ["options", ["subexpr", "@mut", [["get", "subSortOptions", ["loc", [null, [26, 27], [26, 41]]]]], [], []], "onChange", ["subexpr", "action", ["updateSortOptions"], [], ["loc", [null, [26, 51], [26, 79]]]]], ["loc", [null, [26, 6], [26, 81]]]], ["inline", "select-many", [], ["options", ["subexpr", "@mut", [["get", "filterOptions", ["loc", [null, [31, 28], [31, 41]]]]], [], []], "onChange", ["subexpr", "action", ["updateFilter"], [], ["loc", [null, [31, 51], [31, 74]]]]], ["loc", [null, [31, 6], [31, 76]]]], ["block", "each", [["get", "majorSections", ["loc", [null, [36, 10], [36, 23]]]]], [], 3, 4, ["loc", [null, [36, 2], [40, 11]]]]],
         locals: [],
-        templates: [child0, child1]
+        templates: [child0, child1, child2, child3, child4]
       };
     })();
     var child1 = (function () {
+      var child0 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 43,
+                "column": 1
+              },
+              "end": {
+                "line": 45,
+                "column": 1
+              }
+            },
+            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("		Your trashcan is empty. This will hold any items you decide not to track.\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
+      var child1 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 45,
+                "column": 1
+              },
+              "end": {
+                "line": 48,
+                "column": 1
+              }
+            },
+            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("		You don't have any tracked items yet. Try searching for something on Google, or use the search bar on the left.\n\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes() {
+            return [];
+          },
+          statements: [],
+          locals: [],
+          templates: []
+        };
+      })();
       return {
         meta: {
           "fragmentReason": false,
@@ -8475,12 +8756,12 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
           "loc": {
             "source": null,
             "start": {
-              "line": 19,
-              "column": 4
+              "line": 42,
+              "column": 0
             },
             "end": {
-              "line": 24,
-              "column": 4
+              "line": 49,
+              "column": 0
             }
           },
           "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
@@ -8491,114 +8772,20 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("					");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("div");
-          dom.setAttribute(el1, "class", "menu-section");
-          var el2 = dom.createTextNode("\n						");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "menu-section-title");
-          var el3 = dom.createTextNode("Sort by:");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n						");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createComment("");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n					");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 3, 3);
-          return morphs;
-        },
-        statements: [["inline", "select-one", [], ["options", ["subexpr", "@mut", [["get", "majorSortOptions", ["loc", [null, [22, 27], [22, 43]]]]], [], []], "onChange", ["subexpr", "action", ["updateSortOptions"], [], ["loc", [null, [22, 53], [22, 81]]]]], ["loc", [null, [22, 6], [22, 83]]]]],
-        locals: [],
-        templates: []
-      };
-    })();
-    var child2 = (function () {
-      return {
-        meta: {
-          "fragmentReason": false,
-          "revision": "Ember@2.4.0",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 37,
-              "column": 1
-            },
-            "end": {
-              "line": 39,
-              "column": 1
-            }
-          },
-          "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
-        },
-        isEmpty: false,
-        arity: 1,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("		");
-          dom.appendChild(el0, el1);
           var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n");
-          dom.appendChild(el0, el1);
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["inline", "major-section", [], ["model", ["subexpr", "@mut", [["get", "majorSection", ["loc", [null, [38, 24], [38, 36]]]]], [], []]], ["loc", [null, [38, 2], [38, 38]]]]],
-        locals: ["majorSection"],
-        templates: []
-      };
-    })();
-    var child3 = (function () {
-      return {
-        meta: {
-          "fragmentReason": false,
-          "revision": "Ember@2.4.0",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 39,
-              "column": 1
-            },
-            "end": {
-              "line": 41,
-              "column": 1
-            }
-          },
-          "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("		Nothing left here to see.. maybe remove some filters?\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes() {
-          return [];
-        },
-        statements: [],
+        statements: [["block", "if", [["get", "isTrash", ["loc", [null, [43, 7], [43, 14]]]]], [], 0, 1, ["loc", [null, [43, 1], [48, 8]]]]],
         locals: [],
-        templates: []
+        templates: [child0, child1]
       };
     })();
     return {
@@ -8615,7 +8802,7 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             "column": 0
           },
           "end": {
-            "line": 48,
+            "line": 56,
             "column": 0
           }
         },
@@ -8635,81 +8822,6 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "scrollable-rhs-content");
-        var el3 = dom.createTextNode("\n	");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "options-menu section-options-menu");
-        var el4 = dom.createTextNode("\n		");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("div");
-        dom.setAttribute(el4, "class", "toggle-btn");
-        var el5 = dom.createTextNode("Options");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n		");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createElement("div");
-        dom.setAttribute(el4, "class", "menu-body two-column");
-        var el5 = dom.createTextNode("\n			");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("div");
-        dom.setAttribute(el5, "class", "menu-column");
-        var el6 = dom.createTextNode("\n");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createComment("");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("				");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createElement("div");
-        dom.setAttribute(el6, "class", "menu-section");
-        var el7 = dom.createTextNode("\n					");
-        dom.appendChild(el6, el7);
-        var el7 = dom.createElement("div");
-        dom.setAttribute(el7, "class", "menu-section-title");
-        var el8 = dom.createTextNode("Sort subsections by:");
-        dom.appendChild(el7, el8);
-        dom.appendChild(el6, el7);
-        var el7 = dom.createTextNode("\n					");
-        dom.appendChild(el6, el7);
-        var el7 = dom.createComment("");
-        dom.appendChild(el6, el7);
-        var el7 = dom.createTextNode("\n				");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("\n			");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n			");
-        dom.appendChild(el4, el5);
-        var el5 = dom.createElement("div");
-        dom.setAttribute(el5, "class", "menu-column");
-        var el6 = dom.createTextNode("\n				");
-        dom.appendChild(el5, el6);
-        var el6 = dom.createElement("div");
-        dom.setAttribute(el6, "class", "menu-section");
-        var el7 = dom.createTextNode("\n					");
-        dom.appendChild(el6, el7);
-        var el7 = dom.createComment("");
-        dom.appendChild(el6, el7);
-        var el7 = dom.createTextNode("\n				");
-        dom.appendChild(el6, el7);
-        dom.appendChild(el5, el6);
-        var el6 = dom.createTextNode("\n			");
-        dom.appendChild(el5, el6);
-        dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("\n		");
-        dom.appendChild(el4, el5);
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n	");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createComment("");
-        dom.appendChild(el2, el3);
-        dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
@@ -8722,22 +8834,14 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element3 = dom.childAt(fragment, [1]);
-        var element4 = dom.childAt(element3, [2]);
-        var element5 = dom.childAt(element4, [1, 3]);
-        var element6 = dom.childAt(element5, [1]);
-        var morphs = new Array(6);
-        morphs[0] = dom.createMorphAt(element3, 1, 1);
-        morphs[1] = dom.createMorphAt(element6, 1, 1);
-        morphs[2] = dom.createMorphAt(dom.childAt(element6, [3]), 3, 3);
-        morphs[3] = dom.createMorphAt(dom.childAt(element5, [3, 1]), 1, 1);
-        morphs[4] = dom.createMorphAt(element4, 3, 3);
-        morphs[5] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+        var morphs = new Array(2);
+        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
+        morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
         return morphs;
       },
-      statements: [["block", "if", [["get", "filteredItems.length", ["loc", [null, [4, 6], [4, 26]]]]], [], 0, null, ["loc", [null, [4, 0], [13, 7]]]], ["block", "unless", [["get", "majorSectionType", ["loc", [null, [19, 14], [19, 30]]]]], [], 1, null, ["loc", [null, [19, 4], [24, 15]]]], ["inline", "select-one", [], ["options", ["subexpr", "@mut", [["get", "subSortOptions", ["loc", [null, [27, 26], [27, 40]]]]], [], []], "onChange", ["subexpr", "action", ["updateSortOptions"], [], ["loc", [null, [27, 50], [27, 78]]]]], ["loc", [null, [27, 5], [27, 80]]]], ["inline", "select-many", [], ["options", ["subexpr", "@mut", [["get", "filterOptions", ["loc", [null, [32, 27], [32, 40]]]]], [], []], "onChange", ["subexpr", "action", ["updateFilter"], [], ["loc", [null, [32, 50], [32, 73]]]]], ["loc", [null, [32, 5], [32, 75]]]], ["block", "each", [["get", "majorSections", ["loc", [null, [37, 9], [37, 22]]]]], [], 2, 3, ["loc", [null, [37, 1], [41, 10]]]], ["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "filteredItems", ["loc", [null, [46, 27], [46, 40]]]]], [], []]], ["loc", [null, [46, 0], [46, 42]]]]],
+      statements: [["block", "if", [["get", "filteredItems.length", ["loc", [null, [4, 6], [4, 26]]]]], [], 0, 1, ["loc", [null, [4, 0], [49, 7]]]], ["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "filteredItems", ["loc", [null, [54, 27], [54, 40]]]]], [], []]], ["loc", [null, [54, 0], [54, 42]]]]],
       locals: [],
-      templates: [child0, child1, child2, child3]
+      templates: [child0, child1]
     };
   })());
 });
@@ -10502,7 +10606,7 @@ define("tripmind/templates/index", ["exports"], function (exports) {
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["inline", "action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [1, 59], [1, 73]]]]], ["loc", [null, [1, 29], [1, 74]]]], "addedClass", ["subexpr", "@mut", [["get", "actionBarVersion", ["loc", [null, [1, 86], [1, 102]]]]], [], []]], ["loc", [null, [1, 0], [1, 104]]]], ["content", "action-bar-placeholder", ["loc", [null, [2, 0], [2, 26]]]], ["inline", "major-sections-holder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [4, 30], [4, 35]]]]], [], []], "prefilterAttribute", ["subexpr", "@mut", [["get", "prefilterAttribute", ["loc", [null, [4, 55], [4, 73]]]]], [], []]], ["loc", [null, [4, 0], [4, 75]]]]],
+      statements: [["inline", "action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [1, 59], [1, 73]]]]], ["loc", [null, [1, 29], [1, 74]]]], "addedClass", ["subexpr", "@mut", [["get", "actionBarVersion", ["loc", [null, [1, 86], [1, 102]]]]], [], []]], ["loc", [null, [1, 0], [1, 104]]]], ["content", "action-bar-placeholder", ["loc", [null, [2, 0], [2, 26]]]], ["inline", "major-sections-holder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [4, 30], [4, 35]]]]], [], []], "prefilterAttribute", ["subexpr", "@mut", [["get", "prefilterAttribute", ["loc", [null, [4, 55], [4, 73]]]]], [], []], "isTrash", ["subexpr", "@mut", [["get", "isTrash", ["loc", [null, [4, 82], [4, 89]]]]], [], []]], ["loc", [null, [4, 0], [4, 91]]]]],
       locals: [],
       templates: []
     };
@@ -11615,7 +11719,7 @@ catch(err) {
 
 /* jshint ignore:start */
 if (!runningTests) {
-  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+4d26a591"});
+  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+3916638c"});
 }
 /* jshint ignore:end */
 //# sourceMappingURL=tripmind.map
