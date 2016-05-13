@@ -57,6 +57,40 @@ a {
 .hidden {
   display: none !important; }
 
+.flat-btn {
+  line-height: 3em;
+  padding: 0 1em;
+  margin: 1em 0;
+  display: inline-block;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: #777;
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: center; }
+  .flat-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1); }
+  .flat-btn:before {
+    margin-right: 1em;
+    font-size: 1.5em;
+    vertical-align: middle; }
+  .flat-btn.small {
+    font-size: 0.8em; }
+
+.online-only, .has-extension, .no-extension {
+  display: none; }
+
+.open-tripmind {
+  position: fixed;
+  bottom: 0;
+  background: #E74C3C;
+  color: white;
+  font-weight: bold;
+  line-height: 3em;
+  text-align: center;
+  width: 100%;
+  z-index: 19; }
+
 .map-canvas, #actual-map {
   height: 100%;
   width: 100%; }
@@ -316,7 +350,7 @@ a {
   box-shadow: -1px 0 1px rgba(0, 0, 0, 0.25);
   width: 1em; }
 
-.search-field-wrapper {
+.search-page .search-field-wrapper {
   position: fixed;
   top: 0;
   left: 3em;
@@ -346,6 +380,7 @@ a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: inherit;
   outline: none; }
 
 .clear-search {
@@ -375,6 +410,36 @@ a {
 
 .search-field-spacer {
   height: 4em; }
+
+.collection-search-field-wrapper {
+  color: #777; }
+  .collection-search-field-wrapper .search-holder {
+    margin: 0;
+    line-height: 3em;
+    padding: 0 1em; }
+    .collection-search-field-wrapper .search-holder:before {
+      font-size: 1.5em;
+      vertical-align: middle;
+      margin-right: 1em; }
+    .collection-search-field-wrapper .search-holder .clear-search {
+      display: none; }
+    .collection-search-field-wrapper .search-holder:hover .clear-search {
+      display: block; }
+  .collection-search-field-wrapper .search-field {
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    margin: 0 1em;
+    line-height: 3em;
+    padding: 0 3em;
+    border: 1px solid transparent; }
+    .collection-search-field-wrapper .search-field::-webkit-input-placeholder {
+      color: #777;
+      text-transform: uppercase;
+      font-weight: bold; }
+    .collection-search-field-wrapper .search-field:focus {
+      border-bottom-color: #333; }
 
 .options-menu .toggle-btn {
   display: inline-block;
@@ -576,6 +641,32 @@ a {
       .item-card.horizontal.is-selected .selector-holder, .collection-card.horizontal.is-selected .selector-holder {
         background: none;
         opacity: 1; }
+  .item-card.small, .collection-card.small {
+    display: block;
+    width: 20em;
+    height: auto; }
+    .item-card.small .image-container, .collection-card.small .image-container {
+      display: inline-block;
+      height: 5em;
+      width: 5em;
+      vertical-align: top; }
+    .item-card.small .details-box, .collection-card.small .details-box {
+      display: inline-block;
+      vertical-align: top;
+      width: 13em; }
+      .item-card.small .details-box .name, .collection-card.small .details-box .name {
+        white-space: normal;
+        line-height: 1.2em; }
+      .item-card.small .details-box .distance, .collection-card.small .details-box .distance {
+        font-size: 0.8em;
+        text-align: right;
+        color: #8FB092;
+        margin-top: .5em;
+        margin-right: -1em; }
+        .item-card.small .details-box .distance:before, .collection-card.small .details-box .distance:before {
+          margin-right: 0.3em; }
+    .item-card.small.inline, .collection-card.small.inline {
+      display: inline-block; }
 
 .collection-card .image-container, .item-card.sub-section-minimized .image-container {
   height: 100%;
@@ -1202,6 +1293,18 @@ a {
 .icon-cog:before {
   content: "F"; }
 
+.icon-date:before {
+  content: "G"; }
+
+.icon-walk:before {
+  content: "J"; }
+
+.icon-drive:before {
+  content: "I"; }
+
+.icon-fly:before {
+  content: "H"; }
+
 .loader-dots:before,
 .loader-dots:after,
 .loader-dots {
@@ -1482,3 +1585,2229 @@ a {
     left: 65px;
     -webkit-transform: rotate(0deg);
     opacity: 0; } }
+
+.sprite-rating_no_fill {
+  background-image: url("/assets/images/ta.png");
+  background-position: left 0;
+  background-repeat: no-repeat;
+  display: block;
+  height: 16px; }
+
+.sprite-rating_no {
+  background-image: url("/assets/images/ta.png");
+  background-position: left -16px;
+  width: 80px;
+  height: 16px;
+  background-repeat: no-repeat;
+  display: block;
+  overflow: hidden;
+  margin-right: 4px;
+  line-height: 16px;
+  float: left; }
+
+.sprite-rating_s_fill {
+  background-image: url("/assets/images/ta.png");
+  background-position: left -32px;
+  background-repeat: no-repeat;
+  display: block;
+  height: 14px; }
+
+.sprite-rating_s {
+  background-image: url("/assets/images/ta.png");
+  background-position: left -46px;
+  width: 70px;
+  height: 14px;
+  background-repeat: no-repeat;
+  display: block;
+  overflow: hidden;
+  margin-right: 4px;
+  line-height: 14px;
+  float: left; }
+
+.sprite-rating_ss_fill {
+  background-image: url("/assets/images/ta.png");
+  background-position: left -60px;
+  background-repeat: no-repeat;
+  display: block;
+  height: 10px; }
+
+.sprite-rating_ss {
+  background-image: url("/assets/images/ta.png");
+  background-position: left -70px;
+  width: 50px;
+  height: 10px;
+  background-repeat: no-repeat;
+  display: block;
+  overflow: hidden;
+  margin-top: 1px;
+  margin-right: 4px;
+  line-height: 10px;
+  float: left; }
+
+.sprite-rating_rr_fill {
+  background-image: url("/assets/images/ta.png");
+  background-position: left -80px;
+  background-repeat: no-repeat;
+  display: block;
+  height: 18px; }
+
+.sprite-rating_rr {
+  background-image: url("/assets/images/ta.png");
+  background-position: left -98px;
+  width: 90px;
+  height: 18px;
+  background-repeat: no-repeat;
+  display: block;
+  overflow: hidden;
+  margin-right: 4px;
+  line-height: 18px;
+  float: left; }
+
+.rating_rr .rr00 {
+  width: 0; }
+
+.rating_rr .rr05 {
+  width: 9px; }
+
+.rating_rr .rr10 {
+  width: 18px; }
+
+.rating_rr .rr15 {
+  width: 27px; }
+
+.rating_rr .rr20 {
+  width: 36px; }
+
+.rating_rr .rr25 {
+  width: 45px; }
+
+.rating_rr .rr30 {
+  width: 54px; }
+
+.rating_rr .rr35 {
+  width: 63px; }
+
+.rating_rr .rr40 {
+  width: 72px; }
+
+.rating_rr .rr45 {
+  width: 81px; }
+
+.rating_rr .rr50 {
+  width: 90px; }
+
+.tutorial {
+  margin: 1em;
+  line-height: 1.5em;
+  font-size: 1.5em;
+  color: #333; }
+  .tutorial a {
+    color: #07f; }
+
+.items-sorter {
+  min-height: 9em;
+  min-width: 15em;
+  border: 1px solid transparent; }
+  .items-sorter.with-border {
+    border-color: #333; }
+  .items-sorter .sorter-explain {
+    font-size: 0.8em;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 1em;
+    display: none; }
+  .items-sorter:hover .sorter-explain, .items-sorter.with-border .sorter-explain {
+    display: inline-block; }
+
+.date-view {
+  background: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  margin: 0 .5em .5em 0;
+  position: relative;
+  min-height: 9em;
+  min-width: 27em; }
+  .date-view .date-name {
+    min-height: 3em;
+    font-weight: bold;
+    padding: 1em;
+    display: inline-block;
+    vertical-align: top;
+    width: 4em; }
+  .date-view .items-sorter {
+    display: inline-block;
+    vertical-align: top; }
+  .date-view .delete-date, .date-view .zoom-date {
+    display: none;
+    opacity: 0.5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 2em;
+    width: 2em;
+    text-align: center; }
+    .date-view .delete-date:hover, .date-view .zoom-date:hover {
+      opacity: 1; }
+  .date-view .zoom-date {
+    left: 2em; }
+  .date-view:hover .delete-date, .date-view:hover .zoom-date {
+    display: block; }
+
+.time-indicator {
+  position: absolute;
+  top: 3em;
+  left: 1em;
+  height: 6em;
+  width: 5em; }
+  .time-indicator .radial-progress {
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    background-color: #ddd;
+    border-radius: 50%; }
+    .time-indicator .radial-progress .circle .mask, .time-indicator .radial-progress .circle .fill, .time-indicator .radial-progress .circle .shadow {
+      width: 5em;
+      height: 5em;
+      position: absolute;
+      border-radius: 50%; }
+    .time-indicator .radial-progress .circle .mask, .time-indicator .radial-progress .circle .fill {
+      -webkit-backface-visibility: hidden;
+      border-radius: 50%; }
+    .time-indicator .radial-progress .circle .mask {
+      clip: rect(0px, 5em, 5em, 2.5em); }
+      .time-indicator .radial-progress .circle .mask .fill {
+        clip: rect(0px, 2.5em, 5em, 0px);
+        background-color: #E74C3C; }
+    .time-indicator .radial-progress[data-fun="1"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="1"] .circle.fun .fill {
+      -webkit-transform: rotate(1.8deg);
+      -ms-transform: rotate(1.8deg);
+      transform: rotate(1.8deg); }
+    .time-indicator .radial-progress[data-fun="1"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(3.6deg);
+      -ms-transform: rotate(3.6deg);
+      transform: rotate(3.6deg); }
+    .time-indicator .radial-progress[data-fun="2"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="2"] .circle.fun .fill {
+      -webkit-transform: rotate(3.6deg);
+      -ms-transform: rotate(3.6deg);
+      transform: rotate(3.6deg); }
+    .time-indicator .radial-progress[data-fun="2"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(7.2deg);
+      -ms-transform: rotate(7.2deg);
+      transform: rotate(7.2deg); }
+    .time-indicator .radial-progress[data-fun="3"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="3"] .circle.fun .fill {
+      -webkit-transform: rotate(5.4deg);
+      -ms-transform: rotate(5.4deg);
+      transform: rotate(5.4deg); }
+    .time-indicator .radial-progress[data-fun="3"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(10.8deg);
+      -ms-transform: rotate(10.8deg);
+      transform: rotate(10.8deg); }
+    .time-indicator .radial-progress[data-fun="4"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="4"] .circle.fun .fill {
+      -webkit-transform: rotate(7.2deg);
+      -ms-transform: rotate(7.2deg);
+      transform: rotate(7.2deg); }
+    .time-indicator .radial-progress[data-fun="4"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(14.4deg);
+      -ms-transform: rotate(14.4deg);
+      transform: rotate(14.4deg); }
+    .time-indicator .radial-progress[data-fun="5"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="5"] .circle.fun .fill {
+      -webkit-transform: rotate(9deg);
+      -ms-transform: rotate(9deg);
+      transform: rotate(9deg); }
+    .time-indicator .radial-progress[data-fun="5"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(18deg);
+      -ms-transform: rotate(18deg);
+      transform: rotate(18deg); }
+    .time-indicator .radial-progress[data-fun="6"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="6"] .circle.fun .fill {
+      -webkit-transform: rotate(10.8deg);
+      -ms-transform: rotate(10.8deg);
+      transform: rotate(10.8deg); }
+    .time-indicator .radial-progress[data-fun="6"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(21.6deg);
+      -ms-transform: rotate(21.6deg);
+      transform: rotate(21.6deg); }
+    .time-indicator .radial-progress[data-fun="7"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="7"] .circle.fun .fill {
+      -webkit-transform: rotate(12.6deg);
+      -ms-transform: rotate(12.6deg);
+      transform: rotate(12.6deg); }
+    .time-indicator .radial-progress[data-fun="7"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(25.2deg);
+      -ms-transform: rotate(25.2deg);
+      transform: rotate(25.2deg); }
+    .time-indicator .radial-progress[data-fun="8"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="8"] .circle.fun .fill {
+      -webkit-transform: rotate(14.4deg);
+      -ms-transform: rotate(14.4deg);
+      transform: rotate(14.4deg); }
+    .time-indicator .radial-progress[data-fun="8"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(28.8deg);
+      -ms-transform: rotate(28.8deg);
+      transform: rotate(28.8deg); }
+    .time-indicator .radial-progress[data-fun="9"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="9"] .circle.fun .fill {
+      -webkit-transform: rotate(16.2deg);
+      -ms-transform: rotate(16.2deg);
+      transform: rotate(16.2deg); }
+    .time-indicator .radial-progress[data-fun="9"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(32.4deg);
+      -ms-transform: rotate(32.4deg);
+      transform: rotate(32.4deg); }
+    .time-indicator .radial-progress[data-fun="10"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="10"] .circle.fun .fill {
+      -webkit-transform: rotate(18deg);
+      -ms-transform: rotate(18deg);
+      transform: rotate(18deg); }
+    .time-indicator .radial-progress[data-fun="10"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(36deg);
+      -ms-transform: rotate(36deg);
+      transform: rotate(36deg); }
+    .time-indicator .radial-progress[data-fun="11"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="11"] .circle.fun .fill {
+      -webkit-transform: rotate(19.8deg);
+      -ms-transform: rotate(19.8deg);
+      transform: rotate(19.8deg); }
+    .time-indicator .radial-progress[data-fun="11"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(39.6deg);
+      -ms-transform: rotate(39.6deg);
+      transform: rotate(39.6deg); }
+    .time-indicator .radial-progress[data-fun="12"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="12"] .circle.fun .fill {
+      -webkit-transform: rotate(21.6deg);
+      -ms-transform: rotate(21.6deg);
+      transform: rotate(21.6deg); }
+    .time-indicator .radial-progress[data-fun="12"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(43.2deg);
+      -ms-transform: rotate(43.2deg);
+      transform: rotate(43.2deg); }
+    .time-indicator .radial-progress[data-fun="13"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="13"] .circle.fun .fill {
+      -webkit-transform: rotate(23.4deg);
+      -ms-transform: rotate(23.4deg);
+      transform: rotate(23.4deg); }
+    .time-indicator .radial-progress[data-fun="13"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(46.8deg);
+      -ms-transform: rotate(46.8deg);
+      transform: rotate(46.8deg); }
+    .time-indicator .radial-progress[data-fun="14"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="14"] .circle.fun .fill {
+      -webkit-transform: rotate(25.2deg);
+      -ms-transform: rotate(25.2deg);
+      transform: rotate(25.2deg); }
+    .time-indicator .radial-progress[data-fun="14"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(50.4deg);
+      -ms-transform: rotate(50.4deg);
+      transform: rotate(50.4deg); }
+    .time-indicator .radial-progress[data-fun="15"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="15"] .circle.fun .fill {
+      -webkit-transform: rotate(27deg);
+      -ms-transform: rotate(27deg);
+      transform: rotate(27deg); }
+    .time-indicator .radial-progress[data-fun="15"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(54deg);
+      -ms-transform: rotate(54deg);
+      transform: rotate(54deg); }
+    .time-indicator .radial-progress[data-fun="16"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="16"] .circle.fun .fill {
+      -webkit-transform: rotate(28.8deg);
+      -ms-transform: rotate(28.8deg);
+      transform: rotate(28.8deg); }
+    .time-indicator .radial-progress[data-fun="16"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(57.6deg);
+      -ms-transform: rotate(57.6deg);
+      transform: rotate(57.6deg); }
+    .time-indicator .radial-progress[data-fun="17"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="17"] .circle.fun .fill {
+      -webkit-transform: rotate(30.6deg);
+      -ms-transform: rotate(30.6deg);
+      transform: rotate(30.6deg); }
+    .time-indicator .radial-progress[data-fun="17"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(61.2deg);
+      -ms-transform: rotate(61.2deg);
+      transform: rotate(61.2deg); }
+    .time-indicator .radial-progress[data-fun="18"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="18"] .circle.fun .fill {
+      -webkit-transform: rotate(32.4deg);
+      -ms-transform: rotate(32.4deg);
+      transform: rotate(32.4deg); }
+    .time-indicator .radial-progress[data-fun="18"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(64.8deg);
+      -ms-transform: rotate(64.8deg);
+      transform: rotate(64.8deg); }
+    .time-indicator .radial-progress[data-fun="19"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="19"] .circle.fun .fill {
+      -webkit-transform: rotate(34.2deg);
+      -ms-transform: rotate(34.2deg);
+      transform: rotate(34.2deg); }
+    .time-indicator .radial-progress[data-fun="19"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(68.4deg);
+      -ms-transform: rotate(68.4deg);
+      transform: rotate(68.4deg); }
+    .time-indicator .radial-progress[data-fun="20"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="20"] .circle.fun .fill {
+      -webkit-transform: rotate(36deg);
+      -ms-transform: rotate(36deg);
+      transform: rotate(36deg); }
+    .time-indicator .radial-progress[data-fun="20"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(72deg);
+      -ms-transform: rotate(72deg);
+      transform: rotate(72deg); }
+    .time-indicator .radial-progress[data-fun="21"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="21"] .circle.fun .fill {
+      -webkit-transform: rotate(37.8deg);
+      -ms-transform: rotate(37.8deg);
+      transform: rotate(37.8deg); }
+    .time-indicator .radial-progress[data-fun="21"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(75.6deg);
+      -ms-transform: rotate(75.6deg);
+      transform: rotate(75.6deg); }
+    .time-indicator .radial-progress[data-fun="22"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="22"] .circle.fun .fill {
+      -webkit-transform: rotate(39.6deg);
+      -ms-transform: rotate(39.6deg);
+      transform: rotate(39.6deg); }
+    .time-indicator .radial-progress[data-fun="22"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(79.2deg);
+      -ms-transform: rotate(79.2deg);
+      transform: rotate(79.2deg); }
+    .time-indicator .radial-progress[data-fun="23"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="23"] .circle.fun .fill {
+      -webkit-transform: rotate(41.4deg);
+      -ms-transform: rotate(41.4deg);
+      transform: rotate(41.4deg); }
+    .time-indicator .radial-progress[data-fun="23"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(82.8deg);
+      -ms-transform: rotate(82.8deg);
+      transform: rotate(82.8deg); }
+    .time-indicator .radial-progress[data-fun="24"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="24"] .circle.fun .fill {
+      -webkit-transform: rotate(43.2deg);
+      -ms-transform: rotate(43.2deg);
+      transform: rotate(43.2deg); }
+    .time-indicator .radial-progress[data-fun="24"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(86.4deg);
+      -ms-transform: rotate(86.4deg);
+      transform: rotate(86.4deg); }
+    .time-indicator .radial-progress[data-fun="25"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="25"] .circle.fun .fill {
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    .time-indicator .radial-progress[data-fun="25"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
+    .time-indicator .radial-progress[data-fun="26"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="26"] .circle.fun .fill {
+      -webkit-transform: rotate(46.8deg);
+      -ms-transform: rotate(46.8deg);
+      transform: rotate(46.8deg); }
+    .time-indicator .radial-progress[data-fun="26"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(93.6deg);
+      -ms-transform: rotate(93.6deg);
+      transform: rotate(93.6deg); }
+    .time-indicator .radial-progress[data-fun="27"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="27"] .circle.fun .fill {
+      -webkit-transform: rotate(48.6deg);
+      -ms-transform: rotate(48.6deg);
+      transform: rotate(48.6deg); }
+    .time-indicator .radial-progress[data-fun="27"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(97.2deg);
+      -ms-transform: rotate(97.2deg);
+      transform: rotate(97.2deg); }
+    .time-indicator .radial-progress[data-fun="28"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="28"] .circle.fun .fill {
+      -webkit-transform: rotate(50.4deg);
+      -ms-transform: rotate(50.4deg);
+      transform: rotate(50.4deg); }
+    .time-indicator .radial-progress[data-fun="28"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(100.8deg);
+      -ms-transform: rotate(100.8deg);
+      transform: rotate(100.8deg); }
+    .time-indicator .radial-progress[data-fun="29"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="29"] .circle.fun .fill {
+      -webkit-transform: rotate(52.2deg);
+      -ms-transform: rotate(52.2deg);
+      transform: rotate(52.2deg); }
+    .time-indicator .radial-progress[data-fun="29"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(104.4deg);
+      -ms-transform: rotate(104.4deg);
+      transform: rotate(104.4deg); }
+    .time-indicator .radial-progress[data-fun="30"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="30"] .circle.fun .fill {
+      -webkit-transform: rotate(54deg);
+      -ms-transform: rotate(54deg);
+      transform: rotate(54deg); }
+    .time-indicator .radial-progress[data-fun="30"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(108deg);
+      -ms-transform: rotate(108deg);
+      transform: rotate(108deg); }
+    .time-indicator .radial-progress[data-fun="31"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="31"] .circle.fun .fill {
+      -webkit-transform: rotate(55.8deg);
+      -ms-transform: rotate(55.8deg);
+      transform: rotate(55.8deg); }
+    .time-indicator .radial-progress[data-fun="31"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(111.6deg);
+      -ms-transform: rotate(111.6deg);
+      transform: rotate(111.6deg); }
+    .time-indicator .radial-progress[data-fun="32"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="32"] .circle.fun .fill {
+      -webkit-transform: rotate(57.6deg);
+      -ms-transform: rotate(57.6deg);
+      transform: rotate(57.6deg); }
+    .time-indicator .radial-progress[data-fun="32"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(115.2deg);
+      -ms-transform: rotate(115.2deg);
+      transform: rotate(115.2deg); }
+    .time-indicator .radial-progress[data-fun="33"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="33"] .circle.fun .fill {
+      -webkit-transform: rotate(59.4deg);
+      -ms-transform: rotate(59.4deg);
+      transform: rotate(59.4deg); }
+    .time-indicator .radial-progress[data-fun="33"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(118.8deg);
+      -ms-transform: rotate(118.8deg);
+      transform: rotate(118.8deg); }
+    .time-indicator .radial-progress[data-fun="34"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="34"] .circle.fun .fill {
+      -webkit-transform: rotate(61.2deg);
+      -ms-transform: rotate(61.2deg);
+      transform: rotate(61.2deg); }
+    .time-indicator .radial-progress[data-fun="34"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(122.4deg);
+      -ms-transform: rotate(122.4deg);
+      transform: rotate(122.4deg); }
+    .time-indicator .radial-progress[data-fun="35"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="35"] .circle.fun .fill {
+      -webkit-transform: rotate(63deg);
+      -ms-transform: rotate(63deg);
+      transform: rotate(63deg); }
+    .time-indicator .radial-progress[data-fun="35"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(126deg);
+      -ms-transform: rotate(126deg);
+      transform: rotate(126deg); }
+    .time-indicator .radial-progress[data-fun="36"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="36"] .circle.fun .fill {
+      -webkit-transform: rotate(64.8deg);
+      -ms-transform: rotate(64.8deg);
+      transform: rotate(64.8deg); }
+    .time-indicator .radial-progress[data-fun="36"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(129.6deg);
+      -ms-transform: rotate(129.6deg);
+      transform: rotate(129.6deg); }
+    .time-indicator .radial-progress[data-fun="37"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="37"] .circle.fun .fill {
+      -webkit-transform: rotate(66.6deg);
+      -ms-transform: rotate(66.6deg);
+      transform: rotate(66.6deg); }
+    .time-indicator .radial-progress[data-fun="37"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(133.2deg);
+      -ms-transform: rotate(133.2deg);
+      transform: rotate(133.2deg); }
+    .time-indicator .radial-progress[data-fun="38"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="38"] .circle.fun .fill {
+      -webkit-transform: rotate(68.4deg);
+      -ms-transform: rotate(68.4deg);
+      transform: rotate(68.4deg); }
+    .time-indicator .radial-progress[data-fun="38"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(136.8deg);
+      -ms-transform: rotate(136.8deg);
+      transform: rotate(136.8deg); }
+    .time-indicator .radial-progress[data-fun="39"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="39"] .circle.fun .fill {
+      -webkit-transform: rotate(70.2deg);
+      -ms-transform: rotate(70.2deg);
+      transform: rotate(70.2deg); }
+    .time-indicator .radial-progress[data-fun="39"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(140.4deg);
+      -ms-transform: rotate(140.4deg);
+      transform: rotate(140.4deg); }
+    .time-indicator .radial-progress[data-fun="40"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="40"] .circle.fun .fill {
+      -webkit-transform: rotate(72deg);
+      -ms-transform: rotate(72deg);
+      transform: rotate(72deg); }
+    .time-indicator .radial-progress[data-fun="40"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(144deg);
+      -ms-transform: rotate(144deg);
+      transform: rotate(144deg); }
+    .time-indicator .radial-progress[data-fun="41"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="41"] .circle.fun .fill {
+      -webkit-transform: rotate(73.8deg);
+      -ms-transform: rotate(73.8deg);
+      transform: rotate(73.8deg); }
+    .time-indicator .radial-progress[data-fun="41"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(147.6deg);
+      -ms-transform: rotate(147.6deg);
+      transform: rotate(147.6deg); }
+    .time-indicator .radial-progress[data-fun="42"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="42"] .circle.fun .fill {
+      -webkit-transform: rotate(75.6deg);
+      -ms-transform: rotate(75.6deg);
+      transform: rotate(75.6deg); }
+    .time-indicator .radial-progress[data-fun="42"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(151.2deg);
+      -ms-transform: rotate(151.2deg);
+      transform: rotate(151.2deg); }
+    .time-indicator .radial-progress[data-fun="43"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="43"] .circle.fun .fill {
+      -webkit-transform: rotate(77.4deg);
+      -ms-transform: rotate(77.4deg);
+      transform: rotate(77.4deg); }
+    .time-indicator .radial-progress[data-fun="43"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(154.8deg);
+      -ms-transform: rotate(154.8deg);
+      transform: rotate(154.8deg); }
+    .time-indicator .radial-progress[data-fun="44"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="44"] .circle.fun .fill {
+      -webkit-transform: rotate(79.2deg);
+      -ms-transform: rotate(79.2deg);
+      transform: rotate(79.2deg); }
+    .time-indicator .radial-progress[data-fun="44"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(158.4deg);
+      -ms-transform: rotate(158.4deg);
+      transform: rotate(158.4deg); }
+    .time-indicator .radial-progress[data-fun="45"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="45"] .circle.fun .fill {
+      -webkit-transform: rotate(81deg);
+      -ms-transform: rotate(81deg);
+      transform: rotate(81deg); }
+    .time-indicator .radial-progress[data-fun="45"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(162deg);
+      -ms-transform: rotate(162deg);
+      transform: rotate(162deg); }
+    .time-indicator .radial-progress[data-fun="46"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="46"] .circle.fun .fill {
+      -webkit-transform: rotate(82.8deg);
+      -ms-transform: rotate(82.8deg);
+      transform: rotate(82.8deg); }
+    .time-indicator .radial-progress[data-fun="46"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(165.6deg);
+      -ms-transform: rotate(165.6deg);
+      transform: rotate(165.6deg); }
+    .time-indicator .radial-progress[data-fun="47"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="47"] .circle.fun .fill {
+      -webkit-transform: rotate(84.6deg);
+      -ms-transform: rotate(84.6deg);
+      transform: rotate(84.6deg); }
+    .time-indicator .radial-progress[data-fun="47"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(169.2deg);
+      -ms-transform: rotate(169.2deg);
+      transform: rotate(169.2deg); }
+    .time-indicator .radial-progress[data-fun="48"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="48"] .circle.fun .fill {
+      -webkit-transform: rotate(86.4deg);
+      -ms-transform: rotate(86.4deg);
+      transform: rotate(86.4deg); }
+    .time-indicator .radial-progress[data-fun="48"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(172.8deg);
+      -ms-transform: rotate(172.8deg);
+      transform: rotate(172.8deg); }
+    .time-indicator .radial-progress[data-fun="49"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="49"] .circle.fun .fill {
+      -webkit-transform: rotate(88.2deg);
+      -ms-transform: rotate(88.2deg);
+      transform: rotate(88.2deg); }
+    .time-indicator .radial-progress[data-fun="49"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(176.4deg);
+      -ms-transform: rotate(176.4deg);
+      transform: rotate(176.4deg); }
+    .time-indicator .radial-progress[data-fun="50"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="50"] .circle.fun .fill {
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
+    .time-indicator .radial-progress[data-fun="50"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+    .time-indicator .radial-progress[data-fun="51"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="51"] .circle.fun .fill {
+      -webkit-transform: rotate(91.8deg);
+      -ms-transform: rotate(91.8deg);
+      transform: rotate(91.8deg); }
+    .time-indicator .radial-progress[data-fun="51"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(183.6deg);
+      -ms-transform: rotate(183.6deg);
+      transform: rotate(183.6deg); }
+    .time-indicator .radial-progress[data-fun="52"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="52"] .circle.fun .fill {
+      -webkit-transform: rotate(93.6deg);
+      -ms-transform: rotate(93.6deg);
+      transform: rotate(93.6deg); }
+    .time-indicator .radial-progress[data-fun="52"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(187.2deg);
+      -ms-transform: rotate(187.2deg);
+      transform: rotate(187.2deg); }
+    .time-indicator .radial-progress[data-fun="53"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="53"] .circle.fun .fill {
+      -webkit-transform: rotate(95.4deg);
+      -ms-transform: rotate(95.4deg);
+      transform: rotate(95.4deg); }
+    .time-indicator .radial-progress[data-fun="53"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(190.8deg);
+      -ms-transform: rotate(190.8deg);
+      transform: rotate(190.8deg); }
+    .time-indicator .radial-progress[data-fun="54"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="54"] .circle.fun .fill {
+      -webkit-transform: rotate(97.2deg);
+      -ms-transform: rotate(97.2deg);
+      transform: rotate(97.2deg); }
+    .time-indicator .radial-progress[data-fun="54"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(194.4deg);
+      -ms-transform: rotate(194.4deg);
+      transform: rotate(194.4deg); }
+    .time-indicator .radial-progress[data-fun="55"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="55"] .circle.fun .fill {
+      -webkit-transform: rotate(99deg);
+      -ms-transform: rotate(99deg);
+      transform: rotate(99deg); }
+    .time-indicator .radial-progress[data-fun="55"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(198deg);
+      -ms-transform: rotate(198deg);
+      transform: rotate(198deg); }
+    .time-indicator .radial-progress[data-fun="56"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="56"] .circle.fun .fill {
+      -webkit-transform: rotate(100.8deg);
+      -ms-transform: rotate(100.8deg);
+      transform: rotate(100.8deg); }
+    .time-indicator .radial-progress[data-fun="56"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(201.6deg);
+      -ms-transform: rotate(201.6deg);
+      transform: rotate(201.6deg); }
+    .time-indicator .radial-progress[data-fun="57"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="57"] .circle.fun .fill {
+      -webkit-transform: rotate(102.6deg);
+      -ms-transform: rotate(102.6deg);
+      transform: rotate(102.6deg); }
+    .time-indicator .radial-progress[data-fun="57"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(205.2deg);
+      -ms-transform: rotate(205.2deg);
+      transform: rotate(205.2deg); }
+    .time-indicator .radial-progress[data-fun="58"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="58"] .circle.fun .fill {
+      -webkit-transform: rotate(104.4deg);
+      -ms-transform: rotate(104.4deg);
+      transform: rotate(104.4deg); }
+    .time-indicator .radial-progress[data-fun="58"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(208.8deg);
+      -ms-transform: rotate(208.8deg);
+      transform: rotate(208.8deg); }
+    .time-indicator .radial-progress[data-fun="59"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="59"] .circle.fun .fill {
+      -webkit-transform: rotate(106.2deg);
+      -ms-transform: rotate(106.2deg);
+      transform: rotate(106.2deg); }
+    .time-indicator .radial-progress[data-fun="59"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(212.4deg);
+      -ms-transform: rotate(212.4deg);
+      transform: rotate(212.4deg); }
+    .time-indicator .radial-progress[data-fun="60"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="60"] .circle.fun .fill {
+      -webkit-transform: rotate(108deg);
+      -ms-transform: rotate(108deg);
+      transform: rotate(108deg); }
+    .time-indicator .radial-progress[data-fun="60"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(216deg);
+      -ms-transform: rotate(216deg);
+      transform: rotate(216deg); }
+    .time-indicator .radial-progress[data-fun="61"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="61"] .circle.fun .fill {
+      -webkit-transform: rotate(109.8deg);
+      -ms-transform: rotate(109.8deg);
+      transform: rotate(109.8deg); }
+    .time-indicator .radial-progress[data-fun="61"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(219.6deg);
+      -ms-transform: rotate(219.6deg);
+      transform: rotate(219.6deg); }
+    .time-indicator .radial-progress[data-fun="62"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="62"] .circle.fun .fill {
+      -webkit-transform: rotate(111.6deg);
+      -ms-transform: rotate(111.6deg);
+      transform: rotate(111.6deg); }
+    .time-indicator .radial-progress[data-fun="62"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(223.2deg);
+      -ms-transform: rotate(223.2deg);
+      transform: rotate(223.2deg); }
+    .time-indicator .radial-progress[data-fun="63"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="63"] .circle.fun .fill {
+      -webkit-transform: rotate(113.4deg);
+      -ms-transform: rotate(113.4deg);
+      transform: rotate(113.4deg); }
+    .time-indicator .radial-progress[data-fun="63"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(226.8deg);
+      -ms-transform: rotate(226.8deg);
+      transform: rotate(226.8deg); }
+    .time-indicator .radial-progress[data-fun="64"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="64"] .circle.fun .fill {
+      -webkit-transform: rotate(115.2deg);
+      -ms-transform: rotate(115.2deg);
+      transform: rotate(115.2deg); }
+    .time-indicator .radial-progress[data-fun="64"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(230.4deg);
+      -ms-transform: rotate(230.4deg);
+      transform: rotate(230.4deg); }
+    .time-indicator .radial-progress[data-fun="65"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="65"] .circle.fun .fill {
+      -webkit-transform: rotate(117deg);
+      -ms-transform: rotate(117deg);
+      transform: rotate(117deg); }
+    .time-indicator .radial-progress[data-fun="65"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(234deg);
+      -ms-transform: rotate(234deg);
+      transform: rotate(234deg); }
+    .time-indicator .radial-progress[data-fun="66"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="66"] .circle.fun .fill {
+      -webkit-transform: rotate(118.8deg);
+      -ms-transform: rotate(118.8deg);
+      transform: rotate(118.8deg); }
+    .time-indicator .radial-progress[data-fun="66"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(237.6deg);
+      -ms-transform: rotate(237.6deg);
+      transform: rotate(237.6deg); }
+    .time-indicator .radial-progress[data-fun="67"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="67"] .circle.fun .fill {
+      -webkit-transform: rotate(120.6deg);
+      -ms-transform: rotate(120.6deg);
+      transform: rotate(120.6deg); }
+    .time-indicator .radial-progress[data-fun="67"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(241.2deg);
+      -ms-transform: rotate(241.2deg);
+      transform: rotate(241.2deg); }
+    .time-indicator .radial-progress[data-fun="68"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="68"] .circle.fun .fill {
+      -webkit-transform: rotate(122.4deg);
+      -ms-transform: rotate(122.4deg);
+      transform: rotate(122.4deg); }
+    .time-indicator .radial-progress[data-fun="68"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(244.8deg);
+      -ms-transform: rotate(244.8deg);
+      transform: rotate(244.8deg); }
+    .time-indicator .radial-progress[data-fun="69"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="69"] .circle.fun .fill {
+      -webkit-transform: rotate(124.2deg);
+      -ms-transform: rotate(124.2deg);
+      transform: rotate(124.2deg); }
+    .time-indicator .radial-progress[data-fun="69"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(248.4deg);
+      -ms-transform: rotate(248.4deg);
+      transform: rotate(248.4deg); }
+    .time-indicator .radial-progress[data-fun="70"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="70"] .circle.fun .fill {
+      -webkit-transform: rotate(126deg);
+      -ms-transform: rotate(126deg);
+      transform: rotate(126deg); }
+    .time-indicator .radial-progress[data-fun="70"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(252deg);
+      -ms-transform: rotate(252deg);
+      transform: rotate(252deg); }
+    .time-indicator .radial-progress[data-fun="71"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="71"] .circle.fun .fill {
+      -webkit-transform: rotate(127.8deg);
+      -ms-transform: rotate(127.8deg);
+      transform: rotate(127.8deg); }
+    .time-indicator .radial-progress[data-fun="71"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(255.6deg);
+      -ms-transform: rotate(255.6deg);
+      transform: rotate(255.6deg); }
+    .time-indicator .radial-progress[data-fun="72"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="72"] .circle.fun .fill {
+      -webkit-transform: rotate(129.6deg);
+      -ms-transform: rotate(129.6deg);
+      transform: rotate(129.6deg); }
+    .time-indicator .radial-progress[data-fun="72"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(259.2deg);
+      -ms-transform: rotate(259.2deg);
+      transform: rotate(259.2deg); }
+    .time-indicator .radial-progress[data-fun="73"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="73"] .circle.fun .fill {
+      -webkit-transform: rotate(131.4deg);
+      -ms-transform: rotate(131.4deg);
+      transform: rotate(131.4deg); }
+    .time-indicator .radial-progress[data-fun="73"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(262.8deg);
+      -ms-transform: rotate(262.8deg);
+      transform: rotate(262.8deg); }
+    .time-indicator .radial-progress[data-fun="74"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="74"] .circle.fun .fill {
+      -webkit-transform: rotate(133.2deg);
+      -ms-transform: rotate(133.2deg);
+      transform: rotate(133.2deg); }
+    .time-indicator .radial-progress[data-fun="74"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(266.4deg);
+      -ms-transform: rotate(266.4deg);
+      transform: rotate(266.4deg); }
+    .time-indicator .radial-progress[data-fun="75"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="75"] .circle.fun .fill {
+      -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+      transform: rotate(135deg); }
+    .time-indicator .radial-progress[data-fun="75"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+      transform: rotate(270deg); }
+    .time-indicator .radial-progress[data-fun="76"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="76"] .circle.fun .fill {
+      -webkit-transform: rotate(136.8deg);
+      -ms-transform: rotate(136.8deg);
+      transform: rotate(136.8deg); }
+    .time-indicator .radial-progress[data-fun="76"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(273.6deg);
+      -ms-transform: rotate(273.6deg);
+      transform: rotate(273.6deg); }
+    .time-indicator .radial-progress[data-fun="77"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="77"] .circle.fun .fill {
+      -webkit-transform: rotate(138.6deg);
+      -ms-transform: rotate(138.6deg);
+      transform: rotate(138.6deg); }
+    .time-indicator .radial-progress[data-fun="77"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(277.2deg);
+      -ms-transform: rotate(277.2deg);
+      transform: rotate(277.2deg); }
+    .time-indicator .radial-progress[data-fun="78"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="78"] .circle.fun .fill {
+      -webkit-transform: rotate(140.4deg);
+      -ms-transform: rotate(140.4deg);
+      transform: rotate(140.4deg); }
+    .time-indicator .radial-progress[data-fun="78"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(280.8deg);
+      -ms-transform: rotate(280.8deg);
+      transform: rotate(280.8deg); }
+    .time-indicator .radial-progress[data-fun="79"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="79"] .circle.fun .fill {
+      -webkit-transform: rotate(142.2deg);
+      -ms-transform: rotate(142.2deg);
+      transform: rotate(142.2deg); }
+    .time-indicator .radial-progress[data-fun="79"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(284.4deg);
+      -ms-transform: rotate(284.4deg);
+      transform: rotate(284.4deg); }
+    .time-indicator .radial-progress[data-fun="80"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="80"] .circle.fun .fill {
+      -webkit-transform: rotate(144deg);
+      -ms-transform: rotate(144deg);
+      transform: rotate(144deg); }
+    .time-indicator .radial-progress[data-fun="80"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(288deg);
+      -ms-transform: rotate(288deg);
+      transform: rotate(288deg); }
+    .time-indicator .radial-progress[data-fun="81"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="81"] .circle.fun .fill {
+      -webkit-transform: rotate(145.8deg);
+      -ms-transform: rotate(145.8deg);
+      transform: rotate(145.8deg); }
+    .time-indicator .radial-progress[data-fun="81"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(291.6deg);
+      -ms-transform: rotate(291.6deg);
+      transform: rotate(291.6deg); }
+    .time-indicator .radial-progress[data-fun="82"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="82"] .circle.fun .fill {
+      -webkit-transform: rotate(147.6deg);
+      -ms-transform: rotate(147.6deg);
+      transform: rotate(147.6deg); }
+    .time-indicator .radial-progress[data-fun="82"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(295.2deg);
+      -ms-transform: rotate(295.2deg);
+      transform: rotate(295.2deg); }
+    .time-indicator .radial-progress[data-fun="83"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="83"] .circle.fun .fill {
+      -webkit-transform: rotate(149.4deg);
+      -ms-transform: rotate(149.4deg);
+      transform: rotate(149.4deg); }
+    .time-indicator .radial-progress[data-fun="83"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(298.8deg);
+      -ms-transform: rotate(298.8deg);
+      transform: rotate(298.8deg); }
+    .time-indicator .radial-progress[data-fun="84"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="84"] .circle.fun .fill {
+      -webkit-transform: rotate(151.2deg);
+      -ms-transform: rotate(151.2deg);
+      transform: rotate(151.2deg); }
+    .time-indicator .radial-progress[data-fun="84"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(302.4deg);
+      -ms-transform: rotate(302.4deg);
+      transform: rotate(302.4deg); }
+    .time-indicator .radial-progress[data-fun="85"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="85"] .circle.fun .fill {
+      -webkit-transform: rotate(153deg);
+      -ms-transform: rotate(153deg);
+      transform: rotate(153deg); }
+    .time-indicator .radial-progress[data-fun="85"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(306deg);
+      -ms-transform: rotate(306deg);
+      transform: rotate(306deg); }
+    .time-indicator .radial-progress[data-fun="86"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="86"] .circle.fun .fill {
+      -webkit-transform: rotate(154.8deg);
+      -ms-transform: rotate(154.8deg);
+      transform: rotate(154.8deg); }
+    .time-indicator .radial-progress[data-fun="86"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(309.6deg);
+      -ms-transform: rotate(309.6deg);
+      transform: rotate(309.6deg); }
+    .time-indicator .radial-progress[data-fun="87"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="87"] .circle.fun .fill {
+      -webkit-transform: rotate(156.6deg);
+      -ms-transform: rotate(156.6deg);
+      transform: rotate(156.6deg); }
+    .time-indicator .radial-progress[data-fun="87"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(313.2deg);
+      -ms-transform: rotate(313.2deg);
+      transform: rotate(313.2deg); }
+    .time-indicator .radial-progress[data-fun="88"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="88"] .circle.fun .fill {
+      -webkit-transform: rotate(158.4deg);
+      -ms-transform: rotate(158.4deg);
+      transform: rotate(158.4deg); }
+    .time-indicator .radial-progress[data-fun="88"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(316.8deg);
+      -ms-transform: rotate(316.8deg);
+      transform: rotate(316.8deg); }
+    .time-indicator .radial-progress[data-fun="89"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="89"] .circle.fun .fill {
+      -webkit-transform: rotate(160.2deg);
+      -ms-transform: rotate(160.2deg);
+      transform: rotate(160.2deg); }
+    .time-indicator .radial-progress[data-fun="89"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(320.4deg);
+      -ms-transform: rotate(320.4deg);
+      transform: rotate(320.4deg); }
+    .time-indicator .radial-progress[data-fun="90"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="90"] .circle.fun .fill {
+      -webkit-transform: rotate(162deg);
+      -ms-transform: rotate(162deg);
+      transform: rotate(162deg); }
+    .time-indicator .radial-progress[data-fun="90"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(324deg);
+      -ms-transform: rotate(324deg);
+      transform: rotate(324deg); }
+    .time-indicator .radial-progress[data-fun="91"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="91"] .circle.fun .fill {
+      -webkit-transform: rotate(163.8deg);
+      -ms-transform: rotate(163.8deg);
+      transform: rotate(163.8deg); }
+    .time-indicator .radial-progress[data-fun="91"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(327.6deg);
+      -ms-transform: rotate(327.6deg);
+      transform: rotate(327.6deg); }
+    .time-indicator .radial-progress[data-fun="92"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="92"] .circle.fun .fill {
+      -webkit-transform: rotate(165.6deg);
+      -ms-transform: rotate(165.6deg);
+      transform: rotate(165.6deg); }
+    .time-indicator .radial-progress[data-fun="92"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(331.2deg);
+      -ms-transform: rotate(331.2deg);
+      transform: rotate(331.2deg); }
+    .time-indicator .radial-progress[data-fun="93"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="93"] .circle.fun .fill {
+      -webkit-transform: rotate(167.4deg);
+      -ms-transform: rotate(167.4deg);
+      transform: rotate(167.4deg); }
+    .time-indicator .radial-progress[data-fun="93"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(334.8deg);
+      -ms-transform: rotate(334.8deg);
+      transform: rotate(334.8deg); }
+    .time-indicator .radial-progress[data-fun="94"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="94"] .circle.fun .fill {
+      -webkit-transform: rotate(169.2deg);
+      -ms-transform: rotate(169.2deg);
+      transform: rotate(169.2deg); }
+    .time-indicator .radial-progress[data-fun="94"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(338.4deg);
+      -ms-transform: rotate(338.4deg);
+      transform: rotate(338.4deg); }
+    .time-indicator .radial-progress[data-fun="95"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="95"] .circle.fun .fill {
+      -webkit-transform: rotate(171deg);
+      -ms-transform: rotate(171deg);
+      transform: rotate(171deg); }
+    .time-indicator .radial-progress[data-fun="95"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(342deg);
+      -ms-transform: rotate(342deg);
+      transform: rotate(342deg); }
+    .time-indicator .radial-progress[data-fun="96"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="96"] .circle.fun .fill {
+      -webkit-transform: rotate(172.8deg);
+      -ms-transform: rotate(172.8deg);
+      transform: rotate(172.8deg); }
+    .time-indicator .radial-progress[data-fun="96"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(345.6deg);
+      -ms-transform: rotate(345.6deg);
+      transform: rotate(345.6deg); }
+    .time-indicator .radial-progress[data-fun="97"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="97"] .circle.fun .fill {
+      -webkit-transform: rotate(174.6deg);
+      -ms-transform: rotate(174.6deg);
+      transform: rotate(174.6deg); }
+    .time-indicator .radial-progress[data-fun="97"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(349.2deg);
+      -ms-transform: rotate(349.2deg);
+      transform: rotate(349.2deg); }
+    .time-indicator .radial-progress[data-fun="98"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="98"] .circle.fun .fill {
+      -webkit-transform: rotate(176.4deg);
+      -ms-transform: rotate(176.4deg);
+      transform: rotate(176.4deg); }
+    .time-indicator .radial-progress[data-fun="98"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(352.8deg);
+      -ms-transform: rotate(352.8deg);
+      transform: rotate(352.8deg); }
+    .time-indicator .radial-progress[data-fun="99"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="99"] .circle.fun .fill {
+      -webkit-transform: rotate(178.2deg);
+      -ms-transform: rotate(178.2deg);
+      transform: rotate(178.2deg); }
+    .time-indicator .radial-progress[data-fun="99"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(356.4deg);
+      -ms-transform: rotate(356.4deg);
+      transform: rotate(356.4deg); }
+    .time-indicator .radial-progress[data-fun="100"] .circle.fun .mask.full, .time-indicator .radial-progress[data-fun="100"] .circle.fun .fill {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+    .time-indicator .radial-progress[data-fun="100"] .circle.fun .fill.fix {
+      -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg); }
+    .time-indicator .radial-progress[data-travel="1"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="1"] .circle.travel .fill {
+      -webkit-transform: rotate(1.8deg);
+      -ms-transform: rotate(1.8deg);
+      transform: rotate(1.8deg); }
+    .time-indicator .radial-progress[data-travel="1"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(3.6deg);
+      -ms-transform: rotate(3.6deg);
+      transform: rotate(3.6deg); }
+    .time-indicator .radial-progress[data-travel="2"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="2"] .circle.travel .fill {
+      -webkit-transform: rotate(3.6deg);
+      -ms-transform: rotate(3.6deg);
+      transform: rotate(3.6deg); }
+    .time-indicator .radial-progress[data-travel="2"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(7.2deg);
+      -ms-transform: rotate(7.2deg);
+      transform: rotate(7.2deg); }
+    .time-indicator .radial-progress[data-travel="3"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="3"] .circle.travel .fill {
+      -webkit-transform: rotate(5.4deg);
+      -ms-transform: rotate(5.4deg);
+      transform: rotate(5.4deg); }
+    .time-indicator .radial-progress[data-travel="3"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(10.8deg);
+      -ms-transform: rotate(10.8deg);
+      transform: rotate(10.8deg); }
+    .time-indicator .radial-progress[data-travel="4"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="4"] .circle.travel .fill {
+      -webkit-transform: rotate(7.2deg);
+      -ms-transform: rotate(7.2deg);
+      transform: rotate(7.2deg); }
+    .time-indicator .radial-progress[data-travel="4"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(14.4deg);
+      -ms-transform: rotate(14.4deg);
+      transform: rotate(14.4deg); }
+    .time-indicator .radial-progress[data-travel="5"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="5"] .circle.travel .fill {
+      -webkit-transform: rotate(9deg);
+      -ms-transform: rotate(9deg);
+      transform: rotate(9deg); }
+    .time-indicator .radial-progress[data-travel="5"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(18deg);
+      -ms-transform: rotate(18deg);
+      transform: rotate(18deg); }
+    .time-indicator .radial-progress[data-travel="6"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="6"] .circle.travel .fill {
+      -webkit-transform: rotate(10.8deg);
+      -ms-transform: rotate(10.8deg);
+      transform: rotate(10.8deg); }
+    .time-indicator .radial-progress[data-travel="6"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(21.6deg);
+      -ms-transform: rotate(21.6deg);
+      transform: rotate(21.6deg); }
+    .time-indicator .radial-progress[data-travel="7"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="7"] .circle.travel .fill {
+      -webkit-transform: rotate(12.6deg);
+      -ms-transform: rotate(12.6deg);
+      transform: rotate(12.6deg); }
+    .time-indicator .radial-progress[data-travel="7"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(25.2deg);
+      -ms-transform: rotate(25.2deg);
+      transform: rotate(25.2deg); }
+    .time-indicator .radial-progress[data-travel="8"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="8"] .circle.travel .fill {
+      -webkit-transform: rotate(14.4deg);
+      -ms-transform: rotate(14.4deg);
+      transform: rotate(14.4deg); }
+    .time-indicator .radial-progress[data-travel="8"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(28.8deg);
+      -ms-transform: rotate(28.8deg);
+      transform: rotate(28.8deg); }
+    .time-indicator .radial-progress[data-travel="9"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="9"] .circle.travel .fill {
+      -webkit-transform: rotate(16.2deg);
+      -ms-transform: rotate(16.2deg);
+      transform: rotate(16.2deg); }
+    .time-indicator .radial-progress[data-travel="9"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(32.4deg);
+      -ms-transform: rotate(32.4deg);
+      transform: rotate(32.4deg); }
+    .time-indicator .radial-progress[data-travel="10"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="10"] .circle.travel .fill {
+      -webkit-transform: rotate(18deg);
+      -ms-transform: rotate(18deg);
+      transform: rotate(18deg); }
+    .time-indicator .radial-progress[data-travel="10"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(36deg);
+      -ms-transform: rotate(36deg);
+      transform: rotate(36deg); }
+    .time-indicator .radial-progress[data-travel="11"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="11"] .circle.travel .fill {
+      -webkit-transform: rotate(19.8deg);
+      -ms-transform: rotate(19.8deg);
+      transform: rotate(19.8deg); }
+    .time-indicator .radial-progress[data-travel="11"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(39.6deg);
+      -ms-transform: rotate(39.6deg);
+      transform: rotate(39.6deg); }
+    .time-indicator .radial-progress[data-travel="12"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="12"] .circle.travel .fill {
+      -webkit-transform: rotate(21.6deg);
+      -ms-transform: rotate(21.6deg);
+      transform: rotate(21.6deg); }
+    .time-indicator .radial-progress[data-travel="12"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(43.2deg);
+      -ms-transform: rotate(43.2deg);
+      transform: rotate(43.2deg); }
+    .time-indicator .radial-progress[data-travel="13"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="13"] .circle.travel .fill {
+      -webkit-transform: rotate(23.4deg);
+      -ms-transform: rotate(23.4deg);
+      transform: rotate(23.4deg); }
+    .time-indicator .radial-progress[data-travel="13"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(46.8deg);
+      -ms-transform: rotate(46.8deg);
+      transform: rotate(46.8deg); }
+    .time-indicator .radial-progress[data-travel="14"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="14"] .circle.travel .fill {
+      -webkit-transform: rotate(25.2deg);
+      -ms-transform: rotate(25.2deg);
+      transform: rotate(25.2deg); }
+    .time-indicator .radial-progress[data-travel="14"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(50.4deg);
+      -ms-transform: rotate(50.4deg);
+      transform: rotate(50.4deg); }
+    .time-indicator .radial-progress[data-travel="15"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="15"] .circle.travel .fill {
+      -webkit-transform: rotate(27deg);
+      -ms-transform: rotate(27deg);
+      transform: rotate(27deg); }
+    .time-indicator .radial-progress[data-travel="15"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(54deg);
+      -ms-transform: rotate(54deg);
+      transform: rotate(54deg); }
+    .time-indicator .radial-progress[data-travel="16"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="16"] .circle.travel .fill {
+      -webkit-transform: rotate(28.8deg);
+      -ms-transform: rotate(28.8deg);
+      transform: rotate(28.8deg); }
+    .time-indicator .radial-progress[data-travel="16"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(57.6deg);
+      -ms-transform: rotate(57.6deg);
+      transform: rotate(57.6deg); }
+    .time-indicator .radial-progress[data-travel="17"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="17"] .circle.travel .fill {
+      -webkit-transform: rotate(30.6deg);
+      -ms-transform: rotate(30.6deg);
+      transform: rotate(30.6deg); }
+    .time-indicator .radial-progress[data-travel="17"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(61.2deg);
+      -ms-transform: rotate(61.2deg);
+      transform: rotate(61.2deg); }
+    .time-indicator .radial-progress[data-travel="18"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="18"] .circle.travel .fill {
+      -webkit-transform: rotate(32.4deg);
+      -ms-transform: rotate(32.4deg);
+      transform: rotate(32.4deg); }
+    .time-indicator .radial-progress[data-travel="18"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(64.8deg);
+      -ms-transform: rotate(64.8deg);
+      transform: rotate(64.8deg); }
+    .time-indicator .radial-progress[data-travel="19"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="19"] .circle.travel .fill {
+      -webkit-transform: rotate(34.2deg);
+      -ms-transform: rotate(34.2deg);
+      transform: rotate(34.2deg); }
+    .time-indicator .radial-progress[data-travel="19"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(68.4deg);
+      -ms-transform: rotate(68.4deg);
+      transform: rotate(68.4deg); }
+    .time-indicator .radial-progress[data-travel="20"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="20"] .circle.travel .fill {
+      -webkit-transform: rotate(36deg);
+      -ms-transform: rotate(36deg);
+      transform: rotate(36deg); }
+    .time-indicator .radial-progress[data-travel="20"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(72deg);
+      -ms-transform: rotate(72deg);
+      transform: rotate(72deg); }
+    .time-indicator .radial-progress[data-travel="21"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="21"] .circle.travel .fill {
+      -webkit-transform: rotate(37.8deg);
+      -ms-transform: rotate(37.8deg);
+      transform: rotate(37.8deg); }
+    .time-indicator .radial-progress[data-travel="21"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(75.6deg);
+      -ms-transform: rotate(75.6deg);
+      transform: rotate(75.6deg); }
+    .time-indicator .radial-progress[data-travel="22"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="22"] .circle.travel .fill {
+      -webkit-transform: rotate(39.6deg);
+      -ms-transform: rotate(39.6deg);
+      transform: rotate(39.6deg); }
+    .time-indicator .radial-progress[data-travel="22"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(79.2deg);
+      -ms-transform: rotate(79.2deg);
+      transform: rotate(79.2deg); }
+    .time-indicator .radial-progress[data-travel="23"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="23"] .circle.travel .fill {
+      -webkit-transform: rotate(41.4deg);
+      -ms-transform: rotate(41.4deg);
+      transform: rotate(41.4deg); }
+    .time-indicator .radial-progress[data-travel="23"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(82.8deg);
+      -ms-transform: rotate(82.8deg);
+      transform: rotate(82.8deg); }
+    .time-indicator .radial-progress[data-travel="24"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="24"] .circle.travel .fill {
+      -webkit-transform: rotate(43.2deg);
+      -ms-transform: rotate(43.2deg);
+      transform: rotate(43.2deg); }
+    .time-indicator .radial-progress[data-travel="24"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(86.4deg);
+      -ms-transform: rotate(86.4deg);
+      transform: rotate(86.4deg); }
+    .time-indicator .radial-progress[data-travel="25"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="25"] .circle.travel .fill {
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    .time-indicator .radial-progress[data-travel="25"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
+    .time-indicator .radial-progress[data-travel="26"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="26"] .circle.travel .fill {
+      -webkit-transform: rotate(46.8deg);
+      -ms-transform: rotate(46.8deg);
+      transform: rotate(46.8deg); }
+    .time-indicator .radial-progress[data-travel="26"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(93.6deg);
+      -ms-transform: rotate(93.6deg);
+      transform: rotate(93.6deg); }
+    .time-indicator .radial-progress[data-travel="27"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="27"] .circle.travel .fill {
+      -webkit-transform: rotate(48.6deg);
+      -ms-transform: rotate(48.6deg);
+      transform: rotate(48.6deg); }
+    .time-indicator .radial-progress[data-travel="27"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(97.2deg);
+      -ms-transform: rotate(97.2deg);
+      transform: rotate(97.2deg); }
+    .time-indicator .radial-progress[data-travel="28"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="28"] .circle.travel .fill {
+      -webkit-transform: rotate(50.4deg);
+      -ms-transform: rotate(50.4deg);
+      transform: rotate(50.4deg); }
+    .time-indicator .radial-progress[data-travel="28"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(100.8deg);
+      -ms-transform: rotate(100.8deg);
+      transform: rotate(100.8deg); }
+    .time-indicator .radial-progress[data-travel="29"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="29"] .circle.travel .fill {
+      -webkit-transform: rotate(52.2deg);
+      -ms-transform: rotate(52.2deg);
+      transform: rotate(52.2deg); }
+    .time-indicator .radial-progress[data-travel="29"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(104.4deg);
+      -ms-transform: rotate(104.4deg);
+      transform: rotate(104.4deg); }
+    .time-indicator .radial-progress[data-travel="30"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="30"] .circle.travel .fill {
+      -webkit-transform: rotate(54deg);
+      -ms-transform: rotate(54deg);
+      transform: rotate(54deg); }
+    .time-indicator .radial-progress[data-travel="30"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(108deg);
+      -ms-transform: rotate(108deg);
+      transform: rotate(108deg); }
+    .time-indicator .radial-progress[data-travel="31"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="31"] .circle.travel .fill {
+      -webkit-transform: rotate(55.8deg);
+      -ms-transform: rotate(55.8deg);
+      transform: rotate(55.8deg); }
+    .time-indicator .radial-progress[data-travel="31"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(111.6deg);
+      -ms-transform: rotate(111.6deg);
+      transform: rotate(111.6deg); }
+    .time-indicator .radial-progress[data-travel="32"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="32"] .circle.travel .fill {
+      -webkit-transform: rotate(57.6deg);
+      -ms-transform: rotate(57.6deg);
+      transform: rotate(57.6deg); }
+    .time-indicator .radial-progress[data-travel="32"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(115.2deg);
+      -ms-transform: rotate(115.2deg);
+      transform: rotate(115.2deg); }
+    .time-indicator .radial-progress[data-travel="33"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="33"] .circle.travel .fill {
+      -webkit-transform: rotate(59.4deg);
+      -ms-transform: rotate(59.4deg);
+      transform: rotate(59.4deg); }
+    .time-indicator .radial-progress[data-travel="33"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(118.8deg);
+      -ms-transform: rotate(118.8deg);
+      transform: rotate(118.8deg); }
+    .time-indicator .radial-progress[data-travel="34"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="34"] .circle.travel .fill {
+      -webkit-transform: rotate(61.2deg);
+      -ms-transform: rotate(61.2deg);
+      transform: rotate(61.2deg); }
+    .time-indicator .radial-progress[data-travel="34"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(122.4deg);
+      -ms-transform: rotate(122.4deg);
+      transform: rotate(122.4deg); }
+    .time-indicator .radial-progress[data-travel="35"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="35"] .circle.travel .fill {
+      -webkit-transform: rotate(63deg);
+      -ms-transform: rotate(63deg);
+      transform: rotate(63deg); }
+    .time-indicator .radial-progress[data-travel="35"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(126deg);
+      -ms-transform: rotate(126deg);
+      transform: rotate(126deg); }
+    .time-indicator .radial-progress[data-travel="36"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="36"] .circle.travel .fill {
+      -webkit-transform: rotate(64.8deg);
+      -ms-transform: rotate(64.8deg);
+      transform: rotate(64.8deg); }
+    .time-indicator .radial-progress[data-travel="36"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(129.6deg);
+      -ms-transform: rotate(129.6deg);
+      transform: rotate(129.6deg); }
+    .time-indicator .radial-progress[data-travel="37"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="37"] .circle.travel .fill {
+      -webkit-transform: rotate(66.6deg);
+      -ms-transform: rotate(66.6deg);
+      transform: rotate(66.6deg); }
+    .time-indicator .radial-progress[data-travel="37"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(133.2deg);
+      -ms-transform: rotate(133.2deg);
+      transform: rotate(133.2deg); }
+    .time-indicator .radial-progress[data-travel="38"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="38"] .circle.travel .fill {
+      -webkit-transform: rotate(68.4deg);
+      -ms-transform: rotate(68.4deg);
+      transform: rotate(68.4deg); }
+    .time-indicator .radial-progress[data-travel="38"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(136.8deg);
+      -ms-transform: rotate(136.8deg);
+      transform: rotate(136.8deg); }
+    .time-indicator .radial-progress[data-travel="39"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="39"] .circle.travel .fill {
+      -webkit-transform: rotate(70.2deg);
+      -ms-transform: rotate(70.2deg);
+      transform: rotate(70.2deg); }
+    .time-indicator .radial-progress[data-travel="39"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(140.4deg);
+      -ms-transform: rotate(140.4deg);
+      transform: rotate(140.4deg); }
+    .time-indicator .radial-progress[data-travel="40"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="40"] .circle.travel .fill {
+      -webkit-transform: rotate(72deg);
+      -ms-transform: rotate(72deg);
+      transform: rotate(72deg); }
+    .time-indicator .radial-progress[data-travel="40"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(144deg);
+      -ms-transform: rotate(144deg);
+      transform: rotate(144deg); }
+    .time-indicator .radial-progress[data-travel="41"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="41"] .circle.travel .fill {
+      -webkit-transform: rotate(73.8deg);
+      -ms-transform: rotate(73.8deg);
+      transform: rotate(73.8deg); }
+    .time-indicator .radial-progress[data-travel="41"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(147.6deg);
+      -ms-transform: rotate(147.6deg);
+      transform: rotate(147.6deg); }
+    .time-indicator .radial-progress[data-travel="42"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="42"] .circle.travel .fill {
+      -webkit-transform: rotate(75.6deg);
+      -ms-transform: rotate(75.6deg);
+      transform: rotate(75.6deg); }
+    .time-indicator .radial-progress[data-travel="42"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(151.2deg);
+      -ms-transform: rotate(151.2deg);
+      transform: rotate(151.2deg); }
+    .time-indicator .radial-progress[data-travel="43"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="43"] .circle.travel .fill {
+      -webkit-transform: rotate(77.4deg);
+      -ms-transform: rotate(77.4deg);
+      transform: rotate(77.4deg); }
+    .time-indicator .radial-progress[data-travel="43"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(154.8deg);
+      -ms-transform: rotate(154.8deg);
+      transform: rotate(154.8deg); }
+    .time-indicator .radial-progress[data-travel="44"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="44"] .circle.travel .fill {
+      -webkit-transform: rotate(79.2deg);
+      -ms-transform: rotate(79.2deg);
+      transform: rotate(79.2deg); }
+    .time-indicator .radial-progress[data-travel="44"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(158.4deg);
+      -ms-transform: rotate(158.4deg);
+      transform: rotate(158.4deg); }
+    .time-indicator .radial-progress[data-travel="45"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="45"] .circle.travel .fill {
+      -webkit-transform: rotate(81deg);
+      -ms-transform: rotate(81deg);
+      transform: rotate(81deg); }
+    .time-indicator .radial-progress[data-travel="45"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(162deg);
+      -ms-transform: rotate(162deg);
+      transform: rotate(162deg); }
+    .time-indicator .radial-progress[data-travel="46"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="46"] .circle.travel .fill {
+      -webkit-transform: rotate(82.8deg);
+      -ms-transform: rotate(82.8deg);
+      transform: rotate(82.8deg); }
+    .time-indicator .radial-progress[data-travel="46"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(165.6deg);
+      -ms-transform: rotate(165.6deg);
+      transform: rotate(165.6deg); }
+    .time-indicator .radial-progress[data-travel="47"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="47"] .circle.travel .fill {
+      -webkit-transform: rotate(84.6deg);
+      -ms-transform: rotate(84.6deg);
+      transform: rotate(84.6deg); }
+    .time-indicator .radial-progress[data-travel="47"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(169.2deg);
+      -ms-transform: rotate(169.2deg);
+      transform: rotate(169.2deg); }
+    .time-indicator .radial-progress[data-travel="48"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="48"] .circle.travel .fill {
+      -webkit-transform: rotate(86.4deg);
+      -ms-transform: rotate(86.4deg);
+      transform: rotate(86.4deg); }
+    .time-indicator .radial-progress[data-travel="48"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(172.8deg);
+      -ms-transform: rotate(172.8deg);
+      transform: rotate(172.8deg); }
+    .time-indicator .radial-progress[data-travel="49"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="49"] .circle.travel .fill {
+      -webkit-transform: rotate(88.2deg);
+      -ms-transform: rotate(88.2deg);
+      transform: rotate(88.2deg); }
+    .time-indicator .radial-progress[data-travel="49"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(176.4deg);
+      -ms-transform: rotate(176.4deg);
+      transform: rotate(176.4deg); }
+    .time-indicator .radial-progress[data-travel="50"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="50"] .circle.travel .fill {
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
+    .time-indicator .radial-progress[data-travel="50"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+    .time-indicator .radial-progress[data-travel="51"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="51"] .circle.travel .fill {
+      -webkit-transform: rotate(91.8deg);
+      -ms-transform: rotate(91.8deg);
+      transform: rotate(91.8deg); }
+    .time-indicator .radial-progress[data-travel="51"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(183.6deg);
+      -ms-transform: rotate(183.6deg);
+      transform: rotate(183.6deg); }
+    .time-indicator .radial-progress[data-travel="52"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="52"] .circle.travel .fill {
+      -webkit-transform: rotate(93.6deg);
+      -ms-transform: rotate(93.6deg);
+      transform: rotate(93.6deg); }
+    .time-indicator .radial-progress[data-travel="52"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(187.2deg);
+      -ms-transform: rotate(187.2deg);
+      transform: rotate(187.2deg); }
+    .time-indicator .radial-progress[data-travel="53"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="53"] .circle.travel .fill {
+      -webkit-transform: rotate(95.4deg);
+      -ms-transform: rotate(95.4deg);
+      transform: rotate(95.4deg); }
+    .time-indicator .radial-progress[data-travel="53"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(190.8deg);
+      -ms-transform: rotate(190.8deg);
+      transform: rotate(190.8deg); }
+    .time-indicator .radial-progress[data-travel="54"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="54"] .circle.travel .fill {
+      -webkit-transform: rotate(97.2deg);
+      -ms-transform: rotate(97.2deg);
+      transform: rotate(97.2deg); }
+    .time-indicator .radial-progress[data-travel="54"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(194.4deg);
+      -ms-transform: rotate(194.4deg);
+      transform: rotate(194.4deg); }
+    .time-indicator .radial-progress[data-travel="55"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="55"] .circle.travel .fill {
+      -webkit-transform: rotate(99deg);
+      -ms-transform: rotate(99deg);
+      transform: rotate(99deg); }
+    .time-indicator .radial-progress[data-travel="55"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(198deg);
+      -ms-transform: rotate(198deg);
+      transform: rotate(198deg); }
+    .time-indicator .radial-progress[data-travel="56"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="56"] .circle.travel .fill {
+      -webkit-transform: rotate(100.8deg);
+      -ms-transform: rotate(100.8deg);
+      transform: rotate(100.8deg); }
+    .time-indicator .radial-progress[data-travel="56"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(201.6deg);
+      -ms-transform: rotate(201.6deg);
+      transform: rotate(201.6deg); }
+    .time-indicator .radial-progress[data-travel="57"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="57"] .circle.travel .fill {
+      -webkit-transform: rotate(102.6deg);
+      -ms-transform: rotate(102.6deg);
+      transform: rotate(102.6deg); }
+    .time-indicator .radial-progress[data-travel="57"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(205.2deg);
+      -ms-transform: rotate(205.2deg);
+      transform: rotate(205.2deg); }
+    .time-indicator .radial-progress[data-travel="58"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="58"] .circle.travel .fill {
+      -webkit-transform: rotate(104.4deg);
+      -ms-transform: rotate(104.4deg);
+      transform: rotate(104.4deg); }
+    .time-indicator .radial-progress[data-travel="58"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(208.8deg);
+      -ms-transform: rotate(208.8deg);
+      transform: rotate(208.8deg); }
+    .time-indicator .radial-progress[data-travel="59"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="59"] .circle.travel .fill {
+      -webkit-transform: rotate(106.2deg);
+      -ms-transform: rotate(106.2deg);
+      transform: rotate(106.2deg); }
+    .time-indicator .radial-progress[data-travel="59"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(212.4deg);
+      -ms-transform: rotate(212.4deg);
+      transform: rotate(212.4deg); }
+    .time-indicator .radial-progress[data-travel="60"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="60"] .circle.travel .fill {
+      -webkit-transform: rotate(108deg);
+      -ms-transform: rotate(108deg);
+      transform: rotate(108deg); }
+    .time-indicator .radial-progress[data-travel="60"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(216deg);
+      -ms-transform: rotate(216deg);
+      transform: rotate(216deg); }
+    .time-indicator .radial-progress[data-travel="61"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="61"] .circle.travel .fill {
+      -webkit-transform: rotate(109.8deg);
+      -ms-transform: rotate(109.8deg);
+      transform: rotate(109.8deg); }
+    .time-indicator .radial-progress[data-travel="61"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(219.6deg);
+      -ms-transform: rotate(219.6deg);
+      transform: rotate(219.6deg); }
+    .time-indicator .radial-progress[data-travel="62"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="62"] .circle.travel .fill {
+      -webkit-transform: rotate(111.6deg);
+      -ms-transform: rotate(111.6deg);
+      transform: rotate(111.6deg); }
+    .time-indicator .radial-progress[data-travel="62"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(223.2deg);
+      -ms-transform: rotate(223.2deg);
+      transform: rotate(223.2deg); }
+    .time-indicator .radial-progress[data-travel="63"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="63"] .circle.travel .fill {
+      -webkit-transform: rotate(113.4deg);
+      -ms-transform: rotate(113.4deg);
+      transform: rotate(113.4deg); }
+    .time-indicator .radial-progress[data-travel="63"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(226.8deg);
+      -ms-transform: rotate(226.8deg);
+      transform: rotate(226.8deg); }
+    .time-indicator .radial-progress[data-travel="64"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="64"] .circle.travel .fill {
+      -webkit-transform: rotate(115.2deg);
+      -ms-transform: rotate(115.2deg);
+      transform: rotate(115.2deg); }
+    .time-indicator .radial-progress[data-travel="64"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(230.4deg);
+      -ms-transform: rotate(230.4deg);
+      transform: rotate(230.4deg); }
+    .time-indicator .radial-progress[data-travel="65"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="65"] .circle.travel .fill {
+      -webkit-transform: rotate(117deg);
+      -ms-transform: rotate(117deg);
+      transform: rotate(117deg); }
+    .time-indicator .radial-progress[data-travel="65"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(234deg);
+      -ms-transform: rotate(234deg);
+      transform: rotate(234deg); }
+    .time-indicator .radial-progress[data-travel="66"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="66"] .circle.travel .fill {
+      -webkit-transform: rotate(118.8deg);
+      -ms-transform: rotate(118.8deg);
+      transform: rotate(118.8deg); }
+    .time-indicator .radial-progress[data-travel="66"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(237.6deg);
+      -ms-transform: rotate(237.6deg);
+      transform: rotate(237.6deg); }
+    .time-indicator .radial-progress[data-travel="67"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="67"] .circle.travel .fill {
+      -webkit-transform: rotate(120.6deg);
+      -ms-transform: rotate(120.6deg);
+      transform: rotate(120.6deg); }
+    .time-indicator .radial-progress[data-travel="67"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(241.2deg);
+      -ms-transform: rotate(241.2deg);
+      transform: rotate(241.2deg); }
+    .time-indicator .radial-progress[data-travel="68"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="68"] .circle.travel .fill {
+      -webkit-transform: rotate(122.4deg);
+      -ms-transform: rotate(122.4deg);
+      transform: rotate(122.4deg); }
+    .time-indicator .radial-progress[data-travel="68"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(244.8deg);
+      -ms-transform: rotate(244.8deg);
+      transform: rotate(244.8deg); }
+    .time-indicator .radial-progress[data-travel="69"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="69"] .circle.travel .fill {
+      -webkit-transform: rotate(124.2deg);
+      -ms-transform: rotate(124.2deg);
+      transform: rotate(124.2deg); }
+    .time-indicator .radial-progress[data-travel="69"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(248.4deg);
+      -ms-transform: rotate(248.4deg);
+      transform: rotate(248.4deg); }
+    .time-indicator .radial-progress[data-travel="70"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="70"] .circle.travel .fill {
+      -webkit-transform: rotate(126deg);
+      -ms-transform: rotate(126deg);
+      transform: rotate(126deg); }
+    .time-indicator .radial-progress[data-travel="70"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(252deg);
+      -ms-transform: rotate(252deg);
+      transform: rotate(252deg); }
+    .time-indicator .radial-progress[data-travel="71"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="71"] .circle.travel .fill {
+      -webkit-transform: rotate(127.8deg);
+      -ms-transform: rotate(127.8deg);
+      transform: rotate(127.8deg); }
+    .time-indicator .radial-progress[data-travel="71"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(255.6deg);
+      -ms-transform: rotate(255.6deg);
+      transform: rotate(255.6deg); }
+    .time-indicator .radial-progress[data-travel="72"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="72"] .circle.travel .fill {
+      -webkit-transform: rotate(129.6deg);
+      -ms-transform: rotate(129.6deg);
+      transform: rotate(129.6deg); }
+    .time-indicator .radial-progress[data-travel="72"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(259.2deg);
+      -ms-transform: rotate(259.2deg);
+      transform: rotate(259.2deg); }
+    .time-indicator .radial-progress[data-travel="73"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="73"] .circle.travel .fill {
+      -webkit-transform: rotate(131.4deg);
+      -ms-transform: rotate(131.4deg);
+      transform: rotate(131.4deg); }
+    .time-indicator .radial-progress[data-travel="73"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(262.8deg);
+      -ms-transform: rotate(262.8deg);
+      transform: rotate(262.8deg); }
+    .time-indicator .radial-progress[data-travel="74"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="74"] .circle.travel .fill {
+      -webkit-transform: rotate(133.2deg);
+      -ms-transform: rotate(133.2deg);
+      transform: rotate(133.2deg); }
+    .time-indicator .radial-progress[data-travel="74"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(266.4deg);
+      -ms-transform: rotate(266.4deg);
+      transform: rotate(266.4deg); }
+    .time-indicator .radial-progress[data-travel="75"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="75"] .circle.travel .fill {
+      -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+      transform: rotate(135deg); }
+    .time-indicator .radial-progress[data-travel="75"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+      transform: rotate(270deg); }
+    .time-indicator .radial-progress[data-travel="76"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="76"] .circle.travel .fill {
+      -webkit-transform: rotate(136.8deg);
+      -ms-transform: rotate(136.8deg);
+      transform: rotate(136.8deg); }
+    .time-indicator .radial-progress[data-travel="76"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(273.6deg);
+      -ms-transform: rotate(273.6deg);
+      transform: rotate(273.6deg); }
+    .time-indicator .radial-progress[data-travel="77"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="77"] .circle.travel .fill {
+      -webkit-transform: rotate(138.6deg);
+      -ms-transform: rotate(138.6deg);
+      transform: rotate(138.6deg); }
+    .time-indicator .radial-progress[data-travel="77"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(277.2deg);
+      -ms-transform: rotate(277.2deg);
+      transform: rotate(277.2deg); }
+    .time-indicator .radial-progress[data-travel="78"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="78"] .circle.travel .fill {
+      -webkit-transform: rotate(140.4deg);
+      -ms-transform: rotate(140.4deg);
+      transform: rotate(140.4deg); }
+    .time-indicator .radial-progress[data-travel="78"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(280.8deg);
+      -ms-transform: rotate(280.8deg);
+      transform: rotate(280.8deg); }
+    .time-indicator .radial-progress[data-travel="79"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="79"] .circle.travel .fill {
+      -webkit-transform: rotate(142.2deg);
+      -ms-transform: rotate(142.2deg);
+      transform: rotate(142.2deg); }
+    .time-indicator .radial-progress[data-travel="79"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(284.4deg);
+      -ms-transform: rotate(284.4deg);
+      transform: rotate(284.4deg); }
+    .time-indicator .radial-progress[data-travel="80"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="80"] .circle.travel .fill {
+      -webkit-transform: rotate(144deg);
+      -ms-transform: rotate(144deg);
+      transform: rotate(144deg); }
+    .time-indicator .radial-progress[data-travel="80"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(288deg);
+      -ms-transform: rotate(288deg);
+      transform: rotate(288deg); }
+    .time-indicator .radial-progress[data-travel="81"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="81"] .circle.travel .fill {
+      -webkit-transform: rotate(145.8deg);
+      -ms-transform: rotate(145.8deg);
+      transform: rotate(145.8deg); }
+    .time-indicator .radial-progress[data-travel="81"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(291.6deg);
+      -ms-transform: rotate(291.6deg);
+      transform: rotate(291.6deg); }
+    .time-indicator .radial-progress[data-travel="82"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="82"] .circle.travel .fill {
+      -webkit-transform: rotate(147.6deg);
+      -ms-transform: rotate(147.6deg);
+      transform: rotate(147.6deg); }
+    .time-indicator .radial-progress[data-travel="82"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(295.2deg);
+      -ms-transform: rotate(295.2deg);
+      transform: rotate(295.2deg); }
+    .time-indicator .radial-progress[data-travel="83"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="83"] .circle.travel .fill {
+      -webkit-transform: rotate(149.4deg);
+      -ms-transform: rotate(149.4deg);
+      transform: rotate(149.4deg); }
+    .time-indicator .radial-progress[data-travel="83"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(298.8deg);
+      -ms-transform: rotate(298.8deg);
+      transform: rotate(298.8deg); }
+    .time-indicator .radial-progress[data-travel="84"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="84"] .circle.travel .fill {
+      -webkit-transform: rotate(151.2deg);
+      -ms-transform: rotate(151.2deg);
+      transform: rotate(151.2deg); }
+    .time-indicator .radial-progress[data-travel="84"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(302.4deg);
+      -ms-transform: rotate(302.4deg);
+      transform: rotate(302.4deg); }
+    .time-indicator .radial-progress[data-travel="85"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="85"] .circle.travel .fill {
+      -webkit-transform: rotate(153deg);
+      -ms-transform: rotate(153deg);
+      transform: rotate(153deg); }
+    .time-indicator .radial-progress[data-travel="85"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(306deg);
+      -ms-transform: rotate(306deg);
+      transform: rotate(306deg); }
+    .time-indicator .radial-progress[data-travel="86"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="86"] .circle.travel .fill {
+      -webkit-transform: rotate(154.8deg);
+      -ms-transform: rotate(154.8deg);
+      transform: rotate(154.8deg); }
+    .time-indicator .radial-progress[data-travel="86"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(309.6deg);
+      -ms-transform: rotate(309.6deg);
+      transform: rotate(309.6deg); }
+    .time-indicator .radial-progress[data-travel="87"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="87"] .circle.travel .fill {
+      -webkit-transform: rotate(156.6deg);
+      -ms-transform: rotate(156.6deg);
+      transform: rotate(156.6deg); }
+    .time-indicator .radial-progress[data-travel="87"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(313.2deg);
+      -ms-transform: rotate(313.2deg);
+      transform: rotate(313.2deg); }
+    .time-indicator .radial-progress[data-travel="88"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="88"] .circle.travel .fill {
+      -webkit-transform: rotate(158.4deg);
+      -ms-transform: rotate(158.4deg);
+      transform: rotate(158.4deg); }
+    .time-indicator .radial-progress[data-travel="88"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(316.8deg);
+      -ms-transform: rotate(316.8deg);
+      transform: rotate(316.8deg); }
+    .time-indicator .radial-progress[data-travel="89"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="89"] .circle.travel .fill {
+      -webkit-transform: rotate(160.2deg);
+      -ms-transform: rotate(160.2deg);
+      transform: rotate(160.2deg); }
+    .time-indicator .radial-progress[data-travel="89"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(320.4deg);
+      -ms-transform: rotate(320.4deg);
+      transform: rotate(320.4deg); }
+    .time-indicator .radial-progress[data-travel="90"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="90"] .circle.travel .fill {
+      -webkit-transform: rotate(162deg);
+      -ms-transform: rotate(162deg);
+      transform: rotate(162deg); }
+    .time-indicator .radial-progress[data-travel="90"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(324deg);
+      -ms-transform: rotate(324deg);
+      transform: rotate(324deg); }
+    .time-indicator .radial-progress[data-travel="91"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="91"] .circle.travel .fill {
+      -webkit-transform: rotate(163.8deg);
+      -ms-transform: rotate(163.8deg);
+      transform: rotate(163.8deg); }
+    .time-indicator .radial-progress[data-travel="91"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(327.6deg);
+      -ms-transform: rotate(327.6deg);
+      transform: rotate(327.6deg); }
+    .time-indicator .radial-progress[data-travel="92"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="92"] .circle.travel .fill {
+      -webkit-transform: rotate(165.6deg);
+      -ms-transform: rotate(165.6deg);
+      transform: rotate(165.6deg); }
+    .time-indicator .radial-progress[data-travel="92"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(331.2deg);
+      -ms-transform: rotate(331.2deg);
+      transform: rotate(331.2deg); }
+    .time-indicator .radial-progress[data-travel="93"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="93"] .circle.travel .fill {
+      -webkit-transform: rotate(167.4deg);
+      -ms-transform: rotate(167.4deg);
+      transform: rotate(167.4deg); }
+    .time-indicator .radial-progress[data-travel="93"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(334.8deg);
+      -ms-transform: rotate(334.8deg);
+      transform: rotate(334.8deg); }
+    .time-indicator .radial-progress[data-travel="94"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="94"] .circle.travel .fill {
+      -webkit-transform: rotate(169.2deg);
+      -ms-transform: rotate(169.2deg);
+      transform: rotate(169.2deg); }
+    .time-indicator .radial-progress[data-travel="94"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(338.4deg);
+      -ms-transform: rotate(338.4deg);
+      transform: rotate(338.4deg); }
+    .time-indicator .radial-progress[data-travel="95"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="95"] .circle.travel .fill {
+      -webkit-transform: rotate(171deg);
+      -ms-transform: rotate(171deg);
+      transform: rotate(171deg); }
+    .time-indicator .radial-progress[data-travel="95"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(342deg);
+      -ms-transform: rotate(342deg);
+      transform: rotate(342deg); }
+    .time-indicator .radial-progress[data-travel="96"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="96"] .circle.travel .fill {
+      -webkit-transform: rotate(172.8deg);
+      -ms-transform: rotate(172.8deg);
+      transform: rotate(172.8deg); }
+    .time-indicator .radial-progress[data-travel="96"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(345.6deg);
+      -ms-transform: rotate(345.6deg);
+      transform: rotate(345.6deg); }
+    .time-indicator .radial-progress[data-travel="97"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="97"] .circle.travel .fill {
+      -webkit-transform: rotate(174.6deg);
+      -ms-transform: rotate(174.6deg);
+      transform: rotate(174.6deg); }
+    .time-indicator .radial-progress[data-travel="97"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(349.2deg);
+      -ms-transform: rotate(349.2deg);
+      transform: rotate(349.2deg); }
+    .time-indicator .radial-progress[data-travel="98"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="98"] .circle.travel .fill {
+      -webkit-transform: rotate(176.4deg);
+      -ms-transform: rotate(176.4deg);
+      transform: rotate(176.4deg); }
+    .time-indicator .radial-progress[data-travel="98"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(352.8deg);
+      -ms-transform: rotate(352.8deg);
+      transform: rotate(352.8deg); }
+    .time-indicator .radial-progress[data-travel="99"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="99"] .circle.travel .fill {
+      -webkit-transform: rotate(178.2deg);
+      -ms-transform: rotate(178.2deg);
+      transform: rotate(178.2deg); }
+    .time-indicator .radial-progress[data-travel="99"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(356.4deg);
+      -ms-transform: rotate(356.4deg);
+      transform: rotate(356.4deg); }
+    .time-indicator .radial-progress[data-travel="100"] .circle.travel .mask.full, .time-indicator .radial-progress[data-travel="100"] .circle.travel .fill {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+    .time-indicator .radial-progress[data-travel="100"] .circle.travel .fill.fix {
+      -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg); }
+    .time-indicator .radial-progress.base-rotate {
+      margin: 0;
+      background: transparent; }
+      .time-indicator .radial-progress.base-rotate .circle .mask .fill {
+        background-color: #555; }
+    .time-indicator .radial-progress[data-fun="1"] .base-rotate {
+      -webkit-transform: rotate(3.6deg);
+      -ms-transform: rotate(3.6deg);
+      transform: rotate(3.6deg); }
+    .time-indicator .radial-progress[data-fun="2"] .base-rotate {
+      -webkit-transform: rotate(7.2deg);
+      -ms-transform: rotate(7.2deg);
+      transform: rotate(7.2deg); }
+    .time-indicator .radial-progress[data-fun="3"] .base-rotate {
+      -webkit-transform: rotate(10.8deg);
+      -ms-transform: rotate(10.8deg);
+      transform: rotate(10.8deg); }
+    .time-indicator .radial-progress[data-fun="4"] .base-rotate {
+      -webkit-transform: rotate(14.4deg);
+      -ms-transform: rotate(14.4deg);
+      transform: rotate(14.4deg); }
+    .time-indicator .radial-progress[data-fun="5"] .base-rotate {
+      -webkit-transform: rotate(18deg);
+      -ms-transform: rotate(18deg);
+      transform: rotate(18deg); }
+    .time-indicator .radial-progress[data-fun="6"] .base-rotate {
+      -webkit-transform: rotate(21.6deg);
+      -ms-transform: rotate(21.6deg);
+      transform: rotate(21.6deg); }
+    .time-indicator .radial-progress[data-fun="7"] .base-rotate {
+      -webkit-transform: rotate(25.2deg);
+      -ms-transform: rotate(25.2deg);
+      transform: rotate(25.2deg); }
+    .time-indicator .radial-progress[data-fun="8"] .base-rotate {
+      -webkit-transform: rotate(28.8deg);
+      -ms-transform: rotate(28.8deg);
+      transform: rotate(28.8deg); }
+    .time-indicator .radial-progress[data-fun="9"] .base-rotate {
+      -webkit-transform: rotate(32.4deg);
+      -ms-transform: rotate(32.4deg);
+      transform: rotate(32.4deg); }
+    .time-indicator .radial-progress[data-fun="10"] .base-rotate {
+      -webkit-transform: rotate(36deg);
+      -ms-transform: rotate(36deg);
+      transform: rotate(36deg); }
+    .time-indicator .radial-progress[data-fun="11"] .base-rotate {
+      -webkit-transform: rotate(39.6deg);
+      -ms-transform: rotate(39.6deg);
+      transform: rotate(39.6deg); }
+    .time-indicator .radial-progress[data-fun="12"] .base-rotate {
+      -webkit-transform: rotate(43.2deg);
+      -ms-transform: rotate(43.2deg);
+      transform: rotate(43.2deg); }
+    .time-indicator .radial-progress[data-fun="13"] .base-rotate {
+      -webkit-transform: rotate(46.8deg);
+      -ms-transform: rotate(46.8deg);
+      transform: rotate(46.8deg); }
+    .time-indicator .radial-progress[data-fun="14"] .base-rotate {
+      -webkit-transform: rotate(50.4deg);
+      -ms-transform: rotate(50.4deg);
+      transform: rotate(50.4deg); }
+    .time-indicator .radial-progress[data-fun="15"] .base-rotate {
+      -webkit-transform: rotate(54deg);
+      -ms-transform: rotate(54deg);
+      transform: rotate(54deg); }
+    .time-indicator .radial-progress[data-fun="16"] .base-rotate {
+      -webkit-transform: rotate(57.6deg);
+      -ms-transform: rotate(57.6deg);
+      transform: rotate(57.6deg); }
+    .time-indicator .radial-progress[data-fun="17"] .base-rotate {
+      -webkit-transform: rotate(61.2deg);
+      -ms-transform: rotate(61.2deg);
+      transform: rotate(61.2deg); }
+    .time-indicator .radial-progress[data-fun="18"] .base-rotate {
+      -webkit-transform: rotate(64.8deg);
+      -ms-transform: rotate(64.8deg);
+      transform: rotate(64.8deg); }
+    .time-indicator .radial-progress[data-fun="19"] .base-rotate {
+      -webkit-transform: rotate(68.4deg);
+      -ms-transform: rotate(68.4deg);
+      transform: rotate(68.4deg); }
+    .time-indicator .radial-progress[data-fun="20"] .base-rotate {
+      -webkit-transform: rotate(72deg);
+      -ms-transform: rotate(72deg);
+      transform: rotate(72deg); }
+    .time-indicator .radial-progress[data-fun="21"] .base-rotate {
+      -webkit-transform: rotate(75.6deg);
+      -ms-transform: rotate(75.6deg);
+      transform: rotate(75.6deg); }
+    .time-indicator .radial-progress[data-fun="22"] .base-rotate {
+      -webkit-transform: rotate(79.2deg);
+      -ms-transform: rotate(79.2deg);
+      transform: rotate(79.2deg); }
+    .time-indicator .radial-progress[data-fun="23"] .base-rotate {
+      -webkit-transform: rotate(82.8deg);
+      -ms-transform: rotate(82.8deg);
+      transform: rotate(82.8deg); }
+    .time-indicator .radial-progress[data-fun="24"] .base-rotate {
+      -webkit-transform: rotate(86.4deg);
+      -ms-transform: rotate(86.4deg);
+      transform: rotate(86.4deg); }
+    .time-indicator .radial-progress[data-fun="25"] .base-rotate {
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
+    .time-indicator .radial-progress[data-fun="26"] .base-rotate {
+      -webkit-transform: rotate(93.6deg);
+      -ms-transform: rotate(93.6deg);
+      transform: rotate(93.6deg); }
+    .time-indicator .radial-progress[data-fun="27"] .base-rotate {
+      -webkit-transform: rotate(97.2deg);
+      -ms-transform: rotate(97.2deg);
+      transform: rotate(97.2deg); }
+    .time-indicator .radial-progress[data-fun="28"] .base-rotate {
+      -webkit-transform: rotate(100.8deg);
+      -ms-transform: rotate(100.8deg);
+      transform: rotate(100.8deg); }
+    .time-indicator .radial-progress[data-fun="29"] .base-rotate {
+      -webkit-transform: rotate(104.4deg);
+      -ms-transform: rotate(104.4deg);
+      transform: rotate(104.4deg); }
+    .time-indicator .radial-progress[data-fun="30"] .base-rotate {
+      -webkit-transform: rotate(108deg);
+      -ms-transform: rotate(108deg);
+      transform: rotate(108deg); }
+    .time-indicator .radial-progress[data-fun="31"] .base-rotate {
+      -webkit-transform: rotate(111.6deg);
+      -ms-transform: rotate(111.6deg);
+      transform: rotate(111.6deg); }
+    .time-indicator .radial-progress[data-fun="32"] .base-rotate {
+      -webkit-transform: rotate(115.2deg);
+      -ms-transform: rotate(115.2deg);
+      transform: rotate(115.2deg); }
+    .time-indicator .radial-progress[data-fun="33"] .base-rotate {
+      -webkit-transform: rotate(118.8deg);
+      -ms-transform: rotate(118.8deg);
+      transform: rotate(118.8deg); }
+    .time-indicator .radial-progress[data-fun="34"] .base-rotate {
+      -webkit-transform: rotate(122.4deg);
+      -ms-transform: rotate(122.4deg);
+      transform: rotate(122.4deg); }
+    .time-indicator .radial-progress[data-fun="35"] .base-rotate {
+      -webkit-transform: rotate(126deg);
+      -ms-transform: rotate(126deg);
+      transform: rotate(126deg); }
+    .time-indicator .radial-progress[data-fun="36"] .base-rotate {
+      -webkit-transform: rotate(129.6deg);
+      -ms-transform: rotate(129.6deg);
+      transform: rotate(129.6deg); }
+    .time-indicator .radial-progress[data-fun="37"] .base-rotate {
+      -webkit-transform: rotate(133.2deg);
+      -ms-transform: rotate(133.2deg);
+      transform: rotate(133.2deg); }
+    .time-indicator .radial-progress[data-fun="38"] .base-rotate {
+      -webkit-transform: rotate(136.8deg);
+      -ms-transform: rotate(136.8deg);
+      transform: rotate(136.8deg); }
+    .time-indicator .radial-progress[data-fun="39"] .base-rotate {
+      -webkit-transform: rotate(140.4deg);
+      -ms-transform: rotate(140.4deg);
+      transform: rotate(140.4deg); }
+    .time-indicator .radial-progress[data-fun="40"] .base-rotate {
+      -webkit-transform: rotate(144deg);
+      -ms-transform: rotate(144deg);
+      transform: rotate(144deg); }
+    .time-indicator .radial-progress[data-fun="41"] .base-rotate {
+      -webkit-transform: rotate(147.6deg);
+      -ms-transform: rotate(147.6deg);
+      transform: rotate(147.6deg); }
+    .time-indicator .radial-progress[data-fun="42"] .base-rotate {
+      -webkit-transform: rotate(151.2deg);
+      -ms-transform: rotate(151.2deg);
+      transform: rotate(151.2deg); }
+    .time-indicator .radial-progress[data-fun="43"] .base-rotate {
+      -webkit-transform: rotate(154.8deg);
+      -ms-transform: rotate(154.8deg);
+      transform: rotate(154.8deg); }
+    .time-indicator .radial-progress[data-fun="44"] .base-rotate {
+      -webkit-transform: rotate(158.4deg);
+      -ms-transform: rotate(158.4deg);
+      transform: rotate(158.4deg); }
+    .time-indicator .radial-progress[data-fun="45"] .base-rotate {
+      -webkit-transform: rotate(162deg);
+      -ms-transform: rotate(162deg);
+      transform: rotate(162deg); }
+    .time-indicator .radial-progress[data-fun="46"] .base-rotate {
+      -webkit-transform: rotate(165.6deg);
+      -ms-transform: rotate(165.6deg);
+      transform: rotate(165.6deg); }
+    .time-indicator .radial-progress[data-fun="47"] .base-rotate {
+      -webkit-transform: rotate(169.2deg);
+      -ms-transform: rotate(169.2deg);
+      transform: rotate(169.2deg); }
+    .time-indicator .radial-progress[data-fun="48"] .base-rotate {
+      -webkit-transform: rotate(172.8deg);
+      -ms-transform: rotate(172.8deg);
+      transform: rotate(172.8deg); }
+    .time-indicator .radial-progress[data-fun="49"] .base-rotate {
+      -webkit-transform: rotate(176.4deg);
+      -ms-transform: rotate(176.4deg);
+      transform: rotate(176.4deg); }
+    .time-indicator .radial-progress[data-fun="50"] .base-rotate {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+    .time-indicator .radial-progress[data-fun="51"] .base-rotate {
+      -webkit-transform: rotate(183.6deg);
+      -ms-transform: rotate(183.6deg);
+      transform: rotate(183.6deg); }
+    .time-indicator .radial-progress[data-fun="52"] .base-rotate {
+      -webkit-transform: rotate(187.2deg);
+      -ms-transform: rotate(187.2deg);
+      transform: rotate(187.2deg); }
+    .time-indicator .radial-progress[data-fun="53"] .base-rotate {
+      -webkit-transform: rotate(190.8deg);
+      -ms-transform: rotate(190.8deg);
+      transform: rotate(190.8deg); }
+    .time-indicator .radial-progress[data-fun="54"] .base-rotate {
+      -webkit-transform: rotate(194.4deg);
+      -ms-transform: rotate(194.4deg);
+      transform: rotate(194.4deg); }
+    .time-indicator .radial-progress[data-fun="55"] .base-rotate {
+      -webkit-transform: rotate(198deg);
+      -ms-transform: rotate(198deg);
+      transform: rotate(198deg); }
+    .time-indicator .radial-progress[data-fun="56"] .base-rotate {
+      -webkit-transform: rotate(201.6deg);
+      -ms-transform: rotate(201.6deg);
+      transform: rotate(201.6deg); }
+    .time-indicator .radial-progress[data-fun="57"] .base-rotate {
+      -webkit-transform: rotate(205.2deg);
+      -ms-transform: rotate(205.2deg);
+      transform: rotate(205.2deg); }
+    .time-indicator .radial-progress[data-fun="58"] .base-rotate {
+      -webkit-transform: rotate(208.8deg);
+      -ms-transform: rotate(208.8deg);
+      transform: rotate(208.8deg); }
+    .time-indicator .radial-progress[data-fun="59"] .base-rotate {
+      -webkit-transform: rotate(212.4deg);
+      -ms-transform: rotate(212.4deg);
+      transform: rotate(212.4deg); }
+    .time-indicator .radial-progress[data-fun="60"] .base-rotate {
+      -webkit-transform: rotate(216deg);
+      -ms-transform: rotate(216deg);
+      transform: rotate(216deg); }
+    .time-indicator .radial-progress[data-fun="61"] .base-rotate {
+      -webkit-transform: rotate(219.6deg);
+      -ms-transform: rotate(219.6deg);
+      transform: rotate(219.6deg); }
+    .time-indicator .radial-progress[data-fun="62"] .base-rotate {
+      -webkit-transform: rotate(223.2deg);
+      -ms-transform: rotate(223.2deg);
+      transform: rotate(223.2deg); }
+    .time-indicator .radial-progress[data-fun="63"] .base-rotate {
+      -webkit-transform: rotate(226.8deg);
+      -ms-transform: rotate(226.8deg);
+      transform: rotate(226.8deg); }
+    .time-indicator .radial-progress[data-fun="64"] .base-rotate {
+      -webkit-transform: rotate(230.4deg);
+      -ms-transform: rotate(230.4deg);
+      transform: rotate(230.4deg); }
+    .time-indicator .radial-progress[data-fun="65"] .base-rotate {
+      -webkit-transform: rotate(234deg);
+      -ms-transform: rotate(234deg);
+      transform: rotate(234deg); }
+    .time-indicator .radial-progress[data-fun="66"] .base-rotate {
+      -webkit-transform: rotate(237.6deg);
+      -ms-transform: rotate(237.6deg);
+      transform: rotate(237.6deg); }
+    .time-indicator .radial-progress[data-fun="67"] .base-rotate {
+      -webkit-transform: rotate(241.2deg);
+      -ms-transform: rotate(241.2deg);
+      transform: rotate(241.2deg); }
+    .time-indicator .radial-progress[data-fun="68"] .base-rotate {
+      -webkit-transform: rotate(244.8deg);
+      -ms-transform: rotate(244.8deg);
+      transform: rotate(244.8deg); }
+    .time-indicator .radial-progress[data-fun="69"] .base-rotate {
+      -webkit-transform: rotate(248.4deg);
+      -ms-transform: rotate(248.4deg);
+      transform: rotate(248.4deg); }
+    .time-indicator .radial-progress[data-fun="70"] .base-rotate {
+      -webkit-transform: rotate(252deg);
+      -ms-transform: rotate(252deg);
+      transform: rotate(252deg); }
+    .time-indicator .radial-progress[data-fun="71"] .base-rotate {
+      -webkit-transform: rotate(255.6deg);
+      -ms-transform: rotate(255.6deg);
+      transform: rotate(255.6deg); }
+    .time-indicator .radial-progress[data-fun="72"] .base-rotate {
+      -webkit-transform: rotate(259.2deg);
+      -ms-transform: rotate(259.2deg);
+      transform: rotate(259.2deg); }
+    .time-indicator .radial-progress[data-fun="73"] .base-rotate {
+      -webkit-transform: rotate(262.8deg);
+      -ms-transform: rotate(262.8deg);
+      transform: rotate(262.8deg); }
+    .time-indicator .radial-progress[data-fun="74"] .base-rotate {
+      -webkit-transform: rotate(266.4deg);
+      -ms-transform: rotate(266.4deg);
+      transform: rotate(266.4deg); }
+    .time-indicator .radial-progress[data-fun="75"] .base-rotate {
+      -webkit-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+      transform: rotate(270deg); }
+    .time-indicator .radial-progress[data-fun="76"] .base-rotate {
+      -webkit-transform: rotate(273.6deg);
+      -ms-transform: rotate(273.6deg);
+      transform: rotate(273.6deg); }
+    .time-indicator .radial-progress[data-fun="77"] .base-rotate {
+      -webkit-transform: rotate(277.2deg);
+      -ms-transform: rotate(277.2deg);
+      transform: rotate(277.2deg); }
+    .time-indicator .radial-progress[data-fun="78"] .base-rotate {
+      -webkit-transform: rotate(280.8deg);
+      -ms-transform: rotate(280.8deg);
+      transform: rotate(280.8deg); }
+    .time-indicator .radial-progress[data-fun="79"] .base-rotate {
+      -webkit-transform: rotate(284.4deg);
+      -ms-transform: rotate(284.4deg);
+      transform: rotate(284.4deg); }
+    .time-indicator .radial-progress[data-fun="80"] .base-rotate {
+      -webkit-transform: rotate(288deg);
+      -ms-transform: rotate(288deg);
+      transform: rotate(288deg); }
+    .time-indicator .radial-progress[data-fun="81"] .base-rotate {
+      -webkit-transform: rotate(291.6deg);
+      -ms-transform: rotate(291.6deg);
+      transform: rotate(291.6deg); }
+    .time-indicator .radial-progress[data-fun="82"] .base-rotate {
+      -webkit-transform: rotate(295.2deg);
+      -ms-transform: rotate(295.2deg);
+      transform: rotate(295.2deg); }
+    .time-indicator .radial-progress[data-fun="83"] .base-rotate {
+      -webkit-transform: rotate(298.8deg);
+      -ms-transform: rotate(298.8deg);
+      transform: rotate(298.8deg); }
+    .time-indicator .radial-progress[data-fun="84"] .base-rotate {
+      -webkit-transform: rotate(302.4deg);
+      -ms-transform: rotate(302.4deg);
+      transform: rotate(302.4deg); }
+    .time-indicator .radial-progress[data-fun="85"] .base-rotate {
+      -webkit-transform: rotate(306deg);
+      -ms-transform: rotate(306deg);
+      transform: rotate(306deg); }
+    .time-indicator .radial-progress[data-fun="86"] .base-rotate {
+      -webkit-transform: rotate(309.6deg);
+      -ms-transform: rotate(309.6deg);
+      transform: rotate(309.6deg); }
+    .time-indicator .radial-progress[data-fun="87"] .base-rotate {
+      -webkit-transform: rotate(313.2deg);
+      -ms-transform: rotate(313.2deg);
+      transform: rotate(313.2deg); }
+    .time-indicator .radial-progress[data-fun="88"] .base-rotate {
+      -webkit-transform: rotate(316.8deg);
+      -ms-transform: rotate(316.8deg);
+      transform: rotate(316.8deg); }
+    .time-indicator .radial-progress[data-fun="89"] .base-rotate {
+      -webkit-transform: rotate(320.4deg);
+      -ms-transform: rotate(320.4deg);
+      transform: rotate(320.4deg); }
+    .time-indicator .radial-progress[data-fun="90"] .base-rotate {
+      -webkit-transform: rotate(324deg);
+      -ms-transform: rotate(324deg);
+      transform: rotate(324deg); }
+    .time-indicator .radial-progress[data-fun="91"] .base-rotate {
+      -webkit-transform: rotate(327.6deg);
+      -ms-transform: rotate(327.6deg);
+      transform: rotate(327.6deg); }
+    .time-indicator .radial-progress[data-fun="92"] .base-rotate {
+      -webkit-transform: rotate(331.2deg);
+      -ms-transform: rotate(331.2deg);
+      transform: rotate(331.2deg); }
+    .time-indicator .radial-progress[data-fun="93"] .base-rotate {
+      -webkit-transform: rotate(334.8deg);
+      -ms-transform: rotate(334.8deg);
+      transform: rotate(334.8deg); }
+    .time-indicator .radial-progress[data-fun="94"] .base-rotate {
+      -webkit-transform: rotate(338.4deg);
+      -ms-transform: rotate(338.4deg);
+      transform: rotate(338.4deg); }
+    .time-indicator .radial-progress[data-fun="95"] .base-rotate {
+      -webkit-transform: rotate(342deg);
+      -ms-transform: rotate(342deg);
+      transform: rotate(342deg); }
+    .time-indicator .radial-progress[data-fun="96"] .base-rotate {
+      -webkit-transform: rotate(345.6deg);
+      -ms-transform: rotate(345.6deg);
+      transform: rotate(345.6deg); }
+    .time-indicator .radial-progress[data-fun="97"] .base-rotate {
+      -webkit-transform: rotate(349.2deg);
+      -ms-transform: rotate(349.2deg);
+      transform: rotate(349.2deg); }
+    .time-indicator .radial-progress[data-fun="98"] .base-rotate {
+      -webkit-transform: rotate(352.8deg);
+      -ms-transform: rotate(352.8deg);
+      transform: rotate(352.8deg); }
+    .time-indicator .radial-progress[data-fun="99"] .base-rotate {
+      -webkit-transform: rotate(356.4deg);
+      -ms-transform: rotate(356.4deg);
+      transform: rotate(356.4deg); }
+    .time-indicator .radial-progress[data-fun="100"] .base-rotate {
+      -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg); }
+  .time-indicator .inset {
+    width: 4em;
+    height: 4em;
+    position: absolute;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+    background-color: #fbfbfb;
+    border-radius: 50%;
+    text-align: center;
+    padding: 1em;
+    box-sizing: border-box; }
+    .time-indicator .inset .travel, .time-indicator .inset .fun {
+      font-size: 0.8em; }
+      .time-indicator .inset .travel:before, .time-indicator .inset .fun:before {
+        margin-right: 5px; }
+      .time-indicator .inset .travel .tooltip, .time-indicator .inset .fun .tooltip {
+        right: -2em; }
+    .time-indicator .inset .travel {
+      color: #555; }
+    .time-indicator .inset .fun {
+      color: #E74C3C; }
+      .time-indicator .inset .fun .tooltip {
+        margin-top: -125%; }
+  .time-indicator .time-away {
+    position: absolute;
+    bottom: 0;
+    font-size: 0.9em;
+    text-align: center;
+    left: 0;
+    right: 0; }

@@ -3,7 +3,7 @@
 
 	"name": "TripMind",
 	"description": "Organize all your trip research in one place",
-	"version": "1.0",
+	"version": "1.1",
 	"icons": {
 		"128": "128_icon.png",
 		"48": "48_icon.png",
@@ -34,12 +34,19 @@
 			"js": ["jquery/jquery-2.2.1.min.js","lp.js"]
 		},
 		{
+			"matches": ["https://www.tripadvisor.com/*", "http://www.tripadvisor.com/*"],
+			"js": ["jquery/jquery-2.2.1.min.js","ta.js"]
+		},
+		{
 			"matches": ["<all_urls>"],
 			"js": ["jquery/jquery-2.2.1.min.js","jquery/jquery-ui.min.js", "anypage.js"],
 			"css" : ["anypage.css"]
 		}
 	],
 	"web_accessible_resources": ["dropdown_viewer.html"],
-	"content_security_policy": "script-src 'self' https://*.google.com https://maps.google.com https://maps.googleapis.com; object-src 'self'"
+	"content_security_policy": "script-src 'self' https://*.google.com https://maps.google.com https://maps.googleapis.com; object-src 'self'",
+	"externally_connectable": {
+		"matches": ["*://localhost/*", "*://www.tripmind.online/*"]
+	}
 }
 

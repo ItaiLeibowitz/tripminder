@@ -5,7 +5,8 @@
 	right: 0;
 	height: 35em;
 	overflow: hidden;
-	z-index: 99999
+	z-index: 99999;
+	font-size: 16px;
 }
 
 .cex-iframe.hidden{

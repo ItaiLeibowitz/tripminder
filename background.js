@@ -54,6 +54,9 @@ function updateSearch(query, callback) {
 }
 
 function selectSearch(data){
+	chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+	var currentUrl = tabs[0].url;
+
 	var selectedPrediction = TripMinder.searchCache.find(function(prediction){
 		return prediction.description == data.selection;
 	});
@@ -69,7 +72,7 @@ function selectSearch(data){
 				var now = moment().format("X");
 			}
 			var link = {
-				id: data.url,
+				id: currentUrl,
 				note: null
 			};
 
@@ -90,7 +93,8 @@ function selectSearch(data){
 			});
 
 		})
-}
+	})
+};
 
 function toggleTracking(data, callback) {
 	if (data.name == TripMinder.currentItem.get('name')) {
@@ -146,6 +150,16 @@ chrome.runtime.onMessage.addListener(
 			window[request.methodName](request.data, sendResponse);
 		}
 		if (sendResponse) return true;
+	});
+
+chrome.runtime.onMessageExternal.addListener(
+	function (request, sender, sendResponse) {
+		if (request && request.message && request.message == "version") {
+			sendResponse({version: 1.1});
+		} else if (request && request.message && request.message == 'openTripmind') {
+			openTripmindTab(request.addedRoute);
+		}
+		return true;
 	});
 
 function buildItemInfoFromResults(data, result) {
@@ -363,7 +377,7 @@ function registerUrl(data) {
 						if (data.forcedItemPlaceId) {
 							return TripmindStore.findRecord('item', data.forcedItemPlaceId)
 								.then(function (itemRecord) {
-									//console.log('item found by user')
+									console.log('item found by user')
 									ga('send', 'event', 'registerUrl', 'success', 'found by user');
 
 
@@ -383,7 +397,7 @@ function registerUrl(data) {
 									}
 								});
 						}
-						//console.log('i have no information about this link...')
+						console.log('i have no information about this link...')
 						ga('send', 'event', 'registerUrl', 'failure', 'not found');
 						return null
 					}
@@ -455,18 +469,26 @@ function openCurrentInTripmind() {
 }
 
 function openPopup(){
-	ga('send', 'event', 'openPopup', 'success');
-	chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-		chrome.tabs.sendMessage(tabs[0].id, {
-			target: 'content-viewer',
-			method: 'runFunction',
-			methodName: "showMessage",
-			data: {
-				trackingStatus: true,
-				keepOpen: true
+	TripmindStore.findAll('item')
+	.then(function(res){
+			if (res.get('length') > 0) {
+				ga('send', 'event', 'openPopup', 'success');
+				chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+					chrome.tabs.sendMessage(tabs[0].id, {
+						target: 'content-viewer',
+						method: 'runFunction',
+						methodName: "showMessage",
+						data: {
+							trackingStatus: true,
+							keepOpen: true
+						}
+					});
+				});
+			} else {
+				openTripmindTab('#/tutorial/')
 			}
-		});
-	});
+		})
+
 }
 
 

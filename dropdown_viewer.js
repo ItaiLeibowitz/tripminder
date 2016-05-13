@@ -206,8 +206,7 @@ function setupSearchField(){
 				method: 'runFunction',
 				methodName: "selectSearch",
 				data: {
-					selection: ui.item.label,
-					url: document.referrer
+					selection: ui.item.label
 				}
 			});
 		}
