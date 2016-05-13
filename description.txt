@@ -1,3 +1,0 @@
-PlaceLinks is a small extension that lets you easily place links to real-world places when composing a message in Gmail. 
-
-When writing your message, simply type "@@" and a search bar will appear. Look up the place you want to link to (For example, type in "Louvre"), then select the place from the autocomplete options. A small card with an image and a link will be added to your message, and you can then continue to edit it however you want. 
