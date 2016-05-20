@@ -25,6 +25,7 @@ Constants = {
 function relayRequest(request, sender, sendResponse) {
 	//console.log('trying to relay request', request)
 	chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+		if (!tabs[0]) return;
 		chrome.tabs.sendMessage(tabs[0].id, request, function (response) {
 			sendResponse(response);
 		});
@@ -55,44 +56,44 @@ function updateSearch(query, callback) {
 
 function selectSearch(data){
 	chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-	var currentUrl = tabs[0].url;
-
-	var selectedPrediction = TripMinder.searchCache.find(function(prediction){
-		return prediction.description == data.selection;
-	});
-	findPlaceFromPlaceId(selectedPrediction.place_id)
-		.then(function(itemRecord){
-			TripMinder.currentItem = itemRecord;
-
-
-
-			// Add the potential links to the store if the item is being tracked
-			var trackingStatus = itemRecord.get('trackingStatus');
-			if (trackingStatus) {
-				var now = moment().format("X");
-			}
-			var link = {
-				id: currentUrl,
-				note: null
-			};
-
-			ItemDetailsService.getAdditionalItemInfo(itemRecord.get('id'))
-				.then(function(itemRecord){
-					sendLinkDataMessage(itemRecord, trackingStatus, link, null, 0);
-				})
+		if (!tabs[0]) return;
+		var currentUrl = tabs[0].url;
+		var selectedPrediction = TripMinder.searchCache.find(function (prediction) {
+			return prediction.description == data.selection;
+		});
+		findPlaceFromPlaceId(selectedPrediction.place_id)
+			.then(function (itemRecord) {
+				TripMinder.currentItem = itemRecord;
 
 
-			// Register the url
-			chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-				chrome.tabs.sendMessage(tabs[0].id, {
-					target: 'content-viewer',
-					method: 'runFunction',
-					methodName: "registerUrl",
-					data: selectedPrediction.place_id
+				// Add the potential links to the store if the item is being tracked
+				var trackingStatus = itemRecord.get('trackingStatus');
+				if (trackingStatus) {
+					var now = moment().format("X");
+				}
+				var link = {
+					id: currentUrl,
+					note: null
+				};
+
+				ItemDetailsService.getAdditionalItemInfo(itemRecord.get('id'))
+					.then(function (itemRecord) {
+						sendLinkDataMessage(itemRecord, trackingStatus, link, null, 0);
+					})
+
+
+				// Register the url
+				chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+					if (!tabs[0]) return;
+					chrome.tabs.sendMessage(tabs[0].id, {
+						target: 'content-viewer',
+						method: 'runFunction',
+						methodName: "registerUrl",
+						data: selectedPrediction.place_id
+					});
 				});
-			});
 
-		})
+			})
 	})
 };
 
@@ -115,6 +116,7 @@ function updateValue(data) {
 			record.save().then(function () {
 				ga('send', 'event', 'updateValue', 'success', data.field);
 				chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+					if (!tabs[0]) return;
 					chrome.tabs.sendMessage(tabs[0].id, {
 						target: 'dropdown_viewer',
 						method: 'runFunction',
@@ -128,6 +130,7 @@ function updateValue(data) {
 			ga('send', 'event', 'updateValue', 'failure', data.field);
 
 			chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+				if (!tabs[0]) return;
 				chrome.tabs.sendMessage(tabs[0].id, {
 					target: 'dropdown_viewer',
 					method: 'runFunction',
@@ -192,6 +195,7 @@ function sendItemDataMessage(item, trackingStatus, targetMsgId, counter) {
 	//console.log('trying to send message', counter, targetMsgId, TripMinder)
 	if (TripMinder.readyState[targetMsgId]) {
 		chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+			if (!tabs[0]) return;
 			chrome.tabs.sendMessage(tabs[0].id, {
 					target: 'dropdown_viewer',
 					method: 'runFunction',
@@ -210,6 +214,7 @@ function sendLinkDataMessage(item, trackingStatus, link, targetMsgId, counter) {
 	//console.log('trying to send message', counter, targetMsgId, TripMinder)
 	if (TripMinder.readyState[targetMsgId]) {
 		chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+			if (!tabs[0]) return;
 			chrome.tabs.sendMessage(tabs[0].id, {
 					target: 'dropdown_viewer',
 					method: 'runFunction',
@@ -266,6 +271,7 @@ function foundObjectInfo(data) {
 	} else {
 		var query = {query: data.nameForSearch};
 	}
+	console.log('looking for place from query:', data.nameForSearch, data)
 	findPlaceFromQuery(query, data)
 		.then(function (itemRecord) {
 			if (TmConstants.GOOGLE_PLACE_ANY_RELEVANT_TYPES.indexOf(itemRecord.get('itemType')) > -1) {
@@ -445,13 +451,17 @@ chrome.webNavigation.onCommitted.addListener(function (event) {
 	//console.log('committed: ', event)
 });
 
-function openTripmindTab(addedRoute) {
+function openTripmindTab(addedRoute, options) {
 	ga('send', 'event', 'openTmTab', 'success');
 	if (!addedRoute || typeof(addedRoute) != 'string') addedRoute = "";
 	var url = chrome.extension.getURL('index.html') + addedRoute;
+	if (options && options.tabId) {
+		chrome.tabs.update(options.tabId, {active: true, url: url});
+		return;
+	}
 	chrome.tabs.query({}, function (tabs) {
 		tripMindTabs = tabs.filter(function (tab) {
-			return tab.url == url
+			return tab.url && tab.url.indexOf(url) > -1;
 		});
 		if (tripMindTabs.length > 0) {
 			chrome.tabs.update(tripMindTabs[0].id, {active: true});
@@ -474,15 +484,19 @@ function openPopup(){
 			if (res.get('length') > 0) {
 				ga('send', 'event', 'openPopup', 'success');
 				chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-					chrome.tabs.sendMessage(tabs[0].id, {
-						target: 'content-viewer',
-						method: 'runFunction',
-						methodName: "showMessage",
-						data: {
-							trackingStatus: true,
-							keepOpen: true
-						}
-					});
+					if (!tabs[0].url || tabs[0].url == "chrome://newtab/") {
+						openTripmindTab('', {tabId: tabs[0].id});
+					} else {
+						chrome.tabs.sendMessage(tabs[0].id, {
+							target: 'content-viewer',
+							method: 'runFunction',
+							methodName: "showMessage",
+							data: {
+								trackingStatus: true,
+								keepOpen: true
+							}
+						});
+					}
 				});
 			} else {
 				openTripmindTab('#/tutorial/')

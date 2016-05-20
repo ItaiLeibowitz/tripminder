@@ -107,11 +107,13 @@ body{
 	display: inline-block;
 	vertical-align: top;
 	margin: .5em;
+	max-width: 13em;
 }
 
 .name{
 	font-weight: bold;
 	color: #333;
+	line-height: 1em;
 }
 
 .editable {

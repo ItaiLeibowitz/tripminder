@@ -35,7 +35,7 @@ function updateMessageContent(data){
 	if (data.name) $message.find('.name').html(data.name);
 	if (data.itemType) $message.find('.type').html(data.itemType ? data.itemType.replace(/_/g, " ") : "");
 	// Setup the main editable field
-	if (data.editableDesc) $message.find('.editable').html(data.editableDesc);
+	$message.find('.editable').html(data.editableDesc);
 	if (data.recordType) $message.find('.editable').attr('data-record-type', data.recordType);
 	if (data.recordId)	$message.find('.editable').attr('data-id', data.recordId);
 	if (data.fieldName)	$message.find('.editable').attr('data-field', data.fieldName);
@@ -79,7 +79,7 @@ function updateMessageForItem(data) {
 			target: 'content-viewer',
 			method: 'runFunction',
 			methodName: "showMessage",
-			data: {trackingStatus: data.trackingStatus}
+			data: {trackingStatus: data.trackingStatus, itemData: data.item}
 		}
 	);
 }

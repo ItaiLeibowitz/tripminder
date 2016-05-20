@@ -4,13 +4,14 @@ $('body').append(inFlightStatusElem);
 
 var tmPreventAnypageScripts = true;
 
-function updateRhsStatus(trackingStatus){
+function updateRhsStatus(trackingStatus, itemData){
 	var rhsStatusElem = $('#rhs-tripmind-status');
-	if (!rhsStatusElem || rhsStatusElem.length == 0) {
-		rhsStatusElem = $('<div id="rhs-tripmind-status"><div class="toggle-tracking"></div><div class="tripmind-open"></div></div>');
-		$('#rhs_block').prepend(rhsStatusElem);
+	if (rhsStatusElem) rhsStatusElem.remove();
+
+		rhsStatusElem = $(`<div id="rhs-tripmind-status"><div class="toggle-tracking"></div><div class="tripmind-open" data-target="${"#/items/" + itemData.gmapsReference}"></div></div><style>._ZNf{top:80px}</style>`);
+		$('.kp-header').prepend(rhsStatusElem);
 		$('#tm_status_elem').attr('data-in-flux', false);
-	}
+
 	if (trackingStatus) {
 		rhsStatusElem.addClass('tracked');
 	} else {
@@ -59,6 +60,7 @@ function rhsDidChange() {
 	var coordLinks = mapLinks.filter(function (link) {
 		return link.indexOf('/@') > -1
 	});
+
 	//TODO: we could add here related search terms from the rest of the links
 	//TODO: Get the image
 	var externalLinks = allLinks.filter(function (link) {
@@ -68,8 +70,19 @@ function rhsDidChange() {
 	if (coordLinks && coordLinks.length > 0) {
 		var coordsMatch = coordLinks[0].match(/\/\@([^,]*),([^,]*)/);
 		if (coordsMatch.index && coordsMatch.index > 0) {
-			var lat = coordsMatch[1],
-				lng = coordsMatch[2];
+			lat = coordsMatch[1];
+			lng = coordsMatch[2];
+			console.log('coords:', lat, lng);
+		}
+	}
+	// If this is a google maps page then we check the coords this way:
+	if (!lat && window.location.href.indexOf('&tbm=lcl') > -1){
+	   var coordsString = window.location.href.match(/&rllag=([^,]*),([^,]*)/);
+		if (coordsString.index && coordsString.index > 0) {
+			var latString = coordsMatch[1],
+				lngString = coordsMatch[2];
+			lat = latString.slice(0,-6) + "." + latString.slice(-6);
+			lng = lngString.slice(0,-6) + "." + lngString.slice(-6);
 			console.log('coords:', lat, lng);
 		}
 	}
@@ -93,6 +106,11 @@ function rhsDidChange() {
 	}
 	var addedLocation = summaryText ? summaryText.split(" in ")[1] : null;
 	if (addedLocation && nameForSearch.indexOf(',') == -1) nameForSearch = nameForSearch + ", " + addedLocation;
+	var addressDiv = $('[data-dtype=d3adr] ._Xbe');
+	if (addressDiv){
+		var address = addressDiv.text();
+		nameForSearch = nameForSearch + ", " + address;
+	}
 	var image = $('#rhs img:eq(0)').attr('src');
 	var searchLinks = $('h3.r a').toArray().map(function(el){ return el.href});  // used to have: .replace(/(http:)|(https:)/,'')
 	chrome.runtime.sendMessage({
@@ -118,17 +136,30 @@ function rhsDidChange() {
 }
 
 function checkRHS() {
+	if(! $('#searchform input[aria-label="Search"]')[0]) return;
 	if (google_cex.checkRHSIntervalIndex > 15) {
 		window.clearInterval(google_cex.checkStringInterval);
 		google_cex.rhsDidChange = false;
 		google_cex.searchTermDidChange = false;
+		if (google_cex.runRhsChange) {
+			google_cex.runRhsChange = false;
+			rhsDidChange();
+		}
+
 	}
 	google_cex.checkRHSIntervalIndex++;
 	console.log('checking the RHS', google_cex.checkRHSIntervalIndex, google_cex.rhsCode, google_cex.lastSearchTerm)
+	var currentLocation = window.location.href;
+	var inGoogleMaps = currentLocation.indexOf('&tbm=lcl') > -1
 	var rhs = $('#rhs_block');
+	// If this is a maps page then we remove the map itself from the string because it changes frequently
+	if (inGoogleMaps) {
+		rhs = rhs.find('.akp_uid_0')
+	}
 	var rhsAsString = rhs.html();
 	var rhsCode = rhsAsString ? hashCode(rhsAsString) : null;
 	var currentSearchTerm = $('#searchform input[aria-label="Search"]').get(0).value;
+
 	if (rhsCode != google_cex.rhsCode) {
 		google_cex.rhsCode = rhsCode;
 		console.log('rhs changed to:', rhsCode)
@@ -140,10 +171,12 @@ function checkRHS() {
 		console.log('searchTerm changed to:', currentSearchTerm)
 		google_cex.searchTermDidChange = true;
 	}
-	if (google_cex.rhsDidChange && google_cex.searchTermDidChange) {
+	if (google_cex.rhsDidChange && (google_cex.searchTermDidChange || inGoogleMaps)) {
 		google_cex.searchTermDidChange = false;
 		google_cex.rhsDidChange = false;
-		rhsDidChange();
+		console.log('RHS did change!!', currentSearchTerm)
+		google_cex.runRhsChange = true;
+
 	}
 }
 
@@ -202,11 +235,14 @@ function setupTrackToggle(){
 }
 
 function google_setupButtons(){
-	$(document).on('click', '.tripmind-open', function(){
+	// Setup the 'open in tripmind' button
+	$(document).on('click', '.tripmind-open', function(el){
+		var addedRoute = $(el.target).attr('data-target');
 		chrome.runtime.sendMessage({
 			target: 'background',
 			method: 'runFunction',
-			methodName: "openTripmindTab"
+			methodName: "openTripmindTab",
+			data: addedRoute
 		});
 	})
 }

@@ -169,7 +169,7 @@ define('tripmind/appconfig/constants', ['exports', 'ember', 'tripmind/config/env
 		GOOGLE_PLACE_NIGHTLIFE_TYPES: ["bar", "casino", "movie_theater", "night_club"],
 		GOOGLE_PLACE_HOTEL_TYPES: ["lodging"],
 		DAY_NAMES: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-		GOOGLE_TYPE_FILTER_CATEGORIES: [{ type: "art_gallery", filterOption: "Art", duration: 1800 }, { type: "administrative_area_level_1", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_2", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_3", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_4", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_5", filterOption: "Destination", duration: 1800 }, { type: "colloquial_area", filterOption: "Destination", duration: 1800 }, { type: "country", filterOption: "Destination", duration: 1800 }, { type: "geocode", filterOption: "Destination", duration: 1800 }, { type: "intersection", filterOption: "Destination", duration: 1800 }, { type: "locality", filterOption: "Destination", duration: 1800 }, { type: "neighborhood", filterOption: "Destination", duration: 1800 }, { type: "political", filterOption: "Destination", duration: 1800 }, { type: "post_box", filterOption: "Destination", duration: 1800 }, { type: "postal_code", filterOption: "Destination", duration: 1800 }, { type: "postal_code_prefix", filterOption: "Destination", duration: 1800 }, { type: "postal_code_suffix", filterOption: "Destination", duration: 1800 }, { type: "postal_town", filterOption: "Destination", duration: 1800 }, { type: "route", filterOption: "Destination", duration: 1800 }, { type: "street_address", filterOption: "Destination", duration: 1800 }, { type: "street_number", filterOption: "Destination", duration: 1800 }, { type: "sublocality", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_1", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_2", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_3", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_4", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_5", filterOption: "Destination", duration: 1800 }, { type: "casino", filterOption: "Entertainment", duration: 7200 }, { type: "movie_theater", filterOption: "Entertainment", duration: 9000 }, { type: "stadium", filterOption: "Entertainment", duration: 9000 }, { type: "amusement_park", filterOption: "Family", duration: 14400 }, { type: "lodging", filterOption: "Hotels", duration: 0 }, { type: "city_hall", filterOption: "Landmark", duration: 1800 }, { type: "library", filterOption: "Landmark", duration: 1800 }, { type: "local_government_office", filterOption: "Landmark", duration: 1800 }, { type: "beauty_salon", filterOption: "Lifestyle", duration: 1800 }, { type: "gym", filterOption: "Lifestyle", duration: 5400 }, { type: "spa", filterOption: "Lifestyle", duration: 1800 }, { type: "museum", filterOption: "Museum", duration: 3600 }, { type: "aquarium", filterOption: "Nature", duration: 3600 }, { type: "natural_feature", filterOption: "Nature", duration: 3600 }, { type: "park", filterOption: "Nature", duration: 3600 }, { type: "zoo", filterOption: "Nature", duration: 5400 }, { type: "bar", filterOption: "Nightlife", duration: 3600 }, { type: "night_club", filterOption: "Nightlife", duration: 1800 }, { type: "accounting", filterOption: "Other", duration: 1800 }, { type: "airport", filterOption: "Other", duration: 3600 }, { type: "atm", filterOption: "Other", duration: 1800 }, { type: "bank", filterOption: "Other", duration: 1800 }, { type: "bicycle_store", filterOption: "Other", duration: 1800 }, { type: "bowling_alley", filterOption: "Other", duration: 1800 }, { type: "bus_station", filterOption: "Other", duration: 1800 }, { type: "campground", filterOption: "Other", duration: 1800 }, { type: "car_dealer", filterOption: "Other", duration: 1800 }, { type: "car_rental", filterOption: "Other", duration: 1800 }, { type: "car_repair", filterOption: "Other", duration: 1800 }, { type: "car_wash", filterOption: "Other", duration: 1800 }, { type: "cemetery", filterOption: "Other", duration: 1800 }, { type: "courthouse", filterOption: "Other", duration: 1800 }, { type: "dentist", filterOption: "Other", duration: 1800 }, { type: "doctor", filterOption: "Other", duration: 1800 }, { type: "electrician", filterOption: "Other", duration: 1800 }, { type: "embassy", filterOption: "Other", duration: 1800 }, { type: "establishment", filterOption: "Other", duration: 1800 }, { type: "finance", filterOption: "Other", duration: 1800 }, { type: "fire_station", filterOption: "Other", duration: 1800 }, { type: "floor", filterOption: "Other", duration: 1800 }, { type: "food", filterOption: "Other", duration: 3600 }, { type: "funeral_home", filterOption: "Other", duration: 1800 }, { type: "gas_station", filterOption: "Other", duration: 1800 }, { type: "general_contractor", filterOption: "Other", duration: 1800 }, { type: "grocery_or_supermarket", filterOption: "Other", duration: 1800 }, { type: "hair_care", filterOption: "Other", duration: 1800 }, { type: "health", filterOption: "Other", duration: 1800 }, { type: "hospital", filterOption: "Other", duration: 1800 }, { type: "insurance_agency", filterOption: "Other", duration: 1800 }, { type: "laundry", filterOption: "Other", duration: 1800 }, { type: "lawyer", filterOption: "Other", duration: 1800 }, { type: "locksmith", filterOption: "Other", duration: 1800 }, { type: "meal_delivery", filterOption: "Other", duration: 1800 }, { type: "meal_takeaway", filterOption: "Other", duration: 1800 }, { type: "movie_rental", filterOption: "Other", duration: 1800 }, { type: "moving_company", filterOption: "Other", duration: 1800 }, { type: "painter", filterOption: "Other", duration: 1800 }, { type: "parking", filterOption: "Other", duration: 1800 }, { type: "pharmacy", filterOption: "Other", duration: 1800 }, { type: "physiotherapist", filterOption: "Other", duration: 1800 }, { type: "plumber", filterOption: "Other", duration: 1800 }, { type: "point_of_interest", filterOption: "Other", duration: 1800 }, { type: "police", filterOption: "Other", duration: 1800 }, { type: "post_office", filterOption: "Other", duration: 1800 }, { type: "premise", filterOption: "Other", duration: 1800 }, { type: "real_estate_agency", filterOption: "Other", duration: 1800 }, { type: "roofing_contractor", filterOption: "Other", duration: 1800 }, { type: "room", filterOption: "Other", duration: 1800 }, { type: "rv_park", filterOption: "Other", duration: 1800 }, { type: "school", filterOption: "Other", duration: 1800 }, { type: "storage", filterOption: "Other", duration: 1800 }, { type: "subpremise", filterOption: "Other", duration: 1800 }, { type: "subway_station", filterOption: "Other", duration: 1800 }, { type: "taxi_stand", filterOption: "Other", duration: 1800 }, { type: "train_station", filterOption: "Other", duration: 1800 }, { type: "transit_station", filterOption: "Other", duration: 1800 }, { type: "travel_agency", filterOption: "Other", duration: 1800 }, { type: "university", filterOption: "Other", duration: 1800 }, { type: "veterinary_care", filterOption: "Other", duration: 1800 }, { type: "church", filterOption: "Religious", duration: 1800 }, { type: "hindu_temple", filterOption: "Religious", duration: 1800 }, { type: "mosque", filterOption: "Religious", duration: 1800 }, { type: "place_of_worship", filterOption: "Religious", duration: 1800 }, { type: "synagogue", filterOption: "Religious", duration: 1800 }, { type: "bakery", filterOption: "Restaurants", duration: 1800 }, { type: "cafe", filterOption: "Restaurants", duration: 1800 }, { type: "restaurant", filterOption: "Restaurants", duration: 5400 }, { type: "book_store", filterOption: "Shopping", duration: 1800 }, { type: "clothing_store", filterOption: "Shopping", duration: 1800 }, { type: "convenience_store", filterOption: "Shopping", duration: 1800 }, { type: "department_store", filterOption: "Shopping", duration: 1800 }, { type: "electronics_store", filterOption: "Shopping", duration: 1800 }, { type: "florist", filterOption: "Shopping", duration: 1800 }, { type: "furniture_store", filterOption: "Shopping", duration: 1800 }, { type: "hardware_store", filterOption: "Shopping", duration: 1800 }, { type: "home_goods_store", filterOption: "Shopping", duration: 1800 }, { type: "jewelry_store", filterOption: "Shopping", duration: 1800 }, { type: "liquor_store", filterOption: "Shopping", duration: 1800 }, { type: "pet_store", filterOption: "Shopping", duration: 1800 }, { type: "shoe_store", filterOption: "Shopping", duration: 1800 }, { type: "shopping_mall", filterOption: "Shopping", duration: 5400 }, { type: "store", filterOption: "Shopping", duration: 1800 }]
+		GOOGLE_TYPE_FILTER_CATEGORIES: [{ type: "art_gallery", filterOption: "Art", duration: 1800 }, { type: 'art work', filterOption: "Art", duration: 1800 }, { type: 'gallery', filterOption: "Art", duration: 5400 }, { type: 'Art Museum', filterOption: "Art", duration: 5400 }, { type: "administrative_area_level_1", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_2", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_3", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_4", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_5", filterOption: "Destination", duration: 1800 }, { type: "colloquial_area", filterOption: "Destination", duration: 1800 }, { type: "country", filterOption: "Destination", duration: 1800 }, { type: "geocode", filterOption: "Destination", duration: 1800 }, { type: "intersection", filterOption: "Destination", duration: 1800 }, { type: "locality", filterOption: "Destination", duration: 1800 }, { type: "neighborhood", filterOption: "Destination", duration: 1800 }, { type: "political", filterOption: "Destination", duration: 1800 }, { type: "post_box", filterOption: "Destination", duration: 1800 }, { type: "postal_code", filterOption: "Destination", duration: 1800 }, { type: "postal_code_prefix", filterOption: "Destination", duration: 1800 }, { type: "postal_code_suffix", filterOption: "Destination", duration: 1800 }, { type: "postal_town", filterOption: "Destination", duration: 1800 }, { type: "route", filterOption: "Destination", duration: 1800 }, { type: "street_address", filterOption: "Destination", duration: 1800 }, { type: "street_number", filterOption: "Destination", duration: 1800 }, { type: "sublocality", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_1", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_2", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_3", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_4", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_5", filterOption: "Destination", duration: 1800 }, { type: 'continent', filterOption: "Destination", duration: 1209600 }, { type: 'world region', filterOption: "Destination", duration: 1209600 }, { type: 'region', filterOption: "Destination", duration: 259200 }, { type: 'state', filterOption: "Destination", duration: 432000 }, { type: 'province', filterOption: "Destination", duration: 172800 }, { type: 'department', filterOption: "Destination", duration: 172800 }, { type: 'area', filterOption: "Destination", duration: 86400 }, { type: 'archipelago', filterOption: "Destination", duration: 86400 }, { type: 'islands', filterOption: "Destination", duration: 86400 }, { type: 'island', filterOption: "Destination", duration: 86400 }, { type: 'cape', filterOption: "Destination", duration: 14400 }, { type: 'county', filterOption: "Destination", duration: 14400 }, { type: 'district', filterOption: "Destination", duration: 14400 }, { type: 'peninsula', filterOption: "Destination", duration: 14400 }, { type: 'valley', filterOption: "Destination", duration: 14400 }, { type: 'city', filterOption: "Destination", duration: 172800 }, { type: 'capital city', filterOption: "Destination", duration: 172800 }, { type: 'municipality', filterOption: "Destination", duration: 172800 }, { type: 'town', filterOption: "Destination", duration: 14400 }, { type: 'township', filterOption: "Destination", duration: 14400 }, { type: 'village', filterOption: "Destination", duration: 14400 }, { type: 'resort', filterOption: "Destination", duration: 14400 }, { type: 'beach resort', filterOption: "Destination", duration: 14400 }, { type: 'ski resort', filterOption: "Destination", duration: 14400 }, { type: 'commune', filterOption: "Destination", duration: 7200 }, { type: 'suburb', filterOption: "Destination", duration: 7200 }, { type: 'hamlet', filterOption: "Destination", duration: 1800 }, { type: 'borough', filterOption: "Destination", duration: 1800 }, { type: 'red light district', filterOption: "Destination", duration: 7200 }, { type: 'street', filterOption: "Destination", duration: 3600 }, { type: 'passage', filterOption: "Destination", duration: 1800 }, { type: "casino", filterOption: "Entertainment", duration: 7200 }, { type: "movie_theater", filterOption: "Entertainment", duration: 9000 }, { type: "stadium", filterOption: "Entertainment", duration: 9000 }, { type: 'entertainment', filterOption: "Entertainment", duration: 3600 }, { type: 'bowling alley', filterOption: "Entertainment", duration: 5400 }, { type: 'casino', filterOption: "Entertainment", duration: 5400 }, { type: 'movie theater', filterOption: "Entertainment", duration: 9000 }, { type: 'performance venue', filterOption: "Entertainment", duration: 7200 }, { type: 'sport venue', filterOption: "Entertainment", duration: 7200 }, { type: 'stadium', filterOption: "Entertainment", duration: 1800 }, { type: 'Race Car Track', filterOption: "Entertainment", duration: 5400 }, { type: 'Theater', filterOption: "Entertainment", duration: 9000 }, { type: 'Water sports', filterOption: "Entertainment", duration: 7200 }, { type: 'Opera house', filterOption: "Entertainment", duration: 7200 }, { type: 'festival', filterOption: "Entertainment", duration: 10800 }, { type: 'race track', filterOption: "Entertainment", duration: 7200 }, { type: 'amphitheater', filterOption: "Entertainment", duration: 5400 }, { type: 'arena', filterOption: "Entertainment", duration: 3600 }, { type: 'arcade', filterOption: "Entertainment", duration: 3600 }, { type: 'ice skating', filterOption: "Entertainment", duration: 5400 }, { type: "amusement_park", filterOption: "Family", duration: 14400 }, { type: 'amusement park', filterOption: "Family", duration: 7200 }, { type: 'Water Park', filterOption: "Family", duration: 7200 }, { type: 'theme park', filterOption: "Family", duration: 10800 }, { type: 'roller coaster', filterOption: "Family", duration: 1800 }, { type: 'archaeological site', filterOption: "History", duration: 1800 }, { type: 'world heritage site', filterOption: "History", duration: 1800 }, { type: 'historic site', filterOption: "History", duration: 3600 }, { type: 'reservation', filterOption: "Nature", duration: 3600 }, { type: 'concentration camp', filterOption: "History", duration: 5400 }, { type: 'historic building', filterOption: "History", duration: 5400 }, { type: "lodging", filterOption: "Hotels", duration: 0 }, { type: 'accommodation', filterOption: "Hotels", duration: 0 }, { type: 'hotel', filterOption: "Hotels", duration: 0 }, { type: 'motel', filterOption: "Hotels", duration: 0 }, { type: "city_hall", filterOption: "Landmark", duration: 1800 }, { type: "library", filterOption: "Landmark", duration: 1800 }, { type: "local_government_office", filterOption: "Landmark", duration: 1800 }, { type: 'landmark', filterOption: "Landmark", duration: 1800 }, { type: 'monument', filterOption: "Landmark", duration: 1800 }, { type: 'gate', filterOption: "Landmark", duration: 1800 }, { type: 'bridge', filterOption: "Landmark", duration: 1800 }, { type: 'dam', filterOption: "Landmark", duration: 1800 }, { type: 'statue', filterOption: "Landmark", duration: 1800 }, { type: 'memorial', filterOption: "Landmark", duration: 1800 }, { type: 'fountain', filterOption: "Landmark", duration: 1800 }, { type: 'sculpture', filterOption: "Landmark", duration: 1800 }, { type: 'aqueduct', filterOption: "Landmark", duration: 1800 }, { type: 'lighthouse', filterOption: "Landmark", duration: 1800 }, { type: 'mausoleum', filterOption: "Landmark", duration: 1800 }, { type: 'pier', filterOption: "Landmark", duration: 3600 }, { type: 'port', filterOption: "Landmark", duration: 3600 }, { type: 'canal', filterOption: "Landmark", duration: 3600 }, { type: 'square', filterOption: "Landmark", duration: 1800 }, { type: 'viewpoint', filterOption: "Landmark", duration: 1800 }, { type: "beauty_salon", filterOption: "Lifestyle", duration: 1800 }, { type: "gym", filterOption: "Lifestyle", duration: 5400 }, { type: "spa", filterOption: "Lifestyle", duration: 1800 }, { type: 'bath house', filterOption: "Lifestyle", duration: 3600 }, { type: 'pool', filterOption: "Lifestyle", duration: 3600 }, { type: "museum", filterOption: "Museum", duration: 3600 }, { type: 'History Museum', filterOption: "Museum", duration: 5400 }, { type: 'Military Museum', filterOption: "Museum", duration: 5400 }, { type: 'Natural History Museum', filterOption: "Museum", duration: 5400 }, { type: 'Science Museum', filterOption: "Museum", duration: 5400 }, { type: 'Specialty Museum', filterOption: "Museum", duration: 5400 }, { type: "aquarium", filterOption: "Nature", duration: 3600 }, { type: "natural_feature", filterOption: "Nature", duration: 3600 }, { type: 'reservoir', filterOption: "Nature", duration: 1800 }, { type: 'natural feature', filterOption: "Nature", duration: 3600 }, { type: 'garden', filterOption: "Nature", duration: 3600 }, { type: 'body of water', filterOption: "Nature", duration: 1800 }, { type: 'canyon', filterOption: "Nature", duration: 1800 }, { type: 'cave', filterOption: "Nature", duration: 1800 }, { type: 'desert', filterOption: "Nature", duration: 3600 }, { type: 'forest', filterOption: "Nature", duration: 3600 }, { type: 'hill', filterOption: "Nature", duration: 5400 }, { type: 'lake', filterOption: "Nature", duration: 5400 }, { type: 'mountain', filterOption: "Nature", duration: 14400 }, { type: 'river', filterOption: "Nature", duration: 1800 }, { type: 'volcano', filterOption: "Nature", duration: 14400 }, { type: 'waterfall', filterOption: "Nature", duration: 3600 }, { type: 'waterfront', filterOption: "Nature", duration: 3600 }, { type: 'park', filterOption: "Nature", duration: 3600 }, { type: 'bird watching', filterOption: "Nature", duration: 5400 }, { type: 'outdoors', filterOption: "Nature", duration: 3600 }, { type: 'zoo', filterOption: "Nature", duration: 5400 }, { type: 'aquarium', filterOption: "Nature", duration: 5400 }, { type: 'Geologic Formation', filterOption: "Nature", duration: 1800 }, { type: 'Hot Spring', filterOption: "Nature", duration: 3600 }, { type: 'National Park', filterOption: "Nature", duration: 7200 }, { type: 'Scenic Drive', filterOption: "Nature", duration: 5400 }, { type: 'Trail', filterOption: "Nature", duration: 5400 }, { type: 'Safari', filterOption: "Nature", duration: 10800 }, { type: 'Marine park', filterOption: "Nature", duration: 7200 }, { type: 'Botanical garden', filterOption: "Nature", duration: 7200 }, { type: 'Tree', filterOption: "Nature", duration: 1800 }, { type: 'summit', filterOption: "Nature", duration: 1800 }, { type: 'peak', filterOption: "Nature", duration: 1800 }, { type: 'mountain range', filterOption: "Nature", duration: 14400 }, { type: 'glacier', filterOption: "Nature", duration: 7200 }, { type: 'pinnacle', filterOption: "Nature", duration: 1800 }, { type: 'pass', filterOption: "Nature", duration: 5400 }, { type: 'pond', filterOption: "Nature", duration: 1800 }, { type: 'bay', filterOption: "Nature", duration: 3600 }, { type: 'fjord', filterOption: "Nature", duration: 7200 }, { type: 'jungle', filterOption: "Nature", duration: 10800 }, { type: 'lagoon', filterOption: "Nature", duration: 5400 }, { type: 'crater', filterOption: "Nature", duration: 5400 }, { type: 'nature reserve', filterOption: "Nature", duration: 7200 }, { type: 'swamp', filterOption: "Nature", duration: 5400 }, { type: 'wildlife reserve', filterOption: "Nature", duration: 7200 }, { type: 'stream', filterOption: "Nature", duration: 3600 }, { type: 'reef', filterOption: "Nature", duration: 10800 }, { type: 'ice field', filterOption: "Nature", duration: 7200 }, { type: 'estuary', filterOption: "Nature", duration: 1800 }, { type: 'strait', filterOption: "Nature", duration: 3600 }, { type: 'cliff', filterOption: "Nature", duration: 3600 }, { type: 'hiking', filterOption: "Nature", duration: 10800 }, { type: 'diving', filterOption: "Nature", duration: 21600 }, { type: 'fishing', filterOption: "Nature", duration: 5400 }, { type: 'animal rides', filterOption: "Nature", duration: 5400 }, { type: 'beach', filterOption: "Nature", duration: 5400 }, { type: 'farm', filterOption: "Nature", duration: 1800 }, { type: "bar", filterOption: "Nightlife", duration: 3600 }, { type: "night_club", filterOption: "Nightlife", duration: 1800 }, { type: 'nightlife', filterOption: "Nightlife", duration: 7200 }, { type: 'night club', filterOption: "Nightlife", duration: 7200 }, { type: 'dance club', filterOption: "Nightlife", duration: 7200 }, { type: 'gay bar', filterOption: "Nightlife", duration: 5400 }, { type: "accounting", filterOption: "Other", duration: 1800 }, { type: "airport", filterOption: "Other", duration: 3600 }, { type: "atm", filterOption: "Other", duration: 1800 }, { type: "bank", filterOption: "Other", duration: 1800 }, { type: "bicycle_store", filterOption: "Other", duration: 1800 }, { type: "bowling_alley", filterOption: "Other", duration: 1800 }, { type: "bus_station", filterOption: "Other", duration: 1800 }, { type: "campground", filterOption: "Other", duration: 1800 }, { type: "car_dealer", filterOption: "Other", duration: 1800 }, { type: "car_rental", filterOption: "Other", duration: 1800 }, { type: "car_repair", filterOption: "Other", duration: 1800 }, { type: "car_wash", filterOption: "Other", duration: 1800 }, { type: "cemetery", filterOption: "Other", duration: 1800 }, { type: "courthouse", filterOption: "Other", duration: 1800 }, { type: "dentist", filterOption: "Other", duration: 1800 }, { type: "doctor", filterOption: "Other", duration: 1800 }, { type: "electrician", filterOption: "Other", duration: 1800 }, { type: "embassy", filterOption: "Other", duration: 1800 }, { type: "establishment", filterOption: "Other", duration: 1800 }, { type: "finance", filterOption: "Other", duration: 1800 }, { type: "fire_station", filterOption: "Other", duration: 1800 }, { type: "floor", filterOption: "Other", duration: 1800 }, { type: "food", filterOption: "Other", duration: 3600 }, { type: "funeral_home", filterOption: "Other", duration: 1800 }, { type: "gas_station", filterOption: "Other", duration: 1800 }, { type: "general_contractor", filterOption: "Other", duration: 1800 }, { type: "grocery_or_supermarket", filterOption: "Other", duration: 1800 }, { type: "hair_care", filterOption: "Other", duration: 1800 }, { type: "health", filterOption: "Other", duration: 1800 }, { type: "hospital", filterOption: "Other", duration: 1800 }, { type: "insurance_agency", filterOption: "Other", duration: 1800 }, { type: "laundry", filterOption: "Other", duration: 1800 }, { type: "lawyer", filterOption: "Other", duration: 1800 }, { type: "locksmith", filterOption: "Other", duration: 1800 }, { type: "meal_delivery", filterOption: "Other", duration: 1800 }, { type: "meal_takeaway", filterOption: "Other", duration: 1800 }, { type: "movie_rental", filterOption: "Other", duration: 1800 }, { type: "moving_company", filterOption: "Other", duration: 1800 }, { type: "painter", filterOption: "Other", duration: 1800 }, { type: "parking", filterOption: "Other", duration: 1800 }, { type: "pharmacy", filterOption: "Other", duration: 1800 }, { type: "physiotherapist", filterOption: "Other", duration: 1800 }, { type: "plumber", filterOption: "Other", duration: 1800 }, { type: "point_of_interest", filterOption: "Other", duration: 1800 }, { type: "point of interest", filterOption: "Other", duration: 1800 }, { type: "police", filterOption: "Other", duration: 1800 }, { type: "post_office", filterOption: "Other", duration: 1800 }, { type: "premise", filterOption: "Other", duration: 1800 }, { type: "real_estate_agency", filterOption: "Other", duration: 1800 }, { type: "roofing_contractor", filterOption: "Other", duration: 1800 }, { type: "room", filterOption: "Other", duration: 1800 }, { type: "rv_park", filterOption: "Other", duration: 1800 }, { type: "school", filterOption: "Other", duration: 1800 }, { type: "storage", filterOption: "Other", duration: 1800 }, { type: "subpremise", filterOption: "Other", duration: 1800 }, { type: "subway_station", filterOption: "Other", duration: 1800 }, { type: "taxi_stand", filterOption: "Other", duration: 1800 }, { type: "train_station", filterOption: "Other", duration: 1800 }, { type: "transit_station", filterOption: "Other", duration: 1800 }, { type: "travel_agency", filterOption: "Other", duration: 1800 }, { type: "university", filterOption: "Other", duration: 1800 }, { type: "veterinary_care", filterOption: "Other", duration: 1800 }, { type: "attraction", filterOption: "Other", duration: 1800 }, { type: 'mine', filterOption: "Other", duration: 3600 }, { type: 'cultural', filterOption: "Other", duration: 3600 }, { type: 'cultural site', filterOption: "Other", duration: 1800 }, { type: 'educational institution', filterOption: "Other", duration: 1800 }, { type: 'observatory', filterOption: "Other", duration: 3600 }, { type: 'science', filterOption: "Other", duration: 3600 }, { type: 'activity', filterOption: "Other", duration: 5400 }, { type: 'tour', filterOption: "Other", duration: 7200 }, { type: 'classes', filterOption: "Other", duration: 5400 }, { type: 'adventure', filterOption: "Other", duration: 10800 }, { type: 'boat tour', filterOption: "Other", duration: 10800 }, { type: 'golf', filterOption: "Other", duration: 10800 }, { type: 'private tour', filterOption: "Other", duration: 10800 }, { type: 'sightseeing tour', filterOption: "Other", duration: 5400 }, { type: 'swimming', filterOption: "Other", duration: 5400 }, { type: 'walking tour', filterOption: "Other", duration: 5400 }, { type: 'Marina', filterOption: "Other", duration: 7200 }, { type: 'Scenic/ Historic Walking Area', filterOption: "Other", duration: 5400 }, { type: 'Surf Camp', filterOption: "Other", duration: 7200 }, { type: 'climbing', filterOption: "Other", duration: 5400 }, { type: 'water sports', filterOption: "Other", duration: 5400 }, { type: 'cycling', filterOption: "Other", duration: 5400 }, { type: 'extreme sports', filterOption: "Other", duration: 5400 }, { type: 'scenic flight', filterOption: "Other", duration: 5400 }, { type: 'driving', filterOption: "Other", duration: 5400 }, { type: 'sports activity', filterOption: "Other", duration: 5400 }, { type: 'building', filterOption: "Other", duration: 1800 }, { type: 'cultural building', filterOption: "Other", duration: 1800 }, { type: 'government building', filterOption: "Other", duration: 1800 }, { type: 'mansion', filterOption: "Other", duration: 3600 }, { type: 'tower', filterOption: "Other", duration: 1800 }, { type: 'windmill', filterOption: "Other", duration: 1800 }, { type: 'architecture', filterOption: "Other", duration: 1800 }, { type: 'castle', filterOption: "Other", duration: 3600 }, { type: 'fortress', filterOption: "Other", duration: 3600 }, { type: 'library', filterOption: "Other", duration: 1800 }, { type: 'palace', filterOption: "Other", duration: 3600 }, { type: 'villa', filterOption: "Other", duration: 3600 }, { type: 'fortification', filterOption: "Other", duration: 1800 }, { type: 'fort', filterOption: "Other", duration: 3600 }, { type: 'edifice', filterOption: "Other", duration: 3600 }, { type: 'official residence', filterOption: "Other", duration: 5400 }, { type: 'royal residence', filterOption: "Other", duration: 5400 }, { type: 'prison', filterOption: "Other", duration: 5400 }, { type: 'apartment', filterOption: "Other", duration: 3600 }, { type: 'health', filterOption: "Other", duration: 1800 }, { type: 'dentist', filterOption: "Other", duration: 3600 }, { type: 'doctor', filterOption: "Other", duration: 1800 }, { type: 'hospital', filterOption: "Other", duration: 3600 }, { type: 'pharmacy', filterOption: "Other", duration: 1800 }, { type: 'physiotherapist', filterOption: "Other", duration: 1800 }, { type: 'business', filterOption: "Other", duration: 1800 }, { type: 'accounting', filterOption: "Other", duration: 1800 }, { type: 'industrial site', filterOption: "Other", duration: 1800 }, { type: 'Convention Center', filterOption: "Other", duration: 1800 }, { type: 'Factory Tour', filterOption: "Other", duration: 3600 }, { type: 'airport', filterOption: "Other", duration: 1800 }, { type: 'bus station', filterOption: "Other", duration: 1800 }, { type: 'car rental', filterOption: "Other", duration: 1800 }, { type: 'parking', filterOption: "Other", duration: 1800 }, { type: 'subway station', filterOption: "Other", duration: 1800 }, { type: 'taxi stand', filterOption: "Other", duration: 1800 }, { type: 'train station', filterOption: "Other", duration: 1800 }, { type: 'transit station', filterOption: "Other", duration: 1800 }, { type: 'ship', filterOption: "Other", duration: 5400 }, { type: 'railway', filterOption: "Other", duration: 5400 }, { type: 'submarine', filterOption: "Other", duration: 5400 }, { type: 'ferry', filterOption: "Other", duration: 3600 }, { type: 'floor', filterOption: "Other", duration: 1800 }, { type: 'geocode', filterOption: "Other", duration: 1800 }, { type: 'intersection', filterOption: "Other", duration: 1800 }, { type: 'atm', filterOption: "Other", duration: 1800 }, { type: 'bank', filterOption: "Other", duration: 1800 }, { type: 'beauty salon', filterOption: "Other", duration: 1800 }, { type: 'campground', filterOption: "Other", duration: 1800 }, { type: 'car dealer', filterOption: "Other", duration: 1800 }, { type: 'car repair', filterOption: "Other", duration: 1800 }, { type: 'car wash', filterOption: "Other", duration: 1800 }, { type: 'courthouse', filterOption: "Other", duration: 1800 }, { type: 'electrician', filterOption: "Other", duration: 1800 }, { type: 'embassy', filterOption: "Other", duration: 1800 }, { type: 'finance', filterOption: "Other", duration: 1800 }, { type: 'financial institution', filterOption: "Other", duration: 1800 }, { type: 'fire station', filterOption: "Other", duration: 1800 }, { type: 'funeral home', filterOption: "Other", duration: 1800 }, { type: 'gas station', filterOption: "Other", duration: 1800 }, { type: 'gear rentals', filterOption: "Other", duration: 1800 }, { type: 'general contractor', filterOption: "Other", duration: 1800 }, { type: 'hair care', filterOption: "Other", duration: 1800 }, { type: 'insurance agency', filterOption: "Other", duration: 1800 }, { type: 'laundry', filterOption: "Other", duration: 1800 }, { type: 'lawyer', filterOption: "Other", duration: 1800 }, { type: 'locksmith', filterOption: "Other", duration: 1800 }, { type: 'movie rental', filterOption: "Other", duration: 1800 }, { type: 'moving company', filterOption: "Other", duration: 1800 }, { type: 'painter', filterOption: "Other", duration: 1800 }, { type: 'plumber', filterOption: "Other", duration: 1800 }, { type: 'police', filterOption: "Other", duration: 1800 }, { type: 'post office', filterOption: "Other", duration: 1800 }, { type: 'real estate agency', filterOption: "Other", duration: 1800 }, { type: 'roofing contractor', filterOption: "Other", duration: 1800 }, { type: 'rv park', filterOption: "Other", duration: 1800 }, { type: 'school', filterOption: "Other", duration: 1800 }, { type: 'storage', filterOption: "Other", duration: 1800 }, { type: 'travel agency', filterOption: "Other", duration: 1800 }, { type: 'university', filterOption: "Other", duration: 1800 }, { type: 'veterinary care', filterOption: "Other", duration: 1800 }, { type: 'Military Base', filterOption: "Other", duration: 3600 }, { type: 'Visitor Center', filterOption: "Other", duration: 1800 }, { type: 'college', filterOption: "Other", duration: 1800 }, { type: 'community center', filterOption: "Other", duration: 1800 }, { type: 'radio station', filterOption: "Other", duration: 1800 }, { type: 'power station', filterOption: "Other", duration: 1800 }, { type: 'Military site', filterOption: "Other", duration: 1800 }, { type: 'travel services', filterOption: "Other", duration: 1800 }, { type: 'event', filterOption: "Other", duration: 3600 }, { type: "church", filterOption: "Religious", duration: 1800 }, { type: "hindu_temple", filterOption: "Religious", duration: 1800 }, { type: "mosque", filterOption: "Religious", duration: 1800 }, { type: "place_of_worship", filterOption: "Religious", duration: 1800 }, { type: "synagogue", filterOption: "Religious", duration: 1800 }, { type: 'religious site', filterOption: "Religious", duration: 1800 }, { type: 'hindu temple', filterOption: "Religious", duration: 1800 }, { type: 'mosque', filterOption: "Religious", duration: 1800 }, { type: 'place of worship', filterOption: "Religious", duration: 1800 }, { type: 'cemetery', filterOption: "Religious", duration: 1800 }, { type: 'temple', filterOption: "Religious", duration: 1800 }, { type: 'shrine', filterOption: "Religious", duration: 1800 }, { type: 'pagoda', filterOption: "Religious", duration: 1800 }, { type: 'basilica', filterOption: "Religious", duration: 1800 }, { type: 'chapel', filterOption: "Religious", duration: 1800 }, { type: 'abbey', filterOption: "Religious", duration: 1800 }, { type: 'monastery', filterOption: "Religious", duration: 3600 }, { type: 'baptistery', filterOption: "Religious", duration: 1800 }, { type: 'cloisters', filterOption: "Religious", duration: 1800 }, { type: "bakery", filterOption: "Restaurants", duration: 1800 }, { type: "cafe", filterOption: "Restaurants", duration: 1800 }, { type: "restaurant", filterOption: "Restaurants", duration: 5400 }, { type: 'food', filterOption: "Restaurants", duration: 3600 }, { type: 'meal delivery', filterOption: "Restaurants", duration: 1800 }, { type: 'meal takeaway', filterOption: "Restaurants", duration: 1800 }, { type: 'Coffee house', filterOption: "Restaurants", duration: 1800 }, { type: 'brewery', filterOption: "Restaurants", duration: 3600 }, { type: 'distillery', filterOption: "Restaurants", duration: 3600 }, { type: 'winery', filterOption: "Restaurants", duration: 1800 }, { type: "book_store", filterOption: "Shopping", duration: 1800 }, { type: "clothing_store", filterOption: "Shopping", duration: 1800 }, { type: "convenience_store", filterOption: "Shopping", duration: 1800 }, { type: "department_store", filterOption: "Shopping", duration: 1800 }, { type: "electronics_store", filterOption: "Shopping", duration: 1800 }, { type: "florist", filterOption: "Shopping", duration: 1800 }, { type: "furniture_store", filterOption: "Shopping", duration: 1800 }, { type: "hardware_store", filterOption: "Shopping", duration: 1800 }, { type: "home_goods_store", filterOption: "Shopping", duration: 1800 }, { type: "jewelry_store", filterOption: "Shopping", duration: 1800 }, { type: "liquor_store", filterOption: "Shopping", duration: 1800 }, { type: "pet_store", filterOption: "Shopping", duration: 1800 }, { type: "shoe_store", filterOption: "Shopping", duration: 1800 }, { type: "shopping_mall", filterOption: "Shopping", duration: 5400 }, { type: "store", filterOption: "Shopping", duration: 1800 }, { type: 'shopping mall', filterOption: "Shopping", duration: 5400 }, { type: 'bicycle store', filterOption: "Shopping", duration: 1800 }, { type: 'book store', filterOption: "Shopping", duration: 1800 }, { type: 'clothing store', filterOption: "Shopping", duration: 1800 }, { type: 'convenience store', filterOption: "Shopping", duration: 1800 }, { type: 'department store', filterOption: "Shopping", duration: 3600 }, { type: 'electronics store', filterOption: "Shopping", duration: 1800 }, { type: 'furniture store', filterOption: "Shopping", duration: 1800 }, { type: 'hardware store', filterOption: "Shopping", duration: 1800 }, { type: 'home goods store', filterOption: "Shopping", duration: 1800 }, { type: 'jewelry store', filterOption: "Shopping", duration: 1800 }, { type: 'liquor store', filterOption: "Shopping", duration: 1800 }, { type: 'pet store', filterOption: "Shopping", duration: 1800 }, { type: 'shoe store', filterOption: "Shopping", duration: 1800 }, { type: 'Gear Rental', filterOption: "Shopping", duration: 1800 }, { type: 'Shop', filterOption: "Shopping", duration: 1800 }, { type: 'Specialty Shop', filterOption: "Shopping", duration: 1800 }]
 
 		/*baseTimeUnit: <%= BASE_TIME_UNIT %>,
   baseTimeUnitsPerDay: <%= BASE_TIME_UNITS_PER_DAY %>,
@@ -844,7 +844,13 @@ define("tripmind/appconfig/gmaps", ["exports"], function (exports) {
 				scaledSize: new google.maps.Size(100, 66)
 			};
 
-			var markerIconSmallBlue = {};
+			var markerIconSmallBlue = {
+				url: '/assets/images/markers4.png',
+				size: new google.maps.Size(16, 16),
+				origin: new google.maps.Point(47, 85),
+				anchor: new google.maps.Point(8, 12),
+				scaledSize: null
+			};
 
 			var markerIconLargeBlue = {
 				url: '/assets/images/markers4.png',
@@ -1169,9 +1175,20 @@ define('tripmind/components/auth-tokens', ['exports', 'ember'], function (export
 });
 define('tripmind/components/autosave-editable', ['exports', 'ember', 'tripmind/appconfig/better_sanitize'], function (exports, _ember, _tripmindAppconfigBetter_sanitize) {
 	exports['default'] = _ember['default'].Component.extend({
-		classNameBindings: ['isEditable'],
+		classNameBindings: ['isEditable', 'isEmpty'],
 		attributeBindings: ['contenteditable'],
 		valueOW: _ember['default'].computed.oneWay('value'),
+
+		isEmpty: (function () {
+			var value = this.get('value');
+			if (!value) return true;
+			if (typeof value.trim == 'function') {
+				return value.trim().length == 0;
+			}
+			if (value.string) {
+				return value.string.trim().length == 0;
+			}
+		}).property('value'),
 
 		mouseDown: function mouseDown(e) {
 			if (e.target.tagName != "A") {
@@ -1184,14 +1201,32 @@ define('tripmind/components/autosave-editable', ['exports', 'ember', 'tripmind/a
 			this.$().html(value);
 		},
 
+		/*
+  	valueDidChange: function(){
+  		this.set('refreshModel.needsRefresh', true)
+  	}.observes('value').on('init'),
+  */
+
 		focusOut: function focusOut() {
 			var modelToSave = this.get('saveOnExit'),
 			    self = this;
 			if (modelToSave) {
 				var currentValue = this.$().html();
 				this.set('contenteditable', false);
-				this.set('value', null);
-				this.$().html("");
+				// This may be useful for something, but I think it's just an old unnecessary remnant that caused trouble
+				/*this.set('value', null);
+    this.$().html("");*/
+
+				var defaultValue = this.get('defaultValue');
+				if (defaultValue) {
+					if (!currentValue) currentValue = defaultValue;
+					if (typeof currentValue.trim == 'function') {
+						if (currentValue.trim().length == 0) currentValue = defaultValue;
+					}
+					if (currentValue.string) {
+						if (currentValue.string.trim().length == 0) currentValue = defaultValue;
+					}
+				}
 				this.set('value', currentValue);
 				this.$().html(currentValue);
 				if (modelToSave.get('updatedAt')) {
@@ -1199,6 +1234,7 @@ define('tripmind/components/autosave-editable', ['exports', 'ember', 'tripmind/a
 				}
 				modelToSave.save();
 			}
+			this.set('refreshModel.needsRefresh', true);
 			console.log('focused out!');
 		}
 	});
@@ -1333,6 +1369,13 @@ define('tripmind/components/collection-marker', ['exports', 'ember', 'tripmind/a
 		baseDepth: 2,
 		addedLabelClass: null,
 
+		init: function init() {
+			this._super();
+			if (this.get("markerColor")) {
+				this.set('unhoveredIcon', _tripmindAppconfigGmaps['default'].markerIcons["small" + this.get('markerColor').capitalize()]);
+			}
+		},
+
 		lat: _ember['default'].computed.alias('model.lat'),
 		lng: _ember['default'].computed.alias('model.lng'),
 		labelName: _ember['default'].computed.alias('model.name'),
@@ -1363,7 +1406,7 @@ define('tripmind/components/collection-marker', ['exports', 'ember', 'tripmind/a
 			var originalEvent;
 			for (var key in e) {
 				if (e.hasOwnProperty(key)) {
-					if (e[key] && e[key].isTrusted) originalEvent = e[key];
+					if (e[key] && (e[key].isTrusted || e[key].type == "click")) originalEvent = e[key];
 				}
 			}
 
@@ -1546,6 +1589,39 @@ define('tripmind/components/date-view', ['exports', 'ember', 'tripmind/appconfig
 			}
 		},
 
+		itemLegs: (function () {
+			var items = this.get('model.items'),
+			    legs = this.get('legTravel'),
+			    indexMove = this.get('prevDate.lastItem') ? 0 : 1;
+			return items.map(function (item, index) {
+				return _ember['default'].Object.create({ item: item, leg: legs ? legs[index - indexMove] : null });
+			});
+		}).property('model.items.[]', 'legTravel.[]', 'prevDate.lastItem'),
+
+		prevDate: (function () {
+			var myOrder = this.get('model.order'),
+			    orderedDates = this.get('orderedDates');
+			if (myOrder == 1) return null;
+			var prevDate = orderedDates.find(function (date) {
+				return date.get('order') == myOrder - 1;
+			});
+			return prevDate;
+		}).property('model.order', 'orderedDates.[].order'),
+
+		itemsWithPrev: (function () {
+			var myItems = this.get('model.items'),
+			    prevDate = this.get('prevDate'),
+			    items = _ember['default'].ArrayProxy.create({ content: [] });
+			myItems.forEach(function (item) {
+				items.pushObject(item);
+			});
+			if (prevDate) {
+				var prevItem = prevDate.get('lastItem');
+				if (prevItem) items.unshiftObject(prevItem);
+			}
+			return items;
+		}).property('model.items', 'prevDate.lastItem'),
+
 		travelTimeText: (function () {
 			var totalTravel = this.get('totalTravel');
 			if (totalTravel) {
@@ -1572,7 +1648,8 @@ define('tripmind/components/date-view', ['exports', 'ember', 'tripmind/appconfig
 			items.forEach(function (item) {
 				var itemDuration = _tripmindAppconfigConstants['default'].GOOGLE_TYPE_FILTER_CATEGORIES.find(function (el) {
 					return el.type == item.get('itemType');
-				})['duration'];
+				});
+				itemDuration = itemDuration ? itemDuration['duration'] : 1800;
 				totalTime += itemDuration;
 			});
 			return totalTime;
@@ -1600,7 +1677,7 @@ define('tripmind/components/date-view', ['exports', 'ember', 'tripmind/appconfig
 		mapBoundingBox: (function () {
 			var coordsArray = [],
 			    bound = 0.001;
-			var items = (this.get('model.items') || []).toArray();
+			var items = (this.get('itemsWithPrev') || []).toArray();
 			items.forEach(function (item) {
 				var swLat = item.get('boundSwLat') || item.get('lat') - bound;
 				var swLng = item.get('boundSwLng') || item.get('lng') - bound;
@@ -1643,9 +1720,39 @@ define('tripmind/components/date-view', ['exports', 'ember', 'tripmind/appconfig
 				});
 			},
 			zoomDate: function zoomDate() {
+				console.log('zooming date');
 				this.set('mapService.bounds', this.get('mapBoundingBox'));
 			}
 		}
+	});
+});
+define('tripmind/components/distance-leg', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Component.extend({
+		classNames: ['distance-leg'],
+		classNameBindings: ['travelClass'],
+
+		walkingTimeMins: function walkingTimeMins(distance) {
+			return Math.round(distance / 5000 * 60);
+		},
+
+		travelClass: (function () {
+			if (!this.get('model')) return null;
+			return this.get('model.distance') < 1500 ? 'icon-walk' : 'icon-drive';
+		}).property('model.distance'),
+
+		displayText: (function () {
+			var distance = this.get('model.distance'),
+			    driveTime = this.get('model.driveTime');
+			if (distance < 1500) {
+				return this.walkingTimeMins(distance) + ' min walk';
+			} else if (driveTime < 600) {
+				return Math.round(driveTime / 60) + ' min drive or ' + this.walkingTimeMins(distance) + ' min walk';
+			} else if (driveTime < 3600) {
+				return Math.round(driveTime / 60) + ' min drive';
+			} else {
+				return Math.round(driveTime / 1800) / 2 + ' hr drive';
+			}
+		}).property('model.distance', 'model.driveTime')
 	});
 });
 define('tripmind/components/ember-modal-dialog-positioned-container', ['exports', 'ember-modal-dialog/components/positioned-container'], function (exports, _emberModalDialogComponentsPositionedContainer) {
@@ -1774,15 +1881,22 @@ define('tripmind/components/item-card', ['exports', 'ember'], function (exports,
 });
 define('tripmind/components/item-draggable-card', ['exports', 'ember', 'tripmind/components/item-card', 'tripmind/mixins/draggable'], function (exports, _ember, _tripmindComponentsItemCard, _tripmindMixinsDraggable) {
 	exports['default'] = _tripmindComponentsItemCard['default'].extend(_tripmindMixinsDraggable['default'], {
+		screenDefs: _ember['default'].inject.service('screen-defs'),
 		drag_zIndex: 10000,
 		drag_revert: true,
-		drag_revertDuration: 100
+		drag_revertDuration: 100,
+
+		init: function init() {
+			if (this.get('screenDefs.screenWidth') < 600) this.set('stopWidget', true);
+			this._super();
+		}
 	});
 });
 define('tripmind/components/items-sorter', ['exports', 'ember', 'tripmind/mixins/sortable', 'tripmind/appconfig/geo_distance'], function (exports, _ember, _tripmindMixinsSortable, _tripmindAppconfigGeo_distance) {
 	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 
 	exports['default'] = _ember['default'].Component.extend(_tripmindMixinsSortable['default'], {
+		screenDefs: _ember['default'].inject.service('screen-defs'),
 		store: _ember['default'].inject.service('store'),
 		classNames: ['connected-sortable', 'items-sorter'],
 		sortable_connectWith: '.connected-sortable',
@@ -1790,6 +1904,11 @@ define('tripmind/components/items-sorter', ['exports', 'ember', 'tripmind/mixins
 		sortable_helper: "clone",
 		sortable_update: function sortable_update(event, ui) {
 			_ember['default'].run.schedule('actions', this, '_sortableUpdate', event, ui);
+		},
+
+		init: function init() {
+			if (this.get('screenDefs.screenWidth') < 600) this.set('stopWidget', true);
+			this._super();
 		},
 
 		sortable_over: function sortable_over(event, ui) {
@@ -1923,6 +2042,7 @@ define('tripmind/components/major-sections-holder', ['exports', 'ember', 'tripmi
 	var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 
 	exports['default'] = _ember['default'].Component.extend({
+		recsService: _ember['default'].inject.service('recs-service'),
 		classNames: ['major-sections-holder'],
 		classNameBindings: [],
 		model: null,
@@ -1930,6 +2050,29 @@ define('tripmind/components/major-sections-holder', ['exports', 'ember', 'tripmi
 		orderedMajorSections: null,
 		majorSectionType: null,
 		minorSectionType: null,
+
+		withScrollMenu: (function () {
+			return !this.get('isTrash') && (this.get('withRecs') || this.get('majorSections'));
+		}).property('withRecs', 'majorSections', 'isTrash'),
+
+		withOptionsMenu: _ember['default'].computed.or('canHaveRecs', 'majorSections'),
+
+		canHaveRecs: (function () {
+			return this.get('model.length') || this.get('parentItem.canHaveChildren') || _tripmindAppconfigConstants['default'].GOOGLE_PLACE_DESTINATION_TYPES.indexOf(this.get('parentItem.itemType')) > -1;
+		}).property('parentItem.canHaveChildren', 'parentItem.itemType', 'model.length'),
+
+		withRecs: _ember['default'].computed.alias('recsService.withRecs'),
+
+		showRecs: _ember['default'].computed.and('withRecs', 'canHaveRecs'),
+
+		recsSection: (function () {
+			return _ember['default'].Object.create({
+				title: 'Recommendations',
+				items: this.get('recs'),
+				sortedItems: this.get('recs'),
+				scrollSlug: 'recs'
+			});
+		}).property('recs'),
 
 		filterItems: function filterItems(items, attribute) {
 			if (!attribute) return this.get('model');
@@ -1979,7 +2122,7 @@ define('tripmind/components/major-sections-holder', ['exports', 'ember', 'tripmi
 			    subSortOptions = [{ name: "Geography (auto-sort)", value: 'geo-auto', isSelected: true }, { name: "Geography (A-Z)", value: 'geo-name', isSelected: false }, { name: "Category", value: 'category', isSelected: false }, { name: "Date visited", value: 'date', isSelected: false, sortOnly: true }, { name: "Name", value: 'name', isSelected: false, sortOnly: true }];
 			var filterOptions = [],
 			    filterOptionsHash = {},
-			    filterOptionsOrder = ["Art", "Entertainment", "Family", "Landmark", "Lifestyle", "Museum", "Nature", "Religious", "Other", "Restaurants", "Nightlife", "Shopping", "Hotels"],
+			    filterOptionsOrder = ["Art", "Entertainment", "Family", "History", "Landmark", "Lifestyle", "Museum", "Nature", "Religious", "Other", "Restaurants", "Nightlife", "Shopping", "Hotels"],
 			    filterOptionsWithSeparator = ["Restaurants", "Nightlife", "Shopping", "Hotels"];
 
 			_tripmindAppconfigConstants['default'].GOOGLE_TYPE_FILTER_CATEGORIES.forEach(function (type) {
@@ -2070,13 +2213,14 @@ define('tripmind/components/major-sections-holder', ['exports', 'ember', 'tripmi
 				var treeObject = {};
 				items.forEach(function (item) {
 					var ancestry = item.get('ancestry'),
+					    ancestryArray = ancestry ? ancestry.split("/") : null,
 					    itemId = item.get('id');
-					if (!ancestry || ancestry.length == (options.minDepth - 1 || 0)) {
+					if (!ancestryArray || ancestryArray.length == (options.minDepth - 1 || 0) && _tripmindAppconfigConstants['default'].GOOGLE_PLACE_DESTINATION_TYPES.indexOf(item.get('itemType')) > -1) {
 						treeObject[itemId] = treeObject[itemId] || {
 							ancestryArray: [],
 							count: 0,
 							descs: [],
-							depth: 1,
+							depth: (ancestryArray ? ancestryArray.length : 0) + 1,
 							name: item.get('name')
 						};
 					} else {
@@ -2127,7 +2271,7 @@ define('tripmind/components/major-sections-holder', ['exports', 'ember', 'tripmi
 				var orderedKeys = [];
 				treeArray.forEach(function (itemId) {
 					var descCount = treeObject[itemId].count;
-					if (descCount >= options.threshold || treeObject[itemId].depth == options.minDepth) {
+					if (descCount >= options.threshold || treeObject[itemId].depth <= options.minDepth) {
 						if (treeObject[itemId].skipIfEmpty && treeObject[itemId].descs.length == 0) return;
 						// Create the sectionsObject
 						sectionsObject[itemId] = sectionsObject[itemId] || _ember['default'].Object.create({
@@ -2298,6 +2442,9 @@ define('tripmind/components/major-sections-holder', ['exports', 'ember', 'tripmi
 			scrollToSection: function scrollToSection(destination) {
 				var newOffset = destination == "top" ? 0 : $('#major-section-' + destination).offset().top;
 				$('body').animate({ scrollTop: newOffset }, 200);
+			},
+			toggleRecs: function toggleRecs() {
+				this.toggleProperty('withRecs');
 			}
 		}
 	});
@@ -2622,7 +2769,16 @@ define('tripmind/components/map-route', ['exports', 'ember', 'tripmind/appconfig
 						var totalTravel = response.routes[0].legs.reduce(function (pv, el) {
 							return pv + el.duration.value;
 						}, 0);
-						modelForDistance.set('totalTravel', totalTravel);
+						var legTravel = response.routes[0].legs.map(function (leg) {
+							return _ember['default'].Object.create({
+								driveTime: leg.duration.value,
+								distance: leg.distance.value
+							});
+						});
+						modelForDistance.setProperties({
+							totalTravel: totalTravel,
+							legTravel: legTravel
+						});
 					}
 					self._drawDirections(response);
 				} else {
@@ -2695,8 +2851,11 @@ define('tripmind/components/refresh-done', ['exports', 'ember', 'tripmind/mixins
 	exports['default'] = _ember['default'].Component.extend({
 		didInsertElement: function didInsertElement() {
 			this._super();
+			var self = this;
 			console.log('refreshing!', this.get('parentComponent.elementId'));
-			this.set('parentComponent.needsRefresh', false);
+			_ember['default'].run.scheduleOnce('afterRender', this, function () {
+				self.set('parentComponent.needsRefresh', false);
+			});
 		}
 
 	});
@@ -2931,16 +3090,35 @@ define('tripmind/components/style-guide', ['exports', 'ember', 'tripmind/config/
 		hasExtension: false,
 		requiredVersion: 1.0,
 
+		rhsBorderRight: (function () {
+			if (this.get('service.screenWidth') < 500) {
+				return 0;
+			} else {
+				return this.get('mapWidth');
+			}
+		}).property('mapWidth', 'service.screenHeight', 'service.screenWidth'),
+
+		rhsBorderTop: (function () {
+			if (this.get('service.screenWidth') < 500 && this.get('service.mapService.isExpanded')) {
+				return this.get('service.screenHeight') * 0.4;
+			} else {
+				return 0;
+			}
+		}).property('service.mapService.isExpanded', 'service.screenHeight', 'service.screenWidth'),
+
 		didInsertElement: function didInsertElement() {
 			var self = this;
-			chrome.runtime.sendMessage(_tripmindConfigEnvironment['default'].chromeExtensionId, { message: "version" }, function (reply) {
-				if (reply && reply.version && reply.version >= self.get('requiredVersion')) {
-					self.set('hasExtension', true);
-				}
-			});
-			_ember['default'].run.later(function () {
-				self.set('doneCheckExtension', true);
-			}, 2000);
+			if (typeof chrome.runtime != "undefined") {
+				chrome.runtime.sendMessage(_tripmindConfigEnvironment['default'].chromeExtensionId, { message: "version" }, function (reply) {
+					if (reply && reply.version && reply.version >= self.get('requiredVersion')) {
+						self.set('hasExtension', true);
+					}
+				});
+
+				_ember['default'].run.later(function () {
+					self.set('doneCheckExtension', true);
+				}, 2000);
+			}
 		}
 
 	});
@@ -2951,12 +3129,12 @@ define('tripmind/components/sub-section', ['exports', 'ember', 'tripmind/mixins/
 		classNames: ['sub-section'],
 
 		mouseEnter: function mouseEnter() {
-			if (this.get('model.count')) return;
+			if (this.get('model.count') || !this.get('model.slug')) return;
 			var item = this.get('store').peekRecord('item', this.get('model.slug').split("+")[0]);
 			item.set('isHovered', true);
 		},
 		mouseLeave: function mouseLeave() {
-			if (this.get('model.count')) return;
+			if (this.get('model.count') || !this.get('model.slug')) return;
 			var item = this.get('store').peekRecord('item', this.get('model.slug').split("+")[0]);
 			item.set('isHovered', false);
 		}
@@ -2975,14 +3153,15 @@ define('tripmind/components/temp-item-card', ['exports', 'ember', 'tripmind/comp
 			    item = this.get('model'),
 			    minDistance,
 			    minItem;
+			var result = _tripmindAppconfigGeo_distance['default'].minDistance(item, fromItems);
+			if (result) {
+				var _result = _slicedToArray(result, 2);
 
-			var _geoDistances$minDistance = _tripmindAppconfigGeo_distance['default'].minDistance(item, fromItems);
-
-			var _geoDistances$minDistance2 = _slicedToArray(_geoDistances$minDistance, 2);
-
-			minDistance = _geoDistances$minDistance2[0];
-			minItem = _geoDistances$minDistance2[1];
-
+				minDistance = _result[0];
+				minItem = _result[1];
+			} else {
+				return null;
+			}
 			var distanceText, distanceTime, travelClass;
 			switch (true) {
 				case minDistance == 0:
@@ -3069,10 +3248,14 @@ define('tripmind/controllers/array', ['exports', 'ember'], function (exports, _e
 define('tripmind/controllers/collection', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].Controller.extend({
 		store: _ember['default'].inject.service('store'),
+		withCategories: false,
 
 		actions: {
 			addDate: function addDate(position) {
 				this.get('model').addDate(position);
+			},
+			toggleCategories: function toggleCategories() {
+				this.toggleProperty('withCategories');
 			},
 			addToCollection: function addToCollection(type, itemSlug) {
 				var self = this,
@@ -4013,12 +4196,12 @@ define('tripmind/mixins/model_with_descs', ['exports', 'ember', 'ember-data', 't
 		}).property('longDesc', 'altLongDesc'),
 
 		onelinerOrAlt: (function () {
-			return this.get('altOneliner') || this.get('oneliner') || this.get('itemType');
+			return this.get('altOneliner') || this.get('oneliner');
 		}).property('oneliner', 'altOneliner'),
 
 		onelinerOrLong: (function () {
+			if (this.get('longDescOrAlt')) return _ember['default'].String.htmlSafe(this.get('longDescOrAlt').replace(/<(?:.|\n)*?>/gm, '').slice(0, 80) + "...");
 			if (this.get('onelinerOrAlt')) return this.get('onelinerOrAlt');
-			if (this.get('longDescOrAlt')) return this.get('longDescOrAlt').replace(/<(?:.|\n)*?>/gm, '').slice(0, 80) + "...";
 		}).property('onelinerOrAlt', 'longDescOrAlt'),
 
 		longDescEditable: _ember['default'].computed('longDesc', {
@@ -4092,7 +4275,9 @@ define('tripmind/mixins/section-mixin', ['exports', 'ember'], function (exports,
 
 		isSelected: (function () {
 			var selectedIds = this.get('actionService.selectedIds');
-			return this.get('model.items').every(function (item) {
+			var items = this.get('model.items');
+			if (!items) return false;
+			return items.every(function (item) {
 				return selectedIds.indexOf(item.get('id')) > -1;
 			});
 		}).property('model.items.[]', 'actionService.selectedIds.[]'),
@@ -4138,7 +4323,7 @@ define('tripmind/mixins/widget', ['exports', 'ember'], function (exports, _ember
 		// e.g. when cards are still moving about.
 		setupWidget: function setupWidget() {
 			this._super();
-			if (!this.get('widgetIsUp')) {
+			if (!this.get('widgetIsUp') && !this.get('stopWidget')) {
 
 				var self = this;
 				this.get('uiTypes').forEach(function (uiType) {
@@ -4302,7 +4487,7 @@ define('tripmind/mixins/with_ancestry', ['exports', 'ember'], function (exports,
 		}).property('ancestryNames'),
 
 		itemTypeInParent: (function () {
-			var itemTypeName = this.get('itemType');
+			var itemTypeName = this.get('itemTypeClean');
 			var parentName = this.get('parentName');
 
 			if (parentName) {
@@ -4310,7 +4495,7 @@ define('tripmind/mixins/with_ancestry', ['exports', 'ember'], function (exports,
 			} else {
 				return itemTypeName;
 			}
-		}).property('itemTypeName', 'parentName'),
+		}).property('itemTypeClean', 'parentName'),
 
 		path: (function () {
 			var ancestry = this.get('ancestry');
@@ -4356,7 +4541,7 @@ define('tripmind/mixins/with_ancestry', ['exports', 'ember'], function (exports,
 				});
 			}
 			var ancestryLength = response.length;
-			response.push({ target: 'item', name: this.get('name'), slug: this.get('slug'), offsetClass: 'offset-' + (ancestryLength + 1) + ' is-selected' });
+			//response.push({target: 'item', name: this.get('name'), slug: this.get('slug'), offsetClass:`offset-${ancestryLength + 1} is-selected`});
 			return response;
 		}).property('ancestry', 'ancestryNames', 'name', 'slug')
 
@@ -4373,7 +4558,7 @@ define('tripmind/mixins/with_item_image', ['exports', 'ember', 'tripmind/appconf
 
 		imageUrl: "",
 		imageStyle: "",
-		imageProvider: null,
+		//imageProvider: null,
 
 		// for a singular item object
 
@@ -4588,121 +4773,142 @@ define('tripmind/models/collection', ['exports', 'ember', 'ember-data', 'tripmin
 								dateItemsArray.forEach(function (el) {
 									if (el.state == 'fulfilled') dateItemsToSend.addObject(el.value);
 								});
-								var serializedRecords = [{
-									attributes: self.toJSON(),
-									type: 'collection',
-									id: self.get('tmToken'),
-									relationships: {
-										items: {
-											data: items.map(function (item) {
-												return { type: 'item', id: item.get('id') };
-											})
-										}
-
-									}
-								}],
-								    serializedItems = items.map(function (item) {
-									var potentialLinks = item.get('potentialLinks').filter(function (link) {
-										return link.get('lastVisited') > 0;
+								return dateItemsToSend;
+							}).then(function (dateItemsToSend) {
+								var allItemAncestorIds = items.toArray().concat(dateItemsToSend.toArray()).reduce(function (pv, item) {
+									var ancestorArray = item.get('ancestry');
+									ancestorArray = ancestorArray ? ancestorArray.split("/") : [];
+									return pv.concat(ancestorArray);
+								}, []).uniq();
+								return self.store.findAll('item').then(function (allItemRecords) {
+									var ancestorItems = allItemRecords.filter(function (item) {
+										return allItemAncestorIds.indexOf(item.get('id')) > -1;
 									});
-									return {
-										id: item.get('id'),
-										type: 'item',
-										attributes: item.toJSON(),
+									var serializedRecords = [{
+										attributes: self.toJSON(),
+										type: 'collection',
+										id: self.get('tmToken'),
 										relationships: {
-											collections: {
-												data: [{ type: 'collection', id: self.get('tmToken') }]
-											},
-											potentialLinks: {
-												data: potentialLinks.map(function (link) {
-													return { type: 'potentialLink', id: link.get('id') };
+											items: {
+												data: items.map(function (item) {
+													return { type: 'item', id: item.get('id') };
 												})
 											}
-										}
-									};
-								}),
-								    serializedLinks = linksToSend.map(function (link) {
-									return {
-										id: link.get('id'),
-										type: 'potentialLink',
-										attributes: link.toJSON(),
-										relationships: {
-											item: {
-												data: { type: 'item', id: link.get('item.id') }
-											}
-										}
-									};
-								}),
-								    serializedDates = dates.map(function (date) {
-									var tps = date.get('trippoints');
-									return {
-										id: date.get('id'),
-										type: 'date',
-										attributes: date.toJSON(),
-										relationships: {
-											collection: {
-												data: { type: 'collection', id: self.get('id') }
-											},
-											trippoints: {
-												data: tps.map(function (tp) {
-													return { type: 'trippoint', id: tp.get('id') };
-												})
-											}
-										}
-									};
-								}),
-								    serializedTrippoints = trippointsToSend.map(function (tp) {
-									return {
-										id: tp.get('id'),
-										type: 'trippoint',
-										attributes: tp.toJSON(),
-										relationships: {
-											date: {
-												data: { type: 'date', id: tp.get('date.id') }
-											},
-											item: {
-												data: { type: 'item', id: tp.get('item.id') }
-											}
-										}
-									};
-								}),
-								    serializedDateItems = dateItemsToSend.map(function (item) {
-									var tps = item.get('trippoints');
-									return {
-										id: item.get('id'),
-										type: 'item',
-										attributes: item.toJSON(),
-										relationships: {
-											trippoints: {
-												data: tps.map(function (tp) {
-													return { type: 'trippoint', id: tp.get('id') };
-												})
-											}
-										}
-									};
-								});
 
-								serializedRecords = serializedRecords.concat(serializedItems).concat(serializedLinks).concat(serializedDates).concat(serializedTrippoints).concat(serializedDateItems);
-								var stringifiedRecords = JSON.stringify(serializedRecords);
-								var compressedJSON = lzwCompress.pack(stringifiedRecords);
-								var compressed = JSON.stringify(compressedJSON).length < stringifiedRecords.length;
-								var compressedData = compressed ? compressedJSON : stringifiedRecords;
-								return (0, _tripmindAppconfigHead_only_promise_from_ajax['default'])({
-									url: _tripmindAppconfigConstants['default'].BASE_SERVER_URL + '/api/tm/tm_collections/' + self.get('tmToken'),
-									type: 'PATCH',
-									data: {
-										tm_collection: {
-											is_compressed: compressed,
-											last_updated: self.get('updatedAt'),
-											data: compressedData
 										}
-									}
-								}).then(function () {
-									console.log("resolve: ", compressedData);
-									return compressedData;
-								}, function (status) {
-									console.log('reject:', status);
-									return status;
+									}],
+									    serializedItems = items.map(function (item) {
+										var potentialLinks = item.get('potentialLinks').filter(function (link) {
+											return link.get('lastVisited') > 0;
+										});
+										return {
+											id: item.get('id'),
+											type: 'item',
+											attributes: item.toJSON(),
+											relationships: {
+												collections: {
+													data: [{ type: 'collection', id: self.get('tmToken') }]
+												},
+												potentialLinks: {
+													data: potentialLinks.map(function (link) {
+														return { type: 'potentialLink', id: link.get('id') };
+													})
+												}
+											}
+										};
+									}),
+									    serializedLinks = linksToSend.map(function (link) {
+										return {
+											id: link.get('id'),
+											type: 'potentialLink',
+											attributes: link.toJSON(),
+											relationships: {
+												item: {
+													data: { type: 'item', id: link.get('item.id') }
+												}
+											}
+										};
+									}),
+									    serializedDates = dates.map(function (date) {
+										var tps = date.get('trippoints');
+										return {
+											id: date.get('id'),
+											type: 'date',
+											attributes: date.toJSON(),
+											relationships: {
+												collection: {
+													data: { type: 'collection', id: self.get('id') }
+												},
+												trippoints: {
+													data: tps.map(function (tp) {
+														return { type: 'trippoint', id: tp.get('id') };
+													})
+												}
+											}
+										};
+									}),
+									    serializedTrippoints = trippointsToSend.map(function (tp) {
+										return {
+											id: tp.get('id'),
+											type: 'trippoint',
+											attributes: tp.toJSON(),
+											relationships: {
+												date: {
+													data: { type: 'date', id: tp.get('date.id') }
+												},
+												item: {
+													data: { type: 'item', id: tp.get('item.id') }
+												}
+											}
+										};
+									}),
+									    serializedDateItems = dateItemsToSend.map(function (item) {
+										var tps = item.get('trippoints');
+										return {
+											id: item.get('id'),
+											type: 'item',
+											attributes: item.toJSON(),
+											relationships: {
+												trippoints: {
+													data: tps.map(function (tp) {
+														return { type: 'trippoint', id: tp.get('id') };
+													})
+												}
+											}
+										};
+									}),
+									    serializedAncestors = ancestorItems.map(function (item) {
+										return {
+											id: item.get('id'),
+											type: 'item',
+											attributes: item.toJSON()
+										};
+									});
+
+									serializedRecords = serializedRecords.concat(serializedItems).concat(serializedLinks).concat(serializedDates).concat(serializedTrippoints).concat(serializedDateItems).concat(serializedAncestors);
+									var stringifiedRecords = JSON.stringify(serializedRecords);
+									var compressedJSON = lzwCompress.pack(stringifiedRecords);
+									var compressed = JSON.stringify(compressedJSON).length < stringifiedRecords.length;
+									var compressedData = compressed ? compressedJSON : stringifiedRecords;
+									return (0, _tripmindAppconfigHead_only_promise_from_ajax['default'])({
+										url: _tripmindAppconfigConstants['default'].BASE_SERVER_URL + '/api/tm/tm_collections/' + self.get('tmToken'),
+										type: 'PATCH',
+										data: {
+											tm_collection: {
+												is_compressed: compressed,
+												last_updated: self.get('updatedAt'),
+												data: compressedData
+											}
+										}
+									}).then(function () {
+										console.log("resolve: ", compressedData);
+										return compressedData;
+									}, function (status) {
+										console.log('reject:', status);
+										return status;
+									});
+								})['catch'](function (error) {
+									console.log('couldnt find all items', error);
 								});
 							})['catch'](function (error) {
 								console.log('couldnt find all dateItems', error);
@@ -4793,7 +4999,15 @@ define('tripmind/models/date', ['exports', 'ember', 'ember-data'], function (exp
 				});
 				return newItems;
 			}
-		})
+		}),
+
+		firstItem: (function () {
+			return this.get('items.firstObject');
+		}).property('items.[]'),
+
+		lastItem: (function () {
+			return this.get('items.lastObject');
+		}).property('items.[]')
 
 	});
 });
@@ -4822,7 +5036,7 @@ define('tripmind/models/item', ['exports', 'ember', 'ember-data', 'tripmind/mixi
 		googleHours: _emberData['default'].attr(),
 		externalLinks: _emberData['default'].attr(),
 		phone: _emberData['default'].attr('string'),
-		rating: _emberData['default'].attr('number', { defaultValue: 3 }),
+		rating: _emberData['default'].attr('number'),
 		source: _emberData['default'].attr('string'),
 		price: _emberData['default'].attr('string'),
 		openingHoursText: _emberData['default'].attr('string'),
@@ -4858,7 +5072,12 @@ define('tripmind/models/item', ['exports', 'ember', 'ember-data', 'tripmind/mixi
 		trippoints: _emberData['default'].hasMany('trippoint'),
 
 		save: function save(options) {
-			if (this.currentState.stateName.indexOf('deleted') == -1) this.set('updatedAt', moment().format("X"));
+			if (this.currentState.stateName.indexOf('deleted') == -1) {
+				this.set('updatedAt', moment().format("X"));
+				// next 2 lines are for temporary items so they get properly saved and come up later
+				if (!this.get('trackingStatus')) this.set('trackingStatus', !!this.get('trackingStatus'));
+				this.set('isTemporary', false);
+			}
 			return this._super(options);
 		},
 
@@ -4869,6 +5088,18 @@ define('tripmind/models/item', ['exports', 'ember', 'ember-data', 'tripmind/mixi
 		}).property('potentialLinks.[].lastVisited'),
 
 		itemDetailsService: _ember['default'].inject.service('item-details-service'),
+
+		googleLink: (function () {
+			var parentName = this.get('parentName');
+			var nameInParent = parentName ? this.get('name') + ", " + parentName : this.get('name');
+			return 'https://www.google.com/webhp?ie=UTF-8#safe=off&q=' + nameInParent.replace(/\s/g, "+");
+		}).property('name', 'parentName'),
+
+		googleImagesLink: (function () {
+			var parentName = this.get('parentName');
+			var nameInParent = parentName ? this.get('name') + ", " + parentName : this.get('name');
+			return 'https://www.google.com/search?q=' + nameInParent.replace(/\s/g, "+") + '&tbm=isch';
+		}).property('name', 'parentName'),
 
 		deletedStatus: _ember['default'].computed.not('trackingStatus'),
 
@@ -5189,6 +5420,7 @@ define('tripmind/router', ['exports', 'ember', 'tripmind/config/environment'], f
 			}
 			//this.get('mapService').minimizeMap({closeAll: true});
 			$('.loader').addClass('hidden');
+			$(document).scrollTop(0);
 		}
 	});
 
@@ -5225,10 +5457,12 @@ define('tripmind/routes/application', ['exports', 'ember', 'tripmind/config/envi
 				this.transitionTo(destination, payload);
 			},
 			openExtension: function openExtension(withCurrentRoute) {
-				chrome.runtime.sendMessage(_tripmindConfigEnvironment['default'].chromeExtensionId, {
-					message: "openTripmind",
-					addedRoute: withCurrentRoute ? "#" + this.get('router.url') : null
-				});
+				if (typeof chrome.runtime != "undefined") {
+					chrome.runtime.sendMessage(_tripmindConfigEnvironment['default'].chromeExtensionId, {
+						message: "openTripmind",
+						addedRoute: withCurrentRoute ? "#" + this.get('router.url') : null
+					});
+				}
 			}
 		}
 	});
@@ -5327,7 +5561,7 @@ define('tripmind/routes/index', ['exports', 'ember'], function (exports, _ember)
 		}
 	});
 });
-define('tripmind/routes/item', ['exports', 'ember', 'tripmind/appconfig/utils'], function (exports, _ember, _tripmindAppconfigUtils) {
+define('tripmind/routes/item', ['exports', 'ember', 'tripmind/appconfig/utils', 'tripmind/appconfig/promise_from_ajax', 'tripmind/appconfig/constants'], function (exports, _ember, _tripmindAppconfigUtils, _tripmindAppconfigPromise_from_ajax, _tripmindAppconfigConstants) {
 	exports['default'] = _ember['default'].Route.extend({
 		model: function model(params) {
 			var itemId = params.item_slug.split('+')[0],
@@ -5341,9 +5575,63 @@ define('tripmind/routes/item', ['exports', 'ember', 'tripmind/appconfig/utils'],
 				}).then(function () {
 					return store.findAll('item').then(function (items) {
 						var descendants = items.filter(function (i) {
-							return i.get('trackingStatus') && i.get('ancestry') && i.get('ancestry').indexOf(itemRecord.get('path')) == 0;
+							return i.get('trackingStatus') && i.get('ancestry') && i.get('ancestry').indexOf(itemRecord.get('path')) == 0 && !i.get('isTemporary');
 						});
-						return _ember['default'].Object.create({ item: itemRecord, descendants: descendants });
+						if (itemRecord.get('canHaveChildren') || _tripmindAppconfigConstants['default'].GOOGLE_PLACE_DESTINATION_TYPES.indexOf(itemRecord.get('itemType')) > -1) {
+							return (0, _tripmindAppconfigPromise_from_ajax['default'])({
+								url: _tripmindAppconfigConstants['default'].BASE_SERVER_URL + '/api/ember2/items/gmaps_recs/',
+								type: 'GET',
+								data: { ref: itemId }
+							}).then(function (results) {
+								if (results.data) {
+									var recs = _ember['default'].ArrayProxy.create({ content: [] });
+									results.data.forEach(function (result) {
+										if (store.hasRecordForId('item', result.attributes['gmaps-reference'])) {
+											var newItem = store.peekRecord('item', result.attributes['gmaps-reference']);
+											recs.addObject(newItem);
+										} else {
+											var updatedAttributes = {};
+											for (var key in result.attributes) {
+												if (result.attributes.hasOwnProperty(key)) {
+													updatedAttributes[key.camelize()] = result.attributes[key];
+												}
+											}
+											updatedAttributes.ancestry = itemRecord.get('path');
+											updatedAttributes.ancestryNames = itemRecord.get('pathNames');
+											updatedAttributes.itemType = _tripmindAppconfigConstants['default'].ITEM_TYPES_ARRAY[updatedAttributes.itemType] ? _tripmindAppconfigConstants['default'].ITEM_TYPES_ARRAY[updatedAttributes.itemType].name : 'attraction';
+											updatedAttributes.isTemporary = true;
+											updatedAttributes.lat = updatedAttributes.latitude;
+											updatedAttributes.lng = updatedAttributes.longitude;
+											var newTempName = "tmp" + result.attributes['ancestry-names'] + "/" + result.attributes.name;
+											newTempName = newTempName.replace(/[\s\/]/g, "-");
+
+											var itemAttribs = {
+												data: {
+													attributes: updatedAttributes,
+													id: result.attributes['gmaps-reference'] || newTempName,
+													type: 'item'
+												}
+											};
+											var newItem = store.push(itemAttribs);
+											newItem.set('image', newItem.get('mediumImageUrl'));
+											recs.addObject(newItem);
+										}
+									});
+									recs.removeObjects(descendants);
+								}
+								return _ember['default'].Object.create({
+									item: itemRecord,
+									descendants: descendants,
+									recs: recs
+								});
+							});
+						} else {
+							return _ember['default'].Object.create({
+								item: itemRecord,
+								descendants: descendants,
+								recs: []
+							});
+						}
 					});
 				});
 			});
@@ -5354,7 +5642,8 @@ define('tripmind/routes/item', ['exports', 'ember', 'tripmind/appconfig/utils'],
 		setupController: function setupController(controller, model) {
 			this._super(controller, model.get('item'));
 			controller.setProperties({
-				descendants: model.get('descendants')
+				descendants: model.get('descendants'),
+				recs: model.get('recs')
 			});
 		}
 	});
@@ -5632,11 +5921,12 @@ define('tripmind/services/item-details-service', ['exports', 'ember', 'tripmind/
 				if (itemRecord && itemRecord.get('additionalInfoComplete')) resolve(itemRecord);
 				// Otherwise, we will get additional information with a delay to prevent overloading the quota
 				_ember['default'].run.later(function () {
-					self.get('googlePlaces.service').getDetails({ placeId: placeId }, function (result) {
+					self.get('googlePlaces.service').getDetails({ placeId: placeId }, function (result, status) {
 						//console.log(result);
 						var item = store.peekRecord('item', placeId);
 						if (!item || !result) {
-							reject({ message: "didn't find the item or its representation in the store" });
+							//TODO: if the status is "over query limit" we could resend the request later
+							reject({ message: "didn't find the item or its representation in the store," + status });
 						} else {
 							ga('send', 'event', 'googlePlaces', 'getDetails');
 							item.set('phone', result.international_phone_number);
@@ -5673,13 +5963,11 @@ define('tripmind/services/item-details-service', ['exports', 'ember', 'tripmind/
 										item.set('ancestryNames', parent.get('pathNames'));
 										item.set('ancestry', parent.get('path'));
 									}
-									item.set('updatedAt', moment().format("X"));
 									item.save().then(function (savedItem) {
 										resolve(savedItem);
 									});
 								});
 							} else {
-								item.set('updatedAt', moment().format("X"));
 								item.save().then(function (savedItem) {
 									resolve(savedItem);
 								});
@@ -5748,7 +6036,7 @@ define('tripmind/services/item-details-service', ['exports', 'ember', 'tripmind/
 								return _tripmindAppconfigConstants['default'].allowedLocationTypes.indexOf(r.types[0]) > -1;
 							});
 							var topResult = filteredResults[0];
-							var massagedResult = $.extend(topResult, { name: topResult.description });
+							var massagedResult = $.extend(topResult, { name: topResult.terms[0].value }); // used to be: description, but this includes commas: NYC, NY, USA
 							var item = self.buildItemInfoFromResults({}, massagedResult);
 							var itemRecord = store.peekRecord('item', item.gmapsReference);
 							//if it doesn't exist, create it.
@@ -5780,6 +6068,9 @@ define('tripmind/services/item-details-service', ['exports', 'ember', 'tripmind/
 			}
 			if (result.types && result.types.length > 0) {
 				item.itemType = result.types[0];
+			}
+			if (result.rating) {
+				item.rating = result.rating;
 			}
 			item.gmapsReference = result.place_id;
 			item.address = result.formatted_address;
@@ -5832,19 +6123,11 @@ define('tripmind/services/map-service', ['exports', 'ember', 'tripmind/appconfig
 			var self = this;
 
 			google.maps.event.addListener(map, 'zoom_changed', function () {
-				/*var zoomLevel = this.getZoom();
-     this.setOptions({ styles: WA.Gmaps.styles.originalStyles[WA.Gmaps.stylesByZoomLevel[zoomLevel]] });
-     Ember.run.debounce(self, '_addMarkersFromBounds', map, 200);
-     Ember.run.debounce(self, '_toggleRoutes', zoomLevel, 200);
-     Ember.run.debounce(self, '_addClassToTiles', 200);*/
+				_ember['default'].run.debounce(self, '_updateEmberBounds', 200);
 			});
 
 			google.maps.event.addListener(map, 'click', function () {
 				self.get('collectionMarkers').send('minimizeAllMarkers');
-				/*self.get('generatedMarkersList').invoke('reset');
-    self.get('currentCollectionMarkersList').invoke('reset');
-    self.get('currentRoute').reset();
-    self.get('viewedRoute').reset();*/
 			});
 
 			google.maps.event.addListener(map, 'resize', function () {
@@ -5853,9 +6136,31 @@ define('tripmind/services/map-service', ['exports', 'ember', 'tripmind/appconfig
 			});
 
 			google.maps.event.addListener(map, 'dragend', function () {
+				_ember['default'].run.debounce(self, '_updateEmberBounds', 200);
 				/*
      self._addMarkersFromBounds(map);
      */
+			});
+
+			google.maps.event.addListener(map, 'bounds_changed', function () {});
+		},
+
+		_updateEmberBounds: function _updateEmberBounds() {
+			if (!this.get('isExpanded')) return;
+			if (this.get('automaticFittingInProgress')) return;
+			console.log('updating bounds');
+			this.set('preventBoundsListener', true);
+			var boundsObject = this.get('googleMapObject').getBounds(),
+			    bounds = {
+				neLat: boundsObject.getNorthEast().lat(),
+				neLng: boundsObject.getNorthEast().lng(),
+				swLat: boundsObject.getSouthWest().lat(),
+				swLng: boundsObject.getSouthWest().lng()
+			};
+			this.set('bounds', bounds);
+			var self = this;
+			_ember['default'].run.scheduleOnce('afterRender', this, function () {
+				self.set('preventBoundsListener', false);
 			});
 		},
 
@@ -5873,7 +6178,7 @@ define('tripmind/services/map-service', ['exports', 'ember', 'tripmind/appconfig
 
 		mapBoundsDidChange: (function () {
 			if (this.get('bounds')) this.scheduleFitBounds();
-		}).observes('bounds'),
+		}).observes('bounds').on('init'),
 
 		updateOptions: function updateOptions() {
 			var options = this.get('options');
@@ -5887,14 +6192,19 @@ define('tripmind/services/map-service', ['exports', 'ember', 'tripmind/appconfig
 		},
 
 		fitToBounds: function fitToBounds() {
+			if (this.get('preventBoundsListener')) return;
 			console.log('fitting bounds!');
 			var bounds = this.get('bounds');
 			if (!bounds) return;
 			var map = this.get('googleMapObject');
 			var sw = new google.maps.LatLng(bounds.swLat, bounds.swLng);
 			var ne = new google.maps.LatLng(bounds.neLat, bounds.neLng);
-
+			this.set('automaticFittingInProgress', true);
 			map.fitBounds(new google.maps.LatLngBounds(sw, ne));
+			var self = this;
+			_ember['default'].run.later(this, function () {
+				self.set('automaticFittingInProgress', false);
+			}, 1000);
 		},
 
 		center: (function () {
@@ -6032,6 +6342,12 @@ define('tripmind/services/places-autocomplete', ['exports', 'ember'], function (
 
 	});
 });
+define('tripmind/services/recs-service', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Service.extend({
+		withRecs: true
+
+	});
+});
 define('tripmind/services/screen-defs', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].Service.extend({
 		mapService: _ember['default'].inject.service('map-service'),
@@ -6040,21 +6356,24 @@ define('tripmind/services/screen-defs', ['exports', 'ember'], function (exports,
 
 		init: function init() {
 			this._super();
-			this.setScreenWidth();
+			this.setScreenDims();
 			var self = this;
 			$(window).on('resize.defs', function () {
-				self.setScreenWidth();
+				self.setScreenDims();
 			});
 		},
 
-		setScreenWidth: function setScreenWidth() {
-			this.set('screenWidth', $(document).innerWidth());
+		setScreenDims: function setScreenDims() {
+			this.set('screenWidth', $(window).width());
+			this.set('screenHeight', $(window).height());
 			this.get('mapService').resizeMap();
 		},
 
 		actualMapWidth: (function () {
-			return this.get('mapService.isExpanded') ? this.get('mapWidth') : 0;
-		}).property('mapWidth', 'mapService.isExpanded')
+			var screenWidth = this.get('screenWidth');
+			var mapWidth = screenWidth < 500 ? screenWidth : this.get('mapWidth');
+			return this.get('mapService.isExpanded') ? mapWidth : 0;
+		}).property('mapWidth', 'mapService.isExpanded', 'screenWidth')
 	});
 });
 define('tripmind/services/search-service', ['exports', 'ember', 'tripmind/mixins/promise_utils', 'tripmind/mixins/google-item'], function (exports, _ember, _tripmindMixinsPromise_utils, _tripmindMixinsGoogleItem) {
@@ -6145,11 +6464,11 @@ define("tripmind/templates/application", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 25,
+                "line": 26,
                 "column": 1
               },
               "end": {
-                "line": 30,
+                "line": 31,
                 "column": 1
               }
             },
@@ -6183,7 +6502,7 @@ define("tripmind/templates/application", ["exports"], function (exports) {
             morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
             return morphs;
           },
-          statements: [["element", "action", ["toggleModal"], [], ["loc", [null, [28, 37], [28, 61]]]], ["inline", "component", [["get", "displayService.modalComponentName", ["loc", [null, [29, 14], [29, 47]]]]], ["model", ["subexpr", "@mut", [["get", "displayService.model", ["loc", [null, [29, 54], [29, 74]]]]], [], []], "closeAction", ["subexpr", "action", ["toggleModal"], [], ["loc", [null, [29, 87], [29, 109]]]]], ["loc", [null, [29, 2], [29, 111]]]]],
+          statements: [["element", "action", ["toggleModal"], [], ["loc", [null, [29, 37], [29, 61]]]], ["inline", "component", [["get", "displayService.modalComponentName", ["loc", [null, [30, 14], [30, 47]]]]], ["model", ["subexpr", "@mut", [["get", "displayService.model", ["loc", [null, [30, 54], [30, 74]]]]], [], []], "closeAction", ["subexpr", "action", ["toggleModal"], [], ["loc", [null, [30, 87], [30, 109]]]]], ["loc", [null, [30, 2], [30, 111]]]]],
           locals: [],
           templates: []
         };
@@ -6195,11 +6514,11 @@ define("tripmind/templates/application", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 24,
+              "line": 25,
               "column": 0
             },
             "end": {
-              "line": 31,
+              "line": 32,
               "column": 0
             }
           },
@@ -6222,7 +6541,7 @@ define("tripmind/templates/application", ["exports"], function (exports) {
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "modal-dialog", [], ["close", "toggleModal", "targetAttachment", "none", "translucentOverlay", true], 0, null, ["loc", [null, [25, 1], [30, 18]]]]],
+        statements: [["block", "modal-dialog", [], ["close", "toggleModal", "targetAttachment", "none", "translucentOverlay", true], 0, null, ["loc", [null, [26, 1], [31, 18]]]]],
         locals: [],
         templates: [child0]
       };
@@ -6241,7 +6560,7 @@ define("tripmind/templates/application", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 41,
+            "line": 42,
             "column": 0
           }
         },
@@ -6274,6 +6593,11 @@ define("tripmind/templates/application", ["exports"], function (exports) {
         var el2 = dom.createTextNode("\n	");
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n	");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "prevent-click");
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
@@ -6346,7 +6670,7 @@ define("tripmind/templates/application", ["exports"], function (exports) {
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["content", "auth-tokens", ["loc", [null, [1, 0], [1, 15]]]], ["content", "style-guide", ["loc", [null, [2, 0], [2, 15]]]], ["content", "open-tripmind", ["loc", [null, [3, 0], [3, 17]]]], ["content", "left-menu", ["loc", [null, [5, 0], [5, 13]]]], ["content", "outlet", ["loc", [null, [11, 1], [11, 11]]]], ["block", "if", [["get", "displayService.modalIsOpen", ["loc", [null, [24, 6], [24, 32]]]]], [], 0, null, ["loc", [null, [24, 0], [31, 7]]]], ["content", "feed-back", ["loc", [null, [34, 0], [34, 13]]]], ["content", "google-map", ["loc", [null, [37, 0], [37, 14]]]], ["content", "map-resize", ["loc", [null, [38, 0], [38, 14]]]]],
+      statements: [["content", "auth-tokens", ["loc", [null, [1, 0], [1, 15]]]], ["content", "style-guide", ["loc", [null, [2, 0], [2, 15]]]], ["content", "open-tripmind", ["loc", [null, [3, 0], [3, 17]]]], ["content", "left-menu", ["loc", [null, [5, 0], [5, 13]]]], ["content", "outlet", ["loc", [null, [11, 1], [11, 11]]]], ["block", "if", [["get", "displayService.modalIsOpen", ["loc", [null, [25, 6], [25, 32]]]]], [], 0, null, ["loc", [null, [25, 0], [32, 7]]]], ["content", "feed-back", ["loc", [null, [35, 0], [35, 13]]]], ["content", "google-map", ["loc", [null, [38, 0], [38, 14]]]], ["content", "map-resize", ["loc", [null, [39, 0], [39, 14]]]]],
       locals: [],
       templates: [child0]
     };
@@ -6355,6 +6679,143 @@ define("tripmind/templates/application", ["exports"], function (exports) {
 define("tripmind/templates/collection", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 7,
+              "column": 0
+            },
+            "end": {
+              "line": 12,
+              "column": 0
+            }
+          },
+          "moduleName": "tripmind/templates/collection.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createElement("br");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "flat-btn icon-tag");
+          var el2 = dom.createTextNode("\n	");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element3 = dom.childAt(fragment, [2]);
+          var morphs = new Array(2);
+          morphs[0] = dom.createElementMorph(element3);
+          morphs[1] = dom.createMorphAt(element3, 1, 1);
+          return morphs;
+        },
+        statements: [["element", "action", ["toggleCategories"], [], ["loc", [null, [9, 31], [9, 60]]]], ["inline", "if", [["get", "withCategories", ["loc", [null, [10, 6], [10, 20]]]], "Hide Sorting", "Sort by categories"], [], ["loc", [null, [10, 1], [10, 58]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child1 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 14,
+              "column": 0
+            },
+            "end": {
+              "line": 16,
+              "column": 0
+            }
+          },
+          "moduleName": "tripmind/templates/collection.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("	");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "major-sections-holder", [], ["parentItem", ["subexpr", "@mut", [["get", "model", ["loc", [null, [15, 36], [15, 41]]]]], [], []], "majorSectionType", "category", "model", ["subexpr", "@mut", [["get", "model.items", ["loc", [null, [15, 76], [15, 87]]]]], [], []], "canHaveRecs", false], ["loc", [null, [15, 1], [15, 108]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child2 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 16,
+              "column": 0
+            },
+            "end": {
+              "line": 18,
+              "column": 0
+            }
+          },
+          "moduleName": "tripmind/templates/collection.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("	");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "items-sorter", [], ["model", ["subexpr", "@mut", [["get", "model.items", ["loc", [null, [17, 22], [17, 33]]]]], [], []], "modelToUpdate", ["subexpr", "@mut", [["get", "model", ["loc", [null, [17, 48], [17, 53]]]]], [], []], "update", true, "withRefresh", true], ["loc", [null, [17, 1], [17, 84]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child3 = (function () {
       var child0 = (function () {
         return {
           meta: {
@@ -6363,11 +6824,11 @@ define("tripmind/templates/collection", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 17,
+                "line": 30,
                 "column": 1
               },
               "end": {
-                "line": 19,
+                "line": 32,
                 "column": 1
               }
             },
@@ -6392,7 +6853,7 @@ define("tripmind/templates/collection", ["exports"], function (exports) {
             morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
             return morphs;
           },
-          statements: [["inline", "date-view", [], ["model", ["subexpr", "@mut", [["get", "date", ["loc", [null, [18, 20], [18, 24]]]]], [], []]], ["loc", [null, [18, 2], [18, 26]]]]],
+          statements: [["inline", "date-view", [], ["model", ["subexpr", "@mut", [["get", "date", ["loc", [null, [31, 20], [31, 24]]]]], [], []], "orderedDates", ["subexpr", "@mut", [["get", "model.orderedDates", ["loc", [null, [31, 38], [31, 56]]]]], [], []]], ["loc", [null, [31, 2], [31, 58]]]]],
           locals: ["date"],
           templates: []
         };
@@ -6404,11 +6865,11 @@ define("tripmind/templates/collection", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 13,
+              "line": 26,
               "column": 0
             },
             "end": {
-              "line": 23,
+              "line": 36,
               "column": 0
             }
           },
@@ -6463,12 +6924,12 @@ define("tripmind/templates/collection", ["exports"], function (exports) {
           morphs[2] = dom.createElementMorph(element2);
           return morphs;
         },
-        statements: [["element", "action", ["addDate", "before"], [], ["loc", [null, [15, 47], [15, 76]]]], ["block", "each", [["get", "model.orderedDates", ["loc", [null, [17, 9], [17, 27]]]]], [], 0, null, ["loc", [null, [17, 1], [19, 10]]]], ["element", "action", ["addDate", "after"], [], ["loc", [null, [21, 47], [21, 75]]]]],
+        statements: [["element", "action", ["addDate", "before"], [], ["loc", [null, [28, 47], [28, 76]]]], ["block", "each", [["get", "model.orderedDates", ["loc", [null, [30, 9], [30, 27]]]]], [], 0, null, ["loc", [null, [30, 1], [32, 10]]]], ["element", "action", ["addDate", "after"], [], ["loc", [null, [34, 47], [34, 75]]]]],
         locals: [],
         templates: [child0]
       };
     })();
-    var child1 = (function () {
+    var child4 = (function () {
       return {
         meta: {
           "fragmentReason": false,
@@ -6476,11 +6937,11 @@ define("tripmind/templates/collection", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 23,
+              "line": 36,
               "column": 0
             },
             "end": {
-              "line": 25,
+              "line": 38,
               "column": 0
             }
           },
@@ -6509,7 +6970,7 @@ define("tripmind/templates/collection", ["exports"], function (exports) {
           morphs[0] = dom.createElementMorph(element0);
           return morphs;
         },
-        statements: [["element", "action", ["addDate", "before"], [], ["loc", [null, [24, 57], [24, 86]]]]],
+        statements: [["element", "action", ["addDate", "before"], [], ["loc", [null, [37, 57], [37, 86]]]]],
         locals: [],
         templates: []
       };
@@ -6528,7 +6989,7 @@ define("tripmind/templates/collection", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 28,
+            "line": 41,
             "column": 0
           }
         },
@@ -6540,6 +7001,10 @@ define("tripmind/templates/collection", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
@@ -6575,20 +7040,21 @@ define("tripmind/templates/collection", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(7);
+        var morphs = new Array(8);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
         morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
         morphs[2] = dom.createMorphAt(fragment, 4, 4, contextualElement);
         morphs[3] = dom.createMorphAt(fragment, 6, 6, contextualElement);
         morphs[4] = dom.createMorphAt(fragment, 8, 8, contextualElement);
-        morphs[5] = dom.createMorphAt(fragment, 12, 12, contextualElement);
+        morphs[5] = dom.createMorphAt(fragment, 10, 10, contextualElement);
         morphs[6] = dom.createMorphAt(fragment, 14, 14, contextualElement);
+        morphs[7] = dom.createMorphAt(fragment, 16, 16, contextualElement);
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["inline", "action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [1, 59], [1, 73]]]]], ["loc", [null, [1, 29], [1, 74]]]], "targetCollection", ["subexpr", "@mut", [["get", "model", ["loc", [null, [1, 92], [1, 97]]]]], [], []], "isInCollection", true], ["loc", [null, [1, 0], [1, 119]]]], ["inline", "collection-action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [3, 70], [3, 84]]]]], ["loc", [null, [3, 40], [3, 85]]]], "addedClass", "in", "targetModel", ["subexpr", "@mut", [["get", "model", ["loc", [null, [3, 114], [3, 119]]]]], [], []]], ["loc", [null, [3, 0], [3, 121]]]], ["inline", "input-with-default", [], ["value", ["subexpr", "@mut", [["get", "model.name", ["loc", [null, [5, 27], [5, 37]]]]], [], []], "addedClass", "collection-title", "default", "Untitled", "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [5, 98], [5, 103]]]]], [], []]], ["loc", [null, [5, 0], [5, 105]]]], ["inline", "items-sorter", [], ["model", ["subexpr", "@mut", [["get", "model.items", ["loc", [null, [6, 21], [6, 32]]]]], [], []], "modelToUpdate", ["subexpr", "@mut", [["get", "model", ["loc", [null, [6, 47], [6, 52]]]]], [], []], "update", true, "withRefresh", true], ["loc", [null, [6, 0], [6, 83]]]], ["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "model.allItems", ["loc", [null, [8, 27], [8, 41]]]]], [], []]], ["loc", [null, [8, 0], [8, 44]]]], ["inline", "collection-search-field-wrapper", [], ["value", ["subexpr", "@mut", [["get", "query", ["loc", [null, [11, 40], [11, 45]]]]], [], []], "foundItem", "addToCollection", "addedClass", "extension-only", "fromItems", ["subexpr", "@mut", [["get", "model.allItems", ["loc", [null, [11, 112], [11, 126]]]]], [], []]], ["loc", [null, [11, 0], [11, 128]]]], ["block", "if", [["get", "model.dates", ["loc", [null, [13, 6], [13, 17]]]]], [], 0, 1, ["loc", [null, [13, 0], [25, 7]]]]],
+      statements: [["inline", "action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [1, 59], [1, 73]]]]], ["loc", [null, [1, 29], [1, 74]]]], "targetCollection", ["subexpr", "@mut", [["get", "model", ["loc", [null, [1, 92], [1, 97]]]]], [], []], "isInCollection", true], ["loc", [null, [1, 0], [1, 119]]]], ["inline", "collection-action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [3, 70], [3, 84]]]]], ["loc", [null, [3, 40], [3, 85]]]], "addedClass", "in", "targetModel", ["subexpr", "@mut", [["get", "model", ["loc", [null, [3, 114], [3, 119]]]]], [], []]], ["loc", [null, [3, 0], [3, 121]]]], ["inline", "input-with-default", [], ["value", ["subexpr", "@mut", [["get", "model.name", ["loc", [null, [5, 27], [5, 37]]]]], [], []], "addedClass", "collection-title", "default", "Untitled", "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [5, 98], [5, 103]]]]], [], []]], ["loc", [null, [5, 0], [5, 105]]]], ["block", "if", [["get", "model.items", ["loc", [null, [7, 6], [7, 17]]]]], [], 0, null, ["loc", [null, [7, 0], [12, 7]]]], ["block", "if", [["get", "withCategories", ["loc", [null, [14, 6], [14, 20]]]]], [], 1, 2, ["loc", [null, [14, 0], [18, 7]]]], ["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "model.allItems", ["loc", [null, [21, 27], [21, 41]]]]], [], []]], ["loc", [null, [21, 0], [21, 44]]]], ["inline", "collection-search-field-wrapper", [], ["value", ["subexpr", "@mut", [["get", "query", ["loc", [null, [24, 40], [24, 45]]]]], [], []], "foundItem", "addToCollection", "addedClass", "extension-only", "fromItems", ["subexpr", "@mut", [["get", "model.allItems", ["loc", [null, [24, 112], [24, 126]]]]], [], []]], ["loc", [null, [24, 0], [24, 128]]]], ["block", "if", [["get", "model.dates", ["loc", [null, [26, 6], [26, 17]]]]], [], 3, 4, ["loc", [null, [26, 0], [38, 7]]]]],
       locals: [],
-      templates: [child0, child1]
+      templates: [child0, child1, child2, child3, child4]
     };
   })());
 });
@@ -7423,8 +7889,8 @@ define("tripmind/templates/components/autosave-editable", ["exports"], function 
             "column": 0
           },
           "end": {
-            "line": 2,
-            "column": 0
+            "line": 1,
+            "column": 11
           }
         },
         "moduleName": "tripmind/templates/components/autosave-editable.hbs"
@@ -7437,14 +7903,13 @@ define("tripmind/templates/components/autosave-editable", ["exports"], function 
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var morphs = new Array(1);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
         dom.insertBoundary(fragment, 0);
+        dom.insertBoundary(fragment, null);
         return morphs;
       },
       statements: [["content", "valueOW", ["loc", [null, [1, 0], [1, 11]]]]],
@@ -7785,7 +8250,7 @@ define("tripmind/templates/components/collection-markers", ["exports"], function
               "column": 0
             },
             "end": {
-              "line": 5,
+              "line": 6,
               "column": 0
             }
           },
@@ -7810,7 +8275,7 @@ define("tripmind/templates/components/collection-markers", ["exports"], function
           morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["inline", "collection-marker", [], ["model", ["subexpr", "@mut", [["get", "wrapper.item", ["loc", [null, [2, 27], [2, 39]]]]], [], []], "isExpanded", ["subexpr", "@mut", [["get", "wrapper.isExpanded", ["loc", [null, [3, 12], [3, 30]]]]], [], []], "isClicked", ["subexpr", "@mut", [["get", "wrapper.isClicked", ["loc", [null, [3, 41], [3, 58]]]]], [], []], "minimizeAllAction", ["subexpr", "action", ["minimizeAllMarkers"], [], ["loc", [null, [4, 19], [4, 48]]]]], ["loc", [null, [2, 1], [4, 50]]]]],
+        statements: [["inline", "collection-marker", [], ["model", ["subexpr", "@mut", [["get", "wrapper.item", ["loc", [null, [2, 27], [2, 39]]]]], [], []], "isExpanded", ["subexpr", "@mut", [["get", "wrapper.isExpanded", ["loc", [null, [3, 12], [3, 30]]]]], [], []], "isClicked", ["subexpr", "@mut", [["get", "wrapper.isClicked", ["loc", [null, [3, 41], [3, 58]]]]], [], []], "minimizeAllAction", ["subexpr", "action", ["minimizeAllMarkers"], [], ["loc", [null, [4, 19], [4, 48]]]], "markerColor", ["subexpr", "@mut", [["get", "markerColor", ["loc", [null, [5, 13], [5, 24]]]]], [], []]], ["loc", [null, [2, 1], [5, 26]]]]],
         locals: ["wrapper"],
         templates: []
       };
@@ -7829,7 +8294,7 @@ define("tripmind/templates/components/collection-markers", ["exports"], function
             "column": 0
           },
           "end": {
-            "line": 5,
+            "line": 6,
             "column": 9
           }
         },
@@ -7852,7 +8317,7 @@ define("tripmind/templates/components/collection-markers", ["exports"], function
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "each", [["get", "markerWrappers", ["loc", [null, [1, 8], [1, 22]]]]], [], 0, null, ["loc", [null, [1, 0], [5, 9]]]]],
+      statements: [["block", "each", [["get", "markerWrappers", ["loc", [null, [1, 8], [1, 22]]]]], [], 0, null, ["loc", [null, [1, 0], [6, 9]]]]],
       locals: [],
       templates: [child0]
     };
@@ -8361,7 +8826,7 @@ define("tripmind/templates/components/date-view", ["exports"], function (exports
           var el2 = dom.createTextNode("\n		");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "tooltip from-left");
+          dom.setAttribute(el2, "class", "tooltip from-left above");
           var el3 = dom.createTextNode("Zoom to day");
           dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
@@ -8440,7 +8905,7 @@ define("tripmind/templates/components/date-view", ["exports"], function (exports
         var el2 = dom.createTextNode("\n	");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "tooltip from-left");
+        dom.setAttribute(el2, "class", "tooltip from-left above");
         var el3 = dom.createTextNode("Remove day");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
@@ -8459,7 +8924,97 @@ define("tripmind/templates/components/date-view", ["exports"], function (exports
         morphs[4] = dom.createElementMorph(element5);
         return morphs;
       },
-      statements: [["content", "model.title", ["loc", [null, [1, 23], [1, 38]]]], ["inline", "items-sorter", [], ["model", ["subexpr", "@mut", [["get", "model.items", ["loc", [null, [3, 21], [3, 32]]]]], [], []], "update", true, "modelToUpdate", ["subexpr", "@mut", [["get", "model", ["loc", [null, [3, 59], [3, 64]]]]], [], []], "compToUpdate", ["subexpr", "@mut", [["get", "this", ["loc", [null, [3, 78], [3, 82]]]]], [], []], "addedClass", "small"], ["loc", [null, [3, 0], [3, 103]]]], ["inline", "map-route", [], ["items", ["subexpr", "@mut", [["get", "model.items", ["loc", [null, [4, 18], [4, 29]]]]], [], []], "color", ["subexpr", "@mut", [["get", "model.color", ["loc", [null, [4, 36], [4, 47]]]]], [], []], "modelForDistance", ["subexpr", "@mut", [["get", "this", ["loc", [null, [4, 65], [4, 69]]]]], [], []]], ["loc", [null, [4, 0], [4, 71]]]], ["block", "if", [["get", "model.items", ["loc", [null, [5, 6], [5, 17]]]]], [], 0, null, ["loc", [null, [5, 0], [48, 7]]]], ["element", "action", ["deleteDate"], [], ["loc", [null, [49, 63], [49, 86]]]]],
+      statements: [["content", "model.title", ["loc", [null, [1, 23], [1, 38]]]], ["inline", "items-sorter", [], ["model", ["subexpr", "@mut", [["get", "itemLegs", ["loc", [null, [3, 21], [3, 29]]]]], [], []], "withDirections", true, "update", true, "modelToUpdate", ["subexpr", "@mut", [["get", "model", ["loc", [null, [3, 76], [3, 81]]]]], [], []], "compToUpdate", ["subexpr", "@mut", [["get", "this", ["loc", [null, [3, 95], [3, 99]]]]], [], []], "addedClass", "small"], ["loc", [null, [3, 0], [3, 120]]]], ["inline", "map-route", [], ["items", ["subexpr", "@mut", [["get", "itemsWithPrev", ["loc", [null, [4, 18], [4, 31]]]]], [], []], "color", ["subexpr", "@mut", [["get", "model.color", ["loc", [null, [4, 38], [4, 49]]]]], [], []], "modelForDistance", ["subexpr", "@mut", [["get", "this", ["loc", [null, [4, 67], [4, 71]]]]], [], []]], ["loc", [null, [4, 0], [4, 73]]]], ["block", "if", [["get", "model.items", ["loc", [null, [5, 6], [5, 17]]]]], [], 0, null, ["loc", [null, [5, 0], [48, 7]]]], ["element", "action", ["deleteDate"], [], ["loc", [null, [49, 63], [49, 86]]]]],
+      locals: [],
+      templates: [child0]
+    };
+  })());
+});
+define("tripmind/templates/components/distance-leg", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": {
+            "name": "missing-wrapper",
+            "problems": ["wrong-type"]
+          },
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 3,
+              "column": 0
+            }
+          },
+          "moduleName": "tripmind/templates/components/distance-leg.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("	");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["content", "displayText", ["loc", [null, [2, 1], [2, 16]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type"]
+        },
+        "revision": "Ember@2.4.0",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 7
+          }
+        },
+        "moduleName": "tripmind/templates/components/distance-leg.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(1);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        dom.insertBoundary(fragment, null);
+        return morphs;
+      },
+      statements: [["block", "if", [["get", "model", ["loc", [null, [1, 6], [1, 11]]]]], [], 0, null, ["loc", [null, [1, 0], [3, 7]]]]],
       locals: [],
       templates: [child0]
     };
@@ -9018,12 +9573,12 @@ define("tripmind/templates/components/item-card", ["exports"], function (exports
           "loc": {
             "source": null,
             "start": {
-              "line": 7,
-              "column": 3
+              "line": 8,
+              "column": 2
             },
             "end": {
-              "line": 9,
-              "column": 3
+              "line": 10,
+              "column": 2
             }
           },
           "moduleName": "tripmind/templates/components/item-card.hbs"
@@ -9034,9 +9589,12 @@ define("tripmind/templates/components/item-card", ["exports"], function (exports
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("				in ");
+          var el1 = dom.createTextNode("			");
           dom.appendChild(el0, el1);
-          var el1 = dom.createComment("");
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "rating icon-star");
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
@@ -9044,10 +9602,10 @@ define("tripmind/templates/components/item-card", ["exports"], function (exports
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
           return morphs;
         },
-        statements: [["content", "model.parentName", ["loc", [null, [8, 7], [8, 27]]]]],
+        statements: [["content", "model.rating", ["loc", [null, [9, 33], [9, 49]]]]],
         locals: [],
         templates: []
       };
@@ -9264,16 +9822,24 @@ define("tripmind/templates/components/item-card", ["exports"], function (exports
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "class", "type");
+        var el4 = dom.createElement("b");
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode(" ");
+        dom.appendChild(el3, el4);
         var el4 = dom.createComment("");
         dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createComment("");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("		");
+        var el4 = dom.createTextNode("\n		");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n	");
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("	");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
@@ -9302,18 +9868,21 @@ define("tripmind/templates/components/item-card", ["exports"], function (exports
         var element2 = dom.childAt(fragment, [2]);
         var element3 = dom.childAt(fragment, [4, 1]);
         var element4 = dom.childAt(element3, [3]);
-        var element5 = dom.childAt(fragment, [7, 1]);
-        var morphs = new Array(7);
+        var element5 = dom.childAt(element4, [0]);
+        var element6 = dom.childAt(fragment, [7, 1]);
+        var morphs = new Array(9);
         morphs[0] = dom.createAttrMorph(element1, 'data-id');
         morphs[1] = dom.createAttrMorph(element2, 'style');
         morphs[2] = dom.createMorphAt(dom.childAt(element3, [1]), 0, 0);
-        morphs[3] = dom.createMorphAt(element4, 0, 0);
-        morphs[4] = dom.createMorphAt(element4, 2, 2);
-        morphs[5] = dom.createMorphAt(fragment, 6, 6, contextualElement);
-        morphs[6] = dom.createElementMorph(element5);
+        morphs[3] = dom.createMorphAt(element5, 0, 0);
+        morphs[4] = dom.createMorphAt(element5, 1, 1);
+        morphs[5] = dom.createMorphAt(element4, 2, 2);
+        morphs[6] = dom.createMorphAt(element3, 5, 5);
+        morphs[7] = dom.createMorphAt(fragment, 6, 6, contextualElement);
+        morphs[8] = dom.createElementMorph(element6);
         return morphs;
       },
-      statements: [["attribute", "data-id", ["get", "model.id", ["loc", [null, [1, 26], [1, 34]]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [2, 37], [2, 53]]]]], ["content", "model.name", ["loc", [null, [5, 20], [5, 34]]]], ["content", "model.itemTypeClean", ["loc", [null, [6, 20], [6, 43]]]], ["block", "if", [["get", "model.parentName", ["loc", [null, [7, 9], [7, 25]]]]], [], 0, null, ["loc", [null, [7, 3], [9, 10]]]], ["block", "if", [["get", "inSelectMode", ["loc", [null, [13, 6], [13, 18]]]]], [], 1, 2, ["loc", [null, [13, 0], [18, 7]]]], ["element", "action", ["toggleSelected"], [], ["loc", [null, [20, 41], [20, 68]]]]],
+      statements: [["attribute", "data-id", ["get", "model.id", ["loc", [null, [1, 26], [1, 34]]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [2, 37], [2, 53]]]]], ["content", "model.name", ["loc", [null, [5, 20], [5, 34]]]], ["content", "model.itemTypeInParent", ["loc", [null, [6, 23], [6, 49]]]], ["inline", "if", [["get", "model.onelinerOrLong", ["loc", [null, [6, 54], [6, 74]]]], ":"], [], ["loc", [null, [6, 49], [6, 80]]]], ["content", "model.onelinerOrLong", ["loc", [null, [6, 85], [6, 109]]]], ["block", "if", [["get", "model.rating", ["loc", [null, [8, 8], [8, 20]]]]], [], 0, null, ["loc", [null, [8, 2], [10, 9]]]], ["block", "if", [["get", "inSelectMode", ["loc", [null, [13, 6], [13, 18]]]]], [], 1, 2, ["loc", [null, [13, 0], [18, 7]]]], ["element", "action", ["toggleSelected"], [], ["loc", [null, [20, 41], [20, 68]]]]],
       locals: [],
       templates: [child0, child1, child2]
     };
@@ -9672,6 +10241,96 @@ define("tripmind/templates/components/items-sorter", ["exports"], function (expo
     })();
     var child1 = (function () {
       var child0 = (function () {
+        var child0 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.4.0",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 5,
+                  "column": 2
+                },
+                "end": {
+                  "line": 8,
+                  "column": 2
+                }
+              },
+              "moduleName": "tripmind/templates/components/items-sorter.hbs"
+            },
+            isEmpty: false,
+            arity: 1,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("			");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createComment("");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n			");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createComment("");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+              var morphs = new Array(2);
+              morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+              morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+              return morphs;
+            },
+            statements: [["inline", "distance-leg", [], ["model", ["subexpr", "@mut", [["get", "itemLeg.leg", ["loc", [null, [6, 24], [6, 35]]]]], [], []]], ["loc", [null, [6, 3], [6, 37]]]], ["inline", "item-card", [], ["model", ["subexpr", "@mut", [["get", "itemLeg.item", ["loc", [null, [7, 21], [7, 33]]]]], [], []], "addedClass", ["subexpr", "@mut", [["get", "addedClass", ["loc", [null, [7, 45], [7, 55]]]]], [], []]], ["loc", [null, [7, 3], [7, 57]]]]],
+            locals: ["itemLeg"],
+            templates: []
+          };
+        })();
+        var child1 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.4.0",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 8,
+                  "column": 2
+                },
+                "end": {
+                  "line": 10,
+                  "column": 2
+                }
+              },
+              "moduleName": "tripmind/templates/components/items-sorter.hbs"
+            },
+            isEmpty: false,
+            arity: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("			");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("div");
+              dom.setAttribute(el1, "class", "sorter-explain extension-only");
+              var el2 = dom.createTextNode("Drag stuff here");
+              dom.appendChild(el1, el2);
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes() {
+              return [];
+            },
+            statements: [],
+            locals: [],
+            templates: []
+          };
+        })();
         return {
           meta: {
             "fragmentReason": false,
@@ -9683,49 +10342,7 @@ define("tripmind/templates/components/items-sorter", ["exports"], function (expo
                 "column": 1
               },
               "end": {
-                "line": 6,
-                "column": 1
-              }
-            },
-            "moduleName": "tripmind/templates/components/items-sorter.hbs"
-          },
-          isEmpty: false,
-          arity: 1,
-          cachedFragment: null,
-          hasRendered: false,
-          buildFragment: function buildFragment(dom) {
-            var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("		");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createComment("");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n");
-            dom.appendChild(el0, el1);
-            return el0;
-          },
-          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var morphs = new Array(1);
-            morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
-            return morphs;
-          },
-          statements: [["inline", "item-card", [], ["model", ["subexpr", "@mut", [["get", "item", ["loc", [null, [5, 20], [5, 24]]]]], [], []], "addedClass", ["subexpr", "@mut", [["get", "addedClass", ["loc", [null, [5, 36], [5, 46]]]]], [], []]], ["loc", [null, [5, 2], [5, 48]]]]],
-          locals: ["item"],
-          templates: []
-        };
-      })();
-      var child1 = (function () {
-        return {
-          meta: {
-            "fragmentReason": false,
-            "revision": "Ember@2.4.0",
-            "loc": {
-              "source": null,
-              "start": {
-                "line": 6,
-                "column": 1
-              },
-              "end": {
-                "line": 8,
+                "line": 11,
                 "column": 1
               }
             },
@@ -9737,23 +10354,145 @@ define("tripmind/templates/components/items-sorter", ["exports"], function (expo
           hasRendered: false,
           buildFragment: function buildFragment(dom) {
             var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("		");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createElement("div");
-            dom.setAttribute(el1, "class", "sorter-explain extension-only");
-            var el2 = dom.createTextNode("Drag stuff here");
-            dom.appendChild(el1, el2);
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n");
+            var el1 = dom.createComment("");
             dom.appendChild(el0, el1);
             return el0;
           },
-          buildRenderNodes: function buildRenderNodes() {
-            return [];
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+            dom.insertBoundary(fragment, 0);
+            dom.insertBoundary(fragment, null);
+            return morphs;
           },
-          statements: [],
+          statements: [["block", "each", [["get", "model", ["loc", [null, [5, 10], [5, 15]]]]], [], 0, 1, ["loc", [null, [5, 2], [10, 11]]]]],
           locals: [],
-          templates: []
+          templates: [child0, child1]
+        };
+      })();
+      var child1 = (function () {
+        var child0 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.4.0",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 12,
+                  "column": 2
+                },
+                "end": {
+                  "line": 14,
+                  "column": 2
+                }
+              },
+              "moduleName": "tripmind/templates/components/items-sorter.hbs"
+            },
+            isEmpty: false,
+            arity: 1,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("			");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createComment("");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+              var morphs = new Array(1);
+              morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+              return morphs;
+            },
+            statements: [["inline", "item-card", [], ["model", ["subexpr", "@mut", [["get", "item", ["loc", [null, [13, 21], [13, 25]]]]], [], []], "addedClass", ["subexpr", "@mut", [["get", "addedClass", ["loc", [null, [13, 37], [13, 47]]]]], [], []]], ["loc", [null, [13, 3], [13, 49]]]]],
+            locals: ["item"],
+            templates: []
+          };
+        })();
+        var child1 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.4.0",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 14,
+                  "column": 2
+                },
+                "end": {
+                  "line": 16,
+                  "column": 2
+                }
+              },
+              "moduleName": "tripmind/templates/components/items-sorter.hbs"
+            },
+            isEmpty: false,
+            arity: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("			");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("div");
+              dom.setAttribute(el1, "class", "sorter-explain extension-only");
+              var el2 = dom.createTextNode("Drag stuff here");
+              dom.appendChild(el1, el2);
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes() {
+              return [];
+            },
+            statements: [],
+            locals: [],
+            templates: []
+          };
+        })();
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 11,
+                "column": 1
+              },
+              "end": {
+                "line": 17,
+                "column": 1
+              }
+            },
+            "moduleName": "tripmind/templates/components/items-sorter.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+            dom.insertBoundary(fragment, 0);
+            dom.insertBoundary(fragment, null);
+            return morphs;
+          },
+          statements: [["block", "each", [["get", "model", ["loc", [null, [12, 10], [12, 15]]]]], [], 0, 1, ["loc", [null, [12, 2], [16, 11]]]]],
+          locals: [],
+          templates: [child0, child1]
         };
       })();
       return {
@@ -9767,7 +10506,7 @@ define("tripmind/templates/components/items-sorter", ["exports"], function (expo
               "column": 0
             },
             "end": {
-              "line": 9,
+              "line": 18,
               "column": 0
             }
           },
@@ -9790,7 +10529,7 @@ define("tripmind/templates/components/items-sorter", ["exports"], function (expo
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "each", [["get", "model", ["loc", [null, [4, 9], [4, 14]]]]], [], 0, 1, ["loc", [null, [4, 1], [8, 10]]]]],
+        statements: [["block", "if", [["get", "withDirections", ["loc", [null, [4, 7], [4, 21]]]]], [], 0, 1, ["loc", [null, [4, 1], [17, 8]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -9809,7 +10548,7 @@ define("tripmind/templates/components/items-sorter", ["exports"], function (expo
             "column": 0
           },
           "end": {
-            "line": 10,
+            "line": 19,
             "column": 0
           }
         },
@@ -9832,7 +10571,7 @@ define("tripmind/templates/components/items-sorter", ["exports"], function (expo
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "if", [["get", "needsRefresh", ["loc", [null, [1, 6], [1, 18]]]]], [], 0, 1, ["loc", [null, [1, 0], [9, 7]]]]],
+      statements: [["block", "if", [["get", "needsRefresh", ["loc", [null, [1, 6], [1, 18]]]]], [], 0, 1, ["loc", [null, [1, 0], [18, 7]]]]],
       locals: [],
       templates: [child0, child1]
     };
@@ -9843,19 +10582,16 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
     var child0 = (function () {
       return {
         meta: {
-          "fragmentReason": {
-            "name": "missing-wrapper",
-            "problems": ["multiple-nodes", "wrong-type"]
-          },
+          "fragmentReason": false,
           "revision": "Ember@2.4.0",
           "loc": {
             "source": null,
             "start": {
-              "line": 1,
+              "line": 2,
               "column": 0
             },
             "end": {
-              "line": 1,
+              "line": 2,
               "column": 49
             }
           },
@@ -9887,7 +10623,7 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["wrong-type", "multiple-nodes"]
+          "problems": ["multiple-nodes", "wrong-type"]
         },
         "revision": "Ember@2.4.0",
         "loc": {
@@ -9897,7 +10633,7 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
             "column": 0
           },
           "end": {
-            "line": 14,
+            "line": 15,
             "column": 0
           }
         },
@@ -9909,6 +10645,11 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "menu-open");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -9963,17 +10704,16 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var morphs = new Array(7);
-        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
-        morphs[2] = dom.createMorphAt(fragment, 4, 4, contextualElement);
-        morphs[3] = dom.createMorphAt(fragment, 8, 8, contextualElement);
-        morphs[4] = dom.createMorphAt(fragment, 10, 10, contextualElement);
-        morphs[5] = dom.createMorphAt(fragment, 16, 16, contextualElement);
-        morphs[6] = dom.createMorphAt(fragment, 20, 20, contextualElement);
-        dom.insertBoundary(fragment, 0);
+        morphs[0] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        morphs[1] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+        morphs[2] = dom.createMorphAt(fragment, 6, 6, contextualElement);
+        morphs[3] = dom.createMorphAt(fragment, 10, 10, contextualElement);
+        morphs[4] = dom.createMorphAt(fragment, 12, 12, contextualElement);
+        morphs[5] = dom.createMorphAt(fragment, 18, 18, contextualElement);
+        morphs[6] = dom.createMorphAt(fragment, 22, 22, contextualElement);
         return morphs;
       },
-      statements: [["block", "link-to", ["index"], ["id", "top-logo"], 0, null, ["loc", [null, [1, 0], [1, 61]]]], ["inline", "link-to", ["Search", "search"], ["class", "menu-link icon-search"], ["loc", [null, [2, 0], [2, 59]]]], ["inline", "link-to", ["Recent", "recent"], ["class", "menu-link icon-history extension-only"], ["loc", [null, [3, 0], [3, 75]]]], ["inline", "link-to", ["Places", "index"], ["class", "menu-link icon-pin"], ["loc", [null, [5, 0], [5, 55]]]], ["inline", "link-to", ["collections", "collections"], ["class", "menu-link icon-collections"], ["loc", [null, [6, 0], [6, 74]]]], ["inline", "link-to", ["Trash", "trash"], ["class", "menu-link icon-trash extension-only"], ["loc", [null, [9, 0], [9, 71]]]], ["inline", "link-to", ["Tutorial", "tutorial"], ["class", "menu-link icon-info"], ["loc", [null, [11, 0], [11, 61]]]]],
+      statements: [["block", "link-to", ["index"], ["id", "top-logo"], 0, null, ["loc", [null, [2, 0], [2, 61]]]], ["inline", "link-to", ["Search", "search"], ["class", "menu-link icon-search"], ["loc", [null, [3, 0], [3, 59]]]], ["inline", "link-to", ["Recent", "recent"], ["class", "menu-link icon-history extension-only"], ["loc", [null, [4, 0], [4, 75]]]], ["inline", "link-to", ["Places", "index"], ["class", "menu-link icon-pin"], ["loc", [null, [6, 0], [6, 55]]]], ["inline", "link-to", ["collections", "collections"], ["class", "menu-link icon-collections"], ["loc", [null, [7, 0], [7, 74]]]], ["inline", "link-to", ["Trash", "trash"], ["class", "menu-link icon-trash extension-only"], ["loc", [null, [10, 0], [10, 71]]]], ["inline", "link-to", ["Tutorial", "tutorial"], ["class", "menu-link icon-info"], ["loc", [null, [12, 0], [12, 61]]]]],
       locals: [],
       templates: [child0]
     };
@@ -10497,12 +11237,12 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             "loc": {
               "source": null,
               "start": {
-                "line": 6,
-                "column": 1
+                "line": 4,
+                "column": 3
               },
               "end": {
-                "line": 8,
-                "column": 1
+                "line": 6,
+                "column": 3
               }
             },
             "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
@@ -10513,7 +11253,7 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
           hasRendered: false,
           buildFragment: function buildFragment(dom) {
             var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("		");
+            var el1 = dom.createTextNode("				");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("div");
             dom.setAttribute(el1, "class", "scroll-link");
@@ -10525,12 +11265,12 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element1 = dom.childAt(fragment, [1]);
+            var element7 = dom.childAt(fragment, [1]);
             var morphs = new Array(1);
-            morphs[0] = dom.createElementMorph(element1);
+            morphs[0] = dom.createElementMorph(element7);
             return morphs;
           },
-          statements: [["element", "action", ["scrollToSection", "top"], [], ["loc", [null, [7, 27], [7, 61]]]]],
+          statements: [["element", "action", ["scrollToSection", "top"], [], ["loc", [null, [5, 29], [5, 63]]]]],
           locals: [],
           templates: []
         };
@@ -10543,12 +11283,12 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             "loc": {
               "source": null,
               "start": {
-                "line": 9,
-                "column": 1
+                "line": 7,
+                "column": 3
               },
               "end": {
-                "line": 11,
-                "column": 1
+                "line": 9,
+                "column": 3
               }
             },
             "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
@@ -10559,7 +11299,7 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
           hasRendered: false,
           buildFragment: function buildFragment(dom) {
             var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("		");
+            var el1 = dom.createTextNode("				");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("div");
             dom.setAttribute(el1, "class", "scroll-link");
@@ -10571,13 +11311,13 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element0 = dom.childAt(fragment, [1]);
+            var element6 = dom.childAt(fragment, [1]);
             var morphs = new Array(2);
-            morphs[0] = dom.createElementMorph(element0);
-            morphs[1] = dom.createMorphAt(element0, 0, 0);
+            morphs[0] = dom.createElementMorph(element6);
+            morphs[1] = dom.createMorphAt(element6, 0, 0);
             return morphs;
           },
-          statements: [["element", "action", ["scrollToSection", ["get", "majorSection.scrollSlug", ["loc", [null, [10, 54], [10, 77]]]]], [], ["loc", [null, [10, 27], [10, 79]]]], ["content", "majorSection.title", ["loc", [null, [10, 80], [10, 102]]]]],
+          statements: [["element", "action", ["scrollToSection", ["get", "majorSection.scrollSlug", ["loc", [null, [8, 56], [8, 79]]]]], [], ["loc", [null, [8, 29], [8, 81]]]], ["content", "majorSection.title", ["loc", [null, [8, 82], [8, 104]]]]],
           locals: ["majorSection"],
           templates: []
         };
@@ -10590,11 +11330,169 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             "loc": {
               "source": null,
               "start": {
-                "line": 18,
+                "line": 10,
+                "column": 3
+              },
+              "end": {
+                "line": 12,
+                "column": 3
+              }
+            },
+            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("				");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "class", "scroll-link");
+            var el2 = dom.createTextNode("Recommendations");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var element5 = dom.childAt(fragment, [1]);
+            var morphs = new Array(1);
+            morphs[0] = dom.createElementMorph(element5);
+            return morphs;
+          },
+          statements: [["element", "action", ["scrollToSection", "recs"], [], ["loc", [null, [11, 29], [11, 64]]]]],
+          locals: [],
+          templates: []
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 2,
+              "column": 1
+            },
+            "end": {
+              "line": 14,
+              "column": 1
+            }
+          },
+          "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("		");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "scroll-menu");
+          var el2 = dom.createTextNode("\n");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("		");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element8 = dom.childAt(fragment, [1]);
+          var morphs = new Array(3);
+          morphs[0] = dom.createMorphAt(element8, 1, 1);
+          morphs[1] = dom.createMorphAt(element8, 2, 2);
+          morphs[2] = dom.createMorphAt(element8, 3, 3);
+          return morphs;
+        },
+        statements: [["block", "if", [["get", "majorSections", ["loc", [null, [4, 9], [4, 22]]]]], [], 0, null, ["loc", [null, [4, 3], [6, 10]]]], ["block", "each", [["get", "majorSections", ["loc", [null, [7, 11], [7, 24]]]]], [], 1, null, ["loc", [null, [7, 3], [9, 12]]]], ["block", "if", [["get", "showRecs", ["loc", [null, [10, 9], [10, 17]]]]], [], 2, null, ["loc", [null, [10, 3], [12, 10]]]]],
+        locals: [],
+        templates: [child0, child1, child2]
+      };
+    })();
+    var child1 = (function () {
+      var child0 = (function () {
+        var child0 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.4.0",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 22,
+                  "column": 7
+                },
+                "end": {
+                  "line": 27,
+                  "column": 7
+                }
+              },
+              "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+            },
+            isEmpty: false,
+            arity: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("								");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("div");
+              dom.setAttribute(el1, "class", "menu-section");
+              var el2 = dom.createTextNode("\n									");
+              dom.appendChild(el1, el2);
+              var el2 = dom.createElement("div");
+              dom.setAttribute(el2, "class", "menu-section-title");
+              var el3 = dom.createTextNode("Sort by:");
+              dom.appendChild(el2, el3);
+              dom.appendChild(el1, el2);
+              var el2 = dom.createTextNode("\n									");
+              dom.appendChild(el1, el2);
+              var el2 = dom.createComment("");
+              dom.appendChild(el1, el2);
+              var el2 = dom.createTextNode("\n								");
+              dom.appendChild(el1, el2);
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+              var morphs = new Array(1);
+              morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 3, 3);
+              return morphs;
+            },
+            statements: [["inline", "select-one", [], ["options", ["subexpr", "@mut", [["get", "majorSortOptions", ["loc", [null, [25, 30], [25, 46]]]]], [], []], "onChange", ["subexpr", "action", ["updateSortOptions"], [], ["loc", [null, [25, 56], [25, 84]]]]], ["loc", [null, [25, 9], [25, 86]]]]],
+            locals: [],
+            templates: []
+          };
+        })();
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 20,
                 "column": 5
               },
               "end": {
-                "line": 23,
+                "line": 33,
                 "column": 5
               }
             },
@@ -10609,17 +11507,28 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             var el1 = dom.createTextNode("						");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("div");
-            dom.setAttribute(el1, "class", "menu-section");
-            var el2 = dom.createTextNode("\n							");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("div");
-            dom.setAttribute(el2, "class", "menu-section-title");
-            var el3 = dom.createTextNode("Sort by:");
-            dom.appendChild(el2, el3);
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n							");
+            dom.setAttribute(el1, "class", "menu-column");
+            var el2 = dom.createTextNode("\n");
             dom.appendChild(el1, el2);
             var el2 = dom.createComment("");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("							");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createElement("div");
+            dom.setAttribute(el2, "class", "menu-section");
+            var el3 = dom.createTextNode("\n								");
+            dom.appendChild(el2, el3);
+            var el3 = dom.createElement("div");
+            dom.setAttribute(el3, "class", "menu-section-title");
+            var el4 = dom.createTextNode("Sort subsections by:");
+            dom.appendChild(el3, el4);
+            dom.appendChild(el2, el3);
+            var el3 = dom.createTextNode("\n								");
+            dom.appendChild(el2, el3);
+            var el3 = dom.createComment("");
+            dom.appendChild(el2, el3);
+            var el3 = dom.createTextNode("\n							");
+            dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
             var el2 = dom.createTextNode("\n						");
             dom.appendChild(el1, el2);
@@ -10629,58 +11538,59 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var morphs = new Array(1);
-            morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 3, 3);
+            var element2 = dom.childAt(fragment, [1]);
+            var morphs = new Array(2);
+            morphs[0] = dom.createMorphAt(element2, 1, 1);
+            morphs[1] = dom.createMorphAt(dom.childAt(element2, [3]), 3, 3);
             return morphs;
           },
-          statements: [["inline", "select-one", [], ["options", ["subexpr", "@mut", [["get", "majorSortOptions", ["loc", [null, [21, 28], [21, 44]]]]], [], []], "onChange", ["subexpr", "action", ["updateSortOptions"], [], ["loc", [null, [21, 54], [21, 82]]]]], ["loc", [null, [21, 7], [21, 84]]]]],
+          statements: [["block", "unless", [["get", "majorSectionType", ["loc", [null, [22, 17], [22, 33]]]]], [], 0, null, ["loc", [null, [22, 7], [27, 18]]]], ["inline", "select-one", [], ["options", ["subexpr", "@mut", [["get", "subSortOptions", ["loc", [null, [30, 29], [30, 43]]]]], [], []], "onChange", ["subexpr", "action", ["updateSortOptions"], [], ["loc", [null, [30, 53], [30, 81]]]]], ["loc", [null, [30, 8], [30, 83]]]]],
           locals: [],
-          templates: []
+          templates: [child0]
         };
       })();
-      var child3 = (function () {
-        return {
-          meta: {
-            "fragmentReason": false,
-            "revision": "Ember@2.4.0",
-            "loc": {
-              "source": null,
-              "start": {
-                "line": 36,
-                "column": 2
+      var child1 = (function () {
+        var child0 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.4.0",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 39,
+                  "column": 7
+                },
+                "end": {
+                  "line": 41,
+                  "column": 7
+                }
               },
-              "end": {
-                "line": 38,
-                "column": 2
-              }
+              "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
             },
-            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
-          },
-          isEmpty: false,
-          arity: 1,
-          cachedFragment: null,
-          hasRendered: false,
-          buildFragment: function buildFragment(dom) {
-            var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("			");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createComment("");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n");
-            dom.appendChild(el0, el1);
-            return el0;
-          },
-          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var morphs = new Array(1);
-            morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
-            return morphs;
-          },
-          statements: [["inline", "major-section", [], ["model", ["subexpr", "@mut", [["get", "majorSection", ["loc", [null, [37, 25], [37, 37]]]]], [], []]], ["loc", [null, [37, 3], [37, 39]]]]],
-          locals: ["majorSection"],
-          templates: []
-        };
-      })();
-      var child4 = (function () {
+            isEmpty: false,
+            arity: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("								");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("div");
+              dom.setAttribute(el1, "class", "menu-line");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes() {
+              return [];
+            },
+            statements: [],
+            locals: [],
+            templates: []
+          };
+        })();
         return {
           meta: {
             "fragmentReason": false,
@@ -10688,12 +11598,12 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             "loc": {
               "source": null,
               "start": {
-                "line": 38,
-                "column": 2
+                "line": 35,
+                "column": 6
               },
               "end": {
-                "line": 40,
-                "column": 2
+                "line": 42,
+                "column": 6
               }
             },
             "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
@@ -10704,14 +11614,77 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
           hasRendered: false,
           buildFragment: function buildFragment(dom) {
             var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("			Nothing left here to see.. maybe remove some filters?\n");
+            var el1 = dom.createTextNode("							");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("div");
+            dom.setAttribute(el1, "class", "menu-section");
+            var el2 = dom.createTextNode("\n								");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createComment("");
+            dom.appendChild(el1, el2);
+            var el2 = dom.createTextNode("\n							");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createComment("");
             dom.appendChild(el0, el1);
             return el0;
           },
-          buildRenderNodes: function buildRenderNodes() {
-            return [];
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(2);
+            morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
+            morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+            dom.insertBoundary(fragment, null);
+            return morphs;
           },
-          statements: [],
+          statements: [["inline", "select-many", [], ["options", ["subexpr", "@mut", [["get", "filterOptions", ["loc", [null, [37, 30], [37, 43]]]]], [], []], "onChange", ["subexpr", "action", ["updateFilter"], [], ["loc", [null, [37, 53], [37, 76]]]]], ["loc", [null, [37, 8], [37, 78]]]], ["block", "if", [["get", "canHaveRecs", ["loc", [null, [39, 13], [39, 24]]]]], [], 0, null, ["loc", [null, [39, 7], [41, 14]]]]],
+          locals: [],
+          templates: [child0]
+        };
+      })();
+      var child2 = (function () {
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 43,
+                "column": 6
+              },
+              "end": {
+                "line": 47,
+                "column": 6
+              }
+            },
+            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createTextNode("							");
+            dom.appendChild(el0, el1);
+            var el1 = dom.createElement("div");
+            var el2 = dom.createTextNode("\n								Recommendations\n							");
+            dom.appendChild(el1, el2);
+            dom.appendChild(el0, el1);
+            var el1 = dom.createTextNode("\n");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var element1 = dom.childAt(fragment, [1]);
+            var morphs = new Array(2);
+            morphs[0] = dom.createAttrMorph(element1, 'class');
+            morphs[1] = dom.createElementMorph(element1);
+            return morphs;
+          },
+          statements: [["attribute", "class", ["concat", ["menu-option ", ["subexpr", "if", [["get", "withRecs", ["loc", [null, [44, 36], [44, 44]]]], "is-selected"], [], ["loc", [null, [44, 31], [44, 60]]]]]]], ["element", "action", ["toggleRecs"], [], ["loc", [null, [44, 62], [44, 85]]]]],
           locals: [],
           templates: []
         };
@@ -10723,12 +11696,12 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
           "loc": {
             "source": null,
             "start": {
-              "line": 4,
-              "column": 0
+              "line": 16,
+              "column": 2
             },
             "end": {
-              "line": 42,
-              "column": 0
+              "line": 52,
+              "column": 2
             }
           },
           "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
@@ -10739,118 +11712,152 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createElement("div");
-          dom.setAttribute(el1, "class", "scroll-menu");
-          var el2 = dom.createTextNode("\n");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createComment("");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createComment("");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n	");
+          var el1 = dom.createTextNode("			");
           dom.appendChild(el0, el1);
           var el1 = dom.createElement("div");
-          dom.setAttribute(el1, "class", "scrollable-rhs-content");
-          var el2 = dom.createTextNode("\n		");
+          dom.setAttribute(el1, "class", "options-menu section-options-menu");
+          var el2 = dom.createTextNode("\n				");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
-          dom.setAttribute(el2, "class", "options-menu section-options-menu");
-          var el3 = dom.createTextNode("\n			");
+          dom.setAttribute(el2, "class", "toggle-btn");
+          var el3 = dom.createTextNode("Options");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n				");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("div");
+          var el3 = dom.createTextNode("\n");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("					");
           dom.appendChild(el2, el3);
           var el3 = dom.createElement("div");
-          dom.setAttribute(el3, "class", "toggle-btn");
-          var el4 = dom.createTextNode("Options");
+          dom.setAttribute(el3, "class", "menu-column");
+          var el4 = dom.createTextNode("\n");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createComment("");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createComment("");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("					");
           dom.appendChild(el3, el4);
           dom.appendChild(el2, el3);
-          var el3 = dom.createTextNode("\n			");
-          dom.appendChild(el2, el3);
-          var el3 = dom.createElement("div");
-          dom.setAttribute(el3, "class", "menu-body two-column");
-          var el4 = dom.createTextNode("\n				");
-          dom.appendChild(el3, el4);
-          var el4 = dom.createElement("div");
-          dom.setAttribute(el4, "class", "menu-column");
-          var el5 = dom.createTextNode("\n");
-          dom.appendChild(el4, el5);
-          var el5 = dom.createComment("");
-          dom.appendChild(el4, el5);
-          var el5 = dom.createTextNode("					");
-          dom.appendChild(el4, el5);
-          var el5 = dom.createElement("div");
-          dom.setAttribute(el5, "class", "menu-section");
-          var el6 = dom.createTextNode("\n						");
-          dom.appendChild(el5, el6);
-          var el6 = dom.createElement("div");
-          dom.setAttribute(el6, "class", "menu-section-title");
-          var el7 = dom.createTextNode("Sort subsections by:");
-          dom.appendChild(el6, el7);
-          dom.appendChild(el5, el6);
-          var el6 = dom.createTextNode("\n						");
-          dom.appendChild(el5, el6);
-          var el6 = dom.createComment("");
-          dom.appendChild(el5, el6);
-          var el6 = dom.createTextNode("\n					");
-          dom.appendChild(el5, el6);
-          dom.appendChild(el4, el5);
-          var el5 = dom.createTextNode("\n				");
-          dom.appendChild(el4, el5);
-          dom.appendChild(el3, el4);
-          var el4 = dom.createTextNode("\n				");
-          dom.appendChild(el3, el4);
-          var el4 = dom.createElement("div");
-          dom.setAttribute(el4, "class", "menu-column");
-          var el5 = dom.createTextNode("\n					");
-          dom.appendChild(el4, el5);
-          var el5 = dom.createElement("div");
-          dom.setAttribute(el5, "class", "menu-section");
-          var el6 = dom.createTextNode("\n						");
-          dom.appendChild(el5, el6);
-          var el6 = dom.createComment("");
-          dom.appendChild(el5, el6);
-          var el6 = dom.createTextNode("\n					");
-          dom.appendChild(el5, el6);
-          dom.appendChild(el4, el5);
-          var el5 = dom.createTextNode("\n				");
-          dom.appendChild(el4, el5);
-          dom.appendChild(el3, el4);
-          var el4 = dom.createTextNode("\n			");
-          dom.appendChild(el3, el4);
-          dom.appendChild(el2, el3);
-          var el3 = dom.createTextNode("\n		");
+          var el3 = dom.createTextNode("\n				");
           dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n");
+          var el2 = dom.createTextNode("\n			");
           dom.appendChild(el1, el2);
-          var el2 = dom.createComment("");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("	");
-          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n			");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "prevent-click");
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element2 = dom.childAt(fragment, [0]);
-          var element3 = dom.childAt(fragment, [2]);
-          var element4 = dom.childAt(element3, [1, 3]);
-          var element5 = dom.childAt(element4, [1]);
-          var morphs = new Array(6);
-          morphs[0] = dom.createMorphAt(element2, 1, 1);
-          morphs[1] = dom.createMorphAt(element2, 2, 2);
-          morphs[2] = dom.createMorphAt(element5, 1, 1);
-          morphs[3] = dom.createMorphAt(dom.childAt(element5, [3]), 3, 3);
-          morphs[4] = dom.createMorphAt(dom.childAt(element4, [3, 1]), 1, 1);
-          morphs[5] = dom.createMorphAt(element3, 3, 3);
+          var element3 = dom.childAt(fragment, [1, 3]);
+          var element4 = dom.childAt(element3, [3]);
+          var morphs = new Array(4);
+          morphs[0] = dom.createAttrMorph(element3, 'class');
+          morphs[1] = dom.createMorphAt(element3, 1, 1);
+          morphs[2] = dom.createMorphAt(element4, 1, 1);
+          morphs[3] = dom.createMorphAt(element4, 2, 2);
           return morphs;
         },
-        statements: [["block", "if", [["get", "majorSections", ["loc", [null, [6, 7], [6, 20]]]]], [], 0, null, ["loc", [null, [6, 1], [8, 8]]]], ["block", "each", [["get", "majorSections", ["loc", [null, [9, 9], [9, 22]]]]], [], 1, null, ["loc", [null, [9, 1], [11, 10]]]], ["block", "unless", [["get", "majorSectionType", ["loc", [null, [18, 15], [18, 31]]]]], [], 2, null, ["loc", [null, [18, 5], [23, 16]]]], ["inline", "select-one", [], ["options", ["subexpr", "@mut", [["get", "subSortOptions", ["loc", [null, [26, 27], [26, 41]]]]], [], []], "onChange", ["subexpr", "action", ["updateSortOptions"], [], ["loc", [null, [26, 51], [26, 79]]]]], ["loc", [null, [26, 6], [26, 81]]]], ["inline", "select-many", [], ["options", ["subexpr", "@mut", [["get", "filterOptions", ["loc", [null, [31, 28], [31, 41]]]]], [], []], "onChange", ["subexpr", "action", ["updateFilter"], [], ["loc", [null, [31, 51], [31, 74]]]]], ["loc", [null, [31, 6], [31, 76]]]], ["block", "each", [["get", "majorSections", ["loc", [null, [36, 10], [36, 23]]]]], [], 3, 4, ["loc", [null, [36, 2], [40, 11]]]]],
+        statements: [["attribute", "class", ["concat", ["menu-body ", ["subexpr", "if", [["get", "majorSections", ["loc", [null, [19, 31], [19, 44]]]], "two-column"], [], ["loc", [null, [19, 26], [19, 59]]]]]]], ["block", "if", [["get", "majorSections", ["loc", [null, [20, 11], [20, 24]]]]], [], 0, null, ["loc", [null, [20, 5], [33, 12]]]], ["block", "if", [["get", "model", ["loc", [null, [35, 12], [35, 17]]]]], [], 1, null, ["loc", [null, [35, 6], [42, 13]]]], ["block", "if", [["get", "canHaveRecs", ["loc", [null, [43, 12], [43, 23]]]]], [], 2, null, ["loc", [null, [43, 6], [47, 13]]]]],
         locals: [],
-        templates: [child0, child1, child2, child3, child4]
+        templates: [child0, child1, child2]
       };
     })();
-    var child1 = (function () {
+    var child2 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 53,
+              "column": 2
+            },
+            "end": {
+              "line": 55,
+              "column": 2
+            }
+          },
+          "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("			");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "major-section", [], ["model", ["subexpr", "@mut", [["get", "majorSection", ["loc", [null, [54, 25], [54, 37]]]]], [], []]], ["loc", [null, [54, 3], [54, 39]]]]],
+        locals: ["majorSection"],
+        templates: []
+      };
+    })();
+    var child3 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 56,
+              "column": 2
+            },
+            "end": {
+              "line": 58,
+              "column": 2
+            }
+          },
+          "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("			");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "major-section", [], ["model", ["subexpr", "@mut", [["get", "recsSection", ["loc", [null, [57, 25], [57, 36]]]]], [], []]], ["loc", [null, [57, 3], [57, 38]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child4 = (function () {
       var child0 = (function () {
         return {
           meta: {
@@ -10859,12 +11866,12 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             "loc": {
               "source": null,
               "start": {
-                "line": 43,
-                "column": 1
+                "line": 60,
+                "column": 3
               },
               "end": {
-                "line": 45,
-                "column": 1
+                "line": 62,
+                "column": 3
               }
             },
             "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
@@ -10875,43 +11882,7 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
           hasRendered: false,
           buildFragment: function buildFragment(dom) {
             var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("		Your trashcan is empty. This will hold any items you decide not to track.\n");
-            dom.appendChild(el0, el1);
-            return el0;
-          },
-          buildRenderNodes: function buildRenderNodes() {
-            return [];
-          },
-          statements: [],
-          locals: [],
-          templates: []
-        };
-      })();
-      var child1 = (function () {
-        return {
-          meta: {
-            "fragmentReason": false,
-            "revision": "Ember@2.4.0",
-            "loc": {
-              "source": null,
-              "start": {
-                "line": 45,
-                "column": 1
-              },
-              "end": {
-                "line": 48,
-                "column": 1
-              }
-            },
-            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
-          },
-          isEmpty: false,
-          arity: 0,
-          cachedFragment: null,
-          hasRendered: false,
-          buildFragment: function buildFragment(dom) {
-            var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("		You don't have any tracked items yet. Try searching for something on Google, or use the search bar on the left.\n\n");
+            var el1 = dom.createTextNode("				Your trashcan is empty. This will hold any items you decide not to track.\n");
             dom.appendChild(el0, el1);
             return el0;
           },
@@ -10930,12 +11901,12 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
           "loc": {
             "source": null,
             "start": {
-              "line": 42,
-              "column": 0
+              "line": 59,
+              "column": 2
             },
             "end": {
-              "line": 49,
-              "column": 0
+              "line": 63,
+              "column": 2
             }
           },
           "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
@@ -10957,9 +11928,256 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "if", [["get", "isTrash", ["loc", [null, [43, 7], [43, 14]]]]], [], 0, 1, ["loc", [null, [43, 1], [48, 8]]]]],
+        statements: [["block", "unless", [["get", "majorSections", ["loc", [null, [60, 13], [60, 26]]]]], [], 0, null, ["loc", [null, [60, 3], [62, 14]]]]],
+        locals: [],
+        templates: [child0]
+      };
+    })();
+    var child5 = (function () {
+      var child0 = (function () {
+        var child0 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.4.0",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 65,
+                  "column": 4
+                },
+                "end": {
+                  "line": 70,
+                  "column": 4
+                }
+              },
+              "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+            },
+            isEmpty: false,
+            arity: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("\n					You don't have any tracked items yet. Try searching for something on Google, or use the search bar\n					on\n					the left.\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes() {
+              return [];
+            },
+            statements: [],
+            locals: [],
+            templates: []
+          };
+        })();
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 64,
+                "column": 3
+              },
+              "end": {
+                "line": 71,
+                "column": 3
+              }
+            },
+            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+            dom.insertBoundary(fragment, 0);
+            dom.insertBoundary(fragment, null);
+            return morphs;
+          },
+          statements: [["block", "unless", [["get", "withScrollMenu", ["loc", [null, [65, 14], [65, 28]]]]], [], 0, null, ["loc", [null, [65, 4], [70, 15]]]]],
+          locals: [],
+          templates: [child0]
+        };
+      })();
+      var child1 = (function () {
+        var child0 = (function () {
+          return {
+            meta: {
+              "fragmentReason": false,
+              "revision": "Ember@2.4.0",
+              "loc": {
+                "source": null,
+                "start": {
+                  "line": 73,
+                  "column": 4
+                },
+                "end": {
+                  "line": 75,
+                  "column": 4
+                }
+              },
+              "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+            },
+            isEmpty: false,
+            arity: 0,
+            cachedFragment: null,
+            hasRendered: false,
+            buildFragment: function buildFragment(dom) {
+              var el0 = dom.createDocumentFragment();
+              var el1 = dom.createTextNode("					");
+              dom.appendChild(el0, el1);
+              var el1 = dom.createElement("div");
+              dom.setAttribute(el1, "class", "flat-btn blue-text");
+              var el2 = dom.createTextNode("Find some recommendations");
+              dom.appendChild(el1, el2);
+              dom.appendChild(el0, el1);
+              var el1 = dom.createTextNode("\n");
+              dom.appendChild(el0, el1);
+              return el0;
+            },
+            buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+              var element0 = dom.childAt(fragment, [1]);
+              var morphs = new Array(1);
+              morphs[0] = dom.createElementMorph(element0);
+              return morphs;
+            },
+            statements: [["element", "action", ["toggleRecs"], [], ["loc", [null, [74, 37], [74, 60]]]]],
+            locals: [],
+            templates: []
+          };
+        })();
+        return {
+          meta: {
+            "fragmentReason": false,
+            "revision": "Ember@2.4.0",
+            "loc": {
+              "source": null,
+              "start": {
+                "line": 72,
+                "column": 3
+              },
+              "end": {
+                "line": 76,
+                "column": 3
+              }
+            },
+            "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+          },
+          isEmpty: false,
+          arity: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          buildFragment: function buildFragment(dom) {
+            var el0 = dom.createDocumentFragment();
+            var el1 = dom.createComment("");
+            dom.appendChild(el0, el1);
+            return el0;
+          },
+          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+            var morphs = new Array(1);
+            morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+            dom.insertBoundary(fragment, 0);
+            dom.insertBoundary(fragment, null);
+            return morphs;
+          },
+          statements: [["block", "unless", [["get", "withRecs", ["loc", [null, [73, 14], [73, 22]]]]], [], 0, null, ["loc", [null, [73, 4], [75, 15]]]]],
+          locals: [],
+          templates: [child0]
+        };
+      })();
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 63,
+              "column": 2
+            },
+            "end": {
+              "line": 77,
+              "column": 2
+            }
+          },
+          "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(2);
+          morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+          morphs[1] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          dom.insertBoundary(fragment, 0);
+          dom.insertBoundary(fragment, null);
+          return morphs;
+        },
+        statements: [["block", "if", [["get", "canHaveRecs", ["loc", [null, [64, 9], [64, 20]]]]], [], 0, null, ["loc", [null, [64, 3], [71, 10]]]], ["block", "if", [["get", "canHaveRecs", ["loc", [null, [72, 9], [72, 20]]]]], [], 1, null, ["loc", [null, [72, 3], [76, 10]]]]],
         locals: [],
         templates: [child0, child1]
+      };
+    })();
+    var child6 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 85,
+              "column": 0
+            },
+            "end": {
+              "line": 87,
+              "column": 0
+            }
+          },
+          "moduleName": "tripmind/templates/components/major-sections-holder.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("	");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "recs", ["loc", [null, [86, 28], [86, 32]]]]], [], []], "markerColor", "blue"], ["loc", [null, [86, 1], [86, 53]]]]],
+        locals: [],
+        templates: []
       };
     })();
     return {
@@ -10976,7 +12194,7 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
             "column": 0
           },
           "end": {
-            "line": 56,
+            "line": 88,
             "column": 0
           }
         },
@@ -10988,34 +12206,59 @@ define("tripmind/templates/components/major-sections-holder", ["exports"], funct
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createTextNode("\n\n");
-        dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "flex-container");
         var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n\n");
+        var el2 = dom.createTextNode("	");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "scrollable-rhs-content");
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n	");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(2);
-        morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 1, 1);
-        morphs[1] = dom.createMorphAt(fragment, 3, 3, contextualElement);
+        var element9 = dom.childAt(fragment, [0]);
+        var element10 = dom.childAt(element9, [3]);
+        var morphs = new Array(7);
+        morphs[0] = dom.createMorphAt(element9, 1, 1);
+        morphs[1] = dom.createMorphAt(element10, 1, 1);
+        morphs[2] = dom.createMorphAt(element10, 2, 2);
+        morphs[3] = dom.createMorphAt(element10, 3, 3);
+        morphs[4] = dom.createMorphAt(element10, 4, 4);
+        morphs[5] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        morphs[6] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+        dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "if", [["get", "filteredItems.length", ["loc", [null, [4, 6], [4, 26]]]]], [], 0, 1, ["loc", [null, [4, 0], [49, 7]]]], ["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "filteredItems", ["loc", [null, [54, 27], [54, 40]]]]], [], []]], ["loc", [null, [54, 0], [54, 42]]]]],
+      statements: [["block", "if", [["get", "withScrollMenu", ["loc", [null, [2, 7], [2, 21]]]]], [], 0, null, ["loc", [null, [2, 1], [14, 8]]]], ["block", "if", [["get", "withOptionsMenu", ["loc", [null, [16, 8], [16, 23]]]]], [], 1, null, ["loc", [null, [16, 2], [52, 9]]]], ["block", "each", [["get", "majorSections", ["loc", [null, [53, 10], [53, 23]]]]], [], 2, null, ["loc", [null, [53, 2], [55, 11]]]], ["block", "if", [["get", "showRecs", ["loc", [null, [56, 8], [56, 16]]]]], [], 3, null, ["loc", [null, [56, 2], [58, 9]]]], ["block", "if", [["get", "isTrash", ["loc", [null, [59, 8], [59, 15]]]]], [], 4, 5, ["loc", [null, [59, 2], [77, 9]]]], ["inline", "collection-markers", [], ["model", ["subexpr", "@mut", [["get", "filteredItems", ["loc", [null, [84, 27], [84, 40]]]]], [], []]], ["loc", [null, [84, 0], [84, 42]]]], ["block", "if", [["get", "showRecs", ["loc", [null, [85, 6], [85, 14]]]]], [], 6, null, ["loc", [null, [85, 0], [87, 7]]]]],
       locals: [],
-      templates: [child0, child1]
+      templates: [child0, child1, child2, child3, child4, child5, child6]
     };
   })());
 });
@@ -12029,11 +13272,11 @@ define("tripmind/templates/components/style-guide", ["exports"], function (expor
           "loc": {
             "source": null,
             "start": {
-              "line": 15,
+              "line": 16,
               "column": 2
             },
             "end": {
-              "line": 23,
+              "line": 24,
               "column": 2
             }
           },
@@ -12066,11 +13309,11 @@ define("tripmind/templates/components/style-guide", ["exports"], function (expor
             "loc": {
               "source": null,
               "start": {
-                "line": 26,
+                "line": 27,
                 "column": 2
               },
               "end": {
-                "line": 30,
+                "line": 31,
                 "column": 2
               }
             },
@@ -12102,11 +13345,11 @@ define("tripmind/templates/components/style-guide", ["exports"], function (expor
             "loc": {
               "source": null,
               "start": {
-                "line": 30,
+                "line": 31,
                 "column": 2
               },
               "end": {
-                "line": 34,
+                "line": 35,
                 "column": 2
               }
             },
@@ -12137,11 +13380,11 @@ define("tripmind/templates/components/style-guide", ["exports"], function (expor
           "loc": {
             "source": null,
             "start": {
-              "line": 25,
+              "line": 26,
               "column": 1
             },
             "end": {
-              "line": 35,
+              "line": 36,
               "column": 1
             }
           },
@@ -12164,7 +13407,7 @@ define("tripmind/templates/components/style-guide", ["exports"], function (expor
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "if", [["get", "hasExtension", ["loc", [null, [26, 8], [26, 20]]]]], [], 0, 1, ["loc", [null, [26, 2], [34, 9]]]]],
+        statements: [["block", "if", [["get", "hasExtension", ["loc", [null, [27, 8], [27, 20]]]]], [], 0, 1, ["loc", [null, [27, 2], [35, 9]]]]],
         locals: [],
         templates: [child0, child1]
       };
@@ -12180,7 +13423,7 @@ define("tripmind/templates/components/style-guide", ["exports"], function (expor
             "column": 0
           },
           "end": {
-            "line": 38,
+            "line": 39,
             "column": 8
           }
         },
@@ -12194,6 +13437,10 @@ define("tripmind/templates/components/style-guide", ["exports"], function (expor
         var el0 = dom.createDocumentFragment();
         var el1 = dom.createElement("style");
         var el2 = dom.createTextNode("\n	#rhs-container {\n		border-right-width: ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("px;\n		border-top-width: ");
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
@@ -12224,16 +13471,17 @@ define("tripmind/templates/components/style-guide", ["exports"], function (expor
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [0]);
-        var morphs = new Array(6);
+        var morphs = new Array(7);
         morphs[0] = dom.createMorphAt(element0, 1, 1);
         morphs[1] = dom.createMorphAt(element0, 3, 3);
         morphs[2] = dom.createMorphAt(element0, 5, 5);
         morphs[3] = dom.createMorphAt(element0, 7, 7);
         morphs[4] = dom.createMorphAt(element0, 9, 9);
         morphs[5] = dom.createMorphAt(element0, 11, 11);
+        morphs[6] = dom.createMorphAt(element0, 13, 13);
         return morphs;
       },
-      statements: [["content", "mapWidth", ["loc", [null, [3, 22], [3, 34]]]], ["content", "mapWidth", ["loc", [null, [7, 9], [7, 21]]]], ["content", "mapWidth", ["loc", [null, [8, 26], [8, 38]]]], ["content", "barRightWidth", ["loc", [null, [12, 9], [12, 26]]]], ["block", "if", [["get", "hideEditing", ["loc", [null, [15, 8], [15, 19]]]]], [], 0, null, ["loc", [null, [15, 2], [23, 9]]]], ["block", "if", [["get", "doneCheckExtension", ["loc", [null, [25, 7], [25, 25]]]]], [], 1, null, ["loc", [null, [25, 1], [35, 8]]]]],
+      statements: [["content", "rhsBorderRight", ["loc", [null, [3, 22], [3, 40]]]], ["content", "rhsBorderTop", ["loc", [null, [4, 20], [4, 36]]]], ["content", "mapWidth", ["loc", [null, [8, 9], [8, 21]]]], ["content", "mapWidth", ["loc", [null, [9, 26], [9, 38]]]], ["content", "barRightWidth", ["loc", [null, [13, 9], [13, 26]]]], ["block", "if", [["get", "hideEditing", ["loc", [null, [16, 8], [16, 19]]]]], [], 0, null, ["loc", [null, [16, 2], [24, 9]]]], ["block", "if", [["get", "doneCheckExtension", ["loc", [null, [26, 7], [26, 25]]]]], [], 1, null, ["loc", [null, [26, 1], [36, 8]]]]],
       locals: [],
       templates: [child0, child1]
     };
@@ -12829,11 +14077,56 @@ define("tripmind/templates/components/temp-item-card", ["exports"], function (ex
           "loc": {
             "source": null,
             "start": {
+              "line": 13,
+              "column": 2
+            },
+            "end": {
               "line": 15,
+              "column": 2
+            }
+          },
+          "moduleName": "tripmind/templates/components/temp-item-card.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("			");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "rating icon-star");
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
+          return morphs;
+        },
+        statements: [["content", "model.rating", ["loc", [null, [14, 33], [14, 49]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child3 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 18,
               "column": 0
             },
             "end": {
-              "line": 17,
+              "line": 20,
               "column": 0
             }
           },
@@ -12860,12 +14153,12 @@ define("tripmind/templates/components/temp-item-card", ["exports"], function (ex
           morphs[0] = dom.createElementMorph(element0);
           return morphs;
         },
-        statements: [["element", "action", ["selectAction", "item", ["get", "model.slug", ["loc", [null, [16, 55], [16, 65]]]]], [], ["loc", [null, [16, 24], [16, 67]]]]],
+        statements: [["element", "action", ["selectAction", "item", ["get", "model.slug", ["loc", [null, [19, 55], [19, 65]]]]], [], ["loc", [null, [19, 24], [19, 67]]]]],
         locals: [],
         templates: []
       };
     })();
-    var child3 = (function () {
+    var child4 = (function () {
       var child0 = (function () {
         return {
           meta: {
@@ -12874,11 +14167,11 @@ define("tripmind/templates/components/temp-item-card", ["exports"], function (ex
             "loc": {
               "source": null,
               "start": {
-                "line": 18,
+                "line": 21,
                 "column": 1
               },
               "end": {
-                "line": 18,
+                "line": 21,
                 "column": 76
               }
             },
@@ -12907,11 +14200,11 @@ define("tripmind/templates/components/temp-item-card", ["exports"], function (ex
           "loc": {
             "source": null,
             "start": {
-              "line": 17,
+              "line": 20,
               "column": 0
             },
             "end": {
-              "line": 19,
+              "line": 22,
               "column": 0
             }
           },
@@ -12936,7 +14229,7 @@ define("tripmind/templates/components/temp-item-card", ["exports"], function (ex
           morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["block", "link-to", ["item", ["get", "model.slug", ["loc", [null, [18, 19], [18, 29]]]]], ["class", "card-link", "invokeAction", "persistItem"], 0, null, ["loc", [null, [18, 1], [18, 88]]]]],
+        statements: [["block", "link-to", ["item", ["get", "model.slug", ["loc", [null, [21, 19], [21, 29]]]]], ["class", "card-link", "invokeAction", "persistItem"], 0, null, ["loc", [null, [21, 1], [21, 88]]]]],
         locals: [],
         templates: [child0]
       };
@@ -12955,7 +14248,7 @@ define("tripmind/templates/components/temp-item-card", ["exports"], function (ex
             "column": 0
           },
           "end": {
-            "line": 19,
+            "line": 22,
             "column": 7
           }
         },
@@ -13002,6 +14295,8 @@ define("tripmind/templates/components/temp-item-card", ["exports"], function (ex
         dom.appendChild(el2, el3);
         var el3 = dom.createComment("");
         dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("	");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
@@ -13018,19 +14313,20 @@ define("tripmind/templates/components/temp-item-card", ["exports"], function (ex
         var element2 = dom.childAt(fragment, [0]);
         var element3 = dom.childAt(fragment, [2, 1]);
         var element4 = dom.childAt(element3, [3]);
-        var morphs = new Array(6);
+        var morphs = new Array(7);
         morphs[0] = dom.createAttrMorph(element2, 'style');
         morphs[1] = dom.createMorphAt(dom.childAt(element3, [1]), 0, 0);
         morphs[2] = dom.createMorphAt(element4, 0, 0);
         morphs[3] = dom.createMorphAt(element4, 2, 2);
         morphs[4] = dom.createMorphAt(element3, 5, 5);
-        morphs[5] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+        morphs[5] = dom.createMorphAt(element3, 6, 6);
+        morphs[6] = dom.createMorphAt(fragment, 4, 4, contextualElement);
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [1, 37], [1, 53]]]]], ["content", "model.name", ["loc", [null, [4, 20], [4, 34]]]], ["content", "model.itemType", ["loc", [null, [5, 20], [5, 38]]]], ["block", "if", [["get", "model.parentName", ["loc", [null, [6, 9], [6, 25]]]]], [], 0, null, ["loc", [null, [6, 3], [8, 10]]]], ["block", "if", [["get", "closestDistance", ["loc", [null, [10, 8], [10, 23]]]]], [], 1, null, ["loc", [null, [10, 2], [12, 9]]]], ["block", "if", [["get", "withoutLink", ["loc", [null, [15, 6], [15, 17]]]]], [], 2, 3, ["loc", [null, [15, 0], [19, 7]]]]],
+      statements: [["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [1, 37], [1, 53]]]]], ["content", "model.name", ["loc", [null, [4, 20], [4, 34]]]], ["content", "model.itemType", ["loc", [null, [5, 20], [5, 38]]]], ["block", "if", [["get", "model.parentName", ["loc", [null, [6, 9], [6, 25]]]]], [], 0, null, ["loc", [null, [6, 3], [8, 10]]]], ["block", "if", [["get", "closestDistance", ["loc", [null, [10, 8], [10, 23]]]]], [], 1, null, ["loc", [null, [10, 2], [12, 9]]]], ["block", "if", [["get", "model.rating", ["loc", [null, [13, 8], [13, 20]]]]], [], 2, null, ["loc", [null, [13, 2], [15, 9]]]], ["block", "if", [["get", "withoutLink", ["loc", [null, [18, 6], [18, 17]]]]], [], 3, 4, ["loc", [null, [18, 0], [22, 7]]]]],
       locals: [],
-      templates: [child0, child1, child2, child3]
+      templates: [child0, child1, child2, child3, child4]
     };
   })());
 });
@@ -13132,7 +14428,7 @@ define("tripmind/templates/index", ["exports"], function (exports) {
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["inline", "action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [1, 59], [1, 73]]]]], ["loc", [null, [1, 29], [1, 74]]]], "addedClass", ["subexpr", "@mut", [["get", "actionBarVersion", ["loc", [null, [1, 86], [1, 102]]]]], [], []]], ["loc", [null, [1, 0], [1, 104]]]], ["content", "action-bar-placeholder", ["loc", [null, [2, 0], [2, 26]]]], ["inline", "major-sections-holder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [4, 30], [4, 35]]]]], [], []], "prefilterAttribute", ["subexpr", "@mut", [["get", "prefilterAttribute", ["loc", [null, [4, 55], [4, 73]]]]], [], []], "isTrash", ["subexpr", "@mut", [["get", "isTrash", ["loc", [null, [4, 82], [4, 89]]]]], [], []]], ["loc", [null, [4, 0], [4, 91]]]]],
+      statements: [["inline", "action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [1, 59], [1, 73]]]]], ["loc", [null, [1, 29], [1, 74]]]], "addedClass", ["subexpr", "@mut", [["get", "actionBarVersion", ["loc", [null, [1, 86], [1, 102]]]]], [], []]], ["loc", [null, [1, 0], [1, 104]]]], ["content", "action-bar-placeholder", ["loc", [null, [2, 0], [2, 26]]]], ["inline", "major-sections-holder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [4, 30], [4, 35]]]]], [], []], "prefilterAttribute", ["subexpr", "@mut", [["get", "prefilterAttribute", ["loc", [null, [4, 55], [4, 73]]]]], [], []], "isTrash", ["subexpr", "@mut", [["get", "isTrash", ["loc", [null, [4, 82], [4, 89]]]]], [], []], "canHaveRecs", false], ["loc", [null, [4, 0], [4, 109]]]]],
       locals: [],
       templates: []
     };
@@ -13320,115 +14616,154 @@ define("tripmind/templates/item", ["exports"], function (exports) {
       };
     })();
     var child3 = (function () {
-      var child0 = (function () {
-        return {
-          meta: {
-            "fragmentReason": false,
-            "revision": "Ember@2.4.0",
-            "loc": {
-              "source": null,
-              "start": {
-                "line": 24,
-                "column": 5
-              },
-              "end": {
-                "line": 29,
-                "column": 5
-              }
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 14,
+              "column": 1
             },
-            "moduleName": "tripmind/templates/item.hbs"
+            "end": {
+              "line": 16,
+              "column": 1
+            }
           },
-          isEmpty: false,
-          arity: 1,
-          cachedFragment: null,
-          hasRendered: false,
-          buildFragment: function buildFragment(dom) {
-            var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("						");
-            dom.appendChild(el0, el1);
-            var el1 = dom.createElement("tr");
-            dom.setAttribute(el1, "class", "detail-line");
-            var el2 = dom.createTextNode("\n							");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("td");
-            var el3 = dom.createComment("");
-            dom.appendChild(el2, el3);
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n							");
-            dom.appendChild(el1, el2);
-            var el2 = dom.createElement("td");
-            dom.setAttribute(el2, "class", "detail-value");
-            var el3 = dom.createComment("");
-            dom.appendChild(el2, el3);
-            dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n						");
-            dom.appendChild(el1, el2);
-            dom.appendChild(el0, el1);
-            var el1 = dom.createTextNode("\n");
-            dom.appendChild(el0, el1);
-            return el0;
+          "moduleName": "tripmind/templates/item.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("		");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "refresh-done", [], ["parentComponent", ["subexpr", "@mut", [["get", "this", ["loc", [null, [15, 33], [15, 37]]]]], [], []]], ["loc", [null, [15, 2], [15, 39]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child4 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 16,
+              "column": 1
+            },
+            "end": {
+              "line": 18,
+              "column": 1
+            }
           },
-          buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var element1 = dom.childAt(fragment, [1]);
-            var element2 = dom.childAt(element1, [1]);
-            var morphs = new Array(3);
-            morphs[0] = dom.createAttrMorph(element2, 'class');
-            morphs[1] = dom.createMorphAt(element2, 0, 0);
-            morphs[2] = dom.createMorphAt(dom.childAt(element1, [3]), 0, 0);
-            return morphs;
+          "moduleName": "tripmind/templates/item.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("		");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "autosave-editable", [], ["class", "name", "canEditContent", true, "isEditable", true, "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [17, 82], [17, 87]]]]], [], []], "value", ["subexpr", "@mut", [["get", "model.name", ["loc", [null, [17, 94], [17, 104]]]]], [], []], "refreshModel", ["subexpr", "@mut", [["get", "this", ["loc", [null, [17, 118], [17, 122]]]]], [], []], "defaultValue", "Unnamed place"], ["loc", [null, [17, 2], [17, 153]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child5 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 29,
+              "column": 5
+            },
+            "end": {
+              "line": 34,
+              "column": 5
+            }
           },
-          statements: [["attribute", "class", ["concat", ["detail-title ", ["get", "detail.name", ["loc", [null, [26, 33], [26, 44]]]]]]], ["content", "detail.name", ["loc", [null, [26, 48], [26, 63]]]], ["content", "detail.value", ["loc", [null, [27, 32], [27, 48]]]]],
-          locals: ["detail"],
-          templates: []
-        };
-      })();
-      var child1 = (function () {
+          "moduleName": "tripmind/templates/item.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("						");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("tr");
+          dom.setAttribute(el1, "class", "detail-line");
+          var el2 = dom.createTextNode("\n							");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("td");
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n							");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("td");
+          dom.setAttribute(el2, "class", "detail-value");
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n						");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element1 = dom.childAt(fragment, [1]);
+          var element2 = dom.childAt(element1, [1]);
+          var morphs = new Array(3);
+          morphs[0] = dom.createAttrMorph(element2, 'class');
+          morphs[1] = dom.createMorphAt(element2, 0, 0);
+          morphs[2] = dom.createMorphAt(dom.childAt(element1, [3]), 0, 0);
+          return morphs;
+        },
+        statements: [["attribute", "class", ["concat", ["detail-title ", ["get", "detail.name", ["loc", [null, [31, 33], [31, 44]]]]]]], ["content", "detail.name", ["loc", [null, [31, 48], [31, 63]]]], ["content", "detail.value", ["loc", [null, [32, 32], [32, 48]]]]],
+        locals: ["detail"],
+        templates: []
+      };
+    })();
+    var child6 = (function () {
+      var child0 = (function () {
         var child0 = (function () {
-          var child0 = (function () {
-            return {
-              meta: {
-                "fragmentReason": false,
-                "revision": "Ember@2.4.0",
-                "loc": {
-                  "source": null,
-                  "start": {
-                    "line": 38,
-                    "column": 9
-                  },
-                  "end": {
-                    "line": 40,
-                    "column": 9
-                  }
-                },
-                "moduleName": "tripmind/templates/item.hbs"
-              },
-              isEmpty: false,
-              arity: 1,
-              cachedFragment: null,
-              hasRendered: false,
-              buildFragment: function buildFragment(dom) {
-                var el0 = dom.createDocumentFragment();
-                var el1 = dom.createTextNode("										");
-                dom.appendChild(el0, el1);
-                var el1 = dom.createElement("td");
-                dom.setAttribute(el1, "class", "detail-hours");
-                var el2 = dom.createComment("");
-                dom.appendChild(el1, el2);
-                dom.appendChild(el0, el1);
-                var el1 = dom.createTextNode("\n");
-                dom.appendChild(el0, el1);
-                return el0;
-              },
-              buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-                var morphs = new Array(1);
-                morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
-                return morphs;
-              },
-              statements: [["content", "period.period", ["loc", [null, [39, 35], [39, 52]]]]],
-              locals: ["period"],
-              templates: []
-            };
-          })();
           return {
             meta: {
               "fragmentReason": false,
@@ -13436,12 +14771,12 @@ define("tripmind/templates/item", ["exports"], function (exports) {
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 35,
-                  "column": 8
+                  "line": 43,
+                  "column": 9
                 },
                 "end": {
-                  "line": 42,
-                  "column": 8
+                  "line": 45,
+                  "column": 9
                 }
               },
               "moduleName": "tripmind/templates/item.hbs"
@@ -13452,21 +14787,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             hasRendered: false,
             buildFragment: function buildFragment(dom) {
               var el0 = dom.createDocumentFragment();
-              var el1 = dom.createTextNode("									");
+              var el1 = dom.createTextNode("										");
               dom.appendChild(el0, el1);
-              var el1 = dom.createElement("tr");
-              var el2 = dom.createTextNode("\n									");
-              dom.appendChild(el1, el2);
-              var el2 = dom.createElement("td");
-              dom.setAttribute(el2, "class", "detail-day-title");
-              var el3 = dom.createComment("");
-              dom.appendChild(el2, el3);
-              dom.appendChild(el1, el2);
-              var el2 = dom.createTextNode("\n");
-              dom.appendChild(el1, el2);
+              var el1 = dom.createElement("td");
+              dom.setAttribute(el1, "class", "detail-hours");
               var el2 = dom.createComment("");
-              dom.appendChild(el1, el2);
-              var el2 = dom.createTextNode("									");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n");
@@ -13474,15 +14799,13 @@ define("tripmind/templates/item", ["exports"], function (exports) {
               return el0;
             },
             buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-              var element0 = dom.childAt(fragment, [1]);
-              var morphs = new Array(2);
-              morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 0, 0);
-              morphs[1] = dom.createMorphAt(element0, 3, 3);
+              var morphs = new Array(1);
+              morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
               return morphs;
             },
-            statements: [["content", "day.title", ["loc", [null, [37, 38], [37, 51]]]], ["block", "each", [["get", "day.periods", ["loc", [null, [38, 17], [38, 28]]]]], [], 0, null, ["loc", [null, [38, 9], [40, 18]]]]],
-            locals: ["day"],
-            templates: [child0]
+            statements: [["content", "period.period", ["loc", [null, [44, 35], [44, 52]]]]],
+            locals: ["period"],
+            templates: []
           };
         })();
         return {
@@ -13492,51 +14815,37 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 30,
-                "column": 5
+                "line": 40,
+                "column": 8
               },
               "end": {
-                "line": 46,
-                "column": 5
+                "line": 47,
+                "column": 8
               }
             },
             "moduleName": "tripmind/templates/item.hbs"
           },
           isEmpty: false,
-          arity: 0,
+          arity: 1,
           cachedFragment: null,
           hasRendered: false,
           buildFragment: function buildFragment(dom) {
             var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("						");
+            var el1 = dom.createTextNode("									");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("tr");
-            dom.setAttribute(el1, "class", "detail-line");
-            var el2 = dom.createTextNode("\n							");
+            var el2 = dom.createTextNode("\n									");
             dom.appendChild(el1, el2);
             var el2 = dom.createElement("td");
-            dom.setAttribute(el2, "class", "detail-title");
-            var el3 = dom.createTextNode("Opening Hours");
+            dom.setAttribute(el2, "class", "detail-day-title");
+            var el3 = dom.createComment("");
             dom.appendChild(el2, el3);
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n							");
+            var el2 = dom.createTextNode("\n");
             dom.appendChild(el1, el2);
-            var el2 = dom.createElement("td");
-            dom.setAttribute(el2, "class", "detail-value");
-            var el3 = dom.createTextNode("\n								");
-            dom.appendChild(el2, el3);
-            var el3 = dom.createElement("table");
-            var el4 = dom.createTextNode("\n");
-            dom.appendChild(el3, el4);
-            var el4 = dom.createComment("");
-            dom.appendChild(el3, el4);
-            var el4 = dom.createTextNode("								");
-            dom.appendChild(el3, el4);
-            dom.appendChild(el2, el3);
-            var el3 = dom.createTextNode("\n							");
-            dom.appendChild(el2, el3);
+            var el2 = dom.createComment("");
             dom.appendChild(el1, el2);
-            var el2 = dom.createTextNode("\n						");
+            var el2 = dom.createTextNode("									");
             dom.appendChild(el1, el2);
             dom.appendChild(el0, el1);
             var el1 = dom.createTextNode("\n");
@@ -13544,12 +14853,14 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             return el0;
           },
           buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-            var morphs = new Array(1);
-            morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1, 3, 1]), 1, 1);
+            var element0 = dom.childAt(fragment, [1]);
+            var morphs = new Array(2);
+            morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 0, 0);
+            morphs[1] = dom.createMorphAt(element0, 3, 3);
             return morphs;
           },
-          statements: [["block", "each", [["get", "model.textOperatingHours", ["loc", [null, [35, 16], [35, 40]]]]], [], 0, null, ["loc", [null, [35, 8], [42, 17]]]]],
-          locals: [],
+          statements: [["content", "day.title", ["loc", [null, [42, 38], [42, 51]]]], ["block", "each", [["get", "day.periods", ["loc", [null, [43, 17], [43, 28]]]]], [], 0, null, ["loc", [null, [43, 9], [45, 18]]]]],
+          locals: ["day"],
           templates: [child0]
         };
       })();
@@ -13560,11 +14871,85 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 20,
+              "line": 35,
+              "column": 5
+            },
+            "end": {
+              "line": 52,
+              "column": 5
+            }
+          },
+          "moduleName": "tripmind/templates/item.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("						");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("tr");
+          dom.setAttribute(el1, "class", "detail-line");
+          var el2 = dom.createTextNode("\n							");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("td");
+          dom.setAttribute(el2, "class", "detail-title");
+          var el3 = dom.createTextNode("Opening Hours");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n							");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("td");
+          dom.setAttribute(el2, "class", "detail-value");
+          var el3 = dom.createTextNode("\n								");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createElement("table");
+          var el4 = dom.createTextNode("\n");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createComment("");
+          dom.appendChild(el3, el4);
+          var el4 = dom.createTextNode("								");
+          dom.appendChild(el3, el4);
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n							");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n						");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n						");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("tr");
+          dom.setAttribute(el1, "class", "detail-line");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1, 3, 1]), 1, 1);
+          return morphs;
+        },
+        statements: [["block", "each", [["get", "model.textOperatingHours", ["loc", [null, [40, 16], [40, 40]]]]], [], 0, null, ["loc", [null, [40, 8], [47, 17]]]]],
+        locals: [],
+        templates: [child0]
+      };
+    })();
+    var child7 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 67,
               "column": 2
             },
             "end": {
-              "line": 49,
+              "line": 69,
               "column": 2
             }
           },
@@ -13576,42 +14961,67 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         hasRendered: false,
         buildFragment: function buildFragment(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("\n			");
+          var el1 = dom.createTextNode("			");
           dom.appendChild(el0, el1);
-          var el1 = dom.createElement("div");
-          dom.setAttribute(el1, "class", "details-holder");
-          var el2 = dom.createTextNode("\n				");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createElement("table");
-          var el3 = dom.createTextNode("\n");
-          dom.appendChild(el2, el3);
-          var el3 = dom.createComment("");
-          dom.appendChild(el2, el3);
-          var el3 = dom.createComment("");
-          dom.appendChild(el2, el3);
-          var el3 = dom.createTextNode("				");
-          dom.appendChild(el2, el3);
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n			");
-          dom.appendChild(el1, el2);
+          var el1 = dom.createComment("");
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
           return el0;
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element3 = dom.childAt(fragment, [1, 1]);
-          var morphs = new Array(2);
-          morphs[0] = dom.createMorphAt(element3, 1, 1);
-          morphs[1] = dom.createMorphAt(element3, 2, 2);
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["block", "each", [["get", "model.details", ["loc", [null, [24, 13], [24, 26]]]]], [], 0, null, ["loc", [null, [24, 5], [29, 14]]]], ["block", "if", [["get", "model.textOperatingHours", ["loc", [null, [30, 11], [30, 35]]]]], [], 1, null, ["loc", [null, [30, 5], [46, 12]]]]],
+        statements: [["inline", "refresh-done", [], ["parentComponent", ["subexpr", "@mut", [["get", "this", ["loc", [null, [68, 34], [68, 38]]]]], [], []]], ["loc", [null, [68, 3], [68, 40]]]]],
         locals: [],
-        templates: [child0, child1]
+        templates: []
       };
     })();
-    var child4 = (function () {
+    var child8 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 69,
+              "column": 2
+            },
+            "end": {
+              "line": 71,
+              "column": 2
+            }
+          },
+          "moduleName": "tripmind/templates/item.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("			");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "autosave-editable", [], ["class", "long-desc", "canEditContent", true, "isEditable", true, "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [70, 88], [70, 93]]]]], [], []], "value", ["subexpr", "@mut", [["get", "model.longDescEditable", ["loc", [null, [70, 100], [70, 122]]]]], [], []], "refreshModel", ["subexpr", "@mut", [["get", "this", ["loc", [null, [70, 136], [70, 140]]]]], [], []]], ["loc", [null, [70, 3], [70, 142]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child9 = (function () {
       var child0 = (function () {
         return {
           meta: {
@@ -13620,11 +15030,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 66,
+                "line": 84,
                 "column": 3
               },
               "end": {
-                "line": 68,
+                "line": 86,
                 "column": 3
               }
             },
@@ -13649,7 +15059,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
             return morphs;
           },
-          statements: [["inline", "link-card", [], ["model", ["subexpr", "@mut", [["get", "link", ["loc", [null, [67, 22], [67, 26]]]]], [], []]], ["loc", [null, [67, 4], [67, 28]]]]],
+          statements: [["inline", "link-card", [], ["model", ["subexpr", "@mut", [["get", "link", ["loc", [null, [85, 22], [85, 26]]]]], [], []]], ["loc", [null, [85, 4], [85, 28]]]]],
           locals: ["link"],
           templates: []
         };
@@ -13661,11 +15071,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 63,
+              "line": 81,
               "column": 2
             },
             "end": {
-              "line": 69,
+              "line": 87,
               "column": 2
             }
           },
@@ -13696,51 +15106,9 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "each", [["get", "model.visitedLinks", ["loc", [null, [66, 11], [66, 29]]]]], [], 0, null, ["loc", [null, [66, 3], [68, 12]]]]],
+        statements: [["block", "each", [["get", "model.visitedLinks", ["loc", [null, [84, 11], [84, 29]]]]], [], 0, null, ["loc", [null, [84, 3], [86, 12]]]]],
         locals: [],
         templates: [child0]
-      };
-    })();
-    var child5 = (function () {
-      return {
-        meta: {
-          "fragmentReason": false,
-          "revision": "Ember@2.4.0",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 75,
-              "column": 0
-            },
-            "end": {
-              "line": 77,
-              "column": 0
-            }
-          },
-          "moduleName": "tripmind/templates/item.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("	");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createComment("");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
-          return morphs;
-        },
-        statements: [["inline", "major-sections-holder", [], ["model", ["subexpr", "@mut", [["get", "descendants", ["loc", [null, [76, 31], [76, 42]]]]], [], []], "majorSectionType", "item", "prefilterAttribute", "trackingStatus"], ["loc", [null, [76, 1], [76, 104]]]]],
-        locals: [],
-        templates: []
       };
     })();
     return {
@@ -13757,7 +15125,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 81,
+            "line": 98,
             "column": 0
           }
         },
@@ -13779,6 +15147,8 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         dom.appendChild(el1, el2);
         var el2 = dom.createComment("");
         dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
@@ -13797,29 +15167,86 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         dom.appendChild(el2, el3);
         var el3 = dom.createComment("");
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n");
+        var el3 = dom.createTextNode("\n\n\n			");
         dom.appendChild(el2, el3);
-        var el3 = dom.createComment("");
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "details-holder");
+        var el4 = dom.createTextNode("\n				");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("table");
+        var el5 = dom.createTextNode("\n");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createComment("");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("					");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("tr");
+        dom.setAttribute(el5, "class", "detail-line");
+        var el6 = dom.createTextNode("\n						");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createElement("td");
+        dom.setAttribute(el6, "class", "detail-title");
+        var el7 = dom.createTextNode("More");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n						");
+        dom.appendChild(el5, el6);
+        var el6 = dom.createElement("td");
+        dom.setAttribute(el6, "class", "detail-value");
+        var el7 = dom.createTextNode("\n							");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createElement("a");
+        dom.setAttribute(el7, "class", "link-blue");
+        dom.setAttribute(el7, "target", "_blank");
+        var el8 = dom.createTextNode("Find this on Google >");
+        dom.appendChild(el7, el8);
+        dom.appendChild(el6, el7);
+        var el7 = dom.createTextNode("\n							");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createElement("br");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createTextNode("\n							");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createElement("br");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createTextNode("\n							");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createElement("a");
+        dom.setAttribute(el7, "class", "link-blue");
+        dom.setAttribute(el7, "target", "_blank");
+        var el8 = dom.createTextNode("More photos >");
+        dom.appendChild(el7, el8);
+        dom.appendChild(el6, el7);
+        var el7 = dom.createTextNode("\n							");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createElement("br");
+        dom.appendChild(el6, el7);
+        var el7 = dom.createTextNode("\n						");
+        dom.appendChild(el6, el7);
+        dom.appendChild(el5, el6);
+        var el6 = dom.createTextNode("\n					");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("\n				");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n			");
+        dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("	");
+        var el3 = dom.createTextNode("\n	");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n	");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
         dom.setAttribute(el2, "class", "lhs");
-        var el3 = dom.createTextNode("\n		");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "top-section-title");
-        var el4 = dom.createTextNode("Description:");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n		");
+        var el3 = dom.createTextNode("\n");
         dom.appendChild(el2, el3);
         var el3 = dom.createComment("");
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n	");
+        var el3 = dom.createTextNode("	");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
@@ -13854,7 +15281,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
+        var el1 = dom.createTextNode("\n\n\n");
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
@@ -13863,25 +15290,34 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element3 = dom.childAt(fragment, [2]);
         var element4 = dom.childAt(fragment, [4]);
         var element5 = dom.childAt(element4, [1]);
         var element6 = dom.childAt(element5, [1]);
-        var morphs = new Array(9);
+        var element7 = dom.childAt(element5, [5, 1]);
+        var element8 = dom.childAt(element7, [4, 3]);
+        var element9 = dom.childAt(element8, [1]);
+        var element10 = dom.childAt(element8, [7]);
+        var morphs = new Array(13);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        morphs[1] = dom.createMorphAt(dom.childAt(fragment, [2]), 1, 1);
-        morphs[2] = dom.createAttrMorph(element6, 'style');
-        morphs[3] = dom.createMorphAt(element5, 3, 3);
-        morphs[4] = dom.createMorphAt(element5, 5, 5);
-        morphs[5] = dom.createMorphAt(dom.childAt(element4, [3]), 3, 3);
-        morphs[6] = dom.createMorphAt(dom.childAt(fragment, [6, 3]), 1, 1);
-        morphs[7] = dom.createMorphAt(fragment, 8, 8, contextualElement);
-        morphs[8] = dom.createMorphAt(fragment, 10, 10, contextualElement);
+        morphs[1] = dom.createMorphAt(element3, 1, 1);
+        morphs[2] = dom.createMorphAt(element3, 2, 2);
+        morphs[3] = dom.createAttrMorph(element6, 'style');
+        morphs[4] = dom.createMorphAt(element5, 3, 3);
+        morphs[5] = dom.createMorphAt(element7, 1, 1);
+        morphs[6] = dom.createMorphAt(element7, 2, 2);
+        morphs[7] = dom.createAttrMorph(element9, 'href');
+        morphs[8] = dom.createAttrMorph(element10, 'href');
+        morphs[9] = dom.createMorphAt(dom.childAt(element4, [3]), 1, 1);
+        morphs[10] = dom.createMorphAt(dom.childAt(fragment, [6, 3]), 1, 1);
+        morphs[11] = dom.createMorphAt(fragment, 8, 8, contextualElement);
+        morphs[12] = dom.createMorphAt(fragment, 10, 10, contextualElement);
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["block", "if", [["get", "descendants", ["loc", [null, [1, 6], [1, 17]]]]], [], 0, 1, ["loc", [null, [1, 0], [7, 7]]]], ["block", "each", [["get", "model.ancestorsArray", ["loc", [null, [11, 9], [11, 29]]]]], [], 2, null, ["loc", [null, [11, 1], [13, 10]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [18, 50], [18, 66]]]]], ["inline", "map-placeholder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [19, 26], [19, 31]]]]], [], []]], ["loc", [null, [19, 2], [19, 33]]]], ["block", "unless", [["get", "descendants", ["loc", [null, [20, 12], [20, 23]]]]], [], 3, null, ["loc", [null, [20, 2], [49, 13]]]], ["inline", "autosave-editable", [], ["class", "long-desc", "canEditContent", true, "isEditable", true, "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [53, 87], [53, 92]]]]], [], []], "value", ["subexpr", "@mut", [["get", "model.longDescEditable", ["loc", [null, [53, 99], [53, 121]]]]], [], []]], ["loc", [null, [53, 2], [53, 123]]]], ["block", "if", [["get", "model.visitedLinks", ["loc", [null, [63, 8], [63, 26]]]]], [], 4, null, ["loc", [null, [63, 2], [69, 9]]]], ["block", "if", [["get", "descendants", ["loc", [null, [75, 6], [75, 17]]]]], [], 5, null, ["loc", [null, [75, 0], [77, 7]]]], ["inline", "center-marker", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [79, 22], [79, 27]]]]], [], []]], ["loc", [null, [79, 0], [79, 29]]]]],
+      statements: [["block", "if", [["get", "descendants", ["loc", [null, [1, 6], [1, 17]]]]], [], 0, 1, ["loc", [null, [1, 0], [7, 7]]]], ["block", "each", [["get", "model.ancestorsArray", ["loc", [null, [11, 9], [11, 29]]]]], [], 2, null, ["loc", [null, [11, 1], [13, 10]]]], ["block", "if", [["get", "needsRefresh", ["loc", [null, [14, 7], [14, 19]]]]], [], 3, 4, ["loc", [null, [14, 1], [18, 8]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [23, 50], [23, 66]]]]], ["inline", "map-placeholder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [24, 26], [24, 31]]]]], [], []]], ["loc", [null, [24, 2], [24, 33]]]], ["block", "each", [["get", "model.details", ["loc", [null, [29, 13], [29, 26]]]]], [], 5, null, ["loc", [null, [29, 5], [34, 14]]]], ["block", "if", [["get", "model.textOperatingHours", ["loc", [null, [35, 11], [35, 35]]]]], [], 6, null, ["loc", [null, [35, 5], [52, 12]]]], ["attribute", "href", ["get", "model.googleLink", ["loc", [null, [56, 51], [56, 67]]]]], ["attribute", "href", ["get", "model.googleImagesLink", ["loc", [null, [59, 51], [59, 73]]]]], ["block", "if", [["get", "needsRefresh", ["loc", [null, [67, 8], [67, 20]]]]], [], 7, 8, ["loc", [null, [67, 2], [71, 9]]]], ["block", "if", [["get", "model.visitedLinks", ["loc", [null, [81, 8], [81, 26]]]]], [], 9, null, ["loc", [null, [81, 2], [87, 9]]]], ["inline", "major-sections-holder", [], ["parentItem", ["subexpr", "@mut", [["get", "model", ["loc", [null, [93, 35], [93, 40]]]]], [], []], "model", ["subexpr", "@mut", [["get", "descendants", ["loc", [null, [93, 47], [93, 58]]]]], [], []], "recs", ["subexpr", "@mut", [["get", "recs", ["loc", [null, [93, 64], [93, 68]]]]], [], []], "majorSectionType", "item", "prefilterAttribute", "trackingStatus"], ["loc", [null, [93, 0], [93, 130]]]], ["inline", "center-marker", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [96, 22], [96, 27]]]]], [], []]], ["loc", [null, [96, 0], [96, 29]]]]],
       locals: [],
-      templates: [child0, child1, child2, child3, child4, child5]
+      templates: [child0, child1, child2, child3, child4, child5, child6, child7, child8, child9]
     };
   })());
 });
@@ -14389,7 +15825,7 @@ catch(err) {
 
 /* jshint ignore:start */
 if (!runningTests) {
-  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+8e020fcf"});
+  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+df78c3e8"});
 }
 /* jshint ignore:end */
 //# sourceMappingURL=tripmind.map

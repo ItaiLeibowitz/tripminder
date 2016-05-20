@@ -39,7 +39,7 @@ anypage_cex.showMessage = function(options){
 		}
 	}
 	if (typeof(updateRhsStatus) == 'function' && !options.keepOpen){
-		updateRhsStatus(options.trackingStatus);
+		updateRhsStatus(options.trackingStatus, options.itemData);
 	}
 };
 
