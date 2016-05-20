@@ -5602,6 +5602,7 @@ define('tripmind/routes/item', ['exports', 'ember', 'tripmind/appconfig/utils', 
 											updatedAttributes.isTemporary = true;
 											updatedAttributes.lat = updatedAttributes.latitude;
 											updatedAttributes.lng = updatedAttributes.longitude;
+											updatedAttributes.rating = updatedAttributes.rating / 10;
 											var newTempName = "tmp" + result.attributes['ancestry-names'] + "/" + result.attributes.name;
 											newTempName = newTempName.replace(/[\s\/]/g, "-");
 

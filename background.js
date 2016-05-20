@@ -379,7 +379,7 @@ function registerUrl(data) {
 							});
 						// otherwise, this is a new url we don't know about yet...
 					} else {
-						// if we already found the link before then this is its item
+						// if the user already found the item manually then we link to that
 						if (data.forcedItemPlaceId) {
 							return TripmindStore.findRecord('item', data.forcedItemPlaceId)
 								.then(function (itemRecord) {
@@ -402,10 +402,49 @@ function registerUrl(data) {
 										uncertain: true
 									}
 								});
+						} else {
+							//Here we will try to find a place based on the link's title
+							var query = {query: data.title};
+							findPlaceFromQuery(query, data)
+								.then(function (itemRecord) {
+									if (TmConstants.GOOGLE_PLACE_ANY_RELEVANT_TYPES.indexOf(itemRecord.get('itemType')) > -1) {
+										TripMinder.currentItem = itemRecord;
+
+
+										// If the item is being tracked then we continue otherwise nothing
+										var trackingStatus = itemRecord.get('trackingStatus');
+										if (trackingStatus) {
+
+											ItemDetailsService.getAdditionalItemInfo(itemRecord.get('id'))
+
+											// we need to create a link record for this item now:
+											var now = moment().format("X");
+											var newLinkRecord = TripmindStore.createRecord('potentialLink', {
+												id: data.url,
+												createdAt: now,
+												item: itemRecord
+											});
+											newLinkRecord.save();
+											itemRecord.save();
+											return {
+												itemRecord: itemRecord,
+												potentialLink: newLinkRecord,
+												uncertain: true
+											}
+										}
+									} else {
+										itemRecord.destroy();
+									}
+								}, function () {
+									TripMinder.currentItem = null;
+								});
+
+
+							// Or if we didn't find anything, we return null...
+							console.log('i have no information about this link...')
+							ga('send', 'event', 'registerUrl', 'failure', 'not found');
+							return null
 						}
-						console.log('i have no information about this link...')
-						ga('send', 'event', 'registerUrl', 'failure', 'not found');
-						return null
 					}
 
 				});
