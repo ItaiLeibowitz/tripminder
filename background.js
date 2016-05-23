@@ -342,7 +342,7 @@ function registerUrl(data) {
 			})
 				// if the link was found on the server, we have a gmaps reference for it and can connect it to an item
 				.then(function (linkData) {
-					if (linkData.data) {
+					if (linkData.data && linkData.data.attributes['gmaps-reference']) {
 						//console.log('link found on server', linkData)
 						ga('send', 'event', 'registerUrl', 'success', 'found on server');
 
@@ -479,6 +479,33 @@ function registerUrl(data) {
 					sendLinkDataMessage(result.itemRecord, trackingStatus, $.extend(result.potentialLink.toJSON(), {id: data.url}), data.targetMsgId, 0);
 				}
 			}
+		})
+
+}
+
+function deregisterUrl(data){
+	console.log('incoming data:', data)
+	TripmindStore.findRecord('potentialLink', data.url, {reload: true})
+	.then(function(potentialLink){
+			ga('send', 'event', 'deregisterUrl', 'success', 'found in local store');
+			potentialLink.destroyRecord();
+			$.ajax({
+				url: 'https://www.wanderant.com/api/tm/tm_links/increment_visits',
+				type: 'GET',
+				data: {
+					id: data.url,
+					uncertain: true
+				}
+			});
+			chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+				if (!tabs[0]) return;
+				chrome.tabs.sendMessage(tabs[0].id, {
+					target: 'dropdown_viewer',
+					method: 'runFunction',
+					methodName: "updateMessageContent",
+					data: {clearAll: true}
+				});
+			});
 		})
 
 }

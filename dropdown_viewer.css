@@ -114,6 +114,8 @@ body{
 	font-weight: bold;
 	color: #333;
 	line-height: 1em;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .editable {
@@ -144,6 +146,17 @@ body{
 	text-align: center;
 	font-size: 0.8em;
 	line-height: 2em;
+}
+
+.unlink-btn{
+	text-align: right;
+	opacity: 0.75;
+	right: 0;
+	top: 0;
+	font-style: italic;
+	padding: 0 1em;
+	cursor: pointer;
+	font-size: 0.8em;
 }
 
 

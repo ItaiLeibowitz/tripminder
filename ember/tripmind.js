@@ -5479,7 +5479,7 @@ define('tripmind/routes/collection', ['exports', 'ember', 'tripmind/appconfig/pr
 				var compressedData = result.data.attributes.data,
 				    unpackedData = lzwCompress.unpack(compressedData),
 				    rebuiltData = JSON.parse(unpackedData);
-				store.push({ data: rebuiltData });
+				var objects = store.push({ data: rebuiltData });
 				return store.peekRecord('collection', collectionId);
 			});
 		},
@@ -15826,7 +15826,7 @@ catch(err) {
 
 /* jshint ignore:start */
 if (!runningTests) {
-  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+df78c3e8"});
+  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+3cc45a7f"});
 }
 /* jshint ignore:end */
 //# sourceMappingURL=tripmind.map

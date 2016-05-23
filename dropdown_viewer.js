@@ -29,8 +29,18 @@ function cancelClose(){
 }
 
 function updateMessageContent(data){
-
 	var $message = $('#message');
+	if (data.clearAll){
+		console.log('clearing all')
+		$message.find('.message-title, .name, .type, .editable').html('');
+		$message.find('.editable').attr('data-record-type', '');
+		$message.find('.editable').attr('data-id', '');
+		$message.find('.editable').attr('data-field', '');
+		$message.find('.image').attr('src', '');
+		$('.hide-if-empty').addClass('hidden');
+		$('.search-field-holder').removeClass('hidden');
+		return;
+	}
 	if (data.title) $message.find('.message-title').html(data.title);
 	if (data.name) $message.find('.name').html(data.name);
 	if (data.itemType) $message.find('.type').html(data.itemType ? data.itemType.replace(/_/g, " ") : "");
@@ -162,6 +172,19 @@ function setupOtherClicks() {
 			data: {
 				name: $('.name').text(),
 				state: false
+			}
+		}, function(){
+			console.log('message back received!')
+			closeMessage();
+		});
+	});
+	$(document).on('click.fixWrongLink', '.unlink-btn', function(){
+		chrome.runtime.sendMessage({
+			target: 'background',
+			method: 'runFunction',
+			methodName: "deregisterUrl",
+			data: {
+				url: document.referrer
 			}
 		}, function(){
 			console.log('message back received!')
