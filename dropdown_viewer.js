@@ -211,14 +211,34 @@ function setupSearchField(){
 				methodName: "updateSearch",
 				data: request.term
 			}, function(results){
-				response($.map(results, function (prediction, i) {
+				var options = $.map(results, function (prediction, i) {
 					return {
 						label: prediction.description
 					}
-				}));
+				});
+				options.push({label: "Not listed? Add manually", value: 'other'});
+				response(options);
 			});
 		},
 		select: function(event, ui){
+			// If the user chose 'add manually'
+			 if (ui.item.value == 'other') {
+				 var term = $('#search-field').autocomplete('instance').term
+				 updateMessageForLink({
+					 item: {name: term},
+					 link: {note: null, id: document.referrer},
+					 trackingStatus: true
+				 });
+				 chrome.runtime.sendMessage({
+					 target: 'background',
+					 method: 'runFunction',
+					 methodName: "createManually",
+					 data: {
+						 name: term
+					 }
+				 });
+				 return;
+			 }
 			updateMessageForLink({
 				item: {name: ui.item.label},
 				link: {note: null, id: document.referrer},

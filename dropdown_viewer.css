@@ -170,6 +170,17 @@ body{
 	margin: 0;
 }
 
+.ui-menu-item:last-child{
+	font-style: italic;
+	color: #999;
+	background: none !important;
+
+}
+.ui-menu-item:last-child:hover {
+ 	color: black;
+}
+
+
 .ui-widget-content .ui-state-focus {
 	background: #E3F3F6;
 	border: none;

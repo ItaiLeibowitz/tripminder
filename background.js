@@ -97,6 +97,44 @@ function selectSearch(data){
 	})
 };
 
+function createManually(data){
+	chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+		if (!tabs[0]) return;
+		var currentUrl = tabs[0].url;
+		findPlaceFromName(data.name)
+			.then(function (itemRecord) {
+				TripMinder.currentItem = itemRecord;
+
+
+				// Add the potential links to the store if the item is being tracked
+				var trackingStatus = itemRecord.get('trackingStatus');
+				if (trackingStatus) {
+					var now = moment().format("X");
+				}
+				var link = {
+					id: currentUrl,
+					note: null
+				};
+
+				sendLinkDataMessage(itemRecord, trackingStatus, link, null, 0);
+
+
+				// Register the url
+				chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+					if (!tabs[0]) return;
+					chrome.tabs.sendMessage(tabs[0].id, {
+						target: 'content-viewer',
+						method: 'runFunction',
+						methodName: "registerUrl",
+						data: itemRecord.get('id')
+					});
+				});
+
+			})
+	})
+};
+
+
 function toggleTracking(data, callback) {
 	if (data.name == TripMinder.currentItem.get('name')) {
 		TripmindStore.findRecord('item', TripMinder.currentItem.get('id'), {reload: true})
@@ -259,6 +297,23 @@ function findPlaceFromPlaceId(placeId, item){
 		})
 		.catch(function (notFound) {
 			var itemRecord = TripmindStore.createRecord('item', $.extend(item, {id: placeId}));
+			return itemRecord.save();
+		});
+}
+
+
+
+function findPlaceFromName(name){
+	return TripmindStore.findAll('item')
+		.then(function (itemRecords) {
+			var foundItem = itemRecords.find(function(record){
+				record.get('name') == name
+			});
+			if (foundItem) return foundItem;
+			return Promise.reject('oh, no!');
+		})
+		.catch(function (notFound) {
+			var itemRecord = TripmindStore.createRecord('item', {id: "M" + Math.random(), name: name});
 			return itemRecord.save();
 		});
 }
