@@ -429,9 +429,12 @@ function registerUrl(data) {
 								return {
 									itemRecord: itemRecord,
 									potentialLink: newLinkRecord,
-									uncertain:linkData.data.attributes['uncertain']
+									uncertain: linkData.data.attributes['uncertain']
 								}
 							});
+						// if we have data about this link but it's uncertain and empty
+					} else if (linkData) {
+						return null;
 						// otherwise, this is a new url we don't know about yet...
 					} else {
 						// if the user already found the item manually then we link to that
@@ -501,6 +504,7 @@ function registerUrl(data) {
 							return null
 						}
 					}
+
 
 				});
 		})
