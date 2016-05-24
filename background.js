@@ -274,7 +274,8 @@ function findPlaceFromQuery(query, data) {
 	return new Promise(function (resolve, reject) {
 		gmaps.placesService.textSearch(query, function (results, status, next_page_token) {
 			if (status == google.maps.places.PlacesServiceStatus.OK) {
-				if (results && results.length > 0) {
+				if (results && results.length == 1) {
+					console.log('search results:', results)
 					var item = buildItemInfoFromResults(data || {}, results[0]);
 					findPlaceFromPlaceId(item.gmapsReference, item)
 						.then(function (itemRecord) {
@@ -473,14 +474,32 @@ function registerUrl(data) {
 									if (TmConstants.GOOGLE_PLACE_ANY_RELEVANT_TYPES.indexOf(itemType) > -1) {
 										TripMinder.currentItem = itemRecord;
 
-										//If it's a point of interest, we only return it if it has a rating
-										if (itemType=='point_of_interest' || itemType == "point of interest") {
-											if (!itemRecord.get('rating')) {
-												console.log('found item but it is a poi without rating so probably not trip related')
-												ga('send', 'event', 'registerUrl', 'failure', 'found but poi wo rating');
-												return null;
+
+										//Several criteria if we think this is the item or not
+										var isCorrect, isIncorrect;
+										var querySimilarity = Levenshtein.compoundDistance(Levenshtein.lwDistance,itemRecord.get('name'),query.query,2)
+										if (querySimilarity > 0.85) isCorrect = true;
+										if (querySimilarity < 0.6) isIncorrect = true;
+										console.log('querySimilarity:', querySimilarity)
+
+										if (isIncorrect) {
+											console.log('found item but its name is too different from the query')
+											ga('send', 'event', 'registerUrl', 'failure', 'found but poi wo rating');
+											return null;
+										}
+										if (!isCorrect){
+											//If it's a point of interest, we only return it if it has a rating
+											if (itemType=='point_of_interest' || itemType == "point of interest") {
+												if (!itemRecord.get('rating')) {
+													console.log('found item but it is a poi without rating so probably not trip related')
+													ga('send', 'event', 'registerUrl', 'failure', 'found but poi wo rating');
+													return null;
+												}
 											}
 										}
+
+
+
 
 										// If the item is being tracked then we continue otherwise nothing
 										var trackingStatus = itemRecord.get('trackingStatus');
