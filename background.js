@@ -307,7 +307,7 @@ function findPlaceFromName(name){
 	return TripmindStore.findAll('item')
 		.then(function (itemRecords) {
 			var foundItem = itemRecords.find(function(record){
-				record.get('name') == name
+				return record.get('name') == name
 			});
 			if (foundItem) return foundItem;
 			return Promise.reject('oh, no!');
@@ -398,7 +398,7 @@ function registerUrl(data) {
 				// if the link was found on the server, we have a gmaps reference for it and can connect it to an item
 				.then(function (linkData) {
 					if (linkData.data && linkData.data.attributes['gmaps-reference']) {
-						//console.log('link found on server', linkData)
+						console.log('link found on server', linkData)
 						ga('send', 'event', 'registerUrl', 'success', 'found on server');
 
 						var gmapsReference = linkData.data.attributes['gmaps-reference'];
@@ -433,7 +433,8 @@ function registerUrl(data) {
 								}
 							});
 						// if we have data about this link but it's uncertain and empty
-					} else if (linkData) {
+					} else if (linkData.data && !data.forcedItemPlaceId) {
+						console.log('found link on server but no item with it')
 						return null;
 						// otherwise, this is a new url we don't know about yet...
 					} else {
@@ -461,13 +462,25 @@ function registerUrl(data) {
 									}
 								});
 						} else {
-							//Here we will try to find a place based on the link's title
-							var query = {query: data.title};
-							findPlaceFromQuery(query, data)
+							//Here we will try to find a place based on the link's title :
+							var titleSeparatorRegexp = /(.+?)(?=\s*(?=\s-|:|\||;|\\|\|\,|\/|\+|\.|\u2013|\u2014))/;
+							var queryMatch = data.title.match(titleSeparatorRegexp);
+							var query = {query: queryMatch ? queryMatch[0] : data.title};
+							console.log('query:', query.query)
+							return findPlaceFromQuery(query, data)
 								.then(function (itemRecord) {
-									if (TmConstants.GOOGLE_PLACE_ANY_RELEVANT_TYPES.indexOf(itemRecord.get('itemType')) > -1) {
+									var itemType = itemRecord.get('itemType');
+									if (TmConstants.GOOGLE_PLACE_ANY_RELEVANT_TYPES.indexOf(itemType) > -1) {
 										TripMinder.currentItem = itemRecord;
 
+										//If it's a point of interest, we only return it if it has a rating
+										if (itemType=='point_of_interest' || itemType == "point of interest") {
+											if (!itemRecord.get('rating')) {
+												console.log('found item but it is a poi without rating so probably not trip related')
+												ga('send', 'event', 'registerUrl', 'failure', 'found but poi wo rating');
+												return null;
+											}
+										}
 
 										// If the item is being tracked then we continue otherwise nothing
 										var trackingStatus = itemRecord.get('trackingStatus');
@@ -492,16 +505,22 @@ function registerUrl(data) {
 										}
 									} else {
 										itemRecord.destroy();
+
+										// Or if we didn't find anything, we return null...
+										console.log('i found information but the place is not trip related...')
+										ga('send', 'event', 'registerUrl', 'failure', 'found but not trip');
+										return null
 									}
 								}, function () {
 									TripMinder.currentItem = null;
+
+									// Or if we didn't find anything, we return null...
+									console.log('i have no information about this link...')
+									ga('send', 'event', 'registerUrl', 'failure', 'not found');
+									return null
 								});
 
 
-							// Or if we didn't find anything, we return null...
-							console.log('i have no information about this link...')
-							ga('send', 'event', 'registerUrl', 'failure', 'not found');
-							return null
 						}
 					}
 

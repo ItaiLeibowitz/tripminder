@@ -178,20 +178,14 @@ function setupOtherClicks() {
 			closeMessage();
 		});
 	});
-	$(document).on('click.fixWrongLink', '.unlink-btn', function(){
+	$(document).on('click.fixWrongLink', '.unlink-btn', function () {
+		console.log('got deregister click')
 		chrome.runtime.sendMessage({
-			target: 'background',
+			target: 'content-viewer',
 			method: 'runFunction',
-			methodName: "deregisterUrl",
-			data: {
-				url: document.referrer
-			}
-		}, function(){
-			console.log('message back received!')
-			closeMessage();
+			methodName: "deregisterUrl"
 		});
-	})
-
+	});
 }
 
 function setupAutoSave() {

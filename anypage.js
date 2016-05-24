@@ -101,6 +101,21 @@ anypage_registerUrl = function(forcedItemPlaceId){
 
 anypage_cex.registerUrl = anypage_registerUrl;
 
+anypage_deregisterUrl = function(){
+	console.log('deregister on anypage')
+	chrome.runtime.sendMessage({
+		target: 'background',
+		method: 'runFunction',
+		methodName: "deregisterUrl",
+		data: {
+			url: document.location.toString()
+		}
+	});
+}
+
+anypage_cex.deregisterUrl = anypage_deregisterUrl;
+
+
 function anypage_setupButtons(){
 }
 

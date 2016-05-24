@@ -915,6 +915,10 @@ a {
   width: 27em;
   margin-bottom: 1em;
   vertical-align: top; }
+  .rhs .top-details {
+    position: relative; }
+    .rhs .top-details:hover .toggle-draggable {
+      display: block; }
   .rhs .main-image, .rhs .map-placeholder {
     height: 13em;
     width: 13em;
@@ -926,6 +930,24 @@ a {
       line-height: 2em; }
       .rhs .main-image .map-expand-toggle:before, .rhs .map-placeholder .map-expand-toggle:before {
         content: "o"; }
+  .rhs .toggle-draggable {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: .5em;
+    background: #777;
+    color: white;
+    font-size: 1.5em;
+    line-height: 2em;
+    width: 2em;
+    text-align: center; }
+  .rhs .drag-explanation {
+    position: absolute;
+    background-color: #333;
+    color: white;
+    font-size: 0.8em;
+    border-radius: 5px;
+    padding: 5px; }
 
 .details-holder {
   background: white;

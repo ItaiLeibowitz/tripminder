@@ -169,7 +169,7 @@ define('tripmind/appconfig/constants', ['exports', 'ember', 'tripmind/config/env
 		GOOGLE_PLACE_NIGHTLIFE_TYPES: ["bar", "casino", "movie_theater", "night_club"],
 		GOOGLE_PLACE_HOTEL_TYPES: ["lodging"],
 		DAY_NAMES: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-		GOOGLE_TYPE_FILTER_CATEGORIES: [{ type: "art_gallery", filterOption: "Art", duration: 1800 }, { type: 'art work', filterOption: "Art", duration: 1800 }, { type: 'gallery', filterOption: "Art", duration: 5400 }, { type: 'Art Museum', filterOption: "Art", duration: 5400 }, { type: "administrative_area_level_1", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_2", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_3", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_4", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_5", filterOption: "Destination", duration: 1800 }, { type: "colloquial_area", filterOption: "Destination", duration: 1800 }, { type: "country", filterOption: "Destination", duration: 1800 }, { type: "geocode", filterOption: "Destination", duration: 1800 }, { type: "intersection", filterOption: "Destination", duration: 1800 }, { type: "locality", filterOption: "Destination", duration: 1800 }, { type: "neighborhood", filterOption: "Destination", duration: 1800 }, { type: "political", filterOption: "Destination", duration: 1800 }, { type: "post_box", filterOption: "Destination", duration: 1800 }, { type: "postal_code", filterOption: "Destination", duration: 1800 }, { type: "postal_code_prefix", filterOption: "Destination", duration: 1800 }, { type: "postal_code_suffix", filterOption: "Destination", duration: 1800 }, { type: "postal_town", filterOption: "Destination", duration: 1800 }, { type: "route", filterOption: "Destination", duration: 1800 }, { type: "street_address", filterOption: "Destination", duration: 1800 }, { type: "street_number", filterOption: "Destination", duration: 1800 }, { type: "sublocality", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_1", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_2", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_3", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_4", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_5", filterOption: "Destination", duration: 1800 }, { type: 'continent', filterOption: "Destination", duration: 1209600 }, { type: 'world region', filterOption: "Destination", duration: 1209600 }, { type: 'region', filterOption: "Destination", duration: 259200 }, { type: 'state', filterOption: "Destination", duration: 432000 }, { type: 'province', filterOption: "Destination", duration: 172800 }, { type: 'department', filterOption: "Destination", duration: 172800 }, { type: 'area', filterOption: "Destination", duration: 86400 }, { type: 'archipelago', filterOption: "Destination", duration: 86400 }, { type: 'islands', filterOption: "Destination", duration: 86400 }, { type: 'island', filterOption: "Destination", duration: 86400 }, { type: 'cape', filterOption: "Destination", duration: 14400 }, { type: 'county', filterOption: "Destination", duration: 14400 }, { type: 'district', filterOption: "Destination", duration: 14400 }, { type: 'peninsula', filterOption: "Destination", duration: 14400 }, { type: 'valley', filterOption: "Destination", duration: 14400 }, { type: 'city', filterOption: "Destination", duration: 172800 }, { type: 'capital city', filterOption: "Destination", duration: 172800 }, { type: 'municipality', filterOption: "Destination", duration: 172800 }, { type: 'town', filterOption: "Destination", duration: 14400 }, { type: 'township', filterOption: "Destination", duration: 14400 }, { type: 'village', filterOption: "Destination", duration: 14400 }, { type: 'resort', filterOption: "Destination", duration: 14400 }, { type: 'beach resort', filterOption: "Destination", duration: 14400 }, { type: 'ski resort', filterOption: "Destination", duration: 14400 }, { type: 'commune', filterOption: "Destination", duration: 7200 }, { type: 'suburb', filterOption: "Destination", duration: 7200 }, { type: 'hamlet', filterOption: "Destination", duration: 1800 }, { type: 'borough', filterOption: "Destination", duration: 1800 }, { type: 'red light district', filterOption: "Destination", duration: 7200 }, { type: 'street', filterOption: "Destination", duration: 3600 }, { type: 'passage', filterOption: "Destination", duration: 1800 }, { type: "casino", filterOption: "Entertainment", duration: 7200 }, { type: "movie_theater", filterOption: "Entertainment", duration: 9000 }, { type: "stadium", filterOption: "Entertainment", duration: 9000 }, { type: 'entertainment', filterOption: "Entertainment", duration: 3600 }, { type: 'bowling alley', filterOption: "Entertainment", duration: 5400 }, { type: 'casino', filterOption: "Entertainment", duration: 5400 }, { type: 'movie theater', filterOption: "Entertainment", duration: 9000 }, { type: 'performance venue', filterOption: "Entertainment", duration: 7200 }, { type: 'sport venue', filterOption: "Entertainment", duration: 7200 }, { type: 'stadium', filterOption: "Entertainment", duration: 1800 }, { type: 'Race Car Track', filterOption: "Entertainment", duration: 5400 }, { type: 'Theater', filterOption: "Entertainment", duration: 9000 }, { type: 'Water sports', filterOption: "Entertainment", duration: 7200 }, { type: 'Opera house', filterOption: "Entertainment", duration: 7200 }, { type: 'festival', filterOption: "Entertainment", duration: 10800 }, { type: 'race track', filterOption: "Entertainment", duration: 7200 }, { type: 'amphitheater', filterOption: "Entertainment", duration: 5400 }, { type: 'arena', filterOption: "Entertainment", duration: 3600 }, { type: 'arcade', filterOption: "Entertainment", duration: 3600 }, { type: 'ice skating', filterOption: "Entertainment", duration: 5400 }, { type: "amusement_park", filterOption: "Family", duration: 14400 }, { type: 'amusement park', filterOption: "Family", duration: 7200 }, { type: 'Water Park', filterOption: "Family", duration: 7200 }, { type: 'theme park', filterOption: "Family", duration: 10800 }, { type: 'roller coaster', filterOption: "Family", duration: 1800 }, { type: 'archaeological site', filterOption: "History", duration: 1800 }, { type: 'world heritage site', filterOption: "History", duration: 1800 }, { type: 'historic site', filterOption: "History", duration: 3600 }, { type: 'reservation', filterOption: "Nature", duration: 3600 }, { type: 'concentration camp', filterOption: "History", duration: 5400 }, { type: 'historic building', filterOption: "History", duration: 5400 }, { type: "lodging", filterOption: "Hotels", duration: 0 }, { type: 'accommodation', filterOption: "Hotels", duration: 0 }, { type: 'hotel', filterOption: "Hotels", duration: 0 }, { type: 'motel', filterOption: "Hotels", duration: 0 }, { type: "city_hall", filterOption: "Landmark", duration: 1800 }, { type: "library", filterOption: "Landmark", duration: 1800 }, { type: "local_government_office", filterOption: "Landmark", duration: 1800 }, { type: 'landmark', filterOption: "Landmark", duration: 1800 }, { type: 'monument', filterOption: "Landmark", duration: 1800 }, { type: 'gate', filterOption: "Landmark", duration: 1800 }, { type: 'bridge', filterOption: "Landmark", duration: 1800 }, { type: 'dam', filterOption: "Landmark", duration: 1800 }, { type: 'statue', filterOption: "Landmark", duration: 1800 }, { type: 'memorial', filterOption: "Landmark", duration: 1800 }, { type: 'fountain', filterOption: "Landmark", duration: 1800 }, { type: 'sculpture', filterOption: "Landmark", duration: 1800 }, { type: 'aqueduct', filterOption: "Landmark", duration: 1800 }, { type: 'lighthouse', filterOption: "Landmark", duration: 1800 }, { type: 'mausoleum', filterOption: "Landmark", duration: 1800 }, { type: 'pier', filterOption: "Landmark", duration: 3600 }, { type: 'port', filterOption: "Landmark", duration: 3600 }, { type: 'canal', filterOption: "Landmark", duration: 3600 }, { type: 'square', filterOption: "Landmark", duration: 1800 }, { type: 'viewpoint', filterOption: "Landmark", duration: 1800 }, { type: "beauty_salon", filterOption: "Lifestyle", duration: 1800 }, { type: "gym", filterOption: "Lifestyle", duration: 5400 }, { type: "spa", filterOption: "Lifestyle", duration: 1800 }, { type: 'bath house', filterOption: "Lifestyle", duration: 3600 }, { type: 'pool', filterOption: "Lifestyle", duration: 3600 }, { type: "museum", filterOption: "Museum", duration: 3600 }, { type: 'History Museum', filterOption: "Museum", duration: 5400 }, { type: 'Military Museum', filterOption: "Museum", duration: 5400 }, { type: 'Natural History Museum', filterOption: "Museum", duration: 5400 }, { type: 'Science Museum', filterOption: "Museum", duration: 5400 }, { type: 'Specialty Museum', filterOption: "Museum", duration: 5400 }, { type: "aquarium", filterOption: "Nature", duration: 3600 }, { type: "natural_feature", filterOption: "Nature", duration: 3600 }, { type: 'reservoir', filterOption: "Nature", duration: 1800 }, { type: 'natural feature', filterOption: "Nature", duration: 3600 }, { type: 'garden', filterOption: "Nature", duration: 3600 }, { type: 'body of water', filterOption: "Nature", duration: 1800 }, { type: 'canyon', filterOption: "Nature", duration: 1800 }, { type: 'cave', filterOption: "Nature", duration: 1800 }, { type: 'desert', filterOption: "Nature", duration: 3600 }, { type: 'forest', filterOption: "Nature", duration: 3600 }, { type: 'hill', filterOption: "Nature", duration: 5400 }, { type: 'lake', filterOption: "Nature", duration: 5400 }, { type: 'mountain', filterOption: "Nature", duration: 14400 }, { type: 'river', filterOption: "Nature", duration: 1800 }, { type: 'volcano', filterOption: "Nature", duration: 14400 }, { type: 'waterfall', filterOption: "Nature", duration: 3600 }, { type: 'waterfront', filterOption: "Nature", duration: 3600 }, { type: 'park', filterOption: "Nature", duration: 3600 }, { type: 'bird watching', filterOption: "Nature", duration: 5400 }, { type: 'outdoors', filterOption: "Nature", duration: 3600 }, { type: 'zoo', filterOption: "Nature", duration: 5400 }, { type: 'aquarium', filterOption: "Nature", duration: 5400 }, { type: 'Geologic Formation', filterOption: "Nature", duration: 1800 }, { type: 'Hot Spring', filterOption: "Nature", duration: 3600 }, { type: 'National Park', filterOption: "Nature", duration: 7200 }, { type: 'Scenic Drive', filterOption: "Nature", duration: 5400 }, { type: 'Trail', filterOption: "Nature", duration: 5400 }, { type: 'Safari', filterOption: "Nature", duration: 10800 }, { type: 'Marine park', filterOption: "Nature", duration: 7200 }, { type: 'Botanical garden', filterOption: "Nature", duration: 7200 }, { type: 'Tree', filterOption: "Nature", duration: 1800 }, { type: 'summit', filterOption: "Nature", duration: 1800 }, { type: 'peak', filterOption: "Nature", duration: 1800 }, { type: 'mountain range', filterOption: "Nature", duration: 14400 }, { type: 'glacier', filterOption: "Nature", duration: 7200 }, { type: 'pinnacle', filterOption: "Nature", duration: 1800 }, { type: 'pass', filterOption: "Nature", duration: 5400 }, { type: 'pond', filterOption: "Nature", duration: 1800 }, { type: 'bay', filterOption: "Nature", duration: 3600 }, { type: 'fjord', filterOption: "Nature", duration: 7200 }, { type: 'jungle', filterOption: "Nature", duration: 10800 }, { type: 'lagoon', filterOption: "Nature", duration: 5400 }, { type: 'crater', filterOption: "Nature", duration: 5400 }, { type: 'nature reserve', filterOption: "Nature", duration: 7200 }, { type: 'swamp', filterOption: "Nature", duration: 5400 }, { type: 'wildlife reserve', filterOption: "Nature", duration: 7200 }, { type: 'stream', filterOption: "Nature", duration: 3600 }, { type: 'reef', filterOption: "Nature", duration: 10800 }, { type: 'ice field', filterOption: "Nature", duration: 7200 }, { type: 'estuary', filterOption: "Nature", duration: 1800 }, { type: 'strait', filterOption: "Nature", duration: 3600 }, { type: 'cliff', filterOption: "Nature", duration: 3600 }, { type: 'hiking', filterOption: "Nature", duration: 10800 }, { type: 'diving', filterOption: "Nature", duration: 21600 }, { type: 'fishing', filterOption: "Nature", duration: 5400 }, { type: 'animal rides', filterOption: "Nature", duration: 5400 }, { type: 'beach', filterOption: "Nature", duration: 5400 }, { type: 'farm', filterOption: "Nature", duration: 1800 }, { type: "bar", filterOption: "Nightlife", duration: 3600 }, { type: "night_club", filterOption: "Nightlife", duration: 1800 }, { type: 'nightlife', filterOption: "Nightlife", duration: 7200 }, { type: 'night club', filterOption: "Nightlife", duration: 7200 }, { type: 'dance club', filterOption: "Nightlife", duration: 7200 }, { type: 'gay bar', filterOption: "Nightlife", duration: 5400 }, { type: "accounting", filterOption: "Other", duration: 1800 }, { type: "airport", filterOption: "Other", duration: 3600 }, { type: "atm", filterOption: "Other", duration: 1800 }, { type: "bank", filterOption: "Other", duration: 1800 }, { type: "bicycle_store", filterOption: "Other", duration: 1800 }, { type: "bowling_alley", filterOption: "Other", duration: 1800 }, { type: "bus_station", filterOption: "Other", duration: 1800 }, { type: "campground", filterOption: "Other", duration: 1800 }, { type: "car_dealer", filterOption: "Other", duration: 1800 }, { type: "car_rental", filterOption: "Other", duration: 1800 }, { type: "car_repair", filterOption: "Other", duration: 1800 }, { type: "car_wash", filterOption: "Other", duration: 1800 }, { type: "cemetery", filterOption: "Other", duration: 1800 }, { type: "courthouse", filterOption: "Other", duration: 1800 }, { type: "dentist", filterOption: "Other", duration: 1800 }, { type: "doctor", filterOption: "Other", duration: 1800 }, { type: "electrician", filterOption: "Other", duration: 1800 }, { type: "embassy", filterOption: "Other", duration: 1800 }, { type: "establishment", filterOption: "Other", duration: 1800 }, { type: "finance", filterOption: "Other", duration: 1800 }, { type: "fire_station", filterOption: "Other", duration: 1800 }, { type: "floor", filterOption: "Other", duration: 1800 }, { type: "food", filterOption: "Other", duration: 3600 }, { type: "funeral_home", filterOption: "Other", duration: 1800 }, { type: "gas_station", filterOption: "Other", duration: 1800 }, { type: "general_contractor", filterOption: "Other", duration: 1800 }, { type: "grocery_or_supermarket", filterOption: "Other", duration: 1800 }, { type: "hair_care", filterOption: "Other", duration: 1800 }, { type: "health", filterOption: "Other", duration: 1800 }, { type: "hospital", filterOption: "Other", duration: 1800 }, { type: "insurance_agency", filterOption: "Other", duration: 1800 }, { type: "laundry", filterOption: "Other", duration: 1800 }, { type: "lawyer", filterOption: "Other", duration: 1800 }, { type: "locksmith", filterOption: "Other", duration: 1800 }, { type: "meal_delivery", filterOption: "Other", duration: 1800 }, { type: "meal_takeaway", filterOption: "Other", duration: 1800 }, { type: "movie_rental", filterOption: "Other", duration: 1800 }, { type: "moving_company", filterOption: "Other", duration: 1800 }, { type: "painter", filterOption: "Other", duration: 1800 }, { type: "parking", filterOption: "Other", duration: 1800 }, { type: "pharmacy", filterOption: "Other", duration: 1800 }, { type: "physiotherapist", filterOption: "Other", duration: 1800 }, { type: "plumber", filterOption: "Other", duration: 1800 }, { type: "point_of_interest", filterOption: "Other", duration: 1800 }, { type: "point of interest", filterOption: "Other", duration: 1800 }, { type: "police", filterOption: "Other", duration: 1800 }, { type: "post_office", filterOption: "Other", duration: 1800 }, { type: "premise", filterOption: "Other", duration: 1800 }, { type: "real_estate_agency", filterOption: "Other", duration: 1800 }, { type: "roofing_contractor", filterOption: "Other", duration: 1800 }, { type: "room", filterOption: "Other", duration: 1800 }, { type: "rv_park", filterOption: "Other", duration: 1800 }, { type: "school", filterOption: "Other", duration: 1800 }, { type: "storage", filterOption: "Other", duration: 1800 }, { type: "subpremise", filterOption: "Other", duration: 1800 }, { type: "subway_station", filterOption: "Other", duration: 1800 }, { type: "taxi_stand", filterOption: "Other", duration: 1800 }, { type: "train_station", filterOption: "Other", duration: 1800 }, { type: "transit_station", filterOption: "Other", duration: 1800 }, { type: "travel_agency", filterOption: "Other", duration: 1800 }, { type: "university", filterOption: "Other", duration: 1800 }, { type: "veterinary_care", filterOption: "Other", duration: 1800 }, { type: "attraction", filterOption: "Other", duration: 1800 }, { type: 'mine', filterOption: "Other", duration: 3600 }, { type: 'cultural', filterOption: "Other", duration: 3600 }, { type: 'cultural site', filterOption: "Other", duration: 1800 }, { type: 'educational institution', filterOption: "Other", duration: 1800 }, { type: 'observatory', filterOption: "Other", duration: 3600 }, { type: 'science', filterOption: "Other", duration: 3600 }, { type: 'activity', filterOption: "Other", duration: 5400 }, { type: 'tour', filterOption: "Other", duration: 7200 }, { type: 'classes', filterOption: "Other", duration: 5400 }, { type: 'adventure', filterOption: "Other", duration: 10800 }, { type: 'boat tour', filterOption: "Other", duration: 10800 }, { type: 'golf', filterOption: "Other", duration: 10800 }, { type: 'private tour', filterOption: "Other", duration: 10800 }, { type: 'sightseeing tour', filterOption: "Other", duration: 5400 }, { type: 'swimming', filterOption: "Other", duration: 5400 }, { type: 'walking tour', filterOption: "Other", duration: 5400 }, { type: 'Marina', filterOption: "Other", duration: 7200 }, { type: 'Scenic/ Historic Walking Area', filterOption: "Other", duration: 5400 }, { type: 'Surf Camp', filterOption: "Other", duration: 7200 }, { type: 'climbing', filterOption: "Other", duration: 5400 }, { type: 'water sports', filterOption: "Other", duration: 5400 }, { type: 'cycling', filterOption: "Other", duration: 5400 }, { type: 'extreme sports', filterOption: "Other", duration: 5400 }, { type: 'scenic flight', filterOption: "Other", duration: 5400 }, { type: 'driving', filterOption: "Other", duration: 5400 }, { type: 'sports activity', filterOption: "Other", duration: 5400 }, { type: 'building', filterOption: "Other", duration: 1800 }, { type: 'cultural building', filterOption: "Other", duration: 1800 }, { type: 'government building', filterOption: "Other", duration: 1800 }, { type: 'mansion', filterOption: "Other", duration: 3600 }, { type: 'tower', filterOption: "Other", duration: 1800 }, { type: 'windmill', filterOption: "Other", duration: 1800 }, { type: 'architecture', filterOption: "Other", duration: 1800 }, { type: 'castle', filterOption: "Other", duration: 3600 }, { type: 'fortress', filterOption: "Other", duration: 3600 }, { type: 'library', filterOption: "Other", duration: 1800 }, { type: 'palace', filterOption: "Other", duration: 3600 }, { type: 'villa', filterOption: "Other", duration: 3600 }, { type: 'fortification', filterOption: "Other", duration: 1800 }, { type: 'fort', filterOption: "Other", duration: 3600 }, { type: 'edifice', filterOption: "Other", duration: 3600 }, { type: 'official residence', filterOption: "Other", duration: 5400 }, { type: 'royal residence', filterOption: "Other", duration: 5400 }, { type: 'prison', filterOption: "Other", duration: 5400 }, { type: 'apartment', filterOption: "Other", duration: 3600 }, { type: 'health', filterOption: "Other", duration: 1800 }, { type: 'dentist', filterOption: "Other", duration: 3600 }, { type: 'doctor', filterOption: "Other", duration: 1800 }, { type: 'hospital', filterOption: "Other", duration: 3600 }, { type: 'pharmacy', filterOption: "Other", duration: 1800 }, { type: 'physiotherapist', filterOption: "Other", duration: 1800 }, { type: 'business', filterOption: "Other", duration: 1800 }, { type: 'accounting', filterOption: "Other", duration: 1800 }, { type: 'industrial site', filterOption: "Other", duration: 1800 }, { type: 'Convention Center', filterOption: "Other", duration: 1800 }, { type: 'Factory Tour', filterOption: "Other", duration: 3600 }, { type: 'airport', filterOption: "Other", duration: 1800 }, { type: 'bus station', filterOption: "Other", duration: 1800 }, { type: 'car rental', filterOption: "Other", duration: 1800 }, { type: 'parking', filterOption: "Other", duration: 1800 }, { type: 'subway station', filterOption: "Other", duration: 1800 }, { type: 'taxi stand', filterOption: "Other", duration: 1800 }, { type: 'train station', filterOption: "Other", duration: 1800 }, { type: 'transit station', filterOption: "Other", duration: 1800 }, { type: 'ship', filterOption: "Other", duration: 5400 }, { type: 'railway', filterOption: "Other", duration: 5400 }, { type: 'submarine', filterOption: "Other", duration: 5400 }, { type: 'ferry', filterOption: "Other", duration: 3600 }, { type: 'floor', filterOption: "Other", duration: 1800 }, { type: 'geocode', filterOption: "Other", duration: 1800 }, { type: 'intersection', filterOption: "Other", duration: 1800 }, { type: 'atm', filterOption: "Other", duration: 1800 }, { type: 'bank', filterOption: "Other", duration: 1800 }, { type: 'beauty salon', filterOption: "Other", duration: 1800 }, { type: 'campground', filterOption: "Other", duration: 1800 }, { type: 'car dealer', filterOption: "Other", duration: 1800 }, { type: 'car repair', filterOption: "Other", duration: 1800 }, { type: 'car wash', filterOption: "Other", duration: 1800 }, { type: 'courthouse', filterOption: "Other", duration: 1800 }, { type: 'electrician', filterOption: "Other", duration: 1800 }, { type: 'embassy', filterOption: "Other", duration: 1800 }, { type: 'finance', filterOption: "Other", duration: 1800 }, { type: 'financial institution', filterOption: "Other", duration: 1800 }, { type: 'fire station', filterOption: "Other", duration: 1800 }, { type: 'funeral home', filterOption: "Other", duration: 1800 }, { type: 'gas station', filterOption: "Other", duration: 1800 }, { type: 'gear rentals', filterOption: "Other", duration: 1800 }, { type: 'general contractor', filterOption: "Other", duration: 1800 }, { type: 'hair care', filterOption: "Other", duration: 1800 }, { type: 'insurance agency', filterOption: "Other", duration: 1800 }, { type: 'laundry', filterOption: "Other", duration: 1800 }, { type: 'lawyer', filterOption: "Other", duration: 1800 }, { type: 'locksmith', filterOption: "Other", duration: 1800 }, { type: 'movie rental', filterOption: "Other", duration: 1800 }, { type: 'moving company', filterOption: "Other", duration: 1800 }, { type: 'painter', filterOption: "Other", duration: 1800 }, { type: 'plumber', filterOption: "Other", duration: 1800 }, { type: 'police', filterOption: "Other", duration: 1800 }, { type: 'post office', filterOption: "Other", duration: 1800 }, { type: 'real estate agency', filterOption: "Other", duration: 1800 }, { type: 'roofing contractor', filterOption: "Other", duration: 1800 }, { type: 'rv park', filterOption: "Other", duration: 1800 }, { type: 'school', filterOption: "Other", duration: 1800 }, { type: 'storage', filterOption: "Other", duration: 1800 }, { type: 'travel agency', filterOption: "Other", duration: 1800 }, { type: 'university', filterOption: "Other", duration: 1800 }, { type: 'veterinary care', filterOption: "Other", duration: 1800 }, { type: 'Military Base', filterOption: "Other", duration: 3600 }, { type: 'Visitor Center', filterOption: "Other", duration: 1800 }, { type: 'college', filterOption: "Other", duration: 1800 }, { type: 'community center', filterOption: "Other", duration: 1800 }, { type: 'radio station', filterOption: "Other", duration: 1800 }, { type: 'power station', filterOption: "Other", duration: 1800 }, { type: 'Military site', filterOption: "Other", duration: 1800 }, { type: 'travel services', filterOption: "Other", duration: 1800 }, { type: 'event', filterOption: "Other", duration: 3600 }, { type: "church", filterOption: "Religious", duration: 1800 }, { type: "hindu_temple", filterOption: "Religious", duration: 1800 }, { type: "mosque", filterOption: "Religious", duration: 1800 }, { type: "place_of_worship", filterOption: "Religious", duration: 1800 }, { type: "synagogue", filterOption: "Religious", duration: 1800 }, { type: 'religious site', filterOption: "Religious", duration: 1800 }, { type: 'hindu temple', filterOption: "Religious", duration: 1800 }, { type: 'mosque', filterOption: "Religious", duration: 1800 }, { type: 'place of worship', filterOption: "Religious", duration: 1800 }, { type: 'cemetery', filterOption: "Religious", duration: 1800 }, { type: 'temple', filterOption: "Religious", duration: 1800 }, { type: 'shrine', filterOption: "Religious", duration: 1800 }, { type: 'pagoda', filterOption: "Religious", duration: 1800 }, { type: 'basilica', filterOption: "Religious", duration: 1800 }, { type: 'chapel', filterOption: "Religious", duration: 1800 }, { type: 'abbey', filterOption: "Religious", duration: 1800 }, { type: 'monastery', filterOption: "Religious", duration: 3600 }, { type: 'baptistery', filterOption: "Religious", duration: 1800 }, { type: 'cloisters', filterOption: "Religious", duration: 1800 }, { type: "bakery", filterOption: "Restaurants", duration: 1800 }, { type: "cafe", filterOption: "Restaurants", duration: 1800 }, { type: "restaurant", filterOption: "Restaurants", duration: 5400 }, { type: 'food', filterOption: "Restaurants", duration: 3600 }, { type: 'meal delivery', filterOption: "Restaurants", duration: 1800 }, { type: 'meal takeaway', filterOption: "Restaurants", duration: 1800 }, { type: 'Coffee house', filterOption: "Restaurants", duration: 1800 }, { type: 'brewery', filterOption: "Restaurants", duration: 3600 }, { type: 'distillery', filterOption: "Restaurants", duration: 3600 }, { type: 'winery', filterOption: "Restaurants", duration: 1800 }, { type: "book_store", filterOption: "Shopping", duration: 1800 }, { type: "clothing_store", filterOption: "Shopping", duration: 1800 }, { type: "convenience_store", filterOption: "Shopping", duration: 1800 }, { type: "department_store", filterOption: "Shopping", duration: 1800 }, { type: "electronics_store", filterOption: "Shopping", duration: 1800 }, { type: "florist", filterOption: "Shopping", duration: 1800 }, { type: "furniture_store", filterOption: "Shopping", duration: 1800 }, { type: "hardware_store", filterOption: "Shopping", duration: 1800 }, { type: "home_goods_store", filterOption: "Shopping", duration: 1800 }, { type: "jewelry_store", filterOption: "Shopping", duration: 1800 }, { type: "liquor_store", filterOption: "Shopping", duration: 1800 }, { type: "pet_store", filterOption: "Shopping", duration: 1800 }, { type: "shoe_store", filterOption: "Shopping", duration: 1800 }, { type: "shopping_mall", filterOption: "Shopping", duration: 5400 }, { type: "store", filterOption: "Shopping", duration: 1800 }, { type: 'shopping mall', filterOption: "Shopping", duration: 5400 }, { type: 'bicycle store', filterOption: "Shopping", duration: 1800 }, { type: 'book store', filterOption: "Shopping", duration: 1800 }, { type: 'clothing store', filterOption: "Shopping", duration: 1800 }, { type: 'convenience store', filterOption: "Shopping", duration: 1800 }, { type: 'department store', filterOption: "Shopping", duration: 3600 }, { type: 'electronics store', filterOption: "Shopping", duration: 1800 }, { type: 'furniture store', filterOption: "Shopping", duration: 1800 }, { type: 'hardware store', filterOption: "Shopping", duration: 1800 }, { type: 'home goods store', filterOption: "Shopping", duration: 1800 }, { type: 'jewelry store', filterOption: "Shopping", duration: 1800 }, { type: 'liquor store', filterOption: "Shopping", duration: 1800 }, { type: 'pet store', filterOption: "Shopping", duration: 1800 }, { type: 'shoe store', filterOption: "Shopping", duration: 1800 }, { type: 'Gear Rental', filterOption: "Shopping", duration: 1800 }, { type: 'Shop', filterOption: "Shopping", duration: 1800 }, { type: 'Specialty Shop', filterOption: "Shopping", duration: 1800 }]
+		GOOGLE_TYPE_FILTER_CATEGORIES: [{ type: "art_gallery", filterOption: "Art", duration: 1800 }, { type: 'art work', filterOption: "Art", duration: 1800 }, { type: 'gallery', filterOption: "Art", duration: 5400 }, { type: 'Art Museum', filterOption: "Art", duration: 5400 }, { type: "administrative_area_level_1", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_2", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_3", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_4", filterOption: "Destination", duration: 1800 }, { type: "administrative_area_level_5", filterOption: "Destination", duration: 1800 }, { type: "colloquial_area", filterOption: "Destination", duration: 1800 }, { type: "country", filterOption: "Destination", duration: 1800 }, { type: "geocode", filterOption: "Destination", duration: 1800 }, { type: "intersection", filterOption: "Destination", duration: 1800 }, { type: "locality", filterOption: "Destination", duration: 1800 }, { type: "neighborhood", filterOption: "Destination", duration: 1800 }, { type: "political", filterOption: "Destination", duration: 1800 }, { type: "post_box", filterOption: "Destination", duration: 1800 }, { type: "postal_code", filterOption: "Destination", duration: 1800 }, { type: "postal_code_prefix", filterOption: "Destination", duration: 1800 }, { type: "postal_code_suffix", filterOption: "Destination", duration: 1800 }, { type: "postal_town", filterOption: "Destination", duration: 1800 }, { type: "route", filterOption: "Destination", duration: 1800 }, { type: "street_address", filterOption: "Destination", duration: 1800 }, { type: "street_number", filterOption: "Destination", duration: 1800 }, { type: "sublocality", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_1", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_2", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_3", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_4", filterOption: "Destination", duration: 1800 }, { type: "sublocality_level_5", filterOption: "Destination", duration: 1800 }, { type: 'continent', filterOption: "Destination", duration: 1209600 }, { type: 'world region', filterOption: "Destination", duration: 1209600 }, { type: 'region', filterOption: "Destination", duration: 259200 }, { type: 'state', filterOption: "Destination", duration: 432000 }, { type: 'province', filterOption: "Destination", duration: 172800 }, { type: 'department', filterOption: "Destination", duration: 172800 }, { type: 'area', filterOption: "Destination", duration: 86400 }, { type: 'archipelago', filterOption: "Destination", duration: 86400 }, { type: 'islands', filterOption: "Destination", duration: 86400 }, { type: 'island', filterOption: "Destination", duration: 86400 }, { type: 'cape', filterOption: "Destination", duration: 14400 }, { type: 'county', filterOption: "Destination", duration: 14400 }, { type: 'district', filterOption: "Destination", duration: 14400 }, { type: 'peninsula', filterOption: "Destination", duration: 14400 }, { type: 'valley', filterOption: "Destination", duration: 14400 }, { type: 'city', filterOption: "Destination", duration: 172800 }, { type: 'capital city', filterOption: "Destination", duration: 172800 }, { type: 'municipality', filterOption: "Destination", duration: 172800 }, { type: 'town', filterOption: "Destination", duration: 14400 }, { type: 'township', filterOption: "Destination", duration: 14400 }, { type: 'village', filterOption: "Destination", duration: 14400 }, { type: 'resort', filterOption: "Destination", duration: 14400 }, { type: 'beach resort', filterOption: "Destination", duration: 14400 }, { type: 'ski resort', filterOption: "Destination", duration: 14400 }, { type: 'commune', filterOption: "Destination", duration: 7200 }, { type: 'suburb', filterOption: "Destination", duration: 7200 }, { type: 'hamlet', filterOption: "Destination", duration: 1800 }, { type: 'borough', filterOption: "Destination", duration: 1800 }, { type: 'red light district', filterOption: "Destination", duration: 7200 }, { type: 'street', filterOption: "Destination", duration: 3600 }, { type: 'passage', filterOption: "Destination", duration: 1800 }, { type: "casino", filterOption: "Entertainment", duration: 7200 }, { type: "movie_theater", filterOption: "Entertainment", duration: 9000 }, { type: "stadium", filterOption: "Entertainment", duration: 9000 }, { type: 'entertainment', filterOption: "Entertainment", duration: 3600 }, { type: 'bowling alley', filterOption: "Entertainment", duration: 5400 }, { type: 'casino', filterOption: "Entertainment", duration: 5400 }, { type: 'movie theater', filterOption: "Entertainment", duration: 9000 }, { type: 'performance venue', filterOption: "Entertainment", duration: 7200 }, { type: 'sport venue', filterOption: "Entertainment", duration: 7200 }, { type: 'stadium', filterOption: "Entertainment", duration: 1800 }, { type: 'Race Car Track', filterOption: "Entertainment", duration: 5400 }, { type: 'Theater', filterOption: "Entertainment", duration: 9000 }, { type: 'Water sports', filterOption: "Entertainment", duration: 7200 }, { type: 'Opera house', filterOption: "Entertainment", duration: 7200 }, { type: 'festival', filterOption: "Entertainment", duration: 10800 }, { type: 'race track', filterOption: "Entertainment", duration: 7200 }, { type: 'amphitheater', filterOption: "Entertainment", duration: 5400 }, { type: 'arena', filterOption: "Entertainment", duration: 3600 }, { type: 'arcade', filterOption: "Entertainment", duration: 3600 }, { type: 'ice skating', filterOption: "Entertainment", duration: 5400 }, { type: "amusement_park", filterOption: "Family", duration: 14400 }, { type: 'amusement park', filterOption: "Family", duration: 7200 }, { type: 'Water Park', filterOption: "Family", duration: 7200 }, { type: 'theme park', filterOption: "Family", duration: 10800 }, { type: 'roller coaster', filterOption: "Family", duration: 1800 }, { type: 'archaeological site', filterOption: "History", duration: 1800 }, { type: 'world heritage site', filterOption: "History", duration: 1800 }, { type: 'historic site', filterOption: "History", duration: 3600 }, { type: 'reservation', filterOption: "Nature", duration: 3600 }, { type: 'concentration camp', filterOption: "History", duration: 5400 }, { type: 'historic building', filterOption: "History", duration: 5400 }, { type: "lodging", filterOption: "Hotels", duration: 0 }, { type: 'accommodation', filterOption: "Hotels", duration: 0 }, { type: 'hotel', filterOption: "Hotels", duration: 0 }, { type: 'motel', filterOption: "Hotels", duration: 0 }, { type: "city_hall", filterOption: "Landmark", duration: 1800 }, { type: "library", filterOption: "Landmark", duration: 1800 }, { type: "local_government_office", filterOption: "Landmark", duration: 1800 }, { type: 'landmark', filterOption: "Landmark", duration: 1800 }, { type: 'monument', filterOption: "Landmark", duration: 1800 }, { type: 'gate', filterOption: "Landmark", duration: 1800 }, { type: 'bridge', filterOption: "Landmark", duration: 1800 }, { type: 'dam', filterOption: "Landmark", duration: 1800 }, { type: 'statue', filterOption: "Landmark", duration: 1800 }, { type: 'memorial', filterOption: "Landmark", duration: 1800 }, { type: 'fountain', filterOption: "Landmark", duration: 1800 }, { type: 'sculpture', filterOption: "Landmark", duration: 1800 }, { type: 'aqueduct', filterOption: "Landmark", duration: 1800 }, { type: 'lighthouse', filterOption: "Landmark", duration: 1800 }, { type: 'mausoleum', filterOption: "Landmark", duration: 1800 }, { type: 'pier', filterOption: "Landmark", duration: 3600 }, { type: 'port', filterOption: "Landmark", duration: 3600 }, { type: 'canal', filterOption: "Landmark", duration: 3600 }, { type: 'square', filterOption: "Landmark", duration: 1800 }, { type: 'viewpoint', filterOption: "Landmark", duration: 1800 }, { type: "beauty_salon", filterOption: "Lifestyle", duration: 1800 }, { type: "gym", filterOption: "Lifestyle", duration: 5400 }, { type: "spa", filterOption: "Lifestyle", duration: 1800 }, { type: 'bath house', filterOption: "Lifestyle", duration: 3600 }, { type: 'pool', filterOption: "Lifestyle", duration: 3600 }, { type: "museum", filterOption: "Museum", duration: 3600 }, { type: 'History Museum', filterOption: "Museum", duration: 5400 }, { type: 'Military Museum', filterOption: "Museum", duration: 5400 }, { type: 'Natural History Museum', filterOption: "Museum", duration: 5400 }, { type: 'Science Museum', filterOption: "Museum", duration: 5400 }, { type: 'Specialty Museum', filterOption: "Museum", duration: 5400 }, { type: "aquarium", filterOption: "Nature", duration: 3600 }, { type: "natural_feature", filterOption: "Nature", duration: 3600 }, { type: 'reservoir', filterOption: "Nature", duration: 1800 }, { type: 'natural feature', filterOption: "Nature", duration: 3600 }, { type: 'garden', filterOption: "Nature", duration: 3600 }, { type: 'body of water', filterOption: "Nature", duration: 1800 }, { type: 'canyon', filterOption: "Nature", duration: 1800 }, { type: 'cave', filterOption: "Nature", duration: 1800 }, { type: 'desert', filterOption: "Nature", duration: 3600 }, { type: 'forest', filterOption: "Nature", duration: 3600 }, { type: 'hill', filterOption: "Nature", duration: 5400 }, { type: 'lake', filterOption: "Nature", duration: 5400 }, { type: 'mountain', filterOption: "Nature", duration: 14400 }, { type: 'river', filterOption: "Nature", duration: 1800 }, { type: 'volcano', filterOption: "Nature", duration: 14400 }, { type: 'waterfall', filterOption: "Nature", duration: 3600 }, { type: 'waterfront', filterOption: "Nature", duration: 3600 }, { type: 'park', filterOption: "Nature", duration: 3600 }, { type: 'bird watching', filterOption: "Nature", duration: 5400 }, { type: 'outdoors', filterOption: "Nature", duration: 3600 }, { type: 'zoo', filterOption: "Nature", duration: 5400 }, { type: 'aquarium', filterOption: "Nature", duration: 5400 }, { type: 'Geologic Formation', filterOption: "Nature", duration: 1800 }, { type: 'Hot Spring', filterOption: "Nature", duration: 3600 }, { type: 'National Park', filterOption: "Nature", duration: 7200 }, { type: 'Scenic Drive', filterOption: "Nature", duration: 5400 }, { type: 'Trail', filterOption: "Nature", duration: 5400 }, { type: 'Safari', filterOption: "Nature", duration: 10800 }, { type: 'Marine park', filterOption: "Nature", duration: 7200 }, { type: 'Botanical garden', filterOption: "Nature", duration: 7200 }, { type: 'Tree', filterOption: "Nature", duration: 1800 }, { type: 'summit', filterOption: "Nature", duration: 1800 }, { type: 'peak', filterOption: "Nature", duration: 1800 }, { type: 'mountain range', filterOption: "Nature", duration: 14400 }, { type: 'glacier', filterOption: "Nature", duration: 7200 }, { type: 'pinnacle', filterOption: "Nature", duration: 1800 }, { type: 'pass', filterOption: "Nature", duration: 5400 }, { type: 'pond', filterOption: "Nature", duration: 1800 }, { type: 'bay', filterOption: "Nature", duration: 3600 }, { type: 'fjord', filterOption: "Nature", duration: 7200 }, { type: 'jungle', filterOption: "Nature", duration: 10800 }, { type: 'lagoon', filterOption: "Nature", duration: 5400 }, { type: 'crater', filterOption: "Nature", duration: 5400 }, { type: 'nature reserve', filterOption: "Nature", duration: 7200 }, { type: 'swamp', filterOption: "Nature", duration: 5400 }, { type: 'wildlife reserve', filterOption: "Nature", duration: 7200 }, { type: 'stream', filterOption: "Nature", duration: 3600 }, { type: 'reef', filterOption: "Nature", duration: 10800 }, { type: 'ice field', filterOption: "Nature", duration: 7200 }, { type: 'estuary', filterOption: "Nature", duration: 1800 }, { type: 'strait', filterOption: "Nature", duration: 3600 }, { type: 'cliff', filterOption: "Nature", duration: 3600 }, { type: 'hiking', filterOption: "Nature", duration: 10800 }, { type: 'diving', filterOption: "Nature", duration: 21600 }, { type: 'fishing', filterOption: "Nature", duration: 5400 }, { type: 'animal rides', filterOption: "Nature", duration: 5400 }, { type: 'beach', filterOption: "Nature", duration: 5400 }, { type: 'farm', filterOption: "Nature", duration: 1800 }, { type: "bar", filterOption: "Nightlife", duration: 3600 }, { type: "night_club", filterOption: "Nightlife", duration: 1800 }, { type: 'nightlife', filterOption: "Nightlife", duration: 7200 }, { type: 'night club', filterOption: "Nightlife", duration: 7200 }, { type: 'dance club', filterOption: "Nightlife", duration: 7200 }, { type: 'gay bar', filterOption: "Nightlife", duration: 5400 }, { type: "accounting", filterOption: "Other", duration: 1800 }, { type: "airport", filterOption: "Other", duration: 3600 }, { type: "atm", filterOption: "Other", duration: 1800 }, { type: "bank", filterOption: "Other", duration: 1800 }, { type: "bicycle_store", filterOption: "Other", duration: 1800 }, { type: "bowling_alley", filterOption: "Other", duration: 1800 }, { type: "bus_station", filterOption: "Other", duration: 1800 }, { type: "campground", filterOption: "Other", duration: 1800 }, { type: "car_dealer", filterOption: "Other", duration: 1800 }, { type: "car_rental", filterOption: "Other", duration: 1800 }, { type: "car_repair", filterOption: "Other", duration: 1800 }, { type: "car_wash", filterOption: "Other", duration: 1800 }, { type: "cemetery", filterOption: "Other", duration: 1800 }, { type: "courthouse", filterOption: "Other", duration: 1800 }, { type: "dentist", filterOption: "Other", duration: 1800 }, { type: "doctor", filterOption: "Other", duration: 1800 }, { type: "electrician", filterOption: "Other", duration: 1800 }, { type: "embassy", filterOption: "Other", duration: 1800 }, { type: "establishment", filterOption: "Other", duration: 1800 }, { type: "finance", filterOption: "Other", duration: 1800 }, { type: "fire_station", filterOption: "Other", duration: 1800 }, { type: "floor", filterOption: "Other", duration: 1800 }, { type: "food", filterOption: "Other", duration: 3600 }, { type: "funeral_home", filterOption: "Other", duration: 1800 }, { type: "gas_station", filterOption: "Other", duration: 1800 }, { type: "general_contractor", filterOption: "Other", duration: 1800 }, { type: "grocery_or_supermarket", filterOption: "Other", duration: 1800 }, { type: "hair_care", filterOption: "Other", duration: 1800 }, { type: "health", filterOption: "Other", duration: 1800 }, { type: "hospital", filterOption: "Other", duration: 1800 }, { type: "insurance_agency", filterOption: "Other", duration: 1800 }, { type: "laundry", filterOption: "Other", duration: 1800 }, { type: "lawyer", filterOption: "Other", duration: 1800 }, { type: "locksmith", filterOption: "Other", duration: 1800 }, { type: "meal_delivery", filterOption: "Other", duration: 1800 }, { type: "meal_takeaway", filterOption: "Other", duration: 1800 }, { type: "movie_rental", filterOption: "Other", duration: 1800 }, { type: "moving_company", filterOption: "Other", duration: 1800 }, { type: "painter", filterOption: "Other", duration: 1800 }, { type: "parking", filterOption: "Other", duration: 1800 }, { type: "pharmacy", filterOption: "Other", duration: 1800 }, { type: "physiotherapist", filterOption: "Other", duration: 1800 }, { type: "plumber", filterOption: "Other", duration: 1800 }, { type: "point_of_interest", filterOption: "Other", duration: 1800 }, { type: "point of interest", filterOption: "Other", duration: 1800 }, { type: "police", filterOption: "Other", duration: 1800 }, { type: "post_office", filterOption: "Other", duration: 1800 }, { type: "premise", filterOption: "Other", duration: 1800 }, { type: "real_estate_agency", filterOption: "Other", duration: 1800 }, { type: "roofing_contractor", filterOption: "Other", duration: 1800 }, { type: "room", filterOption: "Other", duration: 1800 }, { type: "rv_park", filterOption: "Other", duration: 1800 }, { type: "school", filterOption: "Other", duration: 1800 }, { type: "storage", filterOption: "Other", duration: 1800 }, { type: "subpremise", filterOption: "Other", duration: 1800 }, { type: "subway_station", filterOption: "Other", duration: 1800 }, { type: "taxi_stand", filterOption: "Other", duration: 1800 }, { type: "train_station", filterOption: "Other", duration: 1800 }, { type: "transit_station", filterOption: "Other", duration: 1800 }, { type: "travel_agency", filterOption: "Other", duration: 1800 }, { type: "university", filterOption: "Other", duration: 1800 }, { type: "veterinary_care", filterOption: "Other", duration: 1800 }, { type: "Attraction", filterOption: "Other", duration: 1800 }, { type: 'mine', filterOption: "Other", duration: 3600 }, { type: 'cultural', filterOption: "Other", duration: 3600 }, { type: 'cultural site', filterOption: "Other", duration: 1800 }, { type: 'educational institution', filterOption: "Other", duration: 1800 }, { type: 'observatory', filterOption: "Other", duration: 3600 }, { type: 'science', filterOption: "Other", duration: 3600 }, { type: 'activity', filterOption: "Other", duration: 5400 }, { type: 'tour', filterOption: "Other", duration: 7200 }, { type: 'classes', filterOption: "Other", duration: 5400 }, { type: 'adventure', filterOption: "Other", duration: 10800 }, { type: 'boat tour', filterOption: "Other", duration: 10800 }, { type: 'golf', filterOption: "Other", duration: 10800 }, { type: 'private tour', filterOption: "Other", duration: 10800 }, { type: 'sightseeing tour', filterOption: "Other", duration: 5400 }, { type: 'swimming', filterOption: "Other", duration: 5400 }, { type: 'walking tour', filterOption: "Other", duration: 5400 }, { type: 'Marina', filterOption: "Other", duration: 7200 }, { type: 'Scenic/ Historic Walking Area', filterOption: "Other", duration: 5400 }, { type: 'Surf Camp', filterOption: "Other", duration: 7200 }, { type: 'climbing', filterOption: "Other", duration: 5400 }, { type: 'water sports', filterOption: "Other", duration: 5400 }, { type: 'cycling', filterOption: "Other", duration: 5400 }, { type: 'extreme sports', filterOption: "Other", duration: 5400 }, { type: 'scenic flight', filterOption: "Other", duration: 5400 }, { type: 'driving', filterOption: "Other", duration: 5400 }, { type: 'sports activity', filterOption: "Other", duration: 5400 }, { type: 'building', filterOption: "Other", duration: 1800 }, { type: 'cultural building', filterOption: "Other", duration: 1800 }, { type: 'government building', filterOption: "Other", duration: 1800 }, { type: 'mansion', filterOption: "Other", duration: 3600 }, { type: 'tower', filterOption: "Other", duration: 1800 }, { type: 'windmill', filterOption: "Other", duration: 1800 }, { type: 'architecture', filterOption: "Other", duration: 1800 }, { type: 'castle', filterOption: "Other", duration: 3600 }, { type: 'fortress', filterOption: "Other", duration: 3600 }, { type: 'library', filterOption: "Other", duration: 1800 }, { type: 'palace', filterOption: "Other", duration: 3600 }, { type: 'villa', filterOption: "Other", duration: 3600 }, { type: 'fortification', filterOption: "Other", duration: 1800 }, { type: 'fort', filterOption: "Other", duration: 3600 }, { type: 'edifice', filterOption: "Other", duration: 3600 }, { type: 'official residence', filterOption: "Other", duration: 5400 }, { type: 'royal residence', filterOption: "Other", duration: 5400 }, { type: 'prison', filterOption: "Other", duration: 5400 }, { type: 'apartment', filterOption: "Other", duration: 3600 }, { type: 'health', filterOption: "Other", duration: 1800 }, { type: 'dentist', filterOption: "Other", duration: 3600 }, { type: 'doctor', filterOption: "Other", duration: 1800 }, { type: 'hospital', filterOption: "Other", duration: 3600 }, { type: 'pharmacy', filterOption: "Other", duration: 1800 }, { type: 'physiotherapist', filterOption: "Other", duration: 1800 }, { type: 'business', filterOption: "Other", duration: 1800 }, { type: 'accounting', filterOption: "Other", duration: 1800 }, { type: 'industrial site', filterOption: "Other", duration: 1800 }, { type: 'Convention Center', filterOption: "Other", duration: 1800 }, { type: 'Factory Tour', filterOption: "Other", duration: 3600 }, { type: 'airport', filterOption: "Other", duration: 1800 }, { type: 'bus station', filterOption: "Other", duration: 1800 }, { type: 'car rental', filterOption: "Other", duration: 1800 }, { type: 'parking', filterOption: "Other", duration: 1800 }, { type: 'subway station', filterOption: "Other", duration: 1800 }, { type: 'taxi stand', filterOption: "Other", duration: 1800 }, { type: 'train station', filterOption: "Other", duration: 1800 }, { type: 'transit station', filterOption: "Other", duration: 1800 }, { type: 'ship', filterOption: "Other", duration: 5400 }, { type: 'railway', filterOption: "Other", duration: 5400 }, { type: 'submarine', filterOption: "Other", duration: 5400 }, { type: 'ferry', filterOption: "Other", duration: 3600 }, { type: 'floor', filterOption: "Other", duration: 1800 }, { type: 'geocode', filterOption: "Other", duration: 1800 }, { type: 'intersection', filterOption: "Other", duration: 1800 }, { type: 'atm', filterOption: "Other", duration: 1800 }, { type: 'bank', filterOption: "Other", duration: 1800 }, { type: 'beauty salon', filterOption: "Other", duration: 1800 }, { type: 'campground', filterOption: "Other", duration: 1800 }, { type: 'car dealer', filterOption: "Other", duration: 1800 }, { type: 'car repair', filterOption: "Other", duration: 1800 }, { type: 'car wash', filterOption: "Other", duration: 1800 }, { type: 'courthouse', filterOption: "Other", duration: 1800 }, { type: 'electrician', filterOption: "Other", duration: 1800 }, { type: 'embassy', filterOption: "Other", duration: 1800 }, { type: 'finance', filterOption: "Other", duration: 1800 }, { type: 'financial institution', filterOption: "Other", duration: 1800 }, { type: 'fire station', filterOption: "Other", duration: 1800 }, { type: 'funeral home', filterOption: "Other", duration: 1800 }, { type: 'gas station', filterOption: "Other", duration: 1800 }, { type: 'gear rentals', filterOption: "Other", duration: 1800 }, { type: 'general contractor', filterOption: "Other", duration: 1800 }, { type: 'hair care', filterOption: "Other", duration: 1800 }, { type: 'insurance agency', filterOption: "Other", duration: 1800 }, { type: 'laundry', filterOption: "Other", duration: 1800 }, { type: 'lawyer', filterOption: "Other", duration: 1800 }, { type: 'locksmith', filterOption: "Other", duration: 1800 }, { type: 'movie rental', filterOption: "Other", duration: 1800 }, { type: 'moving company', filterOption: "Other", duration: 1800 }, { type: 'painter', filterOption: "Other", duration: 1800 }, { type: 'plumber', filterOption: "Other", duration: 1800 }, { type: 'police', filterOption: "Other", duration: 1800 }, { type: 'post office', filterOption: "Other", duration: 1800 }, { type: 'real estate agency', filterOption: "Other", duration: 1800 }, { type: 'roofing contractor', filterOption: "Other", duration: 1800 }, { type: 'rv park', filterOption: "Other", duration: 1800 }, { type: 'school', filterOption: "Other", duration: 1800 }, { type: 'storage', filterOption: "Other", duration: 1800 }, { type: 'travel agency', filterOption: "Other", duration: 1800 }, { type: 'university', filterOption: "Other", duration: 1800 }, { type: 'veterinary care', filterOption: "Other", duration: 1800 }, { type: 'Military Base', filterOption: "Other", duration: 3600 }, { type: 'Visitor Center', filterOption: "Other", duration: 1800 }, { type: 'college', filterOption: "Other", duration: 1800 }, { type: 'community center', filterOption: "Other", duration: 1800 }, { type: 'radio station', filterOption: "Other", duration: 1800 }, { type: 'power station', filterOption: "Other", duration: 1800 }, { type: 'Military site', filterOption: "Other", duration: 1800 }, { type: 'travel services', filterOption: "Other", duration: 1800 }, { type: 'event', filterOption: "Other", duration: 3600 }, { type: "church", filterOption: "Religious", duration: 1800 }, { type: "hindu_temple", filterOption: "Religious", duration: 1800 }, { type: "mosque", filterOption: "Religious", duration: 1800 }, { type: "place_of_worship", filterOption: "Religious", duration: 1800 }, { type: "synagogue", filterOption: "Religious", duration: 1800 }, { type: 'religious site', filterOption: "Religious", duration: 1800 }, { type: 'hindu temple', filterOption: "Religious", duration: 1800 }, { type: 'mosque', filterOption: "Religious", duration: 1800 }, { type: 'place of worship', filterOption: "Religious", duration: 1800 }, { type: 'cemetery', filterOption: "Religious", duration: 1800 }, { type: 'temple', filterOption: "Religious", duration: 1800 }, { type: 'shrine', filterOption: "Religious", duration: 1800 }, { type: 'pagoda', filterOption: "Religious", duration: 1800 }, { type: 'basilica', filterOption: "Religious", duration: 1800 }, { type: 'chapel', filterOption: "Religious", duration: 1800 }, { type: 'abbey', filterOption: "Religious", duration: 1800 }, { type: 'monastery', filterOption: "Religious", duration: 3600 }, { type: 'baptistery', filterOption: "Religious", duration: 1800 }, { type: 'cloisters', filterOption: "Religious", duration: 1800 }, { type: "bakery", filterOption: "Restaurants", duration: 1800 }, { type: "cafe", filterOption: "Restaurants", duration: 1800 }, { type: "restaurant", filterOption: "Restaurants", duration: 5400 }, { type: 'food', filterOption: "Restaurants", duration: 3600 }, { type: 'meal delivery', filterOption: "Restaurants", duration: 1800 }, { type: 'meal takeaway', filterOption: "Restaurants", duration: 1800 }, { type: 'Coffee house', filterOption: "Restaurants", duration: 1800 }, { type: 'brewery', filterOption: "Restaurants", duration: 3600 }, { type: 'distillery', filterOption: "Restaurants", duration: 3600 }, { type: 'winery', filterOption: "Restaurants", duration: 1800 }, { type: "book_store", filterOption: "Shopping", duration: 1800 }, { type: "clothing_store", filterOption: "Shopping", duration: 1800 }, { type: "convenience_store", filterOption: "Shopping", duration: 1800 }, { type: "department_store", filterOption: "Shopping", duration: 1800 }, { type: "electronics_store", filterOption: "Shopping", duration: 1800 }, { type: "florist", filterOption: "Shopping", duration: 1800 }, { type: "furniture_store", filterOption: "Shopping", duration: 1800 }, { type: "hardware_store", filterOption: "Shopping", duration: 1800 }, { type: "home_goods_store", filterOption: "Shopping", duration: 1800 }, { type: "jewelry_store", filterOption: "Shopping", duration: 1800 }, { type: "liquor_store", filterOption: "Shopping", duration: 1800 }, { type: "pet_store", filterOption: "Shopping", duration: 1800 }, { type: "shoe_store", filterOption: "Shopping", duration: 1800 }, { type: "shopping_mall", filterOption: "Shopping", duration: 5400 }, { type: "store", filterOption: "Shopping", duration: 1800 }, { type: 'shopping mall', filterOption: "Shopping", duration: 5400 }, { type: 'bicycle store', filterOption: "Shopping", duration: 1800 }, { type: 'book store', filterOption: "Shopping", duration: 1800 }, { type: 'clothing store', filterOption: "Shopping", duration: 1800 }, { type: 'convenience store', filterOption: "Shopping", duration: 1800 }, { type: 'department store', filterOption: "Shopping", duration: 3600 }, { type: 'electronics store', filterOption: "Shopping", duration: 1800 }, { type: 'furniture store', filterOption: "Shopping", duration: 1800 }, { type: 'hardware store', filterOption: "Shopping", duration: 1800 }, { type: 'home goods store', filterOption: "Shopping", duration: 1800 }, { type: 'jewelry store', filterOption: "Shopping", duration: 1800 }, { type: 'liquor store', filterOption: "Shopping", duration: 1800 }, { type: 'pet store', filterOption: "Shopping", duration: 1800 }, { type: 'shoe store', filterOption: "Shopping", duration: 1800 }, { type: 'Gear Rental', filterOption: "Shopping", duration: 1800 }, { type: 'Shop', filterOption: "Shopping", duration: 1800 }, { type: 'Specialty Shop', filterOption: "Shopping", duration: 1800 }]
 
 		/*baseTimeUnit: <%= BASE_TIME_UNIT %>,
   baseTimeUnitsPerDay: <%= BASE_TIME_UNITS_PER_DAY %>,
@@ -1291,8 +1291,12 @@ define('tripmind/components/center-marker', ['exports', 'ember', 'tripmind/appco
 		map: _ember['default'].computed.alias('mapService.googleMapObject'),
 		baseDepth: 0,
 		addedLabelClass: 'center',
-		unhoveredIcon: _tripmindAppconfigGmaps['default'].markerIcons.largeRed,
-		hoveredIcon: _tripmindAppconfigGmaps['default'].markerIcons.largeRed,
+		unhoveredIcon: _ember['default'].computed.alias('centerIcon'),
+		hoveredIcon: _ember['default'].computed.alias('centerIcon'),
+
+		centerIcon: (function () {
+			return this.get('draggable') ? _tripmindAppconfigGmaps['default'].markerIcons.largeGreen : _tripmindAppconfigGmaps['default'].markerIcons.largeRed;
+		}).property('draggable'),
 
 		lat: _ember['default'].computed.alias('model.lat'),
 		lng: _ember['default'].computed.alias('model.lng'),
@@ -1312,6 +1316,30 @@ define('tripmind/components/center-marker', ['exports', 'ember', 'tripmind/appco
 
 		clickMarker: function clickMarker() {
 			$('body').animate({ scrollTop: 0 }, 200);
+		},
+
+		actions: {
+			toggleDraggable: function toggleDraggable(preventSave) {
+				if (!this.get('draggable')) {
+					this.setProperties({
+						oldLat: this.get('model.lat'),
+						oldLng: this.get('model.lng')
+					});
+				}
+				if (!this.get('model.lat')) this.get('model').setProperties({ lat: 1, lng: 1 });
+				console.log('toddle drag: ', this.get('draggable'));
+				this.toggleProperty('draggable');
+				//Save if we just moved it
+				if (preventSave) {
+					this.get('model').setProperties({
+						lat: this.get('oldLat'),
+						lng: this.get('oldLng')
+					});
+				}
+				if (!this.get('draggable')) {
+					this.get('model').save();
+				}
+			}
 		}
 
 	});
@@ -2075,25 +2103,27 @@ define('tripmind/components/major-sections-holder', ['exports', 'ember', 'tripmi
 		}).property('recs'),
 
 		filterItems: function filterItems(items, attribute) {
-			if (!attribute) return this.get('model');
+			var filteredItems = items;
+			if (attribute) {
+				var _attribute$split = attribute.split("-");
 
-			var _attribute$split = attribute.split("-");
+				var _attribute$split2 = _slicedToArray(_attribute$split, 2);
 
-			var _attribute$split2 = _slicedToArray(_attribute$split, 2);
+				var filterAttribute = _attribute$split2[0];
+				var not = _attribute$split2[1];
 
-			var filterAttribute = _attribute$split2[0];
-			var not = _attribute$split2[1];
-
+				not = not == 'not';
+				filteredItems = items.filter(function (item) {
+					return not ? !item.get(filterAttribute) : item.get(filterAttribute);
+				});
+			}
 			var filteringItemTypes = [];
 			this.get('filterOptions').filter(function (type) {
 				return type.isSelected;
 			}).forEach(function (typeOption) {
 				filteringItemTypes = filteringItemTypes.concat(typeOption.value);
 			});
-			not = not == 'not';
-			return items.filter(function (item) {
-				return not ? !item.get(filterAttribute) : item.get(filterAttribute);
-			}).filter(function (item) {
+			return filteredItems.filter(function (item) {
 				return filteringItemTypes.indexOf(item.get('itemType')) > -1;
 			});
 		},
@@ -2364,7 +2394,8 @@ define('tripmind/components/major-sections-holder', ['exports', 'ember', 'tripmi
 
 				// Organize items into sections
 				items.forEach(function (item) {
-					var itemType = item.get('itemType').replace(/_/g, " ").capitalize();
+					var itemType = item.get('itemType');
+					itemType = itemType ? itemType.replace(/_/g, " ").capitalize() : "Attraction";
 					sectionsObject[itemType] = sectionsObject[itemType] || _ember['default'].Object.create({
 						title: itemType,
 						scrollSlug: item.get('itemType'),
@@ -2621,6 +2652,11 @@ define('tripmind/components/map-placeholder', ['exports', 'ember'], function (ex
 	exports['default'] = _ember['default'].Component.extend({
 		mapService: _ember['default'].inject.service('map-service'),
 		classNames: ['map-placeholder'],
+		classNameBindings: ['noCoordinates:hidden'],
+
+		noCoordinates: (function () {
+			return !this.get('model.lat');
+		}).property('model.lat'),
 
 		didInsertElement: function didInsertElement() {
 			_ember['default'].run.scheduleOnce('afterRender', this, 'attachMap');
@@ -2638,7 +2674,7 @@ define('tripmind/components/map-placeholder', ['exports', 'ember'], function (ex
 			var container = this.$(),
 			    mapService = this.get('mapService');
 			mapService.changeCenter(this.get('model.lat'), this.get('model.lng'));
-			mapService.set('minimizedHolder', container);
+			mapService.set('minimizedHolder', this);
 			if (!mapService.get('isExpanded')) {
 				mapService.moveDomToElement(container);
 				mapService.setProperties({
@@ -5480,6 +5516,10 @@ define('tripmind/routes/collection', ['exports', 'ember', 'tripmind/appconfig/pr
 				    unpackedData = lzwCompress.unpack(compressedData),
 				    rebuiltData = JSON.parse(unpackedData);
 				var objects = store.push({ data: rebuiltData });
+				// We now save everything to the localforage store.
+				objects.forEach(function (ob) {
+					ob.save();
+				});
 				return store.peekRecord('collection', collectionId);
 			});
 		},
@@ -6269,8 +6309,10 @@ define('tripmind/services/map-service', ['exports', 'ember', 'tripmind/appconfig
 		minimizeMap: function minimizeMap(options) {
 			this.set('isExpanded', false);
 			var closeAll = options ? options.closeAll : false;
-			if (this.get('minimizedHolder')) {
-				$('#actual-map').appendTo(this.get('minimizedHolder'));
+			var minimizedHolder = this.get('minimizedHolder');
+			if (minimizedHolder) {
+				$('#actual-map').appendTo(minimizedHolder.$());
+				minimizedHolder.attachMap();
 			}
 			//		this.get('currentItem').setProperties({
 			//			isOpen: closeAll ? false : this.get('lastItemCardPosition'),
@@ -8068,6 +8110,120 @@ define("tripmind/templates/components/button-with-confirmation", ["exports"], fu
       statements: [["block", "if", [["get", "isConfirming", ["loc", [null, [1, 6], [1, 18]]]]], [], 0, 1, ["loc", [null, [1, 0], [9, 7]]]]],
       locals: [],
       templates: [child0, child1]
+    };
+  })());
+});
+define("tripmind/templates/components/center-marker", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 4,
+              "column": 0
+            },
+            "end": {
+              "line": 9,
+              "column": 0
+            }
+          },
+          "moduleName": "tripmind/templates/components/center-marker.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("	");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1, "class", "drag-explanation");
+          var el2 = dom.createTextNode("\n		Move the green marker on the map then click edit again to save, or\n		");
+          dom.appendChild(el1, el2);
+          var el2 = dom.createElement("span");
+          dom.setAttribute(el2, "class", "cancel-btn");
+          var el3 = dom.createTextNode("CANCEL");
+          dom.appendChild(el2, el3);
+          dom.appendChild(el1, el2);
+          var el2 = dom.createTextNode("\n	");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1, 1]);
+          var morphs = new Array(1);
+          morphs[0] = dom.createElementMorph(element0);
+          return morphs;
+        },
+        statements: [["element", "action", ["toggleDraggable", true], [], ["loc", [null, [7, 27], [7, 60]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["multiple-nodes", "wrong-type"]
+        },
+        "revision": "Ember@2.4.0",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": 0
+          }
+        },
+        "moduleName": "tripmind/templates/components/center-marker.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "toggle-draggable icon-edit has-tooltip");
+        var el2 = dom.createTextNode("\n	");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "tooltip");
+        var el3 = dom.createTextNode("Click to edit location");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element1 = dom.childAt(fragment, [0]);
+        var morphs = new Array(2);
+        morphs[0] = dom.createElementMorph(element1);
+        morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        return morphs;
+      },
+      statements: [["element", "action", ["toggleDraggable"], [], ["loc", [null, [1, 52], [1, 80]]]], ["block", "if", [["get", "draggable", ["loc", [null, [4, 6], [4, 15]]]]], [], 0, null, ["loc", [null, [4, 0], [9, 7]]]]],
+      locals: [],
+      templates: [child0]
     };
   })());
 });
@@ -14708,11 +14864,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 29,
+              "line": 31,
               "column": 5
             },
             "end": {
-              "line": 34,
+              "line": 36,
               "column": 5
             }
           },
@@ -14757,7 +14913,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           morphs[2] = dom.createMorphAt(dom.childAt(element1, [3]), 0, 0);
           return morphs;
         },
-        statements: [["attribute", "class", ["concat", ["detail-title ", ["get", "detail.name", ["loc", [null, [31, 33], [31, 44]]]]]]], ["content", "detail.name", ["loc", [null, [31, 48], [31, 63]]]], ["content", "detail.value", ["loc", [null, [32, 32], [32, 48]]]]],
+        statements: [["attribute", "class", ["concat", ["detail-title ", ["get", "detail.name", ["loc", [null, [33, 33], [33, 44]]]]]]], ["content", "detail.name", ["loc", [null, [33, 48], [33, 63]]]], ["content", "detail.value", ["loc", [null, [34, 32], [34, 48]]]]],
         locals: ["detail"],
         templates: []
       };
@@ -14772,11 +14928,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
               "loc": {
                 "source": null,
                 "start": {
-                  "line": 43,
+                  "line": 45,
                   "column": 9
                 },
                 "end": {
-                  "line": 45,
+                  "line": 47,
                   "column": 9
                 }
               },
@@ -14804,7 +14960,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
               morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]), 0, 0);
               return morphs;
             },
-            statements: [["content", "period.period", ["loc", [null, [44, 35], [44, 52]]]]],
+            statements: [["content", "period.period", ["loc", [null, [46, 35], [46, 52]]]]],
             locals: ["period"],
             templates: []
           };
@@ -14816,11 +14972,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 40,
+                "line": 42,
                 "column": 8
               },
               "end": {
-                "line": 47,
+                "line": 49,
                 "column": 8
               }
             },
@@ -14860,7 +15016,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             morphs[1] = dom.createMorphAt(element0, 3, 3);
             return morphs;
           },
-          statements: [["content", "day.title", ["loc", [null, [42, 38], [42, 51]]]], ["block", "each", [["get", "day.periods", ["loc", [null, [43, 17], [43, 28]]]]], [], 0, null, ["loc", [null, [43, 9], [45, 18]]]]],
+          statements: [["content", "day.title", ["loc", [null, [44, 38], [44, 51]]]], ["block", "each", [["get", "day.periods", ["loc", [null, [45, 17], [45, 28]]]]], [], 0, null, ["loc", [null, [45, 9], [47, 18]]]]],
           locals: ["day"],
           templates: [child0]
         };
@@ -14872,11 +15028,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 35,
+              "line": 37,
               "column": 5
             },
             "end": {
-              "line": 52,
+              "line": 54,
               "column": 5
             }
           },
@@ -14933,54 +15089,12 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1, 3, 1]), 1, 1);
           return morphs;
         },
-        statements: [["block", "each", [["get", "model.textOperatingHours", ["loc", [null, [40, 16], [40, 40]]]]], [], 0, null, ["loc", [null, [40, 8], [47, 17]]]]],
+        statements: [["block", "each", [["get", "model.textOperatingHours", ["loc", [null, [42, 16], [42, 40]]]]], [], 0, null, ["loc", [null, [42, 8], [49, 17]]]]],
         locals: [],
         templates: [child0]
       };
     })();
     var child7 = (function () {
-      return {
-        meta: {
-          "fragmentReason": false,
-          "revision": "Ember@2.4.0",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 67,
-              "column": 2
-            },
-            "end": {
-              "line": 69,
-              "column": 2
-            }
-          },
-          "moduleName": "tripmind/templates/item.hbs"
-        },
-        isEmpty: false,
-        arity: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("			");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createComment("");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
-          return morphs;
-        },
-        statements: [["inline", "refresh-done", [], ["parentComponent", ["subexpr", "@mut", [["get", "this", ["loc", [null, [68, 34], [68, 38]]]]], [], []]], ["loc", [null, [68, 3], [68, 40]]]]],
-        locals: [],
-        templates: []
-      };
-    })();
-    var child8 = (function () {
       return {
         meta: {
           "fragmentReason": false,
@@ -15017,7 +15131,49 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
           return morphs;
         },
-        statements: [["inline", "autosave-editable", [], ["class", "long-desc", "canEditContent", true, "isEditable", true, "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [70, 88], [70, 93]]]]], [], []], "value", ["subexpr", "@mut", [["get", "model.longDescEditable", ["loc", [null, [70, 100], [70, 122]]]]], [], []], "refreshModel", ["subexpr", "@mut", [["get", "this", ["loc", [null, [70, 136], [70, 140]]]]], [], []]], ["loc", [null, [70, 3], [70, 142]]]]],
+        statements: [["inline", "refresh-done", [], ["parentComponent", ["subexpr", "@mut", [["get", "this", ["loc", [null, [70, 34], [70, 38]]]]], [], []]], ["loc", [null, [70, 3], [70, 40]]]]],
+        locals: [],
+        templates: []
+      };
+    })();
+    var child8 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.4.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 71,
+              "column": 2
+            },
+            "end": {
+              "line": 73,
+              "column": 2
+            }
+          },
+          "moduleName": "tripmind/templates/item.hbs"
+        },
+        isEmpty: false,
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("			");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createComment("");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var morphs = new Array(1);
+          morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
+          return morphs;
+        },
+        statements: [["inline", "autosave-editable", [], ["class", "long-desc", "canEditContent", true, "isEditable", true, "saveOnExit", ["subexpr", "@mut", [["get", "model", ["loc", [null, [72, 88], [72, 93]]]]], [], []], "value", ["subexpr", "@mut", [["get", "model.longDescEditable", ["loc", [null, [72, 100], [72, 122]]]]], [], []], "refreshModel", ["subexpr", "@mut", [["get", "this", ["loc", [null, [72, 136], [72, 140]]]]], [], []]], ["loc", [null, [72, 3], [72, 142]]]]],
         locals: [],
         templates: []
       };
@@ -15031,11 +15187,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 84,
+                "line": 86,
                 "column": 3
               },
               "end": {
-                "line": 86,
+                "line": 88,
                 "column": 3
               }
             },
@@ -15060,7 +15216,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             morphs[0] = dom.createMorphAt(fragment, 1, 1, contextualElement);
             return morphs;
           },
-          statements: [["inline", "link-card", [], ["model", ["subexpr", "@mut", [["get", "link", ["loc", [null, [85, 22], [85, 26]]]]], [], []]], ["loc", [null, [85, 4], [85, 28]]]]],
+          statements: [["inline", "link-card", [], ["model", ["subexpr", "@mut", [["get", "link", ["loc", [null, [87, 22], [87, 26]]]]], [], []]], ["loc", [null, [87, 4], [87, 28]]]]],
           locals: ["link"],
           templates: []
         };
@@ -15072,11 +15228,11 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 81,
+              "line": 83,
               "column": 2
             },
             "end": {
-              "line": 87,
+              "line": 89,
               "column": 2
             }
           },
@@ -15107,7 +15263,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
           dom.insertBoundary(fragment, null);
           return morphs;
         },
-        statements: [["block", "each", [["get", "model.visitedLinks", ["loc", [null, [84, 11], [84, 29]]]]], [], 0, null, ["loc", [null, [84, 3], [86, 12]]]]],
+        statements: [["block", "each", [["get", "model.visitedLinks", ["loc", [null, [86, 11], [86, 29]]]]], [], 0, null, ["loc", [null, [86, 3], [88, 12]]]]],
         locals: [],
         templates: [child0]
       };
@@ -15126,7 +15282,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 98,
+            "line": 99,
             "column": 0
           }
         },
@@ -15162,13 +15318,24 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         var el3 = dom.createTextNode("\n		");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
-        dom.setAttribute(el3, "class", "image-container main-image");
+        dom.setAttribute(el3, "class", "top-details");
+        var el4 = dom.createTextNode("\n		");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("div");
+        dom.setAttribute(el4, "class", "image-container main-image");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n		");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n		");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n		");
+        dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n		");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createComment("");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n\n			");
+        var el3 = dom.createTextNode("\n\n		");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "class", "details-holder");
@@ -15282,11 +15449,7 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         dom.appendChild(el0, el1);
         var el1 = dom.createComment("");
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
+        var el1 = dom.createTextNode("\n\n\n\n");
         dom.appendChild(el0, el1);
         return el0;
       },
@@ -15295,28 +15458,29 @@ define("tripmind/templates/item", ["exports"], function (exports) {
         var element4 = dom.childAt(fragment, [4]);
         var element5 = dom.childAt(element4, [1]);
         var element6 = dom.childAt(element5, [1]);
-        var element7 = dom.childAt(element5, [5, 1]);
-        var element8 = dom.childAt(element7, [4, 3]);
-        var element9 = dom.childAt(element8, [1]);
-        var element10 = dom.childAt(element8, [7]);
+        var element7 = dom.childAt(element6, [1]);
+        var element8 = dom.childAt(element5, [3, 1]);
+        var element9 = dom.childAt(element8, [4, 3]);
+        var element10 = dom.childAt(element9, [1]);
+        var element11 = dom.childAt(element9, [7]);
         var morphs = new Array(13);
         morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
         morphs[1] = dom.createMorphAt(element3, 1, 1);
         morphs[2] = dom.createMorphAt(element3, 2, 2);
-        morphs[3] = dom.createAttrMorph(element6, 'style');
-        morphs[4] = dom.createMorphAt(element5, 3, 3);
-        morphs[5] = dom.createMorphAt(element7, 1, 1);
-        morphs[6] = dom.createMorphAt(element7, 2, 2);
-        morphs[7] = dom.createAttrMorph(element9, 'href');
+        morphs[3] = dom.createAttrMorph(element7, 'style');
+        morphs[4] = dom.createMorphAt(element6, 3, 3);
+        morphs[5] = dom.createMorphAt(element6, 5, 5);
+        morphs[6] = dom.createMorphAt(element8, 1, 1);
+        morphs[7] = dom.createMorphAt(element8, 2, 2);
         morphs[8] = dom.createAttrMorph(element10, 'href');
-        morphs[9] = dom.createMorphAt(dom.childAt(element4, [3]), 1, 1);
-        morphs[10] = dom.createMorphAt(dom.childAt(fragment, [6, 3]), 1, 1);
-        morphs[11] = dom.createMorphAt(fragment, 8, 8, contextualElement);
-        morphs[12] = dom.createMorphAt(fragment, 10, 10, contextualElement);
+        morphs[9] = dom.createAttrMorph(element11, 'href');
+        morphs[10] = dom.createMorphAt(dom.childAt(element4, [3]), 1, 1);
+        morphs[11] = dom.createMorphAt(dom.childAt(fragment, [6, 3]), 1, 1);
+        morphs[12] = dom.createMorphAt(fragment, 8, 8, contextualElement);
         dom.insertBoundary(fragment, 0);
         return morphs;
       },
-      statements: [["block", "if", [["get", "descendants", ["loc", [null, [1, 6], [1, 17]]]]], [], 0, 1, ["loc", [null, [1, 0], [7, 7]]]], ["block", "each", [["get", "model.ancestorsArray", ["loc", [null, [11, 9], [11, 29]]]]], [], 2, null, ["loc", [null, [11, 1], [13, 10]]]], ["block", "if", [["get", "needsRefresh", ["loc", [null, [14, 7], [14, 19]]]]], [], 3, 4, ["loc", [null, [14, 1], [18, 8]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [23, 50], [23, 66]]]]], ["inline", "map-placeholder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [24, 26], [24, 31]]]]], [], []]], ["loc", [null, [24, 2], [24, 33]]]], ["block", "each", [["get", "model.details", ["loc", [null, [29, 13], [29, 26]]]]], [], 5, null, ["loc", [null, [29, 5], [34, 14]]]], ["block", "if", [["get", "model.textOperatingHours", ["loc", [null, [35, 11], [35, 35]]]]], [], 6, null, ["loc", [null, [35, 5], [52, 12]]]], ["attribute", "href", ["get", "model.googleLink", ["loc", [null, [56, 51], [56, 67]]]]], ["attribute", "href", ["get", "model.googleImagesLink", ["loc", [null, [59, 51], [59, 73]]]]], ["block", "if", [["get", "needsRefresh", ["loc", [null, [67, 8], [67, 20]]]]], [], 7, 8, ["loc", [null, [67, 2], [71, 9]]]], ["block", "if", [["get", "model.visitedLinks", ["loc", [null, [81, 8], [81, 26]]]]], [], 9, null, ["loc", [null, [81, 2], [87, 9]]]], ["inline", "major-sections-holder", [], ["parentItem", ["subexpr", "@mut", [["get", "model", ["loc", [null, [93, 35], [93, 40]]]]], [], []], "model", ["subexpr", "@mut", [["get", "descendants", ["loc", [null, [93, 47], [93, 58]]]]], [], []], "recs", ["subexpr", "@mut", [["get", "recs", ["loc", [null, [93, 64], [93, 68]]]]], [], []], "majorSectionType", "item", "prefilterAttribute", "trackingStatus"], ["loc", [null, [93, 0], [93, 130]]]], ["inline", "center-marker", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [96, 22], [96, 27]]]]], [], []]], ["loc", [null, [96, 0], [96, 29]]]]],
+      statements: [["block", "if", [["get", "descendants", ["loc", [null, [1, 6], [1, 17]]]]], [], 0, 1, ["loc", [null, [1, 0], [7, 7]]]], ["block", "each", [["get", "model.ancestorsArray", ["loc", [null, [11, 9], [11, 29]]]]], [], 2, null, ["loc", [null, [11, 1], [13, 10]]]], ["block", "if", [["get", "needsRefresh", ["loc", [null, [14, 7], [14, 19]]]]], [], 3, 4, ["loc", [null, [14, 1], [18, 8]]]], ["attribute", "style", ["get", "model.photoStyle", ["loc", [null, [24, 50], [24, 66]]]]], ["inline", "map-placeholder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [25, 26], [25, 31]]]]], [], []]], ["loc", [null, [25, 2], [25, 33]]]], ["inline", "center-marker", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [26, 24], [26, 29]]]]], [], []]], ["loc", [null, [26, 2], [26, 31]]]], ["block", "each", [["get", "model.details", ["loc", [null, [31, 13], [31, 26]]]]], [], 5, null, ["loc", [null, [31, 5], [36, 14]]]], ["block", "if", [["get", "model.textOperatingHours", ["loc", [null, [37, 11], [37, 35]]]]], [], 6, null, ["loc", [null, [37, 5], [54, 12]]]], ["attribute", "href", ["get", "model.googleLink", ["loc", [null, [58, 51], [58, 67]]]]], ["attribute", "href", ["get", "model.googleImagesLink", ["loc", [null, [61, 51], [61, 73]]]]], ["block", "if", [["get", "needsRefresh", ["loc", [null, [69, 8], [69, 20]]]]], [], 7, 8, ["loc", [null, [69, 2], [73, 9]]]], ["block", "if", [["get", "model.visitedLinks", ["loc", [null, [83, 8], [83, 26]]]]], [], 9, null, ["loc", [null, [83, 2], [89, 9]]]], ["inline", "major-sections-holder", [], ["parentItem", ["subexpr", "@mut", [["get", "model", ["loc", [null, [95, 35], [95, 40]]]]], [], []], "model", ["subexpr", "@mut", [["get", "descendants", ["loc", [null, [95, 47], [95, 58]]]]], [], []], "recs", ["subexpr", "@mut", [["get", "recs", ["loc", [null, [95, 64], [95, 68]]]]], [], []], "majorSectionType", "item", "prefilterAttribute", "trackingStatus"], ["loc", [null, [95, 0], [95, 130]]]]],
       locals: [],
       templates: [child0, child1, child2, child3, child4, child5, child6, child7, child8, child9]
     };
@@ -15826,7 +15990,7 @@ catch(err) {
 
 /* jshint ignore:start */
 if (!runningTests) {
-  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+3cc45a7f"});
+  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+9bd08ded"});
 }
 /* jshint ignore:end */
 //# sourceMappingURL=tripmind.map
