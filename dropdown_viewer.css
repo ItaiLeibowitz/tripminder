@@ -103,6 +103,9 @@ body{
 	vertical-align: top;
 	width: 4em;
 	object-fit: cover;
+	background-color: #aaa;
+	background-image: url('assets/images/background-pattern.png');
+	background-size: cover;
 }
 
 .details{

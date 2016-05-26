@@ -3520,11 +3520,13 @@ define('tripmind/initializers/google_analytics', ['exports'], function (exports)
 				i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
 					(i[r].q = i[r].q || []).push(arguments);
 				}, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
-			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+			})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 			window.ga = window.ga || function () {
 				(ga.q = ga.q || []).push(arguments);
 			};ga.l = +new Date();
 			ga('create', 'UA-77264031-1', 'auto');
+			// based on http://stackoverflow.com/questions/16135000/how-do-you-integrate-universal-analytics-in-to-chrome-extensions/22152353#22152353
+			ga('set', 'checkProtocolTask', null);
 		}
 	};
 });
@@ -3607,6 +3609,34 @@ define('tripmind/initializers/transforms', ['exports', 'ember'], function (expor
     before: 'store',
     initialize: _ember['default'].K
   };
+});
+define('tripmind/initializers/zopim', ['exports', 'tripmind/config/environment'], function (exports, _tripmindConfigEnvironment) {
+	exports['default'] = {
+		name: 'zopim',
+		initialize: function initialize() {
+			if (_tripmindConfigEnvironment['default'].environment != "production") {
+				window.$zopim || (function (d, s) {
+					var $zopim;
+					var z = $zopim = function (c) {
+						z._.push(c);
+					},
+					    $ = z.s = d.createElement(s),
+					    e = d.getElementsByTagName(s)[0];
+					z.set = function (o) {
+						z.set._.push(o);
+					};
+					z._ = [];
+					z.set._ = [];
+					$.async = !0;
+					$.setAttribute("charset", "utf-8");
+					$.src = "https://v2.zopim.com/?3wRQmF84hVatQ9SLRjzyoi541Nn9BmLn";
+					z.t = +new Date();
+					$.type = "text/javascript";
+					e.parentNode.insertBefore($, e);
+				})(document, "script");
+			}
+		}
+	};
 });
 define("tripmind/instance-initializers/ember-data", ["exports", "ember-data/-private/instance-initializers/initialize-store-service"], function (exports, _emberDataPrivateInstanceInitializersInitializeStoreService) {
   exports["default"] = {
@@ -5472,6 +5502,7 @@ define('tripmind/router', ['exports', 'ember', 'tripmind/config/environment'], f
 		this.route('collection', { resetNamespace: true, path: '/collections/:collection_slug' }, function () {});
 		this.route('tutorial');
 		this.route('error');
+		this.route('places');
 	});
 
 	exports['default'] = Router;
@@ -5585,19 +5616,12 @@ define('tripmind/routes/collections', ['exports', 'ember', 'tripmind/appconfig/u
 		}
 	});
 });
-define('tripmind/routes/index', ['exports', 'ember'], function (exports, _ember) {
+define('tripmind/routes/index', ['exports', 'ember', 'tripmind/config/environment'], function (exports, _ember, _tripmindConfigEnvironment) {
 	exports['default'] = _ember['default'].Route.extend({
-		model: function model() {
-			var store = this.get('store');
-			return store.findAll('item').then(function (results) {
-				return results.filter(function (item) {
-					return item.get('trackingStatus') && !item.get('isTemporary');
-				});
-			});
-		},
-		setupController: function setupController(controller, model) {
-			this._super(controller, model);
-			controller.set('prefilterAttribute', 'trackingStatus');
+		beforeModel: function beforeModel() {
+			if (_tripmindConfigEnvironment['default'].environment != 'production') {
+				this.transitionTo('places');
+			}
 		}
 	});
 });
@@ -5689,6 +5713,22 @@ define('tripmind/routes/item', ['exports', 'ember', 'tripmind/appconfig/utils', 
 		}
 	});
 });
+define('tripmind/routes/places', ['exports', 'ember'], function (exports, _ember) {
+	exports['default'] = _ember['default'].Route.extend({
+		model: function model() {
+			var store = this.get('store');
+			return store.findAll('item').then(function (results) {
+				return results.filter(function (item) {
+					return item.get('trackingStatus') && !item.get('isTemporary');
+				});
+			});
+		},
+		setupController: function setupController(controller, model) {
+			this._super(controller, model);
+			controller.set('prefilterAttribute', 'trackingStatus');
+		}
+	});
+});
 define('tripmind/routes/recent', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = _ember['default'].Route.extend({
 		model: function model() {
@@ -5740,7 +5780,7 @@ define('tripmind/routes/trash', ['exports', 'ember'], function (exports, _ember)
 				});
 			});
 		},
-		templateName: 'index',
+		templateName: 'places',
 		setupController: function setupController(controller, model) {
 			this._super(controller, model);
 			controller.set('prefilterAttribute', 'trackingStatus-not');
@@ -10870,7 +10910,7 @@ define("tripmind/templates/components/left-menu", ["exports"], function (exports
         morphs[6] = dom.createMorphAt(fragment, 22, 22, contextualElement);
         return morphs;
       },
-      statements: [["block", "link-to", ["index"], ["id", "top-logo"], 0, null, ["loc", [null, [2, 0], [2, 61]]]], ["inline", "link-to", ["Search", "search"], ["class", "menu-link icon-search"], ["loc", [null, [3, 0], [3, 59]]]], ["inline", "link-to", ["Recent", "recent"], ["class", "menu-link icon-history extension-only"], ["loc", [null, [4, 0], [4, 75]]]], ["inline", "link-to", ["Places", "index"], ["class", "menu-link icon-pin"], ["loc", [null, [6, 0], [6, 55]]]], ["inline", "link-to", ["collections", "collections"], ["class", "menu-link icon-collections"], ["loc", [null, [7, 0], [7, 74]]]], ["inline", "link-to", ["Trash", "trash"], ["class", "menu-link icon-trash extension-only"], ["loc", [null, [10, 0], [10, 71]]]], ["inline", "link-to", ["Tutorial", "tutorial"], ["class", "menu-link icon-info"], ["loc", [null, [12, 0], [12, 61]]]]],
+      statements: [["block", "link-to", ["index"], ["id", "top-logo"], 0, null, ["loc", [null, [2, 0], [2, 61]]]], ["inline", "link-to", ["Search", "search"], ["class", "menu-link icon-search"], ["loc", [null, [3, 0], [3, 59]]]], ["inline", "link-to", ["Recent", "recent"], ["class", "menu-link icon-history extension-only"], ["loc", [null, [4, 0], [4, 75]]]], ["inline", "link-to", ["Places", "places"], ["class", "menu-link icon-pin"], ["loc", [null, [6, 0], [6, 56]]]], ["inline", "link-to", ["collections", "collections"], ["class", "menu-link icon-collections"], ["loc", [null, [7, 0], [7, 74]]]], ["inline", "link-to", ["Trash", "trash"], ["class", "menu-link icon-trash extension-only"], ["loc", [null, [10, 0], [10, 71]]]], ["inline", "link-to", ["Tutorial", "tutorial"], ["class", "menu-link icon-info"], ["loc", [null, [12, 0], [12, 61]]]]],
       locals: [],
       templates: [child0]
     };
@@ -14541,7 +14581,7 @@ define("tripmind/templates/index", ["exports"], function (exports) {
       meta: {
         "fragmentReason": {
           "name": "missing-wrapper",
-          "problems": ["wrong-type", "multiple-nodes"]
+          "problems": ["multiple-nodes"]
         },
         "revision": "Ember@2.4.0",
         "loc": {
@@ -14551,8 +14591,8 @@ define("tripmind/templates/index", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 6,
-            "column": 0
+            "line": 31,
+            "column": 6
           }
         },
         "moduleName": "tripmind/templates/index.hbs"
@@ -14563,29 +14603,115 @@ define("tripmind/templates/index", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createComment("");
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "landing-background photo-div");
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createComment("");
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "landing-z-index");
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "landing-logo");
+        var el3 = dom.createTextNode("\n	");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "logo");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n	");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "logo-text");
+        var el4 = dom.createTextNode("\n		");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("b");
+        var el5 = dom.createTextNode("Trip");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("Mind\n	");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "landing-holder");
+        var el3 = dom.createTextNode("\n	");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "landing-text");
+        var el4 = dom.createTextNode("\n		");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("p");
+        var el5 = dom.createTextNode("\n			");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("b");
+        var el6 = dom.createTextNode("Trip");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("Mind is a free Chrome extension for people who like to travel\n		");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n		");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("p");
+        var el5 = dom.createTextNode("\n			When you read something online about a place you’d like to visit,  ");
+        dom.appendChild(el4, el5);
+        var el5 = dom.createElement("b");
+        var el6 = dom.createTextNode("Trip");
+        dom.appendChild(el5, el6);
+        dom.appendChild(el4, el5);
+        var el5 = dom.createTextNode("Mind automatically saves that information for you\n		");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n		");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("p");
+        var el5 = dom.createTextNode("\n			It organizes everything by destination, so you can easily find it, then share or download\n		");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n	");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "landing-button-holder");
+        var el3 = dom.createTextNode("\n	");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("a");
+        dom.setAttribute(el3, "href", "https://chrome.google.com/webstore/detail/tripmind/jefanopdgmnpggnnicgfkbajikmabhgf");
+        dom.setAttribute(el3, "class", "flat-btn red-flat-back white-text");
+        var el4 = dom.createTextNode("Get it now");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n	");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("div");
+        dom.setAttribute(el3, "class", "explanation white-text");
+        var el4 = dom.createTextNode("From the Chrome Web Store");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         return el0;
       },
-      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var morphs = new Array(3);
-        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
-        morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
-        morphs[2] = dom.createMorphAt(fragment, 4, 4, contextualElement);
-        dom.insertBoundary(fragment, 0);
-        return morphs;
+      buildRenderNodes: function buildRenderNodes() {
+        return [];
       },
-      statements: [["inline", "action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [1, 59], [1, 73]]]]], ["loc", [null, [1, 29], [1, 74]]]], "addedClass", ["subexpr", "@mut", [["get", "actionBarVersion", ["loc", [null, [1, 86], [1, 102]]]]], [], []]], ["loc", [null, [1, 0], [1, 104]]]], ["content", "action-bar-placeholder", ["loc", [null, [2, 0], [2, 26]]]], ["inline", "major-sections-holder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [4, 30], [4, 35]]]]], [], []], "prefilterAttribute", ["subexpr", "@mut", [["get", "prefilterAttribute", ["loc", [null, [4, 55], [4, 73]]]]], [], []], "isTrash", ["subexpr", "@mut", [["get", "isTrash", ["loc", [null, [4, 82], [4, 89]]]]], [], []], "canHaveRecs", false], ["loc", [null, [4, 0], [4, 109]]]]],
+      statements: [],
       locals: [],
       templates: []
     };
@@ -15527,6 +15653,62 @@ define("tripmind/templates/modals/index", ["exports"], function (exports) {
     };
   })());
 });
+define("tripmind/templates/places", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "missing-wrapper",
+          "problems": ["wrong-type", "multiple-nodes"]
+        },
+        "revision": "Ember@2.4.0",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 6,
+            "column": 0
+          }
+        },
+        "moduleName": "tripmind/templates/places.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createComment("");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var morphs = new Array(3);
+        morphs[0] = dom.createMorphAt(fragment, 0, 0, contextualElement);
+        morphs[1] = dom.createMorphAt(fragment, 2, 2, contextualElement);
+        morphs[2] = dom.createMorphAt(fragment, 4, 4, contextualElement);
+        dom.insertBoundary(fragment, 0);
+        return morphs;
+      },
+      statements: [["inline", "action-bar", [], ["openModalAction", ["subexpr", "action", ["openTopModal"], ["target", ["get", "displayService", ["loc", [null, [1, 59], [1, 73]]]]], ["loc", [null, [1, 29], [1, 74]]]], "addedClass", ["subexpr", "@mut", [["get", "actionBarVersion", ["loc", [null, [1, 86], [1, 102]]]]], [], []]], ["loc", [null, [1, 0], [1, 104]]]], ["content", "action-bar-placeholder", ["loc", [null, [2, 0], [2, 26]]]], ["inline", "major-sections-holder", [], ["model", ["subexpr", "@mut", [["get", "model", ["loc", [null, [4, 30], [4, 35]]]]], [], []], "prefilterAttribute", ["subexpr", "@mut", [["get", "prefilterAttribute", ["loc", [null, [4, 55], [4, 73]]]]], [], []], "isTrash", ["subexpr", "@mut", [["get", "isTrash", ["loc", [null, [4, 82], [4, 89]]]]], [], []], "canHaveRecs", false], ["loc", [null, [4, 0], [4, 109]]]]],
+      locals: [],
+      templates: []
+    };
+  })());
+});
 define("tripmind/templates/recent", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
@@ -15990,7 +16172,7 @@ catch(err) {
 
 /* jshint ignore:start */
 if (!runningTests) {
-  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+9bd08ded"});
+  require("tripmind/app")["default"].create({"itai":3,"name":"tripmind","version":"0.0.0+981bdb7e"});
 }
 /* jshint ignore:end */
 //# sourceMappingURL=tripmind.map
